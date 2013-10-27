@@ -1,0 +1,81 @@
+<div class="widget widget-dashboard">                    
+                    <div class="widget-header">
+                        <i class="icon-bookmark"></i>
+                        <h3><%= moduleName %> Home</h3>
+                    </div> <!-- /widget-header -->
+                    
+                    <div class="widget-content scrollable-main-content">
+                        
+                        <div class="shortcuts">
+                        <% _.each(moduleActivityGroups, function (activityGroup) {%>  
+                            <a href="#list/list_<%= activityGroup.URL %>" class="shortcut">
+                               <!-- <i class="shortcut-icon <%= activityGroup.image %>"></i> -->
+                               <i class="shortcut-icon <%= activityGroup.image %>"></i>
+                                <span class="shortcut-label"><%= activityGroup.description %></span>
+                            </a>                    
+        				<% }); %>    <!-- 
+                            <a href="#list/customer" class="shortcut">
+                                <i class="shortcut-icon icon-user"></i>
+                                <span class="shortcut-label">Customer</span>
+                            </a>
+                            
+                            <a href="#list/customeraccount" class="shortcut">
+                                <i class="shortcut-icon icon-sitemap"></i>
+                                <span class="shortcut-label">Customer Accounts</span>                               
+                            </a>
+                            
+                            <a href="#list/customertype" class="shortcut">
+                                <i class="shortcut-icon icon-sitemap"></i>
+                                <span class="shortcut-label">Customer Types</span>                               
+                            </a>
+                            
+                            <a href="#list/customercategory" class="shortcut">
+                                <i class="shortcut-icon icon-sitemap"></i>
+                                <span class="shortcut-label">Customer Category</span>                               
+                            </a>
+
+                            <a href="#list/customerclassification" class="shortcut">
+                                <i class="shortcut-icon icon-th-large"></i>
+                                <span class="shortcut-label">Classification</span>  
+                            </a>    
+
+                            <a href="#list/accounttype" class="shortcut">
+                                <i class="shortcut-icon icon-th-large"></i>
+                                <span class="shortcut-label">Account Types</span>  
+                            </a>    -->
+
+                           <!--  <a href="#list/account" class="shortcut">
+                                <i class="shortcut-icon icon-th-large"></i>
+                                <span class="shortcut-label">Accounts</span>  
+                            </a>    -->
+
+                            <!-- <a href="#list/customerblacklist" class="shortcut">
+                                <i class="shortcut-icon icon-th-large"></i>
+                                <span class="shortcut-label">Blacklist</span>  
+                            </a>    
+                            <a href="#list/limittype" class="shortcut">
+                                <i class="shortcut-icon icon-th-large"></i>
+                                <span class="shortcut-label">Limit Types</span>  
+                            </a>  -->
+
+                           <!--  <a href="#list/customerblacklist" class="shortcut">
+                                <i class="shortcut-icon icon-th-large"></i>
+                                <span class="shortcut-label">Blacklist</span>  
+                            </a>   -->
+                                
+                          <!--   <a href="#cutomer-module" class="shortcuts-empty">
+                                
+                            </a>  -->        
+                                
+                            <!-- <a href="#cutomer-module" class="shortcuts-empty">
+                                
+                            </a>    
+                                
+                            <a href="#cutomer-module" class="shortcuts-empty">
+                                
+                            </a>    -->
+                        </div> <!-- /shortcuts -->  
+                    
+                    </div> <!-- /widget-content -->
+                    
+                </div> <!-- /widget -->
