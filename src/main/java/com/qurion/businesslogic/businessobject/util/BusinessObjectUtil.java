@@ -3,6 +3,7 @@
  */
 package com.qurion.businesslogic.businessobject.util;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Date;
@@ -18,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import com.qurion.businesslogic.application.model.EntityData;
 import com.qurion.businesslogic.application.model.BaseEntity;
 import com.qurion.businesslogic.application.util.ApplicationException;
+import com.qurion.businesslogic.application.util.ConfigUtil;
 import com.qurion.businesslogic.application.util.DateUtil;
 import com.qurion.businesslogic.application.util.EntityUtil;
 import com.qurion.businesslogic.application.util.ErrorCodes;
@@ -34,12 +36,26 @@ import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldDataImpl;
  *
  */
 public class BusinessObjectUtil {
-	
+
 	public static final String ID_FIELD_NAME = "id";
+	public static final String CODE_DATA_VALUE = "code";
+	public static final String NAME_DATA_VALUE = "name";
+	public static final String REC_ST_DATA_VALUE = "recSt";
+	public static final String CREATED_DT_DATA_VALUE = "createdDt";
+	public static final String EFFECTIVE_DT_DATA_VALUE = "effectiveDt";
+	public static final String CREATED_BY_USR_DATA_VALUE = "createdByUsr";
+	
+	public static final String GET_METHOD_PREFIX = "get";
 	public static final String SET_METHOD_PREFIX = "set";
+	
 	private static Logger logger = LoggerFactory.getLogger(BusinessObjectUtil.class);
 	
-	public static BusinessObjectData clone(BusinessObjectData businessObject){
+	/**
+	 * @param businessObject
+	 * @return
+	 */
+	public static BusinessObjectData clone(BusinessObjectData businessObject)
+	{
 		BusinessObjectData clone = new BusinessObjectDataImpl();
 		clone.setBusinessObjectClassName(businessObject.getBusinessObjectClassName());
 		clone.setBusinessObjectName(businessObject.getBusinessObjectName());
@@ -52,8 +68,14 @@ public class BusinessObjectUtil {
 		return clone;
 	}
 
+	/**
+	 * @param businessObjectData
+	 * @return
+	 * @throws ApplicationException
+	 */
 	public static BaseEntity businessObjectToEntityInstance(
-			BusinessObjectData businessObjectData) throws ApplicationException {
+			BusinessObjectData businessObjectData) throws ApplicationException 
+	{
 		// Create a new instance of the business object
 		Object object = 
 				EntityUtil.newInstance(businessObjectData.getBusinessObjectClassName());
@@ -62,7 +84,15 @@ public class BusinessObjectUtil {
 		return (BaseEntity) object;
 	}
 
-	private static void copyDataFromBusinessObject(BusinessObjectData businessObjectData, Object object) throws ApplicationException {
+	/**
+	 * @param businessObjectData
+	 * @param object
+	 * @throws ApplicationException
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private static void copyDataFromBusinessObject(BusinessObjectData businessObjectData, Object object) 
+			throws ApplicationException 
+	{
 		EntityUtil.returnOrThrowIfParamsArrayContainsNull(new Object[]{
 				businessObjectData,	object}, "BusinessObjectUtil.copyDataFromBusinessObject");
 		// Get the class of the business object
@@ -100,20 +130,25 @@ public class BusinessObjectUtil {
 			}
 		}
 	}
+	
+	/**
+	 * @param toBusinessObject
+	 * @param fromObject
+	 * @throws ApplicationException
+	 */
+	@SuppressWarnings("unchecked")
 	public static void copyDataToBusinessObject(BusinessObjectData toBusinessObject, Object fromObject)  
 			throws ApplicationException 
 	{
 		EntityUtil.returnOrThrowIfParamsArrayContainsNull(new Object[]{
-				toBusinessObject,	fromObject}, "BusinessObjectUtil.copyDataToBusinessObject");// Get the class of the business object
+				toBusinessObject,	fromObject}, "BusinessObjectUtil.copyDataToBusinessObject");
+		
 		Class<? extends BaseEntity> businessObjectClass = (Class<? extends BaseEntity>) fromObject.getClass();
-		// Get all the methods in the class of the business object/entity
 		Method[] methods = businessObjectClass.getMethods();
-		// Simple filter for the methods we are interested in
-		String setterMethodPrefix = "get";
-		// Loop through each method
+		
 		for(Method method: methods){
 			// filter
-			if(method.getName().startsWith(setterMethodPrefix) && isPropertyMethod(method)){
+			if(method.getName().startsWith(GET_METHOD_PREFIX) && isPropertyMethod(method)){
 				// Get the type of the arguments
 				if(method.getParameterTypes().length == 0){
 					logger.debug("Invoking method {} ", method.getName());
@@ -149,6 +184,7 @@ public class BusinessObjectUtil {
 	 * @return
 	 */
 	private static boolean isPropertyMethod(Method method) {
+		
 		if(method.getName().equals("getClass"))
 			return false;
 		return true;
@@ -160,116 +196,136 @@ public class BusinessObjectUtil {
 	 * @param fieldsToCopy
 	 * @throws ApplicationException
 	 */
+	@SuppressWarnings("unchecked")
 	public static void copyDataToBusinessObject(BusinessObjectData toBusinessObject, 
 			Object fromObject, List<BusinessObjectFieldData> fieldsToCopy) throws ApplicationException {
 		
 		EntityUtil.returnOrThrowIfParamsArrayContainsNull(new Object[]{
 				toBusinessObject,	fromObject, fieldsToCopy}, "copyDataToBusinessObject");
 		// Get the class of the business object
-		Class<? extends BaseEntity> businessObjectClass = (Class<? extends BaseEntity>) fromObject.getClass();
+		Class<? extends BaseEntity> businessObjectClass = 
+				(Class<? extends BaseEntity>) fromObject.getClass();
 		toBusinessObject.setBusinessObjectClassName(businessObjectClass.getName());
+		
 		// Get all the methods in the class of the business object/entity
 		Method[] methods = businessObjectClass.getMethods();
 		// Loop through each method
 		for(Method method: methods)
-		{
 			for(BusinessObjectFieldData fieldData: fieldsToCopy)
-			{
-				if(method.getName().equalsIgnoreCase("get" + fieldData.getFieldName()))
-				{
-					//logger.debug("The method.getGenericReturnType() {}", method.getGenericReturnType());
-					// Get the type of the arguments
-					if(method.getParameterTypes().length == 0){
-						try {
-							BusinessObjectFieldData fieldDataValue = new BusinessObjectFieldDataImpl();
-							fieldDataValue.setFieldName(fieldData.getFieldName());
-							fieldDataValue.setFieldSequence(fieldData.getFieldSequence());
-							fieldDataValue.setRequired(fieldData.getRequired());
-							fieldDataValue.setFieldDescription(fieldData.getFieldDescription());
-							// Invoke
-							Object returnValue = method.invoke(fromObject, new Object[0]);
-							if(returnValue != null)
-							{
-								Type typeOfField = method.getGenericReturnType();
-								if(typeOfField.toString().contains(EntityUtil.BASE_PACKAGE_NM))
-								{
-									//logger.debug("Processing relationship field {} of type {}", 
-											//fieldData.getFieldName(), extractEntityNameFromTypeName(typeOfField.toString()));
-									fieldDataValue.setRelatedBusinessObjectName(
-											extractEntityNameFromTypeName(typeOfField.toString()));
-									BaseEntity relatedEntityInstance = (BaseEntity) returnValue;
-									if(relatedEntityInstance != null) {
-										fieldDataValue.setFieldValue(relatedEntityInstance.getId());
-										fieldDataValue.setFieldText(relatedEntityInstance.getCode());
-										fieldDataValue.setFieldDataType(fieldData.getFieldDataType());
-									}
-								}
-								else {
-									if(fieldData.getFieldName().equals(ID_FIELD_NAME))
-										toBusinessObject.setId((Integer) returnValue);
-									if(typeOfField.toString().contains("Date")){
-										Date formattedDate = 
-												DateUtil.convertStringToJavaDate(DateUtil.DB_DATE_FORMAT, returnValue.toString());
-										DateTime dateTime = new DateTime(formattedDate);
-										String formattedDateString = DateTimeFormat.forPattern(DateUtil.DEFAULT_DATE_FORMAT).print(dateTime);
-										//logger.debug("Processing non relationship field {}", fieldData.getFieldName());
-										fieldDataValue.setFieldValue(formattedDateString);
-									}
-									else {
-										//logger.debug("Processing non relationship field {}", fieldData.getFieldName());
-										fieldDataValue.setFieldValue(returnValue);
-									}
-									fieldDataValue.setFieldDataType(fieldData.getFieldDataType());
-								}
-							}
-							toBusinessObject.setDataValue(fieldData.getFieldName(), fieldDataValue);
-						} catch (Exception e) {
-							ExceptionUtil.logAndProcessException(e, ErrorCodes.BOU_DATA_COPY_TO_BO_ERROR_CD);
-						}
-					}
-				}
+				if(method.getName().equalsIgnoreCase(GET_METHOD_PREFIX + fieldData.getFieldName()))
+					copyObjectFieldToBusinessObject(toBusinessObject, fromObject, fieldData, method);
+	}
+
+	/**
+	 * @param toBusinessObject
+	 * @param fromObject
+	 * @param fieldData
+	 * @param method
+	 * @throws ApplicationException
+	 */
+	private static void copyObjectFieldToBusinessObject(
+			BusinessObjectData toBusinessObject, Object fromObject, 
+			BusinessObjectFieldData fieldData, Method method) throws ApplicationException 
+	{
+		// Get the type of the arguments
+		if(method.getParameterTypes().length == 0){
+			try {
+				BusinessObjectFieldData fieldDataValue = new BusinessObjectFieldDataImpl();
+				fieldDataValue.setFieldName(fieldData.getFieldName());
+				fieldDataValue.setFieldSequence(fieldData.getFieldSequence());
+				fieldDataValue.setRequired(fieldData.getRequired());
+				fieldDataValue.setFieldDescription(fieldData.getFieldDescription());
+				fieldDataValue.setFieldDataType(fieldData.getFieldDataType());
+				// Invoke
+				Object returnValue = method.invoke(fromObject, new Object[0]);
+				if(returnValue != null)
+					copyObjectFieldValueToBusinessObject(toBusinessObject, fromObject, 
+							returnValue, method.getGenericReturnType(), fieldDataValue);
+				// Set the data value for the business object
+				toBusinessObject.setDataValue(fieldData.getFieldName(), fieldDataValue);
+			} catch (Exception e) {
+				ExceptionUtil.logAndProcessException(e, ErrorCodes.BOU_DATA_COPY_TO_BO_ERROR_CD);
 			}
 		}
-		
+	}
+
+	/**
+	 * @param toBusinessObject
+	 * @param fromObject
+	 * @param method
+	 * @param fieldDataValue
+	 * @throws IllegalAccessException
+	 * @throws InvocationTargetException
+	 */
+	private static void copyObjectFieldValueToBusinessObject(
+			BusinessObjectData toBusinessObject, Object fromObject, Object value, Type typeOfValue, 
+			BusinessObjectFieldData fieldDataValue)	throws IllegalAccessException, InvocationTargetException 
+	{
+			if(typeOfValue.toString().contains(EntityUtil.BASE_PACKAGE_NM))
+			{
+				fieldDataValue.setRelatedBusinessObjectName(
+						extractEntityNameFromTypeName(typeOfValue.toString()));
+				BaseEntity relatedEntityInstance = (BaseEntity) value;
+				if(relatedEntityInstance != null) {
+					fieldDataValue.setFieldValue(relatedEntityInstance.getId());
+					fieldDataValue.setFieldText(relatedEntityInstance.getCode());
+				}
+			}
+			else {
+				if(fieldDataValue.getFieldName().equals(ID_FIELD_NAME))
+					toBusinessObject.setId((Integer) value);
+				if(typeOfValue.toString().contains("Date")){
+					Date formattedDate = 
+							DateUtil.convertStringToJavaDate(DateUtil.DB_DATE_FORMAT, value.toString());
+					DateTime dateTime = new DateTime(formattedDate);
+					String formattedDateString = DateTimeFormat.forPattern(DateUtil.DEFAULT_DATE_FORMAT).print(dateTime);
+					fieldDataValue.setFieldValue(formattedDateString);
+				}
+				else {
+					fieldDataValue.setFieldValue(value);
+				}
+			}
 	}
 
 	/**
 	 * @param businessObjectData
 	 * @return
 	 */
-	public static BusinessObjectData prepareBusinessObject(BusinessObjectData businessObjectData) {
+	public static BusinessObjectData prepareBusinessObject(BusinessObjectData businessObjectData) 
+	{
 		if(businessObjectData == null)
 			businessObjectData = new BusinessObjectDataImpl();
-		if(businessObjectData.getDataValue("code") == null)
-			businessObjectData.setDataValue("code", DateUtil.getCurrentTime());
-		if(businessObjectData.getDataValue("effectiveDt") == null)
-			businessObjectData.setDataValue("effectiveDt", new Date());
-		if(businessObjectData.getDataValue("createdDt") == null)
-			businessObjectData.setDataValue("createdDt", new Date());
+		if(businessObjectData.getDataValue(CODE_DATA_VALUE) == null)
+			businessObjectData.setDataValue(CODE_DATA_VALUE, DateUtil.getCurrentTime());
+		if(businessObjectData.getDataValue(EFFECTIVE_DT_DATA_VALUE) == null)
+			businessObjectData.setDataValue(EFFECTIVE_DT_DATA_VALUE, new Date());
+		if(businessObjectData.getDataValue(CREATED_DT_DATA_VALUE) == null)
+			businessObjectData.setDataValue(CREATED_DT_DATA_VALUE, new Date());
 		return businessObjectData;
 	}
 	
 	public static BusinessObjectData prepareBusinessObject(String businessObjectName, 
-			String businessObjectClassName, String processCategoryCode, Map<String, Object> dataValues) {
-		
+			String businessObjectClassName, String processCategoryCode, Map<String, Object> dataValues) 
+	{
 		BusinessObjectData businessObjectData = new BusinessObjectDataImpl();
 		businessObjectData.setBusinessObjectName(businessObjectName);
 		businessObjectData.setBusinessObjectClassName(businessObjectClassName);
 		businessObjectData.setProcessCategoryCode(processCategoryCode);
 		businessObjectData.setDataValues(dataValues);
-		businessObjectData.setDataValue("name", businessObjectName.concat("@").concat(DateUtil.getCurrentTime()));
-		businessObjectData.setDataValue("code", DateUtil.getCurrentTime());
-		businessObjectData.setDataValue("effectiveDt", new Date());
-		businessObjectData.setDataValue("createdDt", new Date());
-		businessObjectData.setDataValue("createdByUsr", "System");
-		businessObjectData.setDataValue("recSt", 'A');
+		businessObjectData.setDataValue(NAME_DATA_VALUE, 
+				businessObjectName.concat("@").concat(DateUtil.getCurrentTime()));
+		businessObjectData.setDataValue(CODE_DATA_VALUE, DateUtil.getCurrentTime());
+		businessObjectData.setDataValue(EFFECTIVE_DT_DATA_VALUE, new Date());
+		businessObjectData.setDataValue(CREATED_DT_DATA_VALUE, new Date());
+		businessObjectData.setDataValue(CREATED_BY_USR_DATA_VALUE, ConfigUtil.SYSTEM_USR_NAME);
+		businessObjectData.setDataValue(REC_ST_DATA_VALUE, 'A');
 		return businessObjectData;
 	}
 	
 	public static String extractEntityNameFromTypeName(String typeString)
 	{
 		String entityName = "";
-		String[] firstSplit = typeString.split(" ");
+		String[] firstSplit = typeString.split(StringUtil.WHITE_SPACE);
 		if(firstSplit.length > 1)
 			entityName = firstSplit[1];
 		if(entityName.contains("."))
@@ -286,10 +342,11 @@ public class BusinessObjectUtil {
 		businessObjectData.setBusinessObjectName(entity.getName());
 		businessObjectData.setBusinessObjectClassName(entity.getEntityClassNm());
 		businessObjectData.setProcessCategoryCode(entity.getModule().getCode());
+		
 		Map<String, Object> dataValues = new HashMap<String, Object>();
-		for(BusinessObjectFieldData fieldData : entityListFields){
+		for(BusinessObjectFieldData fieldData : entityListFields) 
 			dataValues.put(fieldData.getFieldName(), fieldData);
-		}
+		
 		businessObjectData.setDataValues(dataValues);
 		return businessObjectData;
 	}

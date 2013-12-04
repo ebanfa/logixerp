@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ide>
+	<builder overWrite="true">
+		<modules>
+			<module name="ACCOUNTING"/>
+			<module name="APPLICATION"/>
+			<module name="BUSINESSDATA"/>
+			<module name="BUSINESSOBJECT"/>
+			<module name="FIXEDASSET"/>
+			<module name="HR"/>
+			<module name="INVOICE"/>
+			<module name="ORDERING"/>
+			<module name="PARTY"/>
+			<module name="PRODUCT"/>
+			<module name="SHIPMENT"/>
+			<module name="WORKEFFORT"/>
+		</modules>
+		<screens>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/screens/login-screen.xml"/>
+		</screens>
+		<activities>
+			<activity name="editUser" path="/home/edward/Projects/businesslogic/configuration/ui/activities/edit-user.xml"/>
+		</activities>
+		<page-flows>
+			<page-flow name="createUser" path="/home/edward/Projects/businesslogic/configuration/ui/pageflows/create-user.xml"/>
+		</page-flows>
+	</builder>
+</ide>

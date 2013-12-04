@@ -36,10 +36,8 @@ import com.qurion.businesslogic.application.model.UiComponentType;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class UiComponentType  extends BaseEntity implements java.io.Serializable {
-	private UiComponentType uiComponentType;
 	private String name;
 	private String description;
-	private Set<UiComponentType> uiComponentTypes;
 
     public UiComponentType() {
     }
@@ -52,23 +50,8 @@ public class UiComponentType  extends BaseEntity implements java.io.Serializable
 
     public UiComponentType(UiComponentType uiComponentType, String name, String description, Set uiComponentTypes) 
     {
-        this.uiComponentType = uiComponentType;
         this.name = name;
         this.description = description;
-        this.uiComponentTypes = uiComponentTypes;
-    }
-    
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="PARENT_TY_ID")
-    @JsonIgnore
-    public UiComponentType getUiComponentType() 
-    {
-        return this.uiComponentType;
-    }
-    
-    public void setUiComponentType(UiComponentType uiComponentType)
-    {
-        this.uiComponentType = uiComponentType;
     }
     
     @Column(name="NAME", nullable=false, length=75)
@@ -92,19 +75,5 @@ public class UiComponentType  extends BaseEntity implements java.io.Serializable
     {
         this.description = description;
     }
-	
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="uiComponentType")
-    @JsonIgnore
-    public Set<UiComponentType> getUiComponentTypes() 
-    {
-        return this.uiComponentTypes;
-    }
-    
-    public void setUiComponentTypes(Set<UiComponentType> uiComponentTypes) 
-    {
-        this.uiComponentTypes = uiComponentTypes;
-    }			
 		
-    
-
 }

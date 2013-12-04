@@ -74,8 +74,8 @@ public class AccountingPeriod  extends BaseEntity implements java.io.Serializabl
         this.name = name;
         this.periodNum = periodNum;
         this.description = description;
-        this.organizationGlAccountBalances = organizationGlAccountBalances;
-        this.accountingPeriods = accountingPeriods;
+        //this.organizationGlAccountBalances = organizationGlAccountBalances;
+        //this.accountingPeriods = accountingPeriods;
         this.id = id;
         this.code = code;
         this.effectiveDt = effectiveDt;

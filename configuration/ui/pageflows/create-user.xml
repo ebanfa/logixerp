@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<page-flow name="createUser" code="CREATE_USER" module="SECURITY" url="create-user-flow"
+	description="Create User" displayImg="appl" displayName="Create User">
+	<activity name="listUser"/>
+	<activity name="editUser"/>
+</page-flow>

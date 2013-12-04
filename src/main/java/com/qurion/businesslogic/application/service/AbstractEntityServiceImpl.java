@@ -9,8 +9,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -19,6 +17,9 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.ws.rs.core.MultivaluedMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.qurion.businesslogic.application.model.EntityField;
 import com.qurion.businesslogic.application.util.ApplicationException;
 
@@ -26,14 +27,14 @@ import com.qurion.businesslogic.application.util.ApplicationException;
  * @author Edward Banfa 
  *
  */
-public abstract class AbstractEntityServiceImpl<M> {
+public abstract class AbstractEntityServiceImpl<M> extends AbstractServiceImpl {
 
     private Class<M> ENTITY_CLASS;
 	protected static final String ID_CRITERIA = "id";
 	protected static final String CODE_CRITERIA = "code";
 	protected static final String NAME_CRITERIA = "name";
+	private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @PersistenceUnit EntityManager entityManager;
     @Inject protected MultivaluedMap<String, String> queryParameters;
 
     /**
@@ -50,19 +51,11 @@ public abstract class AbstractEntityServiceImpl<M> {
     }
 
     /**
-     * Getter for the entity manager
-     * @return
-     */
-    protected EntityManager getEntityManager() {
-        return entityManager;
-    }
-    
-    /**
      * @param id
      * @return
      */
     protected M getSingleInstance(Integer id)  throws ApplicationException{
-        return entityManager.find(ENTITY_CLASS, id);
+        return getEntityManager().find(ENTITY_CLASS, id);
     }
     
     /**
@@ -71,6 +64,7 @@ public abstract class AbstractEntityServiceImpl<M> {
      */
     protected M findInstanceByCode(String code) throws ApplicationException
     {
+    	logger.debug("Finding instance of {} with code {}", ENTITY_CLASS, code);
     	queryParameters.clear();
     	queryParameters.add(CODE_CRITERIA, code);
     	List<M> instances = findAllInstances(queryParameters);
@@ -127,7 +121,7 @@ public abstract class AbstractEntityServiceImpl<M> {
     {
     	String qlString = "SELECT o FROM ApplicationEntityField o WHERE " +
     			"o.searchFieldFg = :searchFieldFg and o.applicationEntity.name = :name";
-    	Query query = entityManager.createQuery(qlString);
+    	Query query = getEntityManager().createQuery(qlString);
     	query.setParameter("searchFieldFg", new Character('Y'));
     	query.setParameter("name", entityName);
     	List<EntityField> fields = query.getResultList();

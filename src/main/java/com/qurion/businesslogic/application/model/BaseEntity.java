@@ -54,7 +54,7 @@ public class BaseEntity
         this.id = id;
     }
     
-    @Column(name="CODE" , nullable=false, length=35)
+    @Column(name="CODE" , nullable=false, length=75)
     public String getCode() {
         return this.code;
     }
@@ -150,10 +150,9 @@ public class BaseEntity
 	 */
 	@Override
 	public String toString() {
-		return "BaseEntity [id=" + id + ", code=" + code + ", effectiveDt=" + effectiveDt
-				+ ", recSt=" + recSt + ", createdDt=" + createdDt
-				+ ", createdByUsr=" + createdByUsr + ", lastModifiedDt="
-				+ lastModifiedDt + ", lastModifiedUsr=" + lastModifiedUsr + "]";
+		return "BaseEntity [code=" + code + "]";
 	}
+
+	
 
 }

@@ -66,7 +66,6 @@ public class DateUtil {
 		return (firstValue.compareTo(secondValue) > 0) ?  true : false;
 	}
 	
-	
 	/**
 	 * @param dateFormat
 	 * @param dateString
@@ -103,6 +102,10 @@ public class DateUtil {
 
 	public static String getCurrentTime() {
 		return getCurrentTimeInMilliSeconds().toString();
+	}
+
+	public static Date getCurrentDate() {
+		return new Date();
 	}
 
 }

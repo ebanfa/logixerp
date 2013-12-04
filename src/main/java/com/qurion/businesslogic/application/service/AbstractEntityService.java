@@ -19,6 +19,10 @@ public interface AbstractEntityService<M> {
 
 	public static final String ENTITY_INSTANCE_NOT_FOUND = 
 			"BaseEntityService.ENTITY_INSTANCE_NOT_FOUND";
+
+	public final static String SYSTEM_USR_NAME = "System";
+	public static final Character ENTITY_STATUS_ACTIVE = 'A';
+	public static final Character ENTITY_STATUS_INACTIVE = 'I';
 	
 	public M findById(Integer id) throws ApplicationException;
 	

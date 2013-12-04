@@ -30,6 +30,9 @@ public class StringUtil {
 	private static final String numbers = "01234567890";
 	private static final String alphabet = 
 			"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	public static final Character NO_FG = 'N';
+	public static final Character YES_FG = 'Y';
+	public static final String WHITE_SPACE = " ";
 	
 	
 	public static String capitalizeFirstLetter(String original){

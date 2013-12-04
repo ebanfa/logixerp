@@ -14,6 +14,21 @@ public class ResponseData {
 	private String errorMessage;
 	
 	/**
+	 * 
+	 */
+	public ResponseData() {
+		this.errors = false;
+		this.errorMessage = "";
+	}
+	/**
+	 * @param errors
+	 * @param errorMessage
+	 */
+	public ResponseData(Boolean errors, String errorMessage) {
+		this.errors = errors;
+		this.errorMessage = errorMessage;
+	}
+	/**
 	 * @return the errors
 	 */
 	public Boolean getErrors() {

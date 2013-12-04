@@ -8,10 +8,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>
-        Qurion Business Logic Platform
+        LogixERP Platform
     </name>
     <description>
-        Qurion Business Logic Platform
+        LogixERP Platform
     </description>
 
     <properties>

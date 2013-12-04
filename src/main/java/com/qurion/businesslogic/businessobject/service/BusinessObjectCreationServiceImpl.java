@@ -9,7 +9,6 @@ import java.util.Map;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +34,7 @@ import com.qurion.businesslogic.businessobject.util.BusinessObjectUtil;
 public class BusinessObjectCreationServiceImpl implements BusinessObjectCreationService {
 
 	@Inject ActivityService activityService;
-	@PersistenceUnit EntityManager entityManager;
+	@Inject private EntityManager entityManager;
 	@Inject EntityDataEntityService applicationEntityService;
 	@Inject BusinessObjectSearchService businessObjectSearchService;
 	

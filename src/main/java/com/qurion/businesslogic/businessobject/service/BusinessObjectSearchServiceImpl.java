@@ -9,7 +9,6 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 
 import org.slf4j.Logger;
@@ -34,7 +33,7 @@ import com.qurion.businesslogic.businessobject.util.BusinessObjectUtil;
 @Stateless
 public class BusinessObjectSearchServiceImpl implements	BusinessObjectSearchService {
 	
-	@PersistenceUnit EntityManager entityManager;
+	@Inject private EntityManager entityManager;
 	@Inject EntityDataEntityService applicationEntityService;
 	@Inject BusinessObjectQueryBuilderService queryBuilderService;
 	private Logger logger = LoggerFactory.getLogger(getClass());

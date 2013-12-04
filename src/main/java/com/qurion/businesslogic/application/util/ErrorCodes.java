@@ -39,8 +39,10 @@ public class ErrorCodes {
 	public static final String AS_USER_MODULE_LOOKUP_ERROR_CD = "ActivityService.AS_USER_MODULE_LOOKUP_ERROR_CD";
 	public static final String IU_INTEGER_CONVERSION_ERROR = null;
 	public static final String IU_INVALID_SOURCE_DATA_TY_ERROR_MSG = null;
+	public static final String ENTITY_TO_MODULE_MAP_ERROR_CD = "EntityBuilderService.ENTITY_TO_MODULE_MAP_ERROR_CD";
+	public static final String ENTITYFIELD_TO_ENTITY_MAP_ERROR_CD = "EntityBuilderService.ENTITYFIELD_TO_ENTITY_MAP_ERROR_CD";
+	public static final String ENTITY_ACTIVITY_CREATION_ERROR_CD = "ActivityBuilderService.ENTITY_ACTIVITY_CREATION_ERROR_CD";
+	
 
 	
-	
-
 }
