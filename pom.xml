@@ -295,6 +295,13 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.9</version>
 		</dependency>
+		
+	    <!-- Squirrel FSM -->
+		<dependency>
+		    <groupId>org.squirrelframework</groupId>
+		    <artifactId>squirrel-foundation</artifactId>
+		    <version>0.2.1</version>
+		</dependency>
             
 		
 		 <!-- Pentaho dependencies -->
