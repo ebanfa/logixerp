@@ -301,6 +301,7 @@
 		    <groupId>org.squirrelframework</groupId>
 		    <artifactId>squirrel-foundation</artifactId>
 		    <version>0.2.1</version>
+	      	<scope>compile</scope>
 		</dependency>
             
 		
