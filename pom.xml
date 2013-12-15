@@ -234,6 +234,9 @@
 	      <scope>compile</scope>
 	    </dependency>
 
+	
+		<!-- 
+
 		<dependency>
 			<groupId>org.kie</groupId>
 			<artifactId>kie-api</artifactId>
@@ -250,9 +253,8 @@
 			<artifactId>jbpm-bpmn2</artifactId>
 			<version>6.0.0.CR2</version>
 		</dependency>
-
-	
-		<!-- <dependency>
+		
+		<dependency>
 			
 			<groupId>com.nathanclaire.advicepro.client</groupId>
 			<artifactId>adviceclient</artifactId>
@@ -296,12 +298,13 @@
 			<version>3.9</version>
 		</dependency>
 		
+		
 	    <!-- Squirrel FSM -->
 		<dependency>
 		    <groupId>org.squirrelframework</groupId>
 		    <artifactId>squirrel-foundation</artifactId>
 		    <version>0.2.1</version>
-	      	<scope>compile</scope>
+	      	<scope>provided</scope>
 		</dependency>
             
 		
