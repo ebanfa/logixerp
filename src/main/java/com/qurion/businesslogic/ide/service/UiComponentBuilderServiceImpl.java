@@ -6,7 +6,6 @@ package com.qurion.businesslogic.ide.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -23,7 +22,6 @@ import com.qurion.businesslogic.application.model.Module;
 import com.qurion.businesslogic.application.model.UiComponent;
 import com.qurion.businesslogic.application.model.UiComponentAttribute;
 import com.qurion.businesslogic.application.model.UiComponentType;
-import com.qurion.businesslogic.application.service.AbstractEntityService;
 import com.qurion.businesslogic.application.service.AbstractServiceImpl;
 import com.qurion.businesslogic.application.service.ActivityEntityService;
 import com.qurion.businesslogic.application.service.ModuleEntityService;
@@ -83,19 +81,26 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 	{
 		UiComponent component = null;
 		logger.debug("Building component: {} with attributes {}", componentNode.getNodeName(), attributesMap);
-		// Build the component
-		component = createComponent(configuration, getComponentType(componentType), parentComponent, attributesMap);
-		// Hook to create an activity if the component we
-		// are creating is an activity
-		if(componentType.equals(ACTIVITY)) 
-			createActivityForUiComponent(component, attributesMap);
-		// Process the children of the current node
-		NodeList childNodes = componentNode.getChildNodes();
-		for(int i = 0; i < childNodes.getLength(); i++)
-		{
-			if(childNodes.item(i) instanceof Element) {
-				Node node = childNodes.item(i);
-				buildComponent(configuration, component, node);
+		// Check if the current node is an event definition
+		if(componentType.equals(COMP_TY_EVENT_HANDLER)) 
+			createEventForUiComponent(configuration, 
+					componentNode, attributesMap, parentComponent);
+		// else the current node is a component definition
+		else {
+			// Build the component
+			component = createComponent(configuration, 
+					getComponentType(componentType), parentComponent, attributesMap);
+			// Hook to create an activity if the component we
+			// are creating is an activity
+			if(componentType.equals(ACTIVITY)) 
+				createActivityForUiComponent(component, attributesMap);
+			// Process the children of the current node
+			// Note: Event nodes don't have child nodes
+			NodeList childNodes = componentNode.getChildNodes();
+			for(int i = 0; i < childNodes.getLength(); i++)
+			{
+				if(childNodes.item(i) instanceof Element)
+					buildComponent(configuration, component, childNodes.item(i));
 			}
 		}
 	}
@@ -109,7 +114,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 	{
 		String componentName = attributesMap.get(NAME_ATTRIBUTE);
 		UiComponent component = componentEntityService.findByName(componentName);
-		
+		System.out.println(">>>>>>>>>>attributesMap::" + attributesMap);
 		try {
 			if(component != null) 
 				this.deleteComponent(component);
@@ -118,6 +123,8 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			component.setCode(attributesMap.get(NAME_ATTRIBUTE));
 			component.setName(attributesMap.get(NAME_ATTRIBUTE));
 			component.setDescription(attributesMap.get(DESCRIPTION_ATTRIBUTE));
+			if(attributesMap.get(SEQUENCE_ATTRIBUTE) != null )
+				component.setSequenceNo(Integer.parseInt(attributesMap.get(SEQUENCE_ATTRIBUTE)));
 			initializeFields(component);			
 			if(parentComponent != null)
 				component.setUiComponent(parentComponent);
@@ -155,6 +162,16 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			ExceptionUtil.processException(e, ErrorCodes.BPS_ENTITY_CREATION_ERROR_CD);
 		}
 		return attributes;
+	}
+	
+
+	public void createEventForUiComponent(BuilderConfiguration configuration, Node componentNode, 
+			Map<String, String> attributesMap, UiComponent parentUiComponent) throws ApplicationException 
+	{
+		logger.debug("Building event handler component: {} with attributes {}", componentNode.getNodeName(), attributesMap);
+		this.createComponent(configuration, 
+				getComponentType(COMP_TY_EVENT_HANDLER), parentUiComponent, attributesMap);
+		
 	}
 
 	/**

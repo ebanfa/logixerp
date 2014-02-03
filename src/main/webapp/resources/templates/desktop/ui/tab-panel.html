@@ -1,0 +1,49 @@
+<script type="text/javascript">
+$(document).ready(new function() 
+{
+	console.log('Loading PLUGIN>>>>>>>>>>>>>>>>>');
+
+	$('#tab-widget').tabs({data:[]});
+
+});	
+	
+</script>
+<div id="tab-widget" class="widget widget-table action-table">
+    <div class="widget-header">
+        <i class="icon-th-list"></i>
+        <h3 id="widget-title"></h3>
+    </div> <!-- /widget-header -->
+    
+    <div class="widget-content scrollable-main-content">
+    	 <!-- tab-container -->
+        <div id="tab-container">
+        	<ul id="tabs">
+			  <li>
+			    <a href="#java">Java</a>
+			  </li>
+			  <li>
+			  	<a href="#python">Python</a>
+			  </li>
+			</ul>
+        </div>
+    	 <!-- tab-content -->
+        <div id="tab-content"> 
+	        <div id="java" class="tab-section">
+			    <h2>Here we place title</h2>
+			    <p>Here we place details </p>
+			    <h2>Here we place title</h2>
+			    <p>Here we place details </p>
+			    <h2>Here we place title</h2>
+			    <p>Here we place details </p>
+			    <h2>Here we place title</h2>
+			    <p>Here we place details </p>
+			    <h2>Here we place title</h2>
+			    <p>Here we place details </p>
+			</div>
+	        <div id="python" class="tab-section">
+			    <h2>Here we place PYTHON>>>>>>>>>>>>> title</h2>
+			    <p>Here we place details </p>
+			</div>
+        </div>
+    </div> <!-- /widget-content -->
+</div> <!-- /widget -->

@@ -61,9 +61,9 @@ body{ background: url(images/body-bg.png); color:#838383; font: 13px/1.7em 'Open
 	box-shadow: inset 2px 2px 4px #f1f1f1;
 }
 
-.username-field { background: url(../../img/signin/user.png) no-repeat; }
+.username-field { background: url(../../resources/img/user.png) no-repeat; }
 
-.password-field { background: url(../../img/signin/password.png) no-repeat; }
+.password-field { background: url(../../resources/img/password.png) no-repeat; }
 
 
 
@@ -73,6 +73,7 @@ body{ background: url(images/body-bg.png); color:#838383; font: 13px/1.7em 'Open
 	
 	width: 100%;
 	
+	padding: 10px 0 15px;
 	margin-top: -1em;
 	margin-bottom: 1.25em;
 }

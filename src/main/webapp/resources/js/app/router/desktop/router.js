@@ -3,19 +3,14 @@
  */
 define("router", [
     'jquery',
-    'underscore',
     'configuration',
-    'app/views/desktop/ui/page-view'
-],function ($,
-            _,
-            config,
-            PageView) {
-	
-	var pageView = new PageView({el: $('body')});
+    'underscore',
+    'backbone'
+],function ($, config, _, Backbone) {
 
     $(document).ready(new function() 
     {
-    	pageView.render();
+        //utilities.applyTemplate($('body'), MainTemplate);
     });
 
     /**
@@ -26,25 +21,24 @@ define("router", [
      */
 
     var Router = Backbone.Router.extend({
-    	
     	/**
     	 * Route hash
     	 */
         routes : {
-            "home": "renderHomePageView",
+            "": "showLoginView",
+            "login": "showLoginView"
         },
 
     	/**
-    	 * Render the page
+    	 * Show login action
     	 */
-        renderHomePageView: function()
+        showLoginView:function()
         {
-        	pageView.renderHomeView();
-        },
+        	console.log('Routed');
+            //var loginView = new LoginView({el:$("#page-container")});
+            //utilities.viewManager.showView(loginView);
+        }
     });
-    // Create a router instance
-    var router = new Router();
-    //Begin routing
-    Backbone.history.start();
-    return router;
+    
+    return Router;
 });

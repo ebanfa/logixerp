@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<screen name="home-screen" description="Home Screen">
+	<panel name="home-container" class="home-container" description="" seq="1">
+	
+		<panel name="navbar-container" description="" seq="1">
+			<panel name="navbar" description="" class="navbar navbar-fixed-top" seq="1">
+	            <panel name="navbar-inner" description="" class="navbar-inner" seq="1">
+	                <panel name="navbar-content" description="" class="container" seq="1">
+	                    <link name="navbar-home-link" description="Qrion Transaction Manager" class="brand" href="http://wbpreview.com/previews/WB00U99JJ/" seq="1">
+	                    </link>        
+	                    <panel name="nav-collapse-panel" description="" class="nav-collapse" seq="2">
+	                        <list name="navbar-menu" description="" class="nav pull-right" seq="1">
+	                            <list-item name="settings-list-item" description="" class="dropdown" seq="1">
+	                                <link name="settings-menu-link" description="Settings" href="#" class="dropdown-toggle" data-toggle="dropdown" seq="1">
+	                                    <image name="settings-image" description="" class="icon-cog" seq="1"></image>
+	                                    <bold-span name="settings-caret" description="" class="caret" seq="2"></bold-span>
+	                                </link>
+	                                <list name="nav-settings-dropdown-menu" description="" class="dropdown-menu" seq="2">
+	                                    <list-item name="account-settings" description="" seq="1">
+	                                    	<link name="account-settings-link" description="Account Settings" href="javascript:;" seq="1"></link>
+	                                    </list-item>
+	                                    <list-item name="privacy-settings" description="" seq="2">
+	                                    	<link name="privacy-settings-link" description="Privacy Settings" href="javascript:;" seq="1"></link>
+	                                    </list-item>
+	                                    <list-item name="nav-settings-divider" description="" class="divider" seq="3">
+	                                    </list-item>
+	                                    <list-item name="help-menu-item" description="" seq="4">
+	                                    	<link name="help-menu-item-link" description="Help" href="javascript:;" seq="1"></link>
+	                                    </list-item>
+	                                </list>
+	                            </list-item>
+	                            <list-item name="user-dropdown-menu" description="" class="dropdown" seq="2">
+	                                <link name="user-link" description="Rod Howard" href="#" class="dropdown-toggle" data-toggle="dropdown" seq="1">
+	                                    <image name="user-image" description="" class="icon-user" seq="1"></image> 
+	                                    <bold-span name="user-caret" description="" class="caret" seq="2"></bold-span>
+	                                </link>
+	                                <list name="user-dropdown-menu-list" description="" class="dropdown-menu" seq="2">
+	                                    <list-item name="user-profile-list-tem" description="" seq="1">
+	                                    	<link name="user-profile-link" description="My Profile" href="javascript:;" seq="1"></link>
+	                                    </list-item>
+	                                    <list-item name="user-group-list-item" description="" seq="2">
+	                                    	<link name="user-group-link" description="My Groups" href="javascript:;" seq="1"></link>
+	                                    </list-item>
+	                                    <list-item name="user-dropdown-menu-divider" description="" class="divider" seq="3"></list-item>
+	                                    <list-item name="user-logout-list-item" description="" seq="4">
+	                                    	<link name="user-logout-link" description="Logout" class="logout-link" href="#" seq="1"></link>
+	                                    </list-item>
+	                                </list>
+	                            </list-item>
+	                        </list>
+	                        <form name="navbar-search" description="" class="navbar-search pull-right" seq="2">
+	                            <search-field name="navbar-search-field" description="" class="search-query" placeholder="Search" type="text" seq="1"/>
+	                        </form>
+	                    </panel><!--/.nav-collapse -->    
+	                </panel> <!-- /container -->
+	            </panel> <!-- /navbar-inner -->
+	        </panel> <!-- /navbar -->
+        </panel>
+        
+		<!-- The tool bar component -->
+		<panel name="subnavbar-container" description="" seq="2">
+        	<toolbar name="toolbar" description="" seq="2"></toolbar>
+        </panel>
+        
+        <!-- The main section contains the side bar and the content pane -->
+        <panel name="main" description="Main Panel" class="main" seq="3">
+	        <panel name="main-inner" description="Main Inner" class="main-inner" seq="1">
+	            <panel name="row-container" description="" seq="1">
+	              <panel name="row-div" description="Row Panel" class="row-fluid" seq="1">
+	                <!-- content -->
+	                <panel name="content-container" description="" seq="1">
+	                	<tab-panel name="activity-panel" description="Activity Panel" seq="1"></tab-panel>
+	                </panel> 
+	                <!-- sidebar -->
+	                <panel name="sidebar-container" description="" seq="2">
+	                	<sidebar name="sidebar" description="" seq="1"/>
+	                </panel> 
+	              </panel> 
+	            </panel> 
+	        </panel> 
+    	</panel> 
+    	
+    	<panel name="footer-container" description="Footer Panel" seq="4"></panel> 
+	</panel>
+</screen>

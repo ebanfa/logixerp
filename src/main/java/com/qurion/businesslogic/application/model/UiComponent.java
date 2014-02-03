@@ -35,6 +35,7 @@ public class UiComponent  extends BaseEntity implements java.io.Serializable {
 	private UiComponent uiComponent;
 	private String name;
 	private String description;
+    private Integer sequenceNo;
 	private Set<UiComponent> uiComponents = new HashSet<UiComponent>(0);
 	private Set<UiComponentAttribute> uiComponentAttributes = new HashSet<UiComponentAttribute>(0);
 
@@ -105,6 +106,16 @@ public class UiComponent  extends BaseEntity implements java.io.Serializable {
     {
         this.description = description;
     }
+    
+    @Column(name="SEQUENCE_NO")
+    public Integer getSequenceNo() {
+        return this.sequenceNo;
+    }
+    
+    public void setSequenceNo(Integer sequenceNo) {
+        this.sequenceNo = sequenceNo;
+    }
+
 	
     @OneToMany(fetch=FetchType.LAZY, mappedBy="uiComponent")
     @JsonIgnore

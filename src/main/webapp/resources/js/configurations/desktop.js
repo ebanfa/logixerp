@@ -6,28 +6,58 @@
 requirejs.config({
     baseUrl: "resources/js",
     paths: {
-        jquery:'libs/jquery-1.7.1',
+        jquery:'libs/jquery-1.11.0.min',
+        'jquery-ui': 'libs/jquery-ui.min',
         underscore:'libs/underscore',
         text:'libs/text',
         i18n:'libs/i18n',
-        order:'libs/order',
+        //order:'libs/order',
         bootstrap: 'libs/bootstrap',
-        backbone: 'libs/backbone',
-        utilities: 'app/utilities',
-        router:'app/router/desktop/router'
+        'bootstrap-dropdown': 'libs/bootstrap-dropdown',
+        'bootstrap-datetimepicker': 'libs/bootstrap-datetimepicker',
+        backbone: 'libs/backbone-min',
+        utilities: 'app/util/utilities',
+        router:'app/router/desktop/router',
+        uiconstants:'app/common/ui-constants',
+        postal:'libs/postal.min',
+        machina:'libs/machina.min',
+        machinapostal:'libs/machina.postal.min',
+        application:'app/common/application',
     },
-    // We shim Backbone since it doesn't declare an AMD module
+    // We shim the following since they don't declare an AMD module
     shim: {
-        'backbone': {
-            deps: ['jquery', 'underscore'],
+    	
+        'jquery-ui': { 
+        	deps: ['jquery'],
+        },
+        'bootstrap': 
+        {
+            deps: ['jquery',],
+        },
+        'bootstrap-dropdown': 
+        {
+            deps: ['bootstrap',],
+        },
+        'bootstrap-datetimepicker': 
+        {
+            deps: ['bootstrap',],
+        },
+    	'backbone': {
+            //These script dependencies should be loaded before loading
+            //backbone.js
+            deps: ['underscore', 'jquery'],
+            //Once loaded, use the global 'Backbone' as the
+            //module value.
             exports: 'Backbone'
+        },
+        'underscore': {
+            exports: '_'
         }
     }
 });
 
-define("initializer", ["jquery"],
+define("initializer", ['jquery', 'jquery-ui'],
     function ($) {
-    //$('head').append('<link type="text/css" rel="stylesheet" href="resources/css/screen.css"/>');
     $('head').append('<link rel="stylesheet" href="resources/css/jquery-ui.min.css" />');
     $('head').append('<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" media="all"/>');
     $('head').append('<link rel="stylesheet" href="resources/css/bootstrap-responsive.css"/>');
@@ -42,27 +72,34 @@ define("initializer", ["jquery"],
     $('head').append('<link rel="stylesheet" href="resources/css/notifier-theme-plastic.css"/>');
     $('head').append('<link rel="stylesheet" href="resources/css/jquery.jqplot.min.css" />');
 
-    $('head').append('<script type="text/javascript" src="resources/js/libs/jquery-ui.min.js"></script>');
-    $('head').append('<script type="text/javascript" src="resources/js/libs/excanvas.js"></script>');
-    $('head').append('<script type="text/javascript" src="resources/js/libs/jquery.jqplot.min.js"></script>');
+    $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/sidebar.js"></script>');
+    $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/toolbar.js"></script>');
+    $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/tab-panel.js"></script>');
     
-    
-    $('head').append('<script type="text/javascript" src="resources/js/libs/bootstrap.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/libs/base.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/libs/area.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/libs/donut.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/libs/signin.js"></script>');
-    $('head').append('<script type="text/javascript" src="resources/js/libs/bootstrap-datetimepicker.min.js"></script>');
-    $('head').append('<script type="text/javascript" src="resources/js/libs/backbone.notifier.js"></script>');
-
-    //$('head').append('<link rel="stylesheet" href="resources/css/custom.css" type="text/css" media="all">');
-    //$('head').append('<link href="http://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet" type="text/css">');
+    $('head').append('<script type="text/javascript" src="resources/js/libs/excanvas.js"></script>');
+    $('head').append('<script type="text/javascript" src="resources/js/libs/jquery.jqplot.min.js"></script>');
+    
+    // The truth is what has to come to the fron of the panel with all the 
 });
 
 // Now we declare all the dependencies
 require([
-    'order!initializer',
-    'order!router'
+    'initializer',
+    'underscore',
+    'bootstrap',
+    'bootstrap-dropdown',
+    //'bootstrap-datetimepicker',
+    'backbone',
+    'postal',
+    'machina',
+    'machinapostal',
+    'router',
+    'uiconstants',
+    'application'
 ], function(){
 });
 

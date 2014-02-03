@@ -16,7 +16,9 @@
 			<module name="WORKEFFORT"/>
 		</modules>
 		<screens>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/screens/home-screen.xml"/>
 			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/screens/login-screen.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/screens/loading-screen.xml"/>
 		</screens>
 		<activities>
 			<activity name="editUser" path="/home/edward/Projects/businesslogic/configuration/ui/activities/edit-user.xml"/>

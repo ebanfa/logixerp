@@ -18,6 +18,7 @@ public class UiComponentData extends ResponseData {
 	private String code;
 	private String type;
 	private String description;
+	private Integer sequenceNo;
 	private List<UiComponentData> components = new ArrayList<UiComponentData>();
 	private Map<String, String> attributes = new HashMap<String, String>();
 	
@@ -92,5 +93,24 @@ public class UiComponentData extends ResponseData {
 	 */
 	public void setAttributes(Map<String, String> attributes) {
 		this.attributes = attributes;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "UiComponentData [name=" + name + "]";
+	}
+	/**
+	 * @return the sequenceNo
+	 */
+	public Integer getSequenceNo() {
+		return sequenceNo;
+	}
+	/**
+	 * @param sequenceNo the sequenceNo to set
+	 */
+	public void setSequenceNo(Integer sequenceNo) {
+		this.sequenceNo = sequenceNo;
 	}
 }

@@ -18,6 +18,7 @@ import com.qurion.businesslogic.application.model.UiComponent;
 import com.qurion.businesslogic.application.model.UiComponentAttribute;
 import com.qurion.businesslogic.application.service.UiComponentEntityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
+import com.qurion.businesslogic.ide.service.UiComponentBuilderService;
 
 /**
  * @author Edward Banfa
@@ -56,6 +57,7 @@ public class UiComponentRESTService extends AbstractRESTService {
 		uiComponent.setCode(uiComponent.getCode());
 		uiComponentData.setType(uiComponent.getUiComponentType().getName());
 		uiComponentData.setDescription(uiComponent.getDescription());
+		uiComponentData.setSequenceNo(uiComponent.getSequenceNo());
 		for(UiComponentAttribute attribute: uiComponent.getUiComponentAttributes())
 		{
 			UiComponentAttributeData uiComponentAttributeData = 
@@ -68,7 +70,7 @@ public class UiComponentRESTService extends AbstractRESTService {
 		for(UiComponent component: uiComponent.getUiComponents()){
 			uiComponentData.getComponents().add(loadUiComponent(component));
 		}
-			
+		System.out.println(">>>>>>>>>>>>>" + uiComponentData.getComponents());
 		return uiComponentData;
 	}
 

@@ -21,15 +21,17 @@ import com.qurion.businesslogic.ide.config.BuilderConfiguration;
  */
 public interface UiComponentBuilderService {
 	
-	public static final Object ACTIVITY = "activity";
-	public static final Object URL_ATTRIBUTE = "url";
-	public static final Object NAME_ATTRIBUTE = "name";
-	public static final Object CODE_ATTRIBUTE = "code";
-	public static final Object MODULE_ATTRIBUTE = "module";
-	public static final Object DESCRIPTION_ATTRIBUTE = "description";
-	public static final Object DISPLAY_NAME_ATTRIBUTE = "displayName";
-	public static final Object DISPLAY_IMAGE_ATTRIBUTE = "displayImg";
-	public static final Object ACTIVITY_TY_ATTRIBUTE = "activityType";
+	public static final String ACTIVITY = "activity";
+	public static final String COMP_TY_EVENT_HANDLER = "event-handler";
+	public static final String URL_ATTRIBUTE = "url";
+	public static final String NAME_ATTRIBUTE = "name";
+	public static final String CODE_ATTRIBUTE = "code";
+	public static final String SEQUENCE_ATTRIBUTE = "seq";
+	public static final String MODULE_ATTRIBUTE = "module";
+	public static final String DESCRIPTION_ATTRIBUTE = "description";
+	public static final String DISPLAY_NAME_ATTRIBUTE = "displayName";
+	public static final String DISPLAY_IMAGE_ATTRIBUTE = "displayImg";
+	public static final String ACTIVITY_TY_ATTRIBUTE = "activityType";
 
 	/**
 	 * @param configuration
