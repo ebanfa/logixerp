@@ -140,9 +140,9 @@ public class ActivityRESTService extends AbstractRESTService {
 			MultivaluedMap<String, String> queryParameters,
 			ActivityResponse businessObjectResponse, Activity activity,	EntityData entityData) throws ApplicationException 
 			{
-		logger.debug("Loading entity bsuiness object {}", entityData.getName());
+		logger.debug("Loading entity bsuiness object {}, {}", entityData.getName(),queryParameters);
 		// Load entity search data
-		SearchData entitiySearchData =
+		SearchData entitySearchData =
 				BusinessObjectRESTUtil.mapToBusinessObjectSearchInfo(
 						this.extractBusinessObjectQuery(entityData.getName(), ENTITY_QUERY_PARAM_NM, queryParameters));
 		// Only execute the search if we have valid search fields
@@ -152,23 +152,28 @@ public class ActivityRESTService extends AbstractRESTService {
 			// Load the list of fields we want returned in the search results
 			if(activityService.isListActivity(activity))
 				entityFields = 
-					activityService.getEntityListFields(entitiySearchData.getBusinesObjectName());
+					activityService.getEntityListFields(entitySearchData.getBusinessObjectName());
 			if(activityService.isEditActivity(activity))
 				entityFields = 
-					activityService.getEntityEditFields(entitiySearchData.getBusinesObjectName());
+					activityService.getEntityEditFields(entitySearchData.getBusinessObjectName());
 			if(activityService.isViewActivity(activity))
 				entityFields = 
-					activityService.getEntityViewFields(entitiySearchData.getBusinesObjectName());
+					activityService.getEntityViewFields(entitySearchData.getBusinessObjectName());
+			else
+				entityFields = 
+					activityService.getEntityListFields(entitySearchData.getBusinessObjectName());
 			
 			logger.debug("Loaded {} fields for entity {}", 
-					entityFields.size(), entitiySearchData.getBusinesObjectName());
+					entityFields.size(), entitySearchData.getBusinessObjectName());
 			// Do the search
-			List<BusinessObjectData> results = businessObjectSearchService.find(entitiySearchData, entityFields);
-			if(activityService.isListActivity(activity))
-				businessObjectResponse.setDataList(results);
-			else
+			List<BusinessObjectData> results = businessObjectSearchService.find(entitySearchData, entityFields);
+			logger.debug("Loaded {} results for entity search ", results.size());
+			if(activityService.isEditActivity(activity) | activityService.isViewActivity(activity)){
 				if(!results.isEmpty())
 					businessObjectResponse.setData(results.get(0));
+			}
+			else
+				businessObjectResponse.setDataList(results);
 			businessObjectResponse.setDataFields(entityFields);
 			
 		}
@@ -204,6 +209,7 @@ public class ActivityRESTService extends AbstractRESTService {
 	{
 		// Create a new empty map to hold parameter names mapped to parameter values
 		MultivaluedHashMap<String, String> entityQueryParameters = MultivaluedHashMap.empty();
+		entityQueryParameters.clear();
     	for(String parameterKey : queryParameters.keySet())
     	{
 			if(parameterKey.startsWith(queryKeyPrefix))
@@ -216,6 +222,7 @@ public class ActivityRESTService extends AbstractRESTService {
 				entityQueryParameters.add(paramNm, queryParameters.getFirst(parameterKey));
 			}
     	}
+    	logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>{}", entityQueryParameters);
     	// Hook to insert the business object name into the query map
 		if(!entityQueryParameters.containsKey(BusinessObjectRESTUtil.ENTITY_NAME))
 			entityQueryParameters.putSingle(BusinessObjectRESTUtil.ENTITY_NAME, businessObjectName);

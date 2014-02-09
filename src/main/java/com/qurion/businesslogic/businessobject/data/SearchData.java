@@ -14,25 +14,39 @@ import java.util.Map;
  * @author Edward Banfa
  *
  */
-public class SearchData {
-	
-	private String businesObjectName;
+public class SearchData 
+{
+	private String businessObjectName;
 	private Integer businessObjectId;
 	private Map<String, SearchFieldData> searchFields = 
 			new HashMap<String, SearchFieldData>();
 
 	/**
+	 * 
+	 */
+	public SearchData() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 * @param businesObjectName
+	 */
+	public SearchData(String businesObjectName) {
+		this.businessObjectName = businesObjectName;
+	}
+	
+	/**
 	 * @return the businesObjectName
 	 */
-	public String getBusinesObjectName() {
-		return businesObjectName;
+	public String getBusinessObjectName() {
+		return businessObjectName;
 	}
 
 	/**
 	 * @param businesObjectName the businesObjectName to set
 	 */
-	public void setBusinesObjectName(String businesObjectName) {
-		this.businesObjectName = businesObjectName;
+	public void setBusinessObjectName(String businesObjectName) {
+		this.businessObjectName = businesObjectName;
 	}
 	
 	public void addField(String fieldName, SearchFieldData field)
@@ -78,7 +92,7 @@ public class SearchData {
 	 */
 	@Override
 	public String toString() {
-		return "SearchData [businesObjectName=" + businesObjectName
+		return "SearchData [businesObjectName=" + businessObjectName
 				+ ", businessObjectId=" + businessObjectId + ", searchFields="
 				+ searchFields + "]";
 	}

@@ -3,6 +3,8 @@
  */
 package com.qurion.businesslogic.application.rest;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -16,8 +18,15 @@ import org.slf4j.LoggerFactory;
 
 import com.qurion.businesslogic.application.model.UiComponent;
 import com.qurion.businesslogic.application.model.UiComponentAttribute;
+import com.qurion.businesslogic.application.model.UiComponentType;
+import com.qurion.businesslogic.application.service.ActivityService;
 import com.qurion.businesslogic.application.service.UiComponentEntityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
+import com.qurion.businesslogic.businessobject.data.BusinessObjectData;
+import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldData;
+import com.qurion.businesslogic.businessobject.data.SearchData;
+import com.qurion.businesslogic.businessobject.service.BusinessObjectSearchService;
+import com.qurion.businesslogic.ide.service.UiComponentBuilderService;
 
 /**
  * @author Edward Banfa
@@ -26,9 +35,11 @@ import com.qurion.businesslogic.application.util.ApplicationException;
 @Path("/ui-service")
 @Stateless
 public class UiComponentRESTService extends AbstractRESTService {
-	
-	private Logger logger = LoggerFactory.getLogger(getClass());
+
+	@Inject ActivityService activityService;
 	@Inject UiComponentEntityService componentEntityService;
+	private Logger logger = LoggerFactory.getLogger(getClass());
+	@Inject BusinessObjectSearchService businessObjectSearchService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -49,7 +60,7 @@ public class UiComponentRESTService extends AbstractRESTService {
 	 * @param uiComponentData
 	 * @param uiComponent
 	 */
-	public UiComponentData loadUiComponent(UiComponent uiComponent) {
+	public UiComponentData loadUiComponent(UiComponent uiComponent) throws ApplicationException {
 
 		UiComponentData uiComponentData = new UiComponentData();
 		uiComponentData.setName(uiComponent.getName());
@@ -66,11 +77,51 @@ public class UiComponentRESTService extends AbstractRESTService {
 			uiComponentData.getAttributes().put(
 					attribute.getAttrName(), attribute.getAttrValue());
 		}
+		// Recursively load all the child components
 		for(UiComponent component: uiComponent.getUiComponents()){
-			uiComponentData.getComponents().add(loadUiComponent(component));
+			UiComponentType componentType = component.getUiComponentType();
+			logger.debug("Processing ccomponent of type: {} ", componentType.getCode());
+			if(componentType.getCode().equals(UiComponentBuilderService.COMP_TY_UI_DATA_QUERY))
+				// Process the ui query data
+				this.loadUiComponentData(component, uiComponentData);
+			else
+				uiComponentData.getComponents().add(loadUiComponent(component));
 		}
-		System.out.println(">>>>>>>>>>>>>" + uiComponentData.getComponents());
 		return uiComponentData;
+	}
+
+	/**
+	 * Builds and executes a {@link SearchData} based on the 
+	 * provided {@code uiDataQuery}. The results return from the
+	 * search are load into the {@code uiQueryData} property
+	 * of the {@link UiComponentData}.
+	 * 
+	 * @param uiDataQuery
+	 * @param uiComponentData
+	 * @throws ApplicationException
+	 */
+	private void loadUiComponentData(UiComponent uiDataQuery, 
+			UiComponentData uiComponentData) throws ApplicationException 
+	{
+		SearchData searchData = uiDataQueryToBOSearchData(uiDataQuery);
+		List<BusinessObjectFieldData> entityFields = 
+				activityService.getEntityViewFields(searchData.getBusinessObjectName());
+		uiComponentData.setUiQueryData(businessObjectSearchService.find(searchData, entityFields));
+	}
+
+	/**
+	 * @param uiDataQuery
+	 */
+	private SearchData uiDataQueryToBOSearchData(UiComponent uiDataQuery) {
+		String businessObjectName = null;
+		SearchData searchData = new SearchData();
+		for(UiComponentAttribute attribute: uiDataQuery.getUiComponentAttributes())
+			//logger.debug("Processing uiDataQuery attribute: {} ", attribute.getAttrName());
+			if(attribute.getAttrName().equals("business-object"))
+				businessObjectName = attribute.getAttrValue();
+		if(businessObjectName != null)
+			searchData.setBusinessObjectName(businessObjectName);
+		return searchData;
 	}
 
 }

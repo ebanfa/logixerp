@@ -57,4 +57,18 @@ public class AbstractServiceImpl implements AbstractService {
 		this.getEntityManager().flush();
 	}
 
+
+	/**
+	 * Utility method to remove an object from
+	 * storage. TODO: Refactor this into a persistence
+	 * utility class.
+	 * 
+	 * @param object The object we are remove from storage.
+	 */
+	protected void removeObject(Object object) {
+		getEntityManager().flush();
+		getEntityManager().remove(object);
+		getEntityManager().flush();
+	}
+
 }

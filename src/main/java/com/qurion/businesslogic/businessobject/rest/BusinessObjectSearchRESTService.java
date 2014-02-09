@@ -59,11 +59,11 @@ public class BusinessObjectSearchRESTService extends AbstractRESTService {
 			SearchData searchData = 
 					BusinessObjectRESTUtil.mapToBusinessObjectSearchInfo(uriInfo.getQueryParameters());
 			// Get the activity list fields
-			businessObjectResponse.setBusinessObjectName(searchData.getBusinesObjectName());
+			businessObjectResponse.setBusinessObjectName(searchData.getBusinessObjectName());
 			List<BusinessObjectFieldData> entityListFields = 
-					activityService.getEntityListFields(searchData.getBusinesObjectName());
+					activityService.getEntityListFields(searchData.getBusinessObjectName());
 			logger.debug("Loaded {} fields for entity {}", 
-					entityListFields.size(), searchData.getBusinesObjectName());
+					entityListFields.size(), searchData.getBusinessObjectName());
 			// Do the search
 			List<BusinessObjectData> results = businessObjectSearchService.find(searchData, entityListFields);
 			businessObjectResponse.setDataFields(entityListFields);
@@ -87,14 +87,14 @@ public class BusinessObjectSearchRESTService extends AbstractRESTService {
 			SearchData searchData = 
 					BusinessObjectRESTUtil.mapToBusinessObjectSearchInfo(uriInfo.getQueryParameters());
 			// Get the activity list fields
-			businessObjectResponse.setBusinessObjectName(searchData.getBusinesObjectName());
+			businessObjectResponse.setBusinessObjectName(searchData.getBusinessObjectName());
 			List<BusinessObjectFieldData> entityListFields = 
-					activityService.getEntityListFields(searchData.getBusinesObjectName());
+					activityService.getEntityListFields(searchData.getBusinessObjectName());
 			logger.debug("Loaded {} fields for entity {}", 
-					entityListFields.size(), searchData.getBusinesObjectName());
+					entityListFields.size(), searchData.getBusinessObjectName());
 			// Do the search
 			BusinessObjectData businessObjectData = businessObjectSearchService.findById(
-					searchData.getBusinesObjectName(), searchData.getBusinessObjectId(), entityListFields);
+					searchData.getBusinessObjectName(), searchData.getBusinessObjectId(), entityListFields);
 
 			logger.debug("Loaded business object: {}", businessObjectData);
 			businessObjectResponse.setDataFields(entityListFields);

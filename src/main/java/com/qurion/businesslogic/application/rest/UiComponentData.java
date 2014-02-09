@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.qurion.businesslogic.businessobject.data.BusinessObjectData;
+
 /**
  * @author Edward Banfa
  *
@@ -19,8 +21,9 @@ public class UiComponentData  {
 	private String type;
 	private String description;
 	private Integer sequenceNo;
-	private List<UiComponentData> components = new ArrayList<UiComponentData>();
 	private Map<String, String> attributes = new HashMap<String, String>();
+	private List<UiComponentData> components = new ArrayList<UiComponentData>();
+	private List<BusinessObjectData> uiQueryData = new ArrayList<BusinessObjectData>();
 	
 	/**
 	 * @return the name
@@ -112,5 +115,17 @@ public class UiComponentData  {
 	 */
 	public void setSequenceNo(Integer sequenceNo) {
 		this.sequenceNo = sequenceNo;
+	}
+	/**
+	 * @return the uiQueryData
+	 */
+	public List<BusinessObjectData> getUiQueryData() {
+		return uiQueryData;
+	}
+	/**
+	 * @param uiQueryData the uiQueryData to set
+	 */
+	public void setUiQueryData(List<BusinessObjectData> uiQueryData) {
+		this.uiQueryData = uiQueryData;
 	}
 }

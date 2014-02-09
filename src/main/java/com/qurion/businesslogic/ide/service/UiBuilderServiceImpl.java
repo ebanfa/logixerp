@@ -43,7 +43,6 @@ public class UiBuilderServiceImpl extends AbstractServiceImpl implements UiBuild
 			BuilderConfiguration builderConfiguration) throws ApplicationException 
 	{
 		processScreenDefintions(builderConfiguration);
-		//processActivityDefintions(builderConfiguration);
 		//processPageFlowDefintions(builderConfiguration);
 	}
 
@@ -61,19 +60,6 @@ public class UiBuilderServiceImpl extends AbstractServiceImpl implements UiBuild
 		loadUiComponentConfigurations(configuration, screens.getScreens());
 	}
 
-	/**
-	 * Process activity definitions.
-	 * 
-	 * @param builderConfiguration The configuration.
-	 * @throws ApplicationException If an exception is encountered.
-	 */
-	private void processActivityDefintions(BuilderConfiguration configuration)
-			throws ApplicationException 
-	{
-		logger.debug("Processing activity definitions");
-		Activities activities = configuration.getActivityList();
-		loadUiComponentConfigurations(configuration, activities.getActivities());
-	}
 
 	/**
 	 * Process page flow definitions.

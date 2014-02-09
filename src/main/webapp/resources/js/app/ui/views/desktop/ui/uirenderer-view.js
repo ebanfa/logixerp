@@ -27,6 +27,7 @@ define([
 	'text!../../../../../../templates/desktop/ui/password-field.html',
 	'text!../../../../../../templates/desktop/ui/toolbar-widget.html',
     'text!../../../../../../templates/desktop/ui/login-form-panel.html',
+    'text!../../../../../../templates/desktop/ui/navigation-activity.html',
 ], function ($, 
 		config, 
 		_, 
@@ -54,7 +55,8 @@ define([
 		SubmitButtonTemplate,
 		PasswordFieldTemplate,
 		ToolBarWidgetTemplate,
-		LoginFormPanelTemplate) {
+		LoginFormPanelTemplate,
+		NavigationActivityTemplate) {
 	
 	var templates = 
 	{
@@ -79,6 +81,7 @@ define([
     	'view-activity': ViewActivityTemplate,
     	'edit-activity': EditActivityTemplate,
     	'list-activity': ListActivityTemplate,
+    	'nav-activity': NavigationActivityTemplate,
 	 };
 	
     /**
@@ -135,20 +138,22 @@ define([
         
         renderActivity: function(activityResponseData)
         { 
-	    	console.log('Executing uirenderer function renderActivityRequestHandler');
+    		var activityTemplate = null;
     		var uiComponentData = activityResponseData.uiComponentData;
     		var activityData = activityResponseData.activityData;
     		var activityTyData = activityData.dataValues.activityType;
     		var activityTy = activityTyData.code;
-    		var activityTemplate = null;
+    		// Select the appropriate template depending on the activity type
+    		if(activityTy === "NAV_ACTIVITY")	activityTemplate = templates['nav-activity'];
     		if(activityTy === "VIEW_ACTIVITY")	activityTemplate = templates['view-activity'];
     		if(activityTy === "EDIT_ACTIVITY")	activityTemplate = templates['edit-activity'];
     		if(activityTy === "LIST_ACTIVITY")	activityTemplate = templates['list-activity'];
-    		
+    		// Build the form for the activity **** What about nav-activities
     		var form = FormUtil.formBuilder(activityResponseData);
     		// Process the template	
         	var uiComponentDataElement = 
-        		$(this.renderTemplate(activityTemplate, {activityResponseData: activityResponseData, form: form}));
+        		$(this.renderActivityTemplate(activityTemplate, 
+        				{activityResponseData: activityResponseData, form: form}));
         	// Sort child components into order dictated by sequence no
         	uiComponentData.components.sort(this.sortComponents);
         	// Process all child nodes
@@ -162,9 +167,15 @@ define([
             				this.renderUiComponent(uiComponentData.components[i]));
         		}
         	}
+        	// Filter out non list activities
+        	if(activityTy === "NAV_ACTIVITY")
+        		activityResponseData.dataList = 
+        			this.filterOutNonListActivities(activityResponseData.dataList);
+        	// Fire
         	this.application.fireEvent(
         			UiConstants.activityChannel, UiConstants.uiActivityRenderedEvent, 
-        			{activityData:activityData, activityElement: uiComponentDataElement});
+        			{activityResponseData:activityResponseData, 
+        				activityData:activityData, activityElement: uiComponentDataElement});
         },
         
         addEventToUiComponent: function(uiComponentDataDomElement, uiComponentData) {
@@ -175,27 +186,50 @@ define([
         	// event.
         	// An event handler is a module that handles specific types of events, ie an
         	// event handler can handle more that one element.
-
 			var attributes = uiComponentData.attributes;
 			var handlerName = attributes['handler'];
 			if(EventHandlers[handlerName] != undefined) {
 				var handlerObj = EventHandlers[handlerName];
-				console.log('Event Name:>>>' + uiComponentData.name);
-				console.log('Event handler name:>>>' + handlerName);
-				console.log('Parent view:>>>' + this.pageView);
-				console.log('Event handler object:>>>' + handlerObj['handle']);
 				// The name of the component is taken to be the name of the event
 	        	$(uiComponentDataDomElement).on(uiComponentData.name, 
 	        			{target:uiComponentData.name, pageView: this.pageView}, handlerObj['handle']);
 			}
-			
         },
+        
         /**
          * Render a template.
          */
         renderTemplate:function (template, data) {
+        	// Convert the ui query data into a string
+        	// this will allow us to use it as template value
+        			
+    		if(data.uiComponentData.uiQueryData.length > 0) 
+    			data.uiComponentData.uiQueryData = 
+    				JSON.stringify(data.uiComponentData.uiQueryData);
+    		// Render the template
             return _.template(template, (data == undefined) ? {} : data);
         },
+        
+        /**
+         * Render a template.
+         */
+        renderActivityTemplate:function (template, data) {
+    		// Render the template
+            return _.template(template, (data == undefined) ? {} : data);
+        },
+
+        filterOutNonListActivities: function(activities){
+        	var listActivities = [];
+        	for(var i = 0; i < activities.length; i++) {
+        		if(activities[i].dataValues.activityUrl.startsWith('list_'))
+        			listActivities.push(activities[i]);
+        	}
+        	return listActivities;
+        },
+        /**
+         * Function to sort items based
+         * on the order of their sequence numbers.
+         */
         sortComponents: function(first, second){
         	return first.sequenceNo - second.sequenceNo;
         }

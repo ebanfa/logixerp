@@ -12,10 +12,8 @@ import com.qurion.businesslogic.ide.config.BuilderConfiguration;
  * flows.
  * 
  * @author Edward Banfa
- *
  */
 public interface UiBuilderService {
-	
 	
 	/**
 	 * Process {@code UiComponent} definitions.

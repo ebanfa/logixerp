@@ -21,7 +21,7 @@
 			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/screens/loading-screen.xml"/>
 		</screens>
 		<activities>
-			<activity name="editUser" path="/home/edward/Projects/businesslogic/configuration/ui/activities/edit-user.xml"/>
+			<activity name="moduleNavigator" path="/home/edward/Projects/businesslogic/configuration/ui/activities/module-navigator.xml"/>
 		</activities>
 		<page-flows>
 			<page-flow name="createUser" path="/home/edward/Projects/businesslogic/configuration/ui/pageflows/create-user.xml"/>

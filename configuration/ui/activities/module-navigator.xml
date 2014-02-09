@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<activity code="MODULE_NAVIGATION_ACTIVITY" name="Module Navigation Activity"
+	activityType="NAV_ACTIVITY" moduleCode="APPLICATION" activityURL="module_navigator" entityCode="APPLICATION_ACTIVITY"
+	description="Module Navigation Activity" displayImg="appl.png" displayName="Module Home" seqNo="0">
+</activity>

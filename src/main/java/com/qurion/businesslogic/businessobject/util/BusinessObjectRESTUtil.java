@@ -80,7 +80,7 @@ public class BusinessObjectRESTUtil {
 		for(String parameterName : queryParameters.keySet()) 
 		{
 			if(parameterName.equals(ENTITY_NAME)){
-				searchData.setBusinesObjectName(queryParameters.getFirst(ENTITY_NAME));
+				searchData.setBusinessObjectName(queryParameters.getFirst(ENTITY_NAME));
 			}
 			if(parameterName.equals(ENTITY_ID)){
 				try {

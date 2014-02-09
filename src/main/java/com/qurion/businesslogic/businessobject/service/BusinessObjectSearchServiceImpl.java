@@ -58,7 +58,7 @@ public class BusinessObjectSearchServiceImpl implements	BusinessObjectSearchServ
 			for(Object businessObject : businessObjects){
 				BusinessObjectData businessObjectData = new BusinessObjectDataImpl();
 				BusinessObjectUtil.copyDataToBusinessObject(businessObjectData, businessObject, fieldsWanted);
-				businessObjectData.setBusinessObjectName(searchData.getBusinesObjectName());
+				businessObjectData.setBusinessObjectName(searchData.getBusinessObjectName());
 				dataList.add(businessObjectData);
 			}
 			logger.debug("Received {} business objects", businessObjects.size());

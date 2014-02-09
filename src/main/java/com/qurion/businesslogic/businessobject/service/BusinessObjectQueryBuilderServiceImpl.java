@@ -36,7 +36,7 @@ public class BusinessObjectQueryBuilderServiceImpl implements BusinessObjectQuer
 		String query = BusinessObjectQueryConstants.E_SELECT.concat(
 				BusinessObjectQueryConstants.SINGLE_WHITESPACE);
 		
-		query = query.concat(data.getBusinesObjectName());
+		query = query.concat(data.getBusinessObjectName());
 		query = query.concat(BusinessObjectQueryConstants.SINGLE_WHITESPACE);
 		query = query.concat(BusinessObjectQueryConstants.AS_E_SELECT);
 		Map<String, SearchFieldData> searchFields = data.getSearchFields();

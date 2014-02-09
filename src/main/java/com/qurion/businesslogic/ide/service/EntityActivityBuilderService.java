@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.qurion.businesslogic.application.model.Activity;
 import com.qurion.businesslogic.application.model.EntityData;
+import com.qurion.businesslogic.application.model.UiComponent;
 import com.qurion.businesslogic.application.util.ApplicationException;
 import com.qurion.businesslogic.ide.config.BuilderConfiguration;
 
@@ -19,7 +20,7 @@ import com.qurion.businesslogic.ide.config.BuilderConfiguration;
  * @author Edward Banfa
  *
  */
-public interface ActivityBuilderService {
+public interface EntityActivityBuilderService {
 	
 	/** 
 	 * Build the entity activities for the provided
@@ -33,4 +34,8 @@ public interface ActivityBuilderService {
 	 */
 	public List<Activity> createActvitiesFromEntities(
 			BuilderConfiguration configuration, List<EntityData> entities) throws ApplicationException;
+	
+
+	public UiComponent createComponentForActivity(
+			BuilderConfiguration configuration, Activity activity) throws ApplicationException;
 }

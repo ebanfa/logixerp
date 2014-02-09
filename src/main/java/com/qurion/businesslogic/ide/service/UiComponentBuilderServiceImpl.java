@@ -85,6 +85,13 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 		if(componentType.equals(COMP_TY_EVENT_HANDLER)) 
 			createEventForUiComponent(configuration, 
 					componentNode, attributesMap, parentComponent);
+		else if(componentType.equals(COMP_TY_UI_DATA_QUERY))
+		{
+			logger.debug("Building ui data query handler component: "
+					+ "{} with attributes {}", componentNode.getNodeName(), attributesMap);
+			createComponent(configuration, getComponentType(
+					COMP_TY_UI_DATA_QUERY), parentComponent, attributesMap);
+		}
 		// else the current node is a component definition
 		else {
 			// Build the component

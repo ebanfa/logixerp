@@ -23,6 +23,7 @@ public interface UiComponentBuilderService {
 	
 	public static final String ACTIVITY = "activity";
 	public static final String COMP_TY_EVENT_HANDLER = "event-handler";
+	public static final String COMP_TY_UI_DATA_QUERY = "ui-data-query";
 	public static final String URL_ATTRIBUTE = "url";
 	public static final String NAME_ATTRIBUTE = "name";
 	public static final String CODE_ATTRIBUTE = "code";

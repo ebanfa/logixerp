@@ -5,7 +5,6 @@ package com.qurion.businesslogic.ide.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -36,7 +35,8 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 	// Builders
 	@Inject UiBuilderService uiBuilder;
 	@Inject EntityBuilderService entityBuilderService;
-	@Inject ActivityBuilderService activityBuilderService;
+	@Inject UserActivityBuilderService userActivityBuilderService;
+	@Inject EntityActivityBuilderService entityActivityBuilderService;
 	
 	@Inject ModuleEntityService moduleEntityService;
 	@Inject ActivityEntityService activityEntityService;
@@ -66,16 +66,17 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 		// Map entities to their parent modules
 		List<EntityData> entities = 
 				entityDataEntityService.findAll(null);
-		processEntityToModule(configuration, 
-				loadModules(builderConfiguration), entities);
+		//processEntityToModule(configuration, 
+			//	loadModules(builderConfiguration), entities);
 		// Map fields to entities
-		this.processEntityFieldToEntity(configuration, 
-				entities, entityFieldEntityService.findAll(null));
+		//this.processEntityFieldToEntity(configuration, 
+		//		entities, entityFieldEntityService.findAll(null));
 		// Create activities for each entity
-		this.createActvitiesFromEntities(configuration, entities);
+		//this.createActvitiesFromEntities(configuration, entities);
 		this.processUIComponents(configuration);
+		this.processUserActivities(configuration);
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see com.qurion.businesslogic.application.ide.IDEBuilderService#processEntityToModule(java.util.List, java.util.List)
 	 */
@@ -105,7 +106,7 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 	public List<Activity> createActvitiesFromEntities(
 			IDEConfiguration configuration,	List<EntityData> entities) throws ApplicationException 
 	{
-		return activityBuilderService.createActvitiesFromEntities(
+		return entityActivityBuilderService.createActvitiesFromEntities(
 					configuration.getBuilderConfiguration(), entities);
 	}
 
@@ -117,6 +118,16 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 			throws ApplicationException 
 	{
 		uiBuilder.processComponents(configuration.getBuilderConfiguration());
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.ide.service.IDEBuilderService#processUserActivities(com.qurion.businesslogic.ide.config.IDEConfiguration)
+	 */
+	public void processUserActivities(IDEConfiguration configuration) 
+			throws ApplicationException 
+	{
+		userActivityBuilderService.processActivityDefintions(
+				configuration.getBuilderConfiguration());
 	}
 
 	/**

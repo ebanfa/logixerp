@@ -1,11 +1,7 @@
 <script type="text/javascript">
 	$(document).ready(new function() 
 	{
-		$('#mainnav').toolbarwidget({data:[
-		      {name:'test-menu', icon:'icon-bar-chart', description:'Tester', class:'active test', href:'list_product_product'},
-		      {name:'test-menu', icon:'icon-bar-chart', description:'Tester', class:'active test', href:'view_product_container'},
-		      {name:'test-menu', icon:'icon-bar-chart', description:'Tester', class:'active test', href:'edit_product_productobsolescence'},
-		      ]});
+		$('#mainnav').toolbarwidget({data:<%= uiComponentData.uiQueryData %>});
 	});
 </script>
 <div id="<%= uiComponentData.name %>" class="toolBarWidget">
@@ -25,7 +21,7 @@
 							<span>More Items</span> 
 							<b class="caret"></b>
 						</a>
-						<ul class="dropdown-menu">
+						<ul id="subnav-dropdown-menu-list" class="dropdown-menu">
 							<li class="divider subnavbar-open-right"></li>
 							<li id="logout-subnav-dropdown-menuitem"><a href="#">Logout</a></li>
 						</ul>

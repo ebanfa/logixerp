@@ -84,4 +84,5 @@ public interface IDEBuilderService {
 			IDEConfiguration configuration, List<EntityData> entities) throws ApplicationException;
 	
 	public void processUIComponents(IDEConfiguration configuration) throws ApplicationException;
+	public void processUserActivities(IDEConfiguration configuration) throws ApplicationException;
 }

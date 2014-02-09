@@ -39,7 +39,7 @@ import com.qurion.businesslogic.ide.config.BuilderConfiguration;
  * @author Edward Banfa
  *
  */
-public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements ActivityBuilderService {
+public class EntityActivityBuilderServiceImpl extends AbstractServiceImpl implements EntityActivityBuilderService {
 	@Inject UiComponentBuilderService uiComponentBuilderService;
 	@Inject ActivityEntityService activityEntityService;
 	@Inject ActivityTypeEntityService activityTypeEntityService;
@@ -255,7 +255,7 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 	 * @return
 	 * @throws ApplicationException
 	 */
-	private UiComponent createComponentForActivity(
+	public UiComponent createComponentForActivity(
 			BuilderConfiguration configuration, Activity activity) throws ApplicationException
 	{
 		HashMap<String, String> attributesMap = new HashMap<String, String>();
@@ -289,19 +289,6 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 		ActivityGrouping activityGrouping = 
 				BuilderUtil.initActivityGrouping(activityGroup, activity);
 		getEntityManager().persist(activityGrouping);
-	}
-
-	/**
-	 * Utility method to remove an object from
-	 * storage. TODO: Refactor this into a persistence
-	 * utility class.
-	 * 
-	 * @param object The object we are remove from storage.
-	 */
-	private void removeObject(Object object) {
-		getEntityManager().flush();
-		getEntityManager().remove(object);
-		getEntityManager().flush();
 	}
 
 	
