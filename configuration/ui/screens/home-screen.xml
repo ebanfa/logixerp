@@ -59,7 +59,9 @@
         
 		<!-- The tool bar component -->
 		<panel name="subnavbar-container" description="" seq="2">
-        	<toolbar name="toolbar" description="" seq="2"></toolbar>
+        	<toolbar name="toolbar" description="" seq="2">
+        		<ui-data-query name="select-modules" description="Select Modules" business-object="Module"/>
+        	</toolbar>
         </panel>
         
         <!-- The main section contains the side bar and the content pane -->
@@ -69,7 +71,7 @@
 	              <panel name="row-div" description="Row Panel" class="row-fluid" seq="1">
 	                <!-- content -->
 	                <panel name="content-container" description="" seq="1">
-	                	<tab-panel name="activity-panel" description="Activity Panel" seq="1"></tab-panel>
+	                	<activity-panel name="activity-panel" description="Activity Panel" seq="1"></activity-panel>
 	                </panel> 
 	                <!-- sidebar -->
 	                <panel name="sidebar-container" description="" seq="2">

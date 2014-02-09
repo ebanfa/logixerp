@@ -16,6 +16,23 @@ public class SearchFieldData {
 	private String fieldSearchOperator;
 	
 	/**
+	 * @param fieldName
+	 * @param fieldValue
+	 * @param fieldDataTypeName
+	 * @param fieldSearchOperator
+	 */
+	public SearchFieldData(String fieldName, String fieldValue,
+			String fieldDataTypeName, String fieldSearchOperator) {
+		this.fieldName = fieldName;
+		this.fieldValue = fieldValue;
+		this.fieldDataTypeName = fieldDataTypeName;
+		this.fieldSearchOperator = fieldSearchOperator;
+	}
+	
+	public SearchFieldData() {
+		// TODO Auto-generated constructor stub
+	}
+	/**
 	 * @return the fieldName
 	 */
 	public String getFieldName() {

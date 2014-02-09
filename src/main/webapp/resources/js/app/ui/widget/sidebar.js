@@ -52,8 +52,8 @@
 	    	var application = window.application;
 	    	if(application) {
 	    		var clickedLink = event.currentTarget;
-	    		application.fireEvent(application.uiConstants.uiFsm, 
-	    				application.uiConstants.loadActivityEvent, {activityURL:clickedLink});
+	    	//	application.fireEvent(application.uiConstants.uiFsm, 
+	    		//		application.uiConstants.loadActivityEvent, {activityURL:clickedLink});
 	    	}
 	    },
 	    

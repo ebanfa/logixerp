@@ -3,10 +3,10 @@
  */
 package com.qurion.businesslogic.application.model;
 
-import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.Entity;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,26 +17,6 @@ import javax.persistence.UniqueConstraint;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import com.qurion.businesslogic.application.model.Module;
-import com.qurion.businesslogic.application.model.EntityData;
-import com.qurion.businesslogic.application.model.ActivityType;
-
-import java.util.Set;
-
-import com.qurion.businesslogic.application.model.UserActivity;
-
-import java.util.Set;
-
-import com.qurion.businesslogic.application.model.ActivityRelationship;
-
-import java.util.Set;
-
-import com.qurion.businesslogic.application.model.ActivityRelationship;
-
-import java.util.Set;
-
-import com.qurion.businesslogic.application.model.ActivityGrouping;
 
 /**
  * Activity 
@@ -52,6 +32,7 @@ import com.qurion.businesslogic.application.model.ActivityGrouping;
 public class Activity  extends BaseEntity implements java.io.Serializable {
 	private Module module;
 	private EntityData entityData;
+	private UiComponent uiComponent;
 	private ActivityType activityType;
 	private String name;
 	private String description;
@@ -76,10 +57,11 @@ public class Activity  extends BaseEntity implements java.io.Serializable {
         this.operationCd = operationCd;
     }
 
-    public Activity(Module module, EntityData entityData, ActivityType activityType, String name, String description, String activityUrl, Integer sequenceNo, String displayNm, String displayImg, String operationCd, Set userActivities, Set activityRelationshipsForFromActId, Set activityRelationshipsForToActId, Set activityGroupings) 
+    public Activity(Module module, EntityData entityData, UiComponent uiComponent, ActivityType activityType, String name, String description, String activityUrl, Integer sequenceNo, String displayNm, String displayImg, String operationCd, Set userActivities, Set activityRelationshipsForFromActId, Set activityRelationshipsForToActId, Set activityGroupings) 
     {
         this.module = module;
         this.entityData = entityData;
+        this.uiComponent = uiComponent;
         this.activityType = activityType;
         this.name = name;
         this.description = description;
@@ -118,6 +100,19 @@ public class Activity  extends BaseEntity implements java.io.Serializable {
     public void setEntityData(EntityData entityData)
     {
         this.entityData = entityData;
+    }
+    
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="COMPONENT_ID")
+    @JsonIgnore
+    public UiComponent getUiComponent() 
+    {
+        return this.uiComponent;
+    }
+    
+    public void setUiComponent(UiComponent uiComponent)
+    {
+        this.uiComponent = uiComponent;
     }
     
     @ManyToOne(fetch=FetchType.LAZY)

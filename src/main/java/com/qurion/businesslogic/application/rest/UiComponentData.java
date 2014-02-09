@@ -12,7 +12,7 @@ import java.util.Map;
  * @author Edward Banfa
  *
  */
-public class UiComponentData extends ResponseData {
+public class UiComponentData  {
 
 	private String name;
 	private String code;

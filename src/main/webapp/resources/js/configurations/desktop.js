@@ -83,7 +83,6 @@ define("initializer", ['jquery', 'jquery-ui'],
     $('head').append('<script type="text/javascript" src="resources/js/libs/excanvas.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/libs/jquery.jqplot.min.js"></script>');
     
-    // The truth is what has to come to the fron of the panel with all the 
 });
 
 // Now we declare all the dependencies

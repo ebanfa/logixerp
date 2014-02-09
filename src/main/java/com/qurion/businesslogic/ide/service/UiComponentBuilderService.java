@@ -32,6 +32,15 @@ public interface UiComponentBuilderService {
 	public static final String DISPLAY_NAME_ATTRIBUTE = "displayName";
 	public static final String DISPLAY_IMAGE_ATTRIBUTE = "displayImg";
 	public static final String ACTIVITY_TY_ATTRIBUTE = "activityType";
+	public static final String ACTIVITY_COMPONENT_TYPE = "activity";
+	
+
+	/**
+	 * @param name
+	 * @return
+	 * @throws ApplicationException
+	 */
+	public UiComponentType getComponentType(String name) throws ApplicationException ;
 
 	/**
 	 * @param configuration

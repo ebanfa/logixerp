@@ -28,6 +28,7 @@ public class ErrorCodes {
 	public static final String BOSS_SINGLE_BUSINESS_OBJ_QUERY_ERROR_CD = "BusinessObjectSearchService.BOSS_SINGLE_BUSINESS_OBJ_QUERY_ERROR_CD";
 	public static final String BOU_DATA_COPY_TO_BO_ERROR_CD = "BusinessObjectUtil.BOU_DATA_COPY_TO_BO_ERROR_CD";
 	public static final String BORU_INVALID_ENTITY_ID_ERROR_CD = "BusinessObjectRESTUtil.BORU_INVALID_ENTITY_ID_ERROR_CD";
+	public static final String ARS_ACTIVITY_NOT_FOUND_MSG = "ActivityRESTService.ARS_ACTIVITY_NOT_FOUND_MSG";
 	public static final String ARU_LOAD_ACTIVITY_ERROR_CD = "ActivityRESTUtil.ARU_LOAD_ACTIVITY_ERROR_CD";
 	public static final String ARU_INVALID_ACTIVITY_URL_ERROR_MSG = "ActivityRESTUtil.ARU_INVALID_ACTIVITY_URL_ERROR_MSG";
 	public static final String AS_ENTITY_NOT_FOUND_ERROR_MSG = "ActivityService.AS_ENTITY_NOT_FOUND_ERROR_MSG";

@@ -4,6 +4,7 @@
 package com.qurion.businesslogic.ide.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -17,6 +18,8 @@ import com.qurion.businesslogic.application.model.ActivityGroupType;
 import com.qurion.businesslogic.application.model.ActivityGrouping;
 import com.qurion.businesslogic.application.model.ActivityType;
 import com.qurion.businesslogic.application.model.EntityData;
+import com.qurion.businesslogic.application.model.UiComponent;
+import com.qurion.businesslogic.application.model.UiComponentType;
 import com.qurion.businesslogic.application.service.AbstractServiceImpl;
 import com.qurion.businesslogic.application.service.ActivityEntityService;
 import com.qurion.businesslogic.application.service.ActivityGroupEntityService;
@@ -37,8 +40,7 @@ import com.qurion.businesslogic.ide.config.BuilderConfiguration;
  *
  */
 public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements ActivityBuilderService {
-
-	
+	@Inject UiComponentBuilderService uiComponentBuilderService;
 	@Inject ActivityEntityService activityEntityService;
 	@Inject ActivityTypeEntityService activityTypeEntityService;
 	@Inject ActivityGroupEntityService activityGroupEntityService;
@@ -78,6 +80,7 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 			activities.add(createEntityEditActivity(configuration, activityGroup, entity));
 			activities.add(createEntityViewActivity(configuration, activityGroup, entity));
 		} catch (ApplicationException e) {
+			e.printStackTrace();
 			ExceptionUtil.processException(e, ErrorCodes.ENTITY_ACTIVITY_CREATION_ERROR_CD);
 		}
 		return activities;
@@ -129,6 +132,7 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 	{
 		logger.debug("Creating list activity for entity {}", entity.getCode());
 		String activityCode = ActivityTypeEntityService.LIST_ACTIVITY_CD_PREFIX.concat(entity.getCode());
+		logger.debug("Finding activity before create with code {}", activityCode);
 		Activity listActivity = activityEntityService.findByCode(activityCode);
 		
 		if(listActivity == null | 
@@ -142,7 +146,7 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 				}
 				removeObject(listActivity);
 			}
-			listActivity = createEntityActivity(entity, listActivityType, activityGroup, activityCode);
+			listActivity = createEntityActivity(configuration, entity, listActivityType, activityGroup, activityCode);
 		}
 		return listActivity;
 	}
@@ -161,6 +165,7 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 	{
 		logger.debug("Creating edit activity for entity {}", entity.getCode());
 		String activityCode = ActivityTypeEntityService.EDIT_ACTIVITY_CD_PREFIX.concat(entity.getCode());
+		logger.debug("Finding activity before create with code {}", activityCode);
 		Activity editActivity = activityEntityService.findByCode(activityCode);
 		
 		if(editActivity == null | 
@@ -174,7 +179,7 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 				}
 				removeObject(editActivity);
 			}
-			editActivity = createEntityActivity(entity, editActivityType, activityGroup, activityCode);
+			editActivity = createEntityActivity(configuration, entity, editActivityType, activityGroup, activityCode);
 		}
 		return editActivity;
 	}
@@ -206,7 +211,7 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 				}
 				removeObject(viewActivity);
 			}
-			viewActivity = createEntityActivity(entity, viewActivityType, activityGroup, activityCode);
+			viewActivity = createEntityActivity(configuration, entity, viewActivityType, activityGroup, activityCode);
 		}
 		return viewActivity;
 	}
@@ -222,18 +227,54 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 	 * @return The created activity.
 	 * @throws ApplicationException If an exception is encountered.
 	 */
-	private Activity createEntityActivity(EntityData entity,
-			ActivityType activityType, ActivityGroup activityGroup,
+	private Activity createEntityActivity(BuilderConfiguration configuration,
+			EntityData entity, ActivityType activityType, ActivityGroup activityGroup,
 			String activityCode) throws ApplicationException
 	{
 		Activity activity = BuilderUtil.initActivity(activityCode, entity.getName(), 
 				entity.getDescription(), entity.getDisplayNm(), activityCode.toLowerCase(), "", StringUtil.NO_FG, 0);
-		activity.setActivityType(activityType);
-		activity.setEntityData(entity);
-		activity.setModule(entity.getModule());
-		getEntityManager().persist(activity);
-		createActivityGrouping(activityGroup, activity);
+		try {
+			activity.setUiComponent(
+					this.createComponentForActivity(configuration, activity));
+			activity.setEntityData(entity);
+			activity.setActivityType(activityType);
+			activity.setModule(entity.getModule());
+			getEntityManager().persist(activity);
+			// Create the activity grouping
+			createActivityGrouping(activityGroup, activity);
+		} catch (ApplicationException e) {
+			e.printStackTrace();
+			ExceptionUtil.processException(e, ErrorCodes.ENTITY_ACTIVITY_CREATION_ERROR_CD);
+		}
 		return activity;
+	}
+	
+	/**
+	 * @param configuration
+	 * @param activity
+	 * @return
+	 * @throws ApplicationException
+	 */
+	private UiComponent createComponentForActivity(
+			BuilderConfiguration configuration, Activity activity) throws ApplicationException
+	{
+		HashMap<String, String> attributesMap = new HashMap<String, String>();
+		try {
+			UiComponentType uiComponentType = 
+					uiComponentBuilderService.getComponentType(UiComponentBuilderService.ACTIVITY_COMPONENT_TYPE);
+			attributesMap.put("code", activity.getCode());
+			attributesMap.put("name", activity.getCode());
+			attributesMap.put("displayNm", activity.getDisplayNm());
+			attributesMap.put("description", activity.getDescription());
+			attributesMap.put("activityURL", activity.getActivityUrl());
+			//attributesMap.put("displayImg", activity.getDisplayImg());
+			return uiComponentBuilderService.createComponent(configuration, uiComponentType, null, attributesMap);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ExceptionUtil.processException(e, ErrorCodes.ENTITY_ACTIVITY_CREATION_ERROR_CD);
+			
+		}
+		return null;
 	}
 
 	/**
@@ -243,7 +284,7 @@ public class ActivityBuilderServiceImpl extends AbstractServiceImpl implements A
 	 * @param activity The activity.
 	 */
 	private void createActivityGrouping(ActivityGroup activityGroup,
-			Activity activity) {
+			Activity activity) throws ApplicationException {
 		// Create the activity grouping if it 
 		ActivityGrouping activityGrouping = 
 				BuilderUtil.initActivityGrouping(activityGroup, activity);

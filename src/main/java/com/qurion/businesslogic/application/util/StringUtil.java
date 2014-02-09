@@ -23,6 +23,8 @@ public class StringUtil {
 	public static final String UNDERSCORE = "_";
 	public static final String DECIMAL_SYMBOL = ".";
 	public static final String EXPONENTIAL_SYMBOL = "E";
+	public static final String OPEN_SQUARE_BRACKET_SYMBOL = "[";
+	public static final String CLOSE_SQUARE_BRACKET_SYMBOL = "]";
 	private static Logger logger = LoggerFactory.getLogger(StringUtil.class);
 	public static String EMAIL_REGEX = "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})";
 

@@ -49,11 +49,13 @@
 	    
 	    _clickHandler: function(event){
 	    	event.preventDefault();
-	    	var application = window.application;
-	    	if(application) {
-	    		var clickedLink = event.currentTarget;
-	    		application.fireEvent(application.uiConstants.uiFsm, 
-	    				application.uiConstants.loadActivityEvent, {activityURL:clickedLink});
+	    	if(window.application) {
+		    	var UiConstants = window.application.uiConstants;
+	    		var clickedLink = $(event.currentTarget).attr('href');
+	    		var activityQuery = {activityURL: clickedLink};
+	    		console.log('Clicked:' + clickedLink);
+	    		window.application.fireEvent(UiConstants.activityChannel, 
+	    				UiConstants.uiLoadActivityEvent, {activityQuery: activityQuery});
 	    	}
 	    },
 	    

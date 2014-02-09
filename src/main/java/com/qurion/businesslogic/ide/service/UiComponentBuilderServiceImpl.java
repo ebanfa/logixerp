@@ -113,8 +113,8 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			UiComponent parentComponent, Map<String, String> attributesMap) throws ApplicationException 
 	{
 		String componentName = attributesMap.get(NAME_ATTRIBUTE);
+		System.out.println(">>>>>>>>>>Creating component with attributesMap::" + attributesMap);
 		UiComponent component = componentEntityService.findByName(componentName);
-		System.out.println(">>>>>>>>>>attributesMap::" + attributesMap);
 		try {
 			if(component != null) 
 				this.deleteComponent(component);
@@ -133,6 +133,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			createUiComponentAttributes(component, attributesMap);
 			return component;
 		} catch (Exception e) {
+			e.printStackTrace();
 			ExceptionUtil.processException(e, ErrorCodes.BPS_ENTITY_CREATION_ERROR_CD);
 		}
 		return component;
@@ -159,6 +160,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 				attributes.add((UiComponentAttribute) save(attribute));
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			ExceptionUtil.processException(e, ErrorCodes.BPS_ENTITY_CREATION_ERROR_CD);
 		}
 		return attributes;
@@ -235,7 +237,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 	 * @return The component type.
 	 * @throws ApplicationException If an exception is encountered
 	 */
-	private UiComponentType getComponentType(String name) 
+	public UiComponentType getComponentType(String name) 
 			throws ApplicationException 
 	{
 		return (UiComponentType) EntityUtil.returnOrThrowIfNull(

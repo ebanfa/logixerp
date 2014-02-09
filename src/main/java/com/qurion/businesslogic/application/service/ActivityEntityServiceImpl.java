@@ -5,6 +5,7 @@ package com.qurion.businesslogic.application.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -225,5 +226,18 @@ public class ActivityEntityServiceImpl
             predicates.add(criteriaBuilder.equal(root.get("lastModifiedUsr"), lastModifiedUsr));
         }
         return predicates.toArray(new Predicate[]{});
+	}
+
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.application.service.ActivityEntityService#findByActivityURL()
+	 */
+	@Override
+	public Activity findByActivityURL(String activityURL) throws ApplicationException {
+		HashMap<String, String> criteria = new HashMap<String, String>();
+		criteria.put("activityUrl", activityURL);
+		List<Activity> activities = findByCriteria(criteria);
+		if(!activities.isEmpty())
+			return activities.get(0);
+		return null;
 	}
 }

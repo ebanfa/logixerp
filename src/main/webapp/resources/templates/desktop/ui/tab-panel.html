@@ -1,9 +1,13 @@
 <script type="text/javascript">
 $(document).ready(new function() 
 {
-	console.log('Loading PLUGIN>>>>>>>>>>>>>>>>>');
-
-	$('#tab-widget').tabs({data:[]});
+	$('#tab-widget').tabs({
+		activityQuery: {
+			//entityQuery: {'id':1, 'id_options':'='},
+			//processQuery: {'processId':1, 'processId_options':'='},
+			//activityURL: 'view_product_product',
+		}
+	});
 
 });	
 	
@@ -18,32 +22,12 @@ $(document).ready(new function()
     	 <!-- tab-container -->
         <div id="tab-container">
         	<ul id="tabs">
-			  <li>
-			    <a href="#java">Java</a>
-			  </li>
-			  <li>
-			  	<a href="#python">Python</a>
-			  </li>
+			  
 			</ul>
         </div>
     	 <!-- tab-content -->
         <div id="tab-content"> 
-	        <div id="java" class="tab-section">
-			    <h2>Here we place title</h2>
-			    <p>Here we place details </p>
-			    <h2>Here we place title</h2>
-			    <p>Here we place details </p>
-			    <h2>Here we place title</h2>
-			    <p>Here we place details </p>
-			    <h2>Here we place title</h2>
-			    <p>Here we place details </p>
-			    <h2>Here we place title</h2>
-			    <p>Here we place details </p>
-			</div>
-	        <div id="python" class="tab-section">
-			    <h2>Here we place PYTHON>>>>>>>>>>>>> title</h2>
-			    <p>Here we place details </p>
-			</div>
+	        
         </div>
     </div> <!-- /widget-content -->
 </div> <!-- /widget -->

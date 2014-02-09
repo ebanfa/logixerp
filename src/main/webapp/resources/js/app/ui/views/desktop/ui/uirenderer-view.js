@@ -4,6 +4,7 @@ define([
     'underscore',
     'backbone',
     'uiconstants',
+    'app/util/form-utilities',
     'app/events/event-handlers',
 	'text!../../../../../../templates/desktop/ui/link.html',
 	'text!../../../../../../templates/desktop/ui/list.html',
@@ -19,6 +20,9 @@ define([
 	'text!../../../../../../templates/desktop/ui/input-text.html',
 	'text!../../../../../../templates/desktop/ui/heading-one.html',
 	'text!../../../../../../templates/desktop/ui/search-field.html',
+	'text!../../../../../../templates/desktop/ui/view-activity.html',
+	'text!../../../../../../templates/desktop/ui/edit-activity.html',
+	'text!../../../../../../templates/desktop/ui/list-activity.html',
 	'text!../../../../../../templates/desktop/ui/submit-button.html',
 	'text!../../../../../../templates/desktop/ui/password-field.html',
 	'text!../../../../../../templates/desktop/ui/toolbar-widget.html',
@@ -28,6 +32,7 @@ define([
 		_, 
 		Backbone, 
 		UiConstants,
+		FormUtil,
 		EventHandlers,
 		LinkTemplate,
 		ListTemplate,
@@ -43,6 +48,9 @@ define([
 		InputTextTemplate,
 		HeaderOneTemplate, 
 		SearchFieldTemplate,
+		ViewActivityTemplate,
+		EditActivityTemplate,
+		ListActivityTemplate,
 		SubmitButtonTemplate,
 		PasswordFieldTemplate,
 		ToolBarWidgetTemplate,
@@ -56,7 +64,7 @@ define([
     	'span': SpanTemplate,
     	'image': ImageTemplate,	
     	'button': ButtonTemplate,
-    	'tab-panel':TabPanelTemplate,
+    	'activity-panel':TabPanelTemplate,
     	'sidebar': SideBarTemplate,
     	'list-item': ListItemTemplate,
     	'bold-span': BoldSpanTemplate,
@@ -68,6 +76,9 @@ define([
     	'search-field': SearchFieldTemplate,
     	'password-field': PasswordFieldTemplate,
     	'submit-button': SubmitButtonTemplate,
+    	'view-activity': ViewActivityTemplate,
+    	'edit-activity': EditActivityTemplate,
+    	'list-activity': ListActivityTemplate,
 	 };
 	
     /**
@@ -82,6 +93,7 @@ define([
         {
         	this.pageView = options.pageView;
         	this.uiComponentData = options.uiComponentData;
+        	this.application = this.pageView.application;
         },
 
         /**
@@ -119,6 +131,40 @@ define([
         	// Process all the events of the component
         	//this.configUiEvents(uiComponentDataElement, uiComponentData);
         	return uiComponentDataElement;
+        },
+        
+        renderActivity: function(activityResponseData)
+        { 
+	    	console.log('Executing uirenderer function renderActivityRequestHandler');
+    		var uiComponentData = activityResponseData.uiComponentData;
+    		var activityData = activityResponseData.activityData;
+    		var activityTyData = activityData.dataValues.activityType;
+    		var activityTy = activityTyData.code;
+    		var activityTemplate = null;
+    		if(activityTy === "VIEW_ACTIVITY")	activityTemplate = templates['view-activity'];
+    		if(activityTy === "EDIT_ACTIVITY")	activityTemplate = templates['edit-activity'];
+    		if(activityTy === "LIST_ACTIVITY")	activityTemplate = templates['list-activity'];
+    		
+    		var form = FormUtil.formBuilder(activityResponseData);
+    		// Process the template	
+        	var uiComponentDataElement = 
+        		$(this.renderTemplate(activityTemplate, {activityResponseData: activityResponseData, form: form}));
+        	// Sort child components into order dictated by sequence no
+        	uiComponentData.components.sort(this.sortComponents);
+        	// Process all child nodes
+        	for(var i = 0; i < uiComponentData.components.length; i++) {
+        		// Process event handlers
+        		if(uiComponentData.components[i].type === "event-handler") {
+        			this.addEventToUiComponent(uiComponentDataElement, uiComponentData.components[i]);
+        		}
+        		else {
+            		uiComponentDataElement.append(
+            				this.renderUiComponent(uiComponentData.components[i]));
+        		}
+        	}
+        	this.application.fireEvent(
+        			UiConstants.activityChannel, UiConstants.uiActivityRenderedEvent, 
+        			{activityData:activityData, activityElement: uiComponentDataElement});
         },
         
         addEventToUiComponent: function(uiComponentDataDomElement, uiComponentData) {

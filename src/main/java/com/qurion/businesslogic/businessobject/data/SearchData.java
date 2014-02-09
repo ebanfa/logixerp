@@ -83,4 +83,13 @@ public class SearchData {
 				+ searchFields + "]";
 	}
 
+	/**
+	 * @return
+	 */
+	public boolean isEmpty() {
+		if(this.searchFields.isEmpty())
+			return true;
+		return false;
+	}
+
 }

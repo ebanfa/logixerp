@@ -38,6 +38,7 @@ import com.qurion.businesslogic.businessobject.util.BusinessObjectUtil;
 public class ActivityServiceImpl implements ActivityService {
 	
 	@Inject EntityDataEntityService entityService;
+	@Inject ActivityEntityService activityEntityService;
 	@Inject ModuleEntityService applicationModuleService;
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -137,8 +138,7 @@ public class ActivityServiceImpl implements ActivityService {
 	@Override
 	public Activity findByActivityURL(String activityURL)
 			throws ApplicationException {
-		//return activityService.findByActivityURL(activityURL);
-		return null;
+		return activityEntityService.findByActivityURL(activityURL);
 	}
 
 	/* (non-Javadoc)
@@ -173,6 +173,36 @@ public class ActivityServiceImpl implements ActivityService {
 		List<BusinessObjectData> activitiesBusinessObject = new ArrayList<BusinessObjectData> ();
 		
 		return activitiesBusinessObject;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.application.service.ActivityService#isListActivity(com.qurion.businesslogic.application.model.Activity)
+	 */
+	@Override
+	public boolean isListActivity(Activity activity) {
+		if(activity.getActivityType().getCode().equals(ActivityEntityService.LIST_ACTIVITY))
+			return true;
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.application.service.ActivityService#isViewActivity(com.qurion.businesslogic.application.model.Activity)
+	 */
+	@Override
+	public boolean isViewActivity(Activity activity) {
+		if(activity.getActivityType().getCode().equals(ActivityEntityService.VIEW_ACTIVITY))
+			return true;
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.application.service.ActivityService#isEditActivity(com.qurion.businesslogic.application.model.Activity)
+	 */
+	@Override
+	public boolean isEditActivity(Activity activity) {
+		if(activity.getActivityType().getCode().equals(ActivityEntityService.EDIT_ACTIVITY))
+			return true;
+		return false;
 	}
 
 }

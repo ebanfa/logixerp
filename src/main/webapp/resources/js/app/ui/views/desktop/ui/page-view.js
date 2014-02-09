@@ -19,64 +19,14 @@ define([
         			UiConstants.uiFsm, 
         			UiConstants.uiRenderedEvent,
         			this.uiRenderedEventHandler(this));
-        	
-        	//subscribe to render activity request events
+
         	this.application.subscribeToEvent(
-        			UiConstants.uiFsm, 
-        			UiConstants.loadActivityEvent,
-        			this.renderActivityEventHandler(this));
+        			UiConstants.activityChannel, 
+        			UiConstants.uiRenderActivityRequestEvent, 
+        			this.renderActivityRequestHandler(this));
         	
         	this.uiComponentCode = options.uiComponentCode;
         	this.renderView(options);
-        },
-        
-        /**
-         * 
-         */
-        handleLoginEvent: function(self) {
-			 // if authenticated
-			 return function(data) 
-			 {
-				
-			 };
-        },
-
-        /**
-         * 
-         */
-        uiRenderedEventHandler: function(self) {
-			 // if authenticated
-        	var application = self.application;
-        	return function(data) 
-        	{
-        		if(data.uiComponentData.name == 'loading-container'){
-        			_.delay(function(msg) { 
-            			application.fireEvent(UiConstants.uiFsm, UiConstants.uiSuccessEvent);
-        				console.log(msg); 
-        			}, 3000, 'Hello');
-        		}
-        	};
-        	
-        },
-        
-        /**
-         * 
-         */
-        renderActivityEventHandler: function(self) {
-			 // if authenticated
-        	//var application = self.application;
-        	return function(data) 
-        	{
-        		console.log('Page view rendering activity:' + data.activityURL);
-        	};
-        	
-        },
-        
-        /**
-         * 
-         */
-        handleApplicationUnavailable: function(data){
-        	
         },
         
         /**
@@ -117,17 +67,9 @@ define([
         	console.log('Loading component:loadComponentDataSuccessCallBack: ');
         	return function(data, textStatus) {
             	console.log('Loading component:loadComponentDataSuccessCallBack1: ' + data);
-				self.renderUiComponent(data);
+            	if(data.uiComponentData)
+            		self.renderUiComponent(data.uiComponentData);
 			};
-        },
-
-        /**
-         * Render a component
-         */
-        renderUiComponent: function(uiComponentData) {
-        	var uiRendererView = new UiRendererView({el: $(this.el), pageView: this, uiComponentData: uiComponentData});
-        	uiRendererView.render();
-        	this.application.fireEvent(UiConstants.uiFsm, UiConstants.uiRenderedEvent, {uiComponentData:uiComponentData});
         },
 
         /**
@@ -139,10 +81,66 @@ define([
 				console.log("Error::::" + textStatus);
 			};
         },
+
+        /**
+         * Render a component
+         */
+        renderUiComponent: function(uiComponentData) {
+        	this.uiRendererView = new UiRendererView({el: $(this.el), pageView: this, uiComponentData: uiComponentData});
+        	this.uiRendererView.render();
+        	this.application.fireEvent(UiConstants.uiFsm, UiConstants.uiRenderedEvent, {uiComponentData:uiComponentData});
+        },
         
         notifyUser: function(message){
         	alert(message);
-        }
+        },
+
+        /**
+         * 
+         */
+        handleLoginEvent: function(self) {
+			 // if authenticated
+			 return function(data) 
+			 {
+				
+			 };
+        },
+
+        /**
+         * 
+         */
+        uiRenderedEventHandler: function(self) {
+			 // if authenticated
+        	var application = self.application;
+        	return function(data) 
+        	{
+        		if(data.uiComponentData.name == 'loading-container'){
+        			_.delay(function(msg) { 
+            			application.fireEvent(UiConstants.uiFsm, UiConstants.uiSuccessEvent);
+        				console.log(msg); 
+        			}, 3000, 'Hello');
+        		}
+        	};
+        },
+        
+        /**
+         * 
+         */
+        renderActivityRequestHandler: function(self)
+        { 
+        	return function(data)
+            {
+    	    	console.log('Executing pageview function renderActivityRequestHandler @@@@@@@@@@@@@@@');
+        		self.uiRendererView.renderActivity(data.activityResponseData);
+            };
+        },
+        
+        /**
+         * 
+         */
+        handleApplicationUnavailable: function(data){
+        	
+        },
     });
 
     return PageView;

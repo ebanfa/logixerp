@@ -34,4 +34,10 @@ public interface ActivityService {
 	
 	public List<BusinessObjectData> getUserActivities(String userName) throws ApplicationException;
 
+	public boolean isListActivity(Activity activity);
+
+	public boolean isViewActivity(Activity activity);
+
+	public boolean isEditActivity(Activity activity);
+
 }

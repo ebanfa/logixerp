@@ -34,6 +34,8 @@ public class EntityUtil {
 	public static final String USR_WRONG_TARGET_FIELD_TYPE = "BaseDataLoader.USR_WRONG_TARGET_FIELD_TYPE";
 	public static final String BASE_PACKAGE_NM = "com.qurion.businesslogic";
 	public static final String RELATIONSHIP_FIELD_CODE = "RELATIONSHIP";
+	public static final String PROCESS_BO_NM = "BusinessProcess";
+	public static final String ACTIVITY_BO_NM = "Activity";
 	
 	/**
 	 * @param object

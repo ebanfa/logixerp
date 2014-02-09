@@ -4,12 +4,13 @@
 package com.qurion.businesslogic.application.rest;
 
 
+
 /**
  * @author Edward Banfa 
  *
  */
 public class ResponseData {
-	
+		
 	private Boolean errors;
 	private String errorMessage;
 	

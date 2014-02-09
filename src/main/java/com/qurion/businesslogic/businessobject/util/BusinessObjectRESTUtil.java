@@ -37,7 +37,7 @@ public class BusinessObjectRESTUtil {
 	public static SearchData mapToBusinessObjectSearchInfo(MultivaluedMap<String, String> queryParameters) 
 			throws ApplicationException 
 	{
-		logger.debug("Processing search map : {}", queryParameters);
+		logger.debug("Building search data from query parameters : {}", queryParameters);
 		SearchData searchData = extractDefaultParameters(queryParameters);
 		// Each search field is mapped by its name
 		Map<String, SearchFieldData> searchFields = new HashMap<String, SearchFieldData>();

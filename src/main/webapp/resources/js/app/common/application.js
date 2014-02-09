@@ -8,17 +8,20 @@ define("application", [
   'postal',
   'router',
   'uiconstants',
+  'app/util/ajax-utilities',
   'app/common/machines/login-state-machine',
   'app/common/machines/uiscreen-state-machine',
   'app/common/machines/application-state-machine',
   'app/common/machines/connectivity-state-machine',
 ],function ($, config, _, Postal, Router, UiConstants,
-  LoginFsm, UiFsm, ApplicationFsm, ConnectivityFsm) {
+  AjaxUtil, LoginFsm, UiFsm, ApplicationFsm, ConnectivityFsm) {
 	
 	
     var Application = function (options) {
     	return {
 
+    		ajaxUtil: AjaxUtil,
+    		
     		channels:[],
 		 
     		stateMachines: [],
@@ -36,6 +39,8 @@ define("application", [
 				 this.stateMachines[UiConstants.loginFsm].application = this;
 				 this.stateMachines[UiConstants.applicationFsm].application = this;
 				 this.stateMachines[UiConstants.connectivityFsm].application = this;
+				 
+				 this.channels[UiConstants.activityChannel] = Postal.channel(UiConstants.activityChannel);
 
 				 this.subscribeToEvent(
 						 UiConstants.applicationFsm,
@@ -80,7 +85,6 @@ define("application", [
 			 handleSetup: function() {
 				// Create a router instance
 			    this.router = new Router();
-			    console.log('Application set up complete');
 			 },
 	    	/**
 	    	 * Handler function executed when processing
@@ -90,7 +94,6 @@ define("application", [
 			 handleStart: function(){
 				//Begin routing
 			    Backbone.history.start();
-			    console.log('Application started');
 			 },
 	    	/**
 	    	 * Handler function for the die event.
@@ -99,7 +102,6 @@ define("application", [
 			 handleDie: function(){
 				//Begin routing
 			    Backbone.history.start();
-			    console.log('Application started');
 			 },
 	    	/**
 	    	 * Handler function for the reboot event.
@@ -108,7 +110,6 @@ define("application", [
 			 handleReboot: function() {
 				//Begin routing
 			    Backbone.history.start();
-			    console.log('Application started');
 			 },
 			
 			/**
@@ -117,7 +118,7 @@ define("application", [
 			 fireEvent: function(channelName, eventName, data) 
 			 {
 				 if(this.channels[channelName]){
-					 console.log('Firing event: ' + eventName + ' on channel: ' + channelName + ' on channel object: ' + JSON.stringify(this.channels[channelName], null, 4));
+					 console.log('Firing event: ' + eventName + ' on channel: ' + channelName);
 					 this.channels[channelName].publish(eventName, data);
 				 }
 			 },
@@ -126,8 +127,9 @@ define("application", [
 		     */
 			 subscribeToEvent: function(channelName, eventName, handler) 
 			 {
+				 console.log('Subscribing to event: ' + eventName + ' on channel: ' + channelName);
 				 if(this.channels[channelName])
-					 this.channels[channelName].subscribe(eventName, handler);
+					 this.channels[channelName].subscribe(eventName, handler).distinct();
 			 },
 			/**
 			 * 
@@ -145,7 +147,6 @@ define("application", [
 				 
 				 this.stateMachines[UiConstants.connectivityFsm] = new ConnectivityFsm();
 				 this.channels[UiConstants.connectivityFsm] = Postal.channel(UiConstants.connectivityFsm);
-				 
 			 },
 		 };
 	 };

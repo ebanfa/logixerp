@@ -18,7 +18,6 @@ import com.qurion.businesslogic.application.model.UiComponent;
 import com.qurion.businesslogic.application.model.UiComponentAttribute;
 import com.qurion.businesslogic.application.service.UiComponentEntityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
-import com.qurion.businesslogic.ide.service.UiComponentBuilderService;
 
 /**
  * @author Edward Banfa
@@ -35,22 +34,22 @@ public class UiComponentRESTService extends AbstractRESTService {
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseData getUiComponent(@QueryParam("componentName") String componentName) {
     	logger.debug("Loading component from request {}", componentName);
-		UiComponentData uiComponentData = new UiComponentData();
+		UiResponse uiResponse = new UiResponse();
     	try {
 			UiComponent uiComponent = componentEntityService.findByName(componentName);
 			if(uiComponent != null)
-				uiComponentData = loadUiComponent(uiComponent);
+				uiResponse.setUiComponentData(loadUiComponent(uiComponent));
 		} catch (ApplicationException e) {
-			this.processRESTException(e, uiComponentData);
+			this.processRESTException(e, uiResponse);
 		}
-    	return uiComponentData;
+    	return uiResponse;
     }
 
 	/**
 	 * @param uiComponentData
 	 * @param uiComponent
 	 */
-	private UiComponentData loadUiComponent(UiComponent uiComponent) {
+	public UiComponentData loadUiComponent(UiComponent uiComponent) {
 
 		UiComponentData uiComponentData = new UiComponentData();
 		uiComponentData.setName(uiComponent.getName());

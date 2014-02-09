@@ -51,7 +51,7 @@ define([
     this.mode = null;
     this.fields = [];
     this.businessObject = null;
-    this.activity = null;
+    this.activityResponseData = null;
     this.fieldBlocks = [];
     this.relatedEntities = null;
   };
@@ -137,6 +137,7 @@ define([
   $.fn.populateFieldBlocks = function(form)
   {
     var currentFieldBlock = new FieldBlock();
+	console.log('processing form fileds!!!!!::' + form.fields.length);
     // Sort fields
     form.fields.sort(sortFields);
     for (var index=0; index<form.fields.length; index++) 
@@ -185,34 +186,27 @@ define([
      return form;
   },
 
- /*
+ /**
   * Function to build an activity's form.
   */
-  $.fn.formBuilder = function(activity)
+  $.fn.formBuilder = function(activityResponseData)
   {
     var form = new Form();
     // validate the activity
-    if(activity)
+    if(activityResponseData)
     {
     	// Short cut to the activities attributes
-    	form.activity = activity.attributes;
-        // get and validate the businessObject data
-    	var businessObjectData = form.activity.businessObjectData;
-    	if(businessObjectData)
-    	{
-    		form.businessObjectName = businessObjectData.businessObjectName;
-    		// Loop through all the fields defined in the data values object
-    		// create an array consisting of these fields and set that are the 
-    		// the array of form fields.
-    		var fields = [];
-    		var dataValuesObject = businessObjectData.dataValues;
-    		for(key in dataValuesObject) {
-    			if(dataValuesObject.hasOwnProperty(key)) {
-    				fields.push(dataValuesObject[key]);
-    			}
-    		}
-    		form.fields = fields;
-    	}
+    	form.activityResponseData = activityResponseData;
+		form.businessObjectName = activityResponseData.businessObjectName;
+		// Loop through all the fields defined in the data values object
+		// create an array consisting of these fields and set that are the 
+		// the array of form fields.
+		var fields = [];
+		var dataValuesObject = activityResponseData.dataFields;
+		for(var i = 0; i < dataValuesObject.length; i++) {
+				fields.push(dataValuesObject[i]);
+		}
+		form.fields = fields;
     	$.fn.populateFieldBlocks(form);
     }
     return form;
