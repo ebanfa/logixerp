@@ -72,9 +72,11 @@ define("initializer", ['jquery', 'jquery-ui'],
     $('head').append('<link rel="stylesheet" href="resources/css/notifier-theme-plastic.css"/>');
     $('head').append('<link rel="stylesheet" href="resources/css/jquery.jqplot.min.css" />');
 
+    $('head').append('<script type="text/javascript" src="resources/js/libs/bootstrap.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/sidebar.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/toolbar.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/tab-panel.js"></script>');
+    $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/list-activity.js"></script>');
     
     $('head').append('<script type="text/javascript" src="resources/js/libs/base.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/libs/area.js"></script>');

@@ -175,6 +175,7 @@ public class ActivityRESTService extends AbstractRESTService {
 			else
 				businessObjectResponse.setDataList(results);
 			businessObjectResponse.setDataFields(entityFields);
+			businessObjectResponse.setBusinessObjectName(entityData.getName());
 			
 		}
 	}

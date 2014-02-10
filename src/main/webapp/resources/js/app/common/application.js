@@ -9,18 +9,21 @@ define("application", [
   'router',
   'uiconstants',
   'app/util/ajax-utilities',
+  'app/util/form-utilities',
   'app/common/machines/login-state-machine',
   'app/common/machines/uiscreen-state-machine',
   'app/common/machines/application-state-machine',
   'app/common/machines/connectivity-state-machine',
 ],function ($, config, _, Postal, Router, UiConstants,
-  AjaxUtil, LoginFsm, UiFsm, ApplicationFsm, ConnectivityFsm) {
+  AjaxUtil, FormUtil, LoginFsm, UiFsm, ApplicationFsm, ConnectivityFsm) {
 	
 	
     var Application = function (options) {
     	return {
 
     		ajaxUtil: AjaxUtil,
+    		
+    		formUtil: FormUtil,
     		
     		channels:[],
 		 

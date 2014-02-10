@@ -20,6 +20,7 @@ define([
 	'text!../../../../../../templates/desktop/ui/input-text.html',
 	'text!../../../../../../templates/desktop/ui/heading-one.html',
 	'text!../../../../../../templates/desktop/ui/search-field.html',
+	'text!../../../../../../templates/desktop/ui/search-dialog.html',
 	'text!../../../../../../templates/desktop/ui/view-activity.html',
 	'text!../../../../../../templates/desktop/ui/edit-activity.html',
 	'text!../../../../../../templates/desktop/ui/list-activity.html',
@@ -49,6 +50,7 @@ define([
 		InputTextTemplate,
 		HeaderOneTemplate, 
 		SearchFieldTemplate,
+		SearchDialogTemplate,
 		ViewActivityTemplate,
 		EditActivityTemplate,
 		ListActivityTemplate,
@@ -76,6 +78,7 @@ define([
     	'heading-one': HeaderOneTemplate,
     	'toolbar': ToolBarWidgetTemplate,
     	'search-field': SearchFieldTemplate,
+    	'search-dialog': SearchDialogTemplate,
     	'password-field': PasswordFieldTemplate,
     	'submit-button': SubmitButtonTemplate,
     	'view-activity': ViewActivityTemplate,
@@ -88,6 +91,8 @@ define([
      * Responsible for rendering components.
      */
     var UiRendererView = Backbone.View.extend({
+    	
+    	templates: templates,
 
         /**
          * Constructor
@@ -172,7 +177,6 @@ define([
         		activityResponseData.dataList = 
         			this.filterOutNonListActivities(activityResponseData.dataList);
 
-        	console.log('DDDD:' + activityResponseData.dataList.length);
         	// Fire
         	this.application.fireEvent(
         			UiConstants.activityChannel, UiConstants.uiActivityRenderedEvent, 
@@ -219,7 +223,7 @@ define([
     		// Render the template
             return _.template(template, (data == undefined) ? {} : data);
         },
-
+        
         filterOutNonListActivities: function(activities){
         	
         	if(!String.prototype.startsWith){
@@ -230,7 +234,6 @@ define([
         	var listActivities = [];
         	for(var i = 0; i < activities.length; i++) {
         		if(activities[i].dataValues.activityUrl.fieldValue.startsWith('list_')){
-        			console.log('Starts with list_::::' + activities[i].dataValues.activityUrl.fieldValue);
         			listActivities.push(activities[i]);
         		}
         	}

@@ -82,9 +82,8 @@
 	padding-bottom: 20px;
 }
 #list-table-container {
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-bottom: 20px;
+	clear: both;
+	margin: 10px;
 	overflow:scroll; 
 }
 tab-container{

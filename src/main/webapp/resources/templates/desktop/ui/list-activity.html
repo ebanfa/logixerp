@@ -1,1 +1,22 @@
-<h3>Helllo</h3>
+<script type="text/javascript">
+$(document).ready(new function() 
+{
+	$('#list-activity-container').listactivity({businessObjectName: '<%= activityResponseData.businessObjectName %>'});
+
+});	
+</script>
+
+<!-- Content -->
+<div id="list-activity-container">
+	<div>
+	    <div class="pull-right" style="padding-right:10px;">
+	    	<a id="delete-list-item-btn" class="list-item-btn btn btn-danger" href="">Delete</a>
+	    	<a id="show-search-view-btn" class="non-list-item-btn btn btn-primary" href="">Search</a>
+	    	<a id="show-create-view-btn" class="non-list-item-btn btn btn-primary" href="">Create</a>
+		</div>
+	</div> 
+	    
+	<div id="list-table-container" class="list-table-container">
+	    <div id="list-table"></div>
+	</div>
+</div>

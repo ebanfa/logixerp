@@ -110,17 +110,16 @@ public class BusinessObjectSearchRESTService extends AbstractRESTService {
     @GET
     @Path("/searchFields")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<BusinessObjectResponse> getEntitySearchFields(@QueryParam("entityName") String entityName)
+    public BusinessObjectResponse getEntitySearchFields(@QueryParam("entityName") String entityName)
     {
-    	List<BusinessObjectResponse> fieldResponses = new ArrayList<BusinessObjectResponse>();
-    	/*try {
-    		//List<EntityField> fields = applicationEntityFieldService.getEntitySearchFields(entityName);
-    		//for(EntityField field: fields)
-    			//fieldResponses.add(applicationEntityFieldService.convertModelToResponse(field));
+    	BusinessObjectResponse businessObjectResponse = new BusinessObjectResponse();
+    	try {
+    		businessObjectResponse.setDataFields(activityService.getEntitySearchFields(entityName));
+    		businessObjectResponse.setBusinessObjectName(entityName);
 		} catch (ApplicationException e) {
 			e.printStackTrace();
-		}*/
-    	return fieldResponses;
+		}
+    	return businessObjectResponse;
     }
 
 }

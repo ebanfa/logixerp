@@ -25,6 +25,11 @@ define([
         			UiConstants.uiRenderActivityRequestEvent, 
         			this.renderActivityRequestHandler(this));
         	
+        	this.application.subscribeToEvent(
+        			UiConstants.activityChannel, 
+        			UiConstants.uiRenderTemplateRequestEvent, 
+        			this.renderTemplateRequestHandler(this));
+        	
         	this.uiComponentCode = options.uiComponentCode;
         	this.renderView(options);
         },
@@ -53,7 +58,6 @@ define([
          */
         loadUiComponentData: function(uiComponentCode) 
         {
-        	console.log('Loading component:loadUiComponentData: ' + uiComponentCode);
         	AjaxUtil.ajaxGET(UiConstants.uiServiceURL, {componentName: uiComponentCode}, 
         			this.loadComponentDataSuccessCallBack(this), this.loadComponentDataFailCallBack(this));
         },
@@ -130,8 +134,23 @@ define([
         { 
         	return function(data)
             {
-    	    	console.log('Executing pageview function renderActivityRequestHandler @@@@@@@@@@@@@@@');
         		self.uiRendererView.renderActivity(data.activityResponseData);
+            };
+        },
+        
+        /**
+         * 
+         */
+        renderTemplateRequestHandler: function(self)
+        { 
+        	return function(data)
+            {
+    	    	//console.log('Executing pageview function renderTemplateRequestHandler @@@@@@@@@@@@@@@::'+ JSON.stringify(data,null,4));
+    	    	var template =  self.uiRendererView.templates[data.template];
+        		var renderedTemplate = self.uiRendererView.renderActivityTemplate(template, data);
+            	// Notify listeners that the template has been rendered
+            	self.application.fireEvent(UiConstants.activityChannel, 
+            			UiConstants.uiTemplateRenderedEvent, {renderedTemplate: renderedTemplate});
             };
         },
         

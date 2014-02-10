@@ -52,8 +52,10 @@ define([],function () {
 		/**Non state machine events */
 		activityChannel : 'activityChannel',
     	uiLoadActivityEvent: 'activity.loadActivityRequest',
+    	uiTemplateRenderedEvent: 'activity.renderTemplateResponse',
 		uiActivityRenderedEvent: 'activity.renderActivityResponse',
 		uiRenderActivityRequestEvent: 'activity.renderActivityRequest',
+		uiRenderTemplateRequestEvent: 'activity.renderTemplateRequest',
     	
     	/** State machine input events */
     	uiFailEvent: 'ui.fail',

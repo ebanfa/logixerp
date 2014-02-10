@@ -1,7 +1,7 @@
 <script type="text/javascript">
 $(document).ready(new function() 
 {
-	$('.shortcut').click(function(event){
+	$('body').on('click', 'a.shortcut', function(event){
 		event.preventDefault();
     	if(window.application) 
         {

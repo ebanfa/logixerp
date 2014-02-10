@@ -6,7 +6,7 @@
 			<panel name="navbar" description="" class="navbar navbar-fixed-top" seq="1">
 	            <panel name="navbar-inner" description="" class="navbar-inner" seq="1">
 	                <panel name="navbar-content" description="" class="container" seq="1">
-	                    <link name="navbar-home-link" description="Qrion Transaction Manager" class="brand" href="http://wbpreview.com/previews/WB00U99JJ/" seq="1">
+	                    <link name="navbar-home-link" description="LogixERP" class="brand" href="http://wbpreview.com/previews/WB00U99JJ/" seq="1">
 	                    </link>        
 	                    <panel name="nav-collapse-panel" description="" class="nav-collapse" seq="2">
 	                        <list name="navbar-menu" description="" class="nav pull-right" seq="1">

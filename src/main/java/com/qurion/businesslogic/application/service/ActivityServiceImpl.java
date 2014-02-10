@@ -98,6 +98,9 @@ public class ActivityServiceImpl implements ActivityService {
 		return this.getEntityListFields(entityName);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.application.service.ActivityService#getEntitySearchFields(java.lang.String)
+	 */
 	public List<BusinessObjectFieldData> getEntitySearchFields(String entityName)
 			throws ApplicationException 
 	{
@@ -128,7 +131,7 @@ public class ActivityServiceImpl implements ActivityService {
 				fieldDataList.add(fieldData);
 			}
 		}
-		logger.debug("Loaded {} fields for entity {}", fieldDataList.size(), entityName);
+		logger.debug("Loaded {} search fields for entity {}", fieldDataList.size(), entityName);
 		return fieldDataList;
 	}
 
