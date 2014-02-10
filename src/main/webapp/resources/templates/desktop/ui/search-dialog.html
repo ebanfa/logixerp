@@ -6,11 +6,11 @@
     <div class="scrollable-main-content">
         <div id="search-form-div">
             <form id="search-form">
-                        <!--  <legend><%= form.name %></legend>
+                        <!--  <legend><%= data.name %></legend>
                         Loop over field blocks in form -->
                         
                         <br>
-                        <% _.each(form.fieldBlocks, function (fieldBlock) { %>
+                        <% _.each(data.fieldBlocks, function (fieldBlock) { %>
                         <div class="row-fluid fieldblock">
                         <!-- Loop over fields in field block -->
                         <% _.each(fieldBlock.fields, function (field) { %>
@@ -167,7 +167,7 @@
                         </div> 
                         <% }); %>   <!-- End field block for each --> 
                         <div class="form-actions">
-							<a id="do-related-entity-search-btn" href="#" class="search-btn btn btn-primary">Search</a>
+							<a id="do-entity-search-btn" href="#" class="search-btn btn btn-primary">Search</a>
 						</div>
                         
                         <div class="span12">

@@ -16,6 +16,7 @@ define([
 	'text!../../../../../../templates/desktop/ui/side-bar.html',
 	'text!../../../../../../templates/desktop/ui/list-item.html',
 	'text!../../../../../../templates/desktop/ui/bold-span.html',
+	'text!../../../../../../templates/desktop/ui/list-table.html',
 	'text!../../../../../../templates/desktop/ui/paragraph.html',
 	'text!../../../../../../templates/desktop/ui/input-text.html',
 	'text!../../../../../../templates/desktop/ui/heading-one.html',
@@ -46,6 +47,7 @@ define([
 		SideBarTemplate,
 		ListItemTemplate,
 		BoldSpanTemplate,
+		ListTableTemplate,
 		ParagraphTemplate,
 		InputTextTemplate,
 		HeaderOneTemplate, 
@@ -74,6 +76,7 @@ define([
     	'bold-span': BoldSpanTemplate,
     	'paragraph': ParagraphTemplate,
     	'text-field': InputTextTemplate,
+    	'list-table': ListTableTemplate,
     	'panel': LoginFormPanelTemplate,
     	'heading-one': HeaderOneTemplate,
     	'toolbar': ToolBarWidgetTemplate,
@@ -224,13 +227,8 @@ define([
             return _.template(template, (data == undefined) ? {} : data);
         },
         
-        filterOutNonListActivities: function(activities){
-        	
-        	if(!String.prototype.startsWith){
-        	    String.prototype.startsWith = function (str) {
-        	        return !this.indexOf(str);
-        	    };
-        	}
+        filterOutNonListActivities: function(activities)
+        {
         	var listActivities = [];
         	for(var i = 0; i < activities.length; i++) {
         		if(activities[i].dataValues.activityUrl.fieldValue.startsWith('list_')){

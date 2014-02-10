@@ -1,0 +1,83 @@
+	<table class="table table-bordered table-striped table-highlight">
+            
+           <thead>
+               <tr>   
+               <th><input class="select-all-list-items" type="checkbox"></th>
+               
+               
+           <%
+           _.each(data.dataFields, function (field) {
+           %>  
+               <% if  (field.fieldName == "id") { %> 
+               <% } else if  (field.fieldName == "lastModifiedDt") { %>
+               <% } else if  (field.fieldName == "lastModifiedUsr") { %>
+               <% } else if  (field.fieldName == "createdDt") { %>
+               <% } else { %> 
+                   <th>
+                       <div class="hideextra" style="width:150px"><%=field.fieldName%></div>
+                   </th>  
+               <% }  %>
+
+           <% }); %>                           
+               </tr>
+           </thead> 
+   
+           <tbody>
+        <% _.each(data.dataList, function (dataRow) {%>     
+        <tr>
+               <td class="description">
+               	<input class="list-item" type="checkbox" value="">
+               </td>  
+               
+            <%
+            _.each(data.dataFields, function (field) {
+            %>  
+        
+	             <% _.each(dataRow.dataValues, function (dataValue) { %> 
+	             
+	             		 <% if  (dataValue.fieldName == field.fieldName) { %>    
+	             		 
+			               	<% if  (dataValue.fieldDataType == "RELATIONSHIP") { %>                      
+				                    <td class="td-actions">
+				                        <div class="hideextra" style="width:150px">
+				                            <a  class="cell-link" href="<%=dataRow.id%>">
+				                                <%= dataValue.fieldText ? dataValue.fieldText : 'No Value' %>
+				                            </a>
+				                        </div>
+				                    </td>  
+				            <% } else { %> 
+				                        <!-- Filter fields --> 
+				                        <% if  (dataValue.fieldName == "id") { %> 
+				                        <% } else if  (dataValue.fieldName == "lastModifiedDt") { %>
+				                        <% } else if  (dataValue.fieldName == "lastModifiedUsr") { %>
+				                        <% } else if  (dataValue.fieldName == "createdDt") { %> 
+				                        <% } else if  (dataValue.fieldName == "code") { %> 
+					                    <td class="td-actions">
+					                        <div class="hideextra code-field-cell" style="width:150px">
+					                            <a class="code-cell cell-link" href="<%=dataRow.id%>">
+					                                <%= dataValue.fieldValue ? dataValue.fieldValue : 'No Value' %>
+					                            </a>
+					                        </div>
+					                    </td>   
+				                        <% } else { %> 
+					                    <td class="td-actions">
+					                        <div class="hideextra" style="width:150px">
+					                            <a class="cell-link" href="<%=dataRow.id%>">
+					                                <%= dataValue.fieldValue ? dataValue.fieldValue : 'No Value' %>
+					                            </a>
+					                        </div>
+					                    </td>   
+					                  <% }  %>   <!-- End if --> 
+				           <% }  %>     
+				        <% }  %>     
+              	 <% }); %> 
+           	<% }); %>      
+           </tr>  
+        <% }); %>                      
+       	</tbody>
+   	</table>
+   	
+    <div class="form-actions">
+        <a id="add-item-btn" href="#" class="search-result-btn btn btn-primary">Add</a>
+        <a id="add-next-item-btn" href="#" class="search-result-btn btn btn-primary">Add Next</a>
+	</div>

@@ -25,7 +25,7 @@
 		    	var UiConstants = window.application.uiConstants;
 		    	// Register to listen for activity rendered events
 	    		application.subscribeToEvent(UiConstants.activityChannel, 
-	    				UiConstants.uiActivityRenderedEvent, this._activityRenderedHandler(this));
+	    				UiConstants.uiActivityRenderedEvent, this._activityRenderedEventHandler(this));
 	    		// Register to listen for load activity events
 	    		application.subscribeToEvent(UiConstants.activityChannel, 
 	    				UiConstants.uiLoadActivityEvent, this._loadActivityHandler(this));
@@ -120,18 +120,23 @@
 	     * when a activity rendered event has been
 	     * fire on the message bus
 	     */
-	    _activityRenderedHandler: function(self)
+	    _activityRenderedEventHandler: function(self)
 	    {
 	    	return function(data)
 	    	{
-	    		if(self.activitiesRendered.length == 0)
-    	    		self._addActivityTab(data);
-	    		else
-	    		{
-	    			var activityURL = data.activityData.dataValues.activityUrl;
-	    			if($.inArray(activityURL, self.activitiesRendered) === -1 | (activityURL === 'module_navigator'))
-	    	    		self._addActivityTab(data);
-	    		}
+    			var activityURL = data.activityData.dataValues.activityUrl;
+    			// navigator and list activities are opened in a new tab
+    			if(activityURL.startsWith('list') | (activityURL === 'module_navigator')) 
+    			{
+    	    		if(self.activitiesRendered.length == 0)
+        	    		self._addActivityTab(data);
+    	    		else  {
+    	    			if($.inArray(activityURL, self.activitiesRendered) === -1 | (activityURL === 'module_navigator'))
+    	    	    		self._addActivityTab(data);
+    	    		}
+    			}
+    			else 
+    				self.currentTabData.tabContent.empty().append(data.activityElement);
 		    		
 	    	};
 	    },

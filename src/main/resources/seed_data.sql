@@ -12,6 +12,10 @@ INSERT INTO MODULE values (9, 'SHIPMENT', 'Shipment', 'Shipment', 9, 'Shipments'
 INSERT INTO MODULE values (10, 'ACCOUNTING', 'Accounting', 'Accounting', 10, 'Accounting', 'icon-bar-chart', 'Y', '2012-04-04', 'A', 1, '2012-04-04', '2012-04-04', 'Admin', '2012-04-04', 'Admin' );
 INSERT INTO MODULE values (11, 'HR', 'Human Resource', 'Human Resource', 11, 'HR', 'icon-bar-chart', 'Y', '2012-04-04', 'A', 1, '2012-04-04', '2012-04-04', 'Admin', '2012-04-04', 'Admin' );
 
+
+INSERT INTO PARTY_TYPE (CODE, NAME, DESCRIPTION, EFFECTIVE_DT, REC_ST , VERSION_NO, ROW_TS, CREATED_DT, CREATED_BY_USR, LAST_MODIFIED_DT, LAST_MODIFIED_USR
+) values ('ENTITY_GROUP', 'Entity Group', 'Entity Group', '2012-04-04', 'A', 1, '2012-04-04', '2012-04-04', 'Admin', '2012-04-04', 'Admin' );
+
 /* -------------------------------------------------------------------- Activity Group Types -------------------------------------------------------------------------------------------- */
 
 INSERT INTO ACTIVITY_GROUP_TYPE (CODE, NAME, DESCRIPTION, EFFECTIVE_DT, REC_ST , VERSION_NO, ROW_TS, CREATED_DT, CREATED_BY_USR, LAST_MODIFIED_DT, LAST_MODIFIED_USR

@@ -145,12 +145,11 @@ define([
         { 
         	return function(data)
             {
-    	    	//console.log('Executing pageview function renderTemplateRequestHandler @@@@@@@@@@@@@@@::'+ JSON.stringify(data,null,4));
     	    	var template =  self.uiRendererView.templates[data.template];
         		var renderedTemplate = self.uiRendererView.renderActivityTemplate(template, data);
             	// Notify listeners that the template has been rendered
             	self.application.fireEvent(UiConstants.activityChannel, 
-            			UiConstants.uiTemplateRenderedEvent, {renderedTemplate: renderedTemplate});
+            			UiConstants.uiTemplateRenderedEvent, {templatName:data.template, renderedTemplate: renderedTemplate});
             };
         },
         

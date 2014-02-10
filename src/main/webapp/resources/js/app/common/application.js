@@ -61,6 +61,12 @@ define("application", [
 				 this.fireEvent(
 						 UiConstants.uiFsm, 
 						 UiConstants.uiRenderEvent);
+				 
+				 if(!String.prototype.startsWith){
+		        	    String.prototype.startsWith = function (str) {
+		        	        return !this.indexOf(str);
+		        	    };
+		        	}
 			 },
 			 
 			 handleLoginEvent: function(self) {

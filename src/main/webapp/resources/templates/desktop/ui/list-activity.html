@@ -1,7 +1,10 @@
 <script type="text/javascript">
 $(document).ready(new function() 
 {
-	$('#list-activity-container').listactivity({businessObjectName: '<%= activityResponseData.businessObjectName %>'});
+	$('#list-activity-container').listactivity({
+		businessObjectName: '<%= activityResponseData.businessObjectName %>',
+		activityURL: '<%= activityResponseData.activityData.dataValues.activityUrl%>'
+	});
 
 });	
 </script>
