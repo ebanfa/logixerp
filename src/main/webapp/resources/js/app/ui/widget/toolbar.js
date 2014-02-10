@@ -106,7 +106,6 @@
 	    	if(window.application) {
 		    	var UiConstants = window.application.uiConstants;
 	    		var clickedLink = $(event.currentTarget).attr('href');
-	    		console.log('The code is:'+ event.data.moduleCode);
 	    		var activityQuery = {
 	    				activityURL: 'module_navigator',
 	    				entityQuery: {
@@ -114,7 +113,6 @@
 	    					module_options: '='
 	    				}
 	    		};
-	    		console.log('Clicked:' + clickedLink);
 	    		window.application.fireEvent(UiConstants.activityChannel, 
 	    				UiConstants.uiLoadActivityEvent, {activityQuery: activityQuery});
 	    	}

@@ -222,7 +222,6 @@ public class ActivityRESTService extends AbstractRESTService {
 				entityQueryParameters.add(paramNm, queryParameters.getFirst(parameterKey));
 			}
     	}
-    	logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>{}", entityQueryParameters);
     	// Hook to insert the business object name into the query map
 		if(!entityQueryParameters.containsKey(BusinessObjectRESTUtil.ENTITY_NAME))
 			entityQueryParameters.putSingle(BusinessObjectRESTUtil.ENTITY_NAME, businessObjectName);

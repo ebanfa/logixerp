@@ -171,6 +171,8 @@ define([
         	if(activityTy === "NAV_ACTIVITY")
         		activityResponseData.dataList = 
         			this.filterOutNonListActivities(activityResponseData.dataList);
+
+        	console.log('DDDD:' + activityResponseData.dataList.length);
         	// Fire
         	this.application.fireEvent(
         			UiConstants.activityChannel, UiConstants.uiActivityRenderedEvent, 
@@ -219,11 +221,20 @@ define([
         },
 
         filterOutNonListActivities: function(activities){
+        	
+        	if(!String.prototype.startsWith){
+        	    String.prototype.startsWith = function (str) {
+        	        return !this.indexOf(str);
+        	    };
+        	}
         	var listActivities = [];
         	for(var i = 0; i < activities.length; i++) {
-        		if(activities[i].dataValues.activityUrl.startsWith('list_'))
+        		if(activities[i].dataValues.activityUrl.fieldValue.startsWith('list_')){
+        			console.log('Starts with list_::::' + activities[i].dataValues.activityUrl.fieldValue);
         			listActivities.push(activities[i]);
+        		}
         	}
+        	console.log(listActivities.length);
         	return listActivities;
         },
         /**

@@ -50,7 +50,6 @@
 	     */
 	    _build: function() 
 	    {
-	    	console.log('Building tabs plugin');
 	    	if(!window.application)	return;
 	    	this._loadActivity();
 	    },
@@ -97,7 +96,6 @@
 	     * rendered
 	     */
 	    _fireRenderActivityRequest: function(data) {
-	    	console.log('Executing tab widget fucntion _fireRenderActivityRequest$$$$$$$$$$');
 	    	var application = window.application;
 	    	var UiConstants = application.uiConstants;
 	    	application.fireEvent(UiConstants.activityChannel, 
@@ -131,7 +129,7 @@
 	    		else
 	    		{
 	    			var activityURL = data.activityData.dataValues.activityUrl;
-	    			if($.inArray(activityURL, self.activitiesRendered) === -1)
+	    			if($.inArray(activityURL, self.activitiesRendered) === -1 | (activityURL === 'module_navigator'))
 	    	    		self._addActivityTab(data);
 	    		}
 		    		
@@ -143,7 +141,7 @@
 	     */
 	    _addActivityTab: function(data)
 	    {
-	    	$('.tab_section').hide();
+	    	$('.tab-section').hide();
 	    	this.currentTabData.activityURL = data.activityData.dataValues.activityUrl;
     		this.currentTabData.tab = this._buildTab(data.activityData);
     		this.currentTabData.tabContent = this._buildTabContent(data);
@@ -154,7 +152,7 @@
 	    {
 	    	var tab = $('<li>');
     		var tabLink = $('<a>');
-    		tabLink.attr('href', '#' + activityData.dataValues.activityUrl);
+    		tabLink.attr('href', '#' + this.activitiesRendered.length);
     		tabLink.text(activityData.dataValues.displayNm);
     		this._bindTabEvent(tabLink);
     		tab.append(tabLink);
@@ -164,7 +162,7 @@
 	    _buildTabContent: function(data)
 	    {
 	    	var contentContainer = $('<div>');
-	    	contentContainer.attr('id', data.activityData.dataValues.activityUrl);
+	    	contentContainer.attr('id', this.activitiesRendered.length);
 	    	contentContainer.addClass('tab-section');
 	    	$('#tab-content').append(contentContainer.append(data.activityElement));
 	    	return contentContainer;
@@ -176,7 +174,6 @@
     		tabLink.click(function(e)
     		{
     			if(self.currentTabData.tabContent !== undefined) {
-        			console.log('Current tab is:' + self.currentTabData.activityURL);
     				self.currentTabData.tabContent.css('display', 'none');
     			}
 	            $('#tabs a.current').removeClass('current');
