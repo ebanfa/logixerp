@@ -197,16 +197,21 @@ define([
     {
     	// Short cut to the activities attributes
     	form.activityResponseData = activityResponseData;
-		form.businessObjectName = activityResponseData.businessObjectName;
-		// Loop through all the fields defined in the data values object
-		// create an array consisting of these fields and set that are the 
-		// the array of form fields.
-		var fields = [];
-		var dataValuesObject = activityResponseData.dataFields;
-		for(var i = 0; i < dataValuesObject.length; i++) {
-				fields.push(dataValuesObject[i]);
-		}
-		form.fields = fields;
+		form.businessObjectName = activityResponseData.businessObjectName;		
+		if(activityResponseData.data)
+    	{
+    		// Loop through all the fields defined in the data values object
+    		// create an array consisting of these fields and set that are the 
+    		// the array of form fields.
+    		var fields = [];
+    		var dataValuesObject = activityResponseData.data.dataValues;
+    		for(key in dataValuesObject) {
+    			if(dataValuesObject.hasOwnProperty(key)) {
+    				fields.push(dataValuesObject[key]);
+    			}
+    		}
+    		form.fields = fields;
+    	}
     	$.fn.populateFieldBlocks(form);
     }
     return form;

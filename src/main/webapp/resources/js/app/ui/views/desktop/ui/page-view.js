@@ -145,8 +145,12 @@ define([
         { 
         	return function(data)
             {
+	    		console.log('Rendering template:' + data.template);
     	    	var template =  self.uiRendererView.templates[data.template];
+	    		console.log('Pre Rendered template data:' + JSON.stringify(data, null, 4));
+	    		console.log('Pre Rendered template contents:' + template);
         		var renderedTemplate = self.uiRendererView.renderActivityTemplate(template, data);
+	    		console.log('Rendered template contents:' + renderedTemplate);
             	// Notify listeners that the template has been rendered
             	self.application.fireEvent(UiConstants.activityChannel, 
             			UiConstants.uiTemplateRenderedEvent, {templatName:data.template, renderedTemplate: renderedTemplate});

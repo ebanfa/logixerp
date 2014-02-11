@@ -76,6 +76,8 @@ define("initializer", ['jquery', 'jquery-ui'],
     $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/sidebar.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/toolbar.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/tab-panel.js"></script>');
+    $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/edit-activity.js"></script>');
+    $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/view-activity.js"></script>');
     $('head').append('<script type="text/javascript" src="resources/js/app/ui/widget/list-activity.js"></script>');
     
     $('head').append('<script type="text/javascript" src="resources/js/libs/base.js"></script>');

@@ -184,7 +184,7 @@
 					$('#search-form').on('focus', '.search-field', $.proxy(self._handleSearchFieldFocus, self));
 					$('#search-form').on('click', '#do-entity-search-btn', self._doBusinessObjectSearch(self));
 				}
-        		else {
+        		if('list-table' === data.templatName){
         			var businessObjectListTable = $('.tab-section:visible').find('#list-table');
         			businessObjectListTable.empty().append(data.renderedTemplate);
 					$('.tab-section:visible').on('click', '.cell-link', self._loadBusinessObjectViewActivity(self));
@@ -214,7 +214,6 @@
 		    					id_options: '='
 		    				}
 		    		};
-		    		console.log('Loading view activity:' + JSON.stringify(activityQuery, null, 4));
 		    		window.application.fireEvent(UiConstants.activityChannel, 
 		    				UiConstants.uiLoadActivityEvent, {activityQuery: activityQuery});
 		    	}
