@@ -17,15 +17,8 @@
 	     */
 	    _create: function () {
 	    	console.log('Creating edit activity plugin:::');
-
-			if(window.application) {
-		    	var UiConstants = window.application.uiConstants;
-		    	window.application.subscribeToEvent(
-	        			UiConstants.activityChannel, 
-	        			UiConstants.uiTemplateRenderedEvent, 
-	        			this._templateRenderedHanlder(this));
-			}
-	    	
+	    	$('.tab-section:visible').on(
+	    			'click', '#edit-save-btn', this._saveBusinessObject(this));
 	    },
 
 	    /**
@@ -44,7 +37,8 @@
         /**
          * Called when a template rendered event is fired
          */
-        _templateRenderedHanlder: function(self) {
+	    _saveBusinessObject: function(self) 
+	    {
         	return function(data) {
         		
         	};

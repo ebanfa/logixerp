@@ -3,11 +3,15 @@
  */
 package com.qurion.businesslogic.application.rest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
@@ -24,12 +28,15 @@ import com.qurion.businesslogic.application.service.ActivityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
 import com.qurion.businesslogic.application.util.EntityUtil;
 import com.qurion.businesslogic.application.util.ErrorCodes;
+import com.qurion.businesslogic.application.util.ExceptionUtil;
 import com.qurion.businesslogic.application.util.MultivaluedHashMap;
 import com.qurion.businesslogic.application.util.StringUtil;
 import com.qurion.businesslogic.businessobject.data.BusinessObjectData;
 import com.qurion.businesslogic.businessobject.data.BusinessObjectDataImpl;
 import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldData;
+import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldDataImpl;
 import com.qurion.businesslogic.businessobject.data.SearchData;
+import com.qurion.businesslogic.businessobject.service.BusinessObjectCreationService;
 import com.qurion.businesslogic.businessobject.service.BusinessObjectSearchService;
 import com.qurion.businesslogic.businessobject.util.BusinessObjectRESTUtil;
 import com.qurion.businesslogic.businessobject.util.BusinessObjectUtil;
@@ -46,6 +53,7 @@ public class ActivityRESTService extends AbstractRESTService {
 	@Inject ActivityService activityService;
 	@Inject UiComponentRESTService componentRESTService;
 	@Inject BusinessObjectSearchService businessObjectSearchService;
+	@Inject BusinessObjectCreationService businessObjectCreationService;
 	public static final String ACTIVITY_BO_NM = "Activity";
 	public static final String ACTIVITY_URL_PARAM_NM = "activityQuery[activityURL]";
 	public static final String ENTITY_QUERY_PARAM_NM = "activityQuery[entityQuery]";
@@ -86,6 +94,21 @@ public class ActivityRESTService extends AbstractRESTService {
 		return activityResponse;
     
     }
+    
+    /**
+     * @param businessObjectData
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+	public void createBusinessObject(BusinessObjectDataImpl businessObjectData)
+	{
+    	try {
+    		this.dataValuesToFieldData(businessObjectData);
+			businessObjectCreationService.create(businessObjectData);
+		} catch (ApplicationException e) {
+			ExceptionUtil.logException(e);
+		}
+	}
 
 	private void loadProcessBusinessObject(
 			MultivaluedMap<String, String> queryParameters,
@@ -228,4 +251,58 @@ public class ActivityRESTService extends AbstractRESTService {
 			entityQueryParameters.putSingle(BusinessObjectRESTUtil.ENTITY_NAME, businessObjectName);
     	return entityQueryParameters;
 	}
+	
+	/**
+     * Converts all the data fields from a map of field attributes
+     * into a map of {@code BusinessObjectFieldData}.
+     * 
+     * @param businessObjectData the business object data we are converting its
+     * data values
+     * @return the business object data with its data values converted
+     * @throws ApplicationException If an exception occured
+     */
+    private BusinessObjectData dataValuesToFieldData(BusinessObjectData businessObjectData) throws ApplicationException {
+    	Map<String, Object> dataValues = businessObjectData.getDataValues();
+    	Map<String, Object> fieldDataValues = new HashMap<String, Object>();
+    	for(String fieldName : dataValues.keySet()){
+    		BusinessObjectFieldData fieldData = new BusinessObjectFieldDataImpl();
+    		Map<String, Object> fieldInfo = (Map<String, Object>) dataValues.get(fieldName);
+    		for(String fieldAttribute : fieldInfo.keySet())
+    		{
+				if(fieldInfo.get(fieldAttribute) != null) 
+				{
+	    			if(fieldAttribute.equals("fieldName"))
+	    				fieldData.setFieldName(
+	    						fieldInfo.get(fieldAttribute).toString());
+	    			if(fieldAttribute.equals("required"))
+	    				fieldData.setRequired(
+	    						Boolean.parseBoolean(fieldInfo.get(fieldAttribute).toString()));
+	    			if(fieldAttribute.equals("fieldValue"))
+	    				fieldData.setFieldValue(fieldInfo.get(fieldAttribute));
+	    			if(fieldAttribute.equals("fieldText"))
+	    				fieldData.setFieldText(fieldInfo.get(fieldAttribute));
+	    			if(fieldAttribute.equals("fieldDataType"))
+	    				fieldData.setFieldDataType(
+	    						fieldInfo.get(fieldAttribute).toString());
+	    			if(fieldAttribute.equals("fieldSequence")){
+							try {
+								fieldData.setFieldSequence(
+										Integer.valueOf(fieldInfo.get(fieldAttribute).toString()));
+							} catch (NumberFormatException e) {
+								e.printStackTrace();
+							}
+	    			}
+	    			if(fieldAttribute.equals("fieldDescription"))
+	    				fieldData.setFieldDescription(
+	    						fieldInfo.get(fieldAttribute).toString());
+	    			if(fieldAttribute.equals("relatedBusinessObjectName"))
+	    				fieldData.setRelatedBusinessObjectName(
+	    						fieldInfo.get(fieldAttribute).toString());
+				}
+    		}
+    		fieldDataValues.put(fieldName, fieldData);
+    	}
+    	businessObjectData.setDataValues(fieldDataValues);
+    	return businessObjectData;
+    }
 }
