@@ -25,7 +25,7 @@ requirejs.config({
         application:'app/common/application',
     },
 
-    waitSeconds: 0,
+    waitSeconds: 45,
     
     // We shim the following since they don't declare an AMD module
     shim: {
