@@ -110,6 +110,7 @@
 	    {
 	    	return function(data)
 	    	{
+	    		console.log('Loading activity:' + JSON.stringify(data, null, 4));
 		    	self._setOption('activityQuery', data.activityQuery);
 		    	self._loadActivity();
 	    	};

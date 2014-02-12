@@ -68,9 +68,7 @@ define([
          */
         loadComponentDataSuccessCallBack: function(self) {
         	this.authenticated = true;
-        	console.log('Loading component:loadComponentDataSuccessCallBack: ');
         	return function(data, textStatus) {
-            	console.log('Loading component:loadComponentDataSuccessCallBack1: ' + data);
             	if(data.uiComponentData)
             		self.renderUiComponent(data.uiComponentData);
 			};
@@ -122,7 +120,7 @@ define([
         			_.delay(function(msg) { 
             			application.fireEvent(UiConstants.uiFsm, UiConstants.uiSuccessEvent);
         				console.log(msg); 
-        			}, 3000, 'Hello');
+        			}, 3000, 'Done loading');
         		}
         	};
         },
@@ -145,12 +143,8 @@ define([
         { 
         	return function(data)
             {
-	    		console.log('Rendering template:' + data.template);
     	    	var template =  self.uiRendererView.templates[data.template];
-	    		console.log('Pre Rendered template data:' + JSON.stringify(data, null, 4));
-	    		console.log('Pre Rendered template contents:' + template);
         		var renderedTemplate = self.uiRendererView.renderActivityTemplate(template, data);
-	    		console.log('Rendered template contents:' + renderedTemplate);
             	// Notify listeners that the template has been rendered
             	self.application.fireEvent(UiConstants.activityChannel, 
             			UiConstants.uiTemplateRenderedEvent, {templatName:data.template, renderedTemplate: renderedTemplate});

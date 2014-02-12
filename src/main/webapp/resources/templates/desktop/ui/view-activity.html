@@ -3,7 +3,6 @@ $(document).ready(new function()
 {
 	console.log('Creating view plugin')
 	$('#view-activity-container').viewactivity({
-		businessObjectId: '<%= activityResponseData.data.id %>',
 		businessObjectName: '<%= activityResponseData.businessObjectName %>',
 		activityURL: '<%= activityResponseData.activityData.dataValues.activityUrl%>'
 	});
@@ -98,7 +97,7 @@ $(document).ready(new function()
                                 <select name="<%=field.fieldData.fieldName%>" id="<%=field.fieldData.fieldName%>" class="<%= field.fieldCSSClassName %>">
                                     <option value=""><%= field.fieldData.fieldText ? field.fieldData.fieldText : '' %></option>
                                 </select>
-                                <a class="lookup_field" href="<%= field.fieldData.fieldName %>">Change</a>
+                                <a class="lookup-field" href="<%= field.fieldData.fieldName %>">Change</a>
                             </div>
                             <% } %>
                         <% }); %> <!-- End row for each -->  

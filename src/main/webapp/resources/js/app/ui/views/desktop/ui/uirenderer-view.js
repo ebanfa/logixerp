@@ -220,13 +220,27 @@ define([
         },
         
         /**
-         * Render a template.
+         * Render an activity template.
          */
-        renderActivityTemplate:function (template, data) {
+        renderActivityTemplate:function (template, data) 
+        {
+        	// Convert the business object into a string
+        	// so we can use it in the template
+        	// this is for the edit and view business object
+        	// activities
+        	if(data.activityResponseData !== undefined)
+        	{
+        		var businessObjectData = data.activityResponseData.data;
+        		if(businessObjectData !== undefined)
+        			data.businessObjectDataAsString = JSON.stringify(businessObjectData);
+        	}
     		// Render the template
             return _.template(template, (data == undefined) ? {} : data);
         },
-        
+
+        /**
+         * Render a template.
+         */
         filterOutNonListActivities: function(activities)
         {
         	var listActivities = [];
@@ -235,7 +249,6 @@ define([
         			listActivities.push(activities[i]);
         		}
         	}
-        	console.log(listActivities.length);
         	return listActivities;
         },
         /**

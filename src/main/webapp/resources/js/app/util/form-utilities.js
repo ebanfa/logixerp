@@ -200,18 +200,31 @@ define([
 		form.businessObjectName = activityResponseData.businessObjectName;		
 		if(activityResponseData.data)
     	{
-    		// Loop through all the fields defined in the data values object
+			if(activityResponseData.data.dataValues) {
+	    		// Loop through all the data fields defined in the data values object
+	    		// create an array consisting of these fields and set that are the 
+	    		// the array of form fields.
+	    		var fields = [];
+	    		var dataValuesObject = activityResponseData.data.dataValues;
+	    		for(key in dataValuesObject) {
+	    			if(dataValuesObject.hasOwnProperty(key)) {
+	    				fields.push(dataValuesObject[key]);
+	    			}
+	    		}
+	    		form.fields = fields;
+			}
+    	}
+		else {
+			// Loop through all the data fields defined in the data fields object
     		// create an array consisting of these fields and set that are the 
     		// the array of form fields.
     		var fields = [];
-    		var dataValuesObject = activityResponseData.data.dataValues;
-    		for(key in dataValuesObject) {
-    			if(dataValuesObject.hasOwnProperty(key)) {
-    				fields.push(dataValuesObject[key]);
-    			}
+    		var dataFieldsObject = activityResponseData.dataFields;
+    		for(var i = 0; i < dataFieldsObject.length; i++) {
+    				fields.push(dataFieldsObject[i]);
     		}
     		form.fields = fields;
-    	}
+		}
     	$.fn.populateFieldBlocks(form);
     }
     return form;

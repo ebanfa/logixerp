@@ -74,7 +74,7 @@
 	     * 
 	     */
 	    _bindCreateButtonEvent: function(event){
-	    	$('#show-create-view-btn').click($.proxy(this._createButtonClickHandler, this));
+	    	$('#show-create-view-btn').click(this._loadBusinessObjectCreateActivity(this));
 	    },
 	    
 	    /**
@@ -212,6 +212,30 @@
 		    				entityQuery: {
 		    					id: linkClicked,
 		    					id_options: '='
+		    				}
+		    		};
+		    		window.application.fireEvent(UiConstants.activityChannel, 
+		    				UiConstants.uiLoadActivityEvent, {activityQuery: activityQuery});
+		    	}
+        	};
+        },
+        /**
+         * Invoked when a entity is clicked on the business
+         * object list table
+         */
+        _loadBusinessObjectCreateActivity: function(self)
+        {
+        	return function (event)
+        	{
+	            event.preventDefault();
+		    	if(window.application) {
+		    		console.log('Loading create view....');
+			    	var UiConstants = window.application.uiConstants;
+			    	var viewActivityURL = self.options.activityURL;
+			    	viewActivityURL = viewActivityURL.replace(/list_/gi, "view_");
+		    		var activityQuery = {
+		    				activityURL: viewActivityURL,
+		    				entityQuery: {
 		    				}
 		    		};
 		    		window.application.fireEvent(UiConstants.activityChannel, 

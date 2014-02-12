@@ -10,20 +10,20 @@
       this in META-INF/persistence.xml -->
    <datasource jndi-name="java:jboss/datasources/businessLogicDS"
       pool-name="{artifactId}" enabled="true"
-      use-java-context="true"><!-- 
+      use-java-context="true">
       <connection-url>jdbc:mysql://localhost:3306/businesslogic</connection-url> 
            <driver>com.mysql</driver>
       <security>
            <user-name>root</user-name>
            <password>netfilter</password>
-      </security> -->
+      </security>
       
-      <connection-url>jdbc:mysql://127.5.24.2:3306/businesslogic</connection-url>
+     <!--  <connection-url>jdbc:mysql://127.5.24.2:3306/businesslogic</connection-url>
       <driver>mysql</driver> 
       <security>
           <user-name>adminUVbundh</user-name>
           <password>jcC9RwJRac38</password>
-      </security>
+      </security> -->
       
    </datasource>
 </datasources>

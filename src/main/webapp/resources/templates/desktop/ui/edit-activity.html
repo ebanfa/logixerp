@@ -1,10 +1,8 @@
 <script type="text/javascript">
 $(document).ready(new function() 
 {
-	console.log('Creating edit plugin')
-	$('#edit-activity-container').viewactivity({
-		businessObjectId: '<%= activityResponseData.data.id %>',
-		businessObjectName: '<%= activityResponseData.businessObjectName %>',
+	$('#edit-activity-container').editactivity({
+		businessObjectData: <%= businessObjectDataAsString %>,
 		activityURL: '<%= activityResponseData.activityData.dataValues.activityUrl%>'
 	});
 
@@ -12,7 +10,7 @@ $(document).ready(new function()
 </script>
 <div id="edit-activity-container">
 	<div class="container-fluid form-container">
-            <form id="entity-view-form">
+            <form id="edit-businessobject-form">
 			    <fieldset>
 			    	<!--  <legend></legend>
                         Loop over field blocks in form -->
@@ -98,14 +96,14 @@ $(document).ready(new function()
                                 <select name="<%=field.fieldData.fieldName%>" id="<%=field.fieldData.fieldName%>" class="<%= field.fieldCSSClassName %>">
                                     <option value=""><%= field.fieldData.fieldText ? field.fieldData.fieldText : '' %></option>
                                 </select>
-                                <a class="lookup_field" href="<%= field.fieldData.fieldName %>">Change</a>
+                                <a class="lookup-field" href="<%= field.fieldData.fieldName %>">Change</a>
                             </div>
                             <% } %>
                         <% }); %> <!-- End row for each -->  
                         </div> 
                         <% }); %>   <!-- End field block for each -->
 					<div class="form-actions">
-						<a id="edit-save-btn" class="btn btn-primary">Save</a>
+						<button type="submit" name="editSaveBtn" id="edit-save-btn" class="btn btn-primary">Save</button>
 						<a id="edit-done-btn" class="btn" href="#">Done</a>
 					</div>
 

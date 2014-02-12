@@ -19,6 +19,10 @@
 	    	console.log('Creating view activity plugin:::');
 	    	$('.tab-section:visible').on(
 	    			'click', '#view-edit-btn', this._loadBusinessObjectEditActivity(this));
+	    	$('.tab-section:visible').on(
+	    			'click', '#view-done-btn', this._loadBusinessObjectListActivity(this));
+	    	$('.tab-section:visible').on(
+	    			'click', '.lookup-field', this._loadRelatedBusinessObjectSearchDialog(this));
 	    },
 
 	    /**
@@ -45,7 +49,6 @@
         		event.preventDefault();
 		    	if(window.application) {
 			    	var UiConstants = window.application.uiConstants;
-			    	console.log('Loading edit activity:::');
 			    	var editActivityURL = self.options.activityURL;
 			    	editActivityURL = editActivityURL.replace(/view_/gi, "edit_");
 		    		var activityQuery = {
@@ -55,10 +58,43 @@
 		    					id_options: '='
 		    				}
 		    		};
-			    	console.log('Loading edit activity with query:::' + JSON.stringify(activityQuery, null, 4));
 		    		window.application.fireEvent(UiConstants.activityChannel, 
 		    				UiConstants.uiLoadActivityEvent, {activityQuery: activityQuery});
 		    	}
+        	};
+        },
+        
+        /**
+         * Called when the save button on the 
+         * business object edit form is clicked
+         */
+        _loadBusinessObjectListActivity: function(self)
+        {
+        	return function (event)
+        	{
+		    	if(window.application) {
+			    	var UiConstants = window.application.uiConstants;
+			    	var editActivityURL = self.options.activityURL;
+			    	editActivityURL = editActivityURL.replace(/view_/gi, "list_");
+		    		var activityQuery = {
+		    				activityURL: editActivityURL,
+		    				entityQuery: {
+		    					id: self.options.businessObjectId,
+		    					id_options: '='
+		    				}
+		    		};
+		    		window.application.fireEvent(UiConstants.activityChannel, 
+		    				UiConstants.uiLoadActivityEvent, {activityQuery: activityQuery});
+		    	}
+        		event.preventDefault();
+        	};
+        },
+
+        _loadRelatedBusinessObjectSearchDialog: function(self)
+        {
+        	return function (event)
+        	{
+        		event.preventDefault();
         	};
         },
         

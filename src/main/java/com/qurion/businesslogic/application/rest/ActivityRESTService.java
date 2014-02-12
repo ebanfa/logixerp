@@ -188,15 +188,18 @@ public class ActivityRESTService extends AbstractRESTService {
 			
 			logger.debug("Loaded {} fields for entity {}", 
 					entityFields.size(), entitySearchData.getBusinessObjectName());
-			// Do the search
-			List<BusinessObjectData> results = businessObjectSearchService.find(entitySearchData, entityFields);
-			logger.debug("Loaded {} results for entity search ", results.size());
-			if(activityService.isEditActivity(activity) | activityService.isViewActivity(activity)){
-				if(!results.isEmpty())
-					businessObjectResponse.setData(results.get(0));
+			// Only perfom the search if we have a valid query.
+			// Select all queries are not supported here
+			if(!entitySearchData.isEmpty()){
+				List<BusinessObjectData> results = businessObjectSearchService.find(entitySearchData, entityFields);
+				logger.debug("Loaded {} results for entity search ", results.size());
+				if(activityService.isEditActivity(activity) | activityService.isViewActivity(activity)){
+					if(!results.isEmpty())
+						businessObjectResponse.setData(results.get(0));
+				}
+				else
+					businessObjectResponse.setDataList(results);
 			}
-			else
-				businessObjectResponse.setDataList(results);
 			businessObjectResponse.setDataFields(entityFields);
 			businessObjectResponse.setBusinessObjectName(entityData.getName());
 			
