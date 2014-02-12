@@ -164,46 +164,45 @@ public class ActivityRESTService extends AbstractRESTService {
 			ActivityResponse businessObjectResponse, Activity activity,	EntityData entityData) throws ApplicationException 
 			{
 		logger.debug("Loading entity bsuiness object {}, {}", entityData.getName(),queryParameters);
+		MultivaluedHashMap<String, String> businessObjectQueryMap = 
+				this.extractBusinessObjectQuery(entityData.getName(), ENTITY_QUERY_PARAM_NM, queryParameters);
+		// Only execute the search if we have valid search fields
+		if(businessObjectQueryMap.isEmpty())
+			return;
 		// Load entity search data
 		SearchData entitySearchData =
-				BusinessObjectRESTUtil.mapToBusinessObjectSearchInfo(
-						this.extractBusinessObjectQuery(entityData.getName(), ENTITY_QUERY_PARAM_NM, queryParameters));
-		// Only execute the search if we have valid search fields
-		if(true)
-		{
-			List<BusinessObjectFieldData> entityFields = null;
-			// Load the list of fields we want returned in the search results
-			if(activityService.isListActivity(activity))
-				entityFields = 
-					activityService.getEntityListFields(entitySearchData.getBusinessObjectName());
-			if(activityService.isEditActivity(activity))
-				entityFields = 
-					activityService.getEntityEditFields(entitySearchData.getBusinessObjectName());
-			if(activityService.isViewActivity(activity))
-				entityFields = 
-					activityService.getEntityViewFields(entitySearchData.getBusinessObjectName());
-			else
-				entityFields = 
-					activityService.getEntityListFields(entitySearchData.getBusinessObjectName());
-			
-			logger.debug("Loaded {} fields for entity {}", 
-					entityFields.size(), entitySearchData.getBusinessObjectName());
-			// Only perfom the search if we have a valid query.
-			// Select all queries are not supported here
-			if(!entitySearchData.isEmpty()){
-				List<BusinessObjectData> results = businessObjectSearchService.find(entitySearchData, entityFields);
-				logger.debug("Loaded {} results for entity search ", results.size());
-				if(activityService.isEditActivity(activity) | activityService.isViewActivity(activity)){
-					if(!results.isEmpty())
-						businessObjectResponse.setData(results.get(0));
-				}
-				else
-					businessObjectResponse.setDataList(results);
+				BusinessObjectRESTUtil.mapToBusinessObjectSearchInfo(businessObjectQueryMap);
+		List<BusinessObjectFieldData> entityFields = null;
+		// Load the list of fields we want returned in the search results
+		if(activityService.isListActivity(activity))
+			entityFields = 
+				activityService.getEntityListFields(entitySearchData.getBusinessObjectName());
+		if(activityService.isEditActivity(activity))
+			entityFields = 
+				activityService.getEntityEditFields(entitySearchData.getBusinessObjectName());
+		if(activityService.isViewActivity(activity))
+			entityFields = 
+				activityService.getEntityViewFields(entitySearchData.getBusinessObjectName());
+		else
+			entityFields = 
+				activityService.getEntityListFields(entitySearchData.getBusinessObjectName());
+		
+		logger.debug("Loaded {} fields for entity {}", 
+				entityFields.size(), entitySearchData.getBusinessObjectName());
+		// Only perform the search if we have a valid query.
+		// Select all queries are not supported here
+		if(!entitySearchData.isEmpty()){
+			List<BusinessObjectData> results = businessObjectSearchService.find(entitySearchData, entityFields);
+			logger.debug("Loaded {} results for entity search ", results.size());
+			if(activityService.isEditActivity(activity) | activityService.isViewActivity(activity)){
+				if(!results.isEmpty())
+					businessObjectResponse.setData(results.get(0));
 			}
-			businessObjectResponse.setDataFields(entityFields);
-			businessObjectResponse.setBusinessObjectName(entityData.getName());
-			
+			else
+				businessObjectResponse.setDataList(results);
 		}
+		businessObjectResponse.setDataFields(entityFields);
+		businessObjectResponse.setBusinessObjectName(entityData.getName());
 	}
 
 	/**
@@ -246,7 +245,10 @@ public class ActivityRESTService extends AbstractRESTService {
 						.replace(StringUtil.OPEN_SQUARE_BRACKET_SYMBOL, StringUtil.EMPTY_STRING)
 						.replace(StringUtil.CLOSE_SQUARE_BRACKET_SYMBOL, StringUtil.EMPTY_STRING);
 				// Add the value and extracted parameter name to hash map
-				entityQueryParameters.add(paramNm, queryParameters.getFirst(parameterKey));
+				// only if the value is a valid string.
+				String paramValue = queryParameters.getFirst(parameterKey);
+				if(StringUtil.isValidString(paramValue))
+					entityQueryParameters.add(paramNm, paramValue);
 			}
     	}
     	// Hook to insert the business object name into the query map

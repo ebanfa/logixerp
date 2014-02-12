@@ -110,7 +110,6 @@
 	    {
 	    	return function(data)
 	    	{
-	    		console.log('Loading activity:' + JSON.stringify(data, null, 4));
 		    	self._setOption('activityQuery', data.activityQuery);
 		    	self._loadActivity();
 	    	};
@@ -125,6 +124,8 @@
 	    {
 	    	return function(data)
 	    	{
+
+	    		console.log('Received rendered activity::::::::::');
     			var activityURL = data.activityData.dataValues.activityUrl;
     			// navigator and list activities are opened in a new tab
     			if(activityURL.startsWith('list') | (activityURL === 'module_navigator')) 
