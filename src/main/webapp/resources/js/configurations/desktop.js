@@ -24,6 +24,9 @@ requirejs.config({
         machinapostal:'libs/machina.postal.min',
         application:'app/common/application',
     },
+
+    waitSeconds: 0,
+    
     // We shim the following since they don't declare an AMD module
     shim: {
     	
