@@ -6,15 +6,15 @@
 require.config({
     baseUrl:"resources/js",
     paths: {
-        jquery:'libs/jquery-1.7.1',
-        jquerymobile:'libs/jquery.mobile-1.3.0',
         text:'libs/text',
         i18n:'libs/i18n',
-        underscore:'libs/underscore',
-        backbone: 'libs/backbone',
         order: 'libs/order',
+        backbone: 'libs/backbone',
+        jquery:'libs/jquery-1.7.1',
         utilities: 'app/utilities',
-        router:'app/router/mobile/router'
+        underscore:'libs/underscore',
+        router:'app/router/mobile/router',
+        jquerymobile:'libs/jquery.mobile-1.3.0',
     },
     // We shim Backbone since it doesn't declare an AMD module
     shim: {
@@ -33,7 +33,7 @@ define("configuration", function() {
     } else {
         return {
             baseUrl: ""
-        }
+        };
     }
 });
 
@@ -41,16 +41,13 @@ define("initializer", [
     'jquery',
     'utilities',
     'text!../templates/mobile/main.html'
-], function ($,
-             utilities,
-             MainTemplate) {
+], function ($, utilities, MainTemplate) {
     $('head').append('<link rel="stylesheet" href="resources/css/jquery.mobile-1.3.0.css"/>');
     $('head').append('<link rel="stylesheet" href="resources/css/m.screen.css"/>');
     $(document).bind("mobileinit", function () {
-        utilities.applyTemplate($('body'), MainTemplate)
+        utilities.applyTemplate($('body'), MainTemplate);
     });
 });
-
 
 // Now we declare all the dependencies
 require(['order!initializer',
