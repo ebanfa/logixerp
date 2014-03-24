@@ -42,6 +42,7 @@ public class BusinessObjectUtil {
 	public static final String REC_ST_DATA_VALUE = "recSt";
 	public static final String CREATED_DT_DATA_VALUE = "createdDt";
 	public static final String EFFECTIVE_DT_DATA_VALUE = "effectiveDt";
+	public static final String DESCRIPTION_DATA_VALUE = "description";
 	public static final String CREATED_BY_USR_DATA_VALUE = "createdByUsr";
 	
 
@@ -333,6 +334,50 @@ public class BusinessObjectUtil {
 		businessObjectData.setDataValue(CREATED_BY_USR_DATA_VALUE, ConfigUtil.SYSTEM_USR_NAME);
 		businessObjectData.setDataValue(REC_ST_DATA_VALUE, 'A');
 		return businessObjectData;
+	}
+	
+
+	/**
+	 * For business objects that do not have a name
+	 * and a description field. Currently we just
+	 * use the value of the code field to substitute 
+	 * for the missing fields
+	 * 
+	 * @param dataList
+	 */
+	public static List<BusinessObjectData> prepareListableItems(List<BusinessObjectData> dataList) {
+		for(BusinessObjectData objectData: dataList)
+		{
+			Map<String, Object> dataValues = objectData.getDataValues();
+
+			BusinessObjectFieldData codeFieldData = 
+					(BusinessObjectFieldData) dataValues.get(CODE_DATA_VALUE);
+			if(!dataValues.containsKey(NAME_DATA_VALUE))
+			{
+				// Whats the use of going through the process
+				// if the code field is null. 
+				if(codeFieldData != null){
+					BusinessObjectFieldData nameFieldData = 
+							new BusinessObjectFieldDataImpl(
+									NAME_DATA_VALUE,
+									codeFieldData.getFieldValue(),
+									codeFieldData.getFieldDataType());
+					dataValues.put(NAME_DATA_VALUE, nameFieldData);
+				}
+			}
+			if(!dataValues.containsKey(DESCRIPTION_DATA_VALUE))
+			{
+				if(codeFieldData != null){
+					BusinessObjectFieldData descriptionFieldData = 
+							new BusinessObjectFieldDataImpl(
+									DESCRIPTION_DATA_VALUE,
+									codeFieldData.getFieldValue(),
+									codeFieldData.getFieldDataType());
+					dataValues.put(DESCRIPTION_DATA_VALUE, descriptionFieldData);
+				}
+			}
+		}
+		return dataList;
 	}
 	
 	public static String extractEntityNameFromTypeName(String typeString)

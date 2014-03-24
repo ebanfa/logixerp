@@ -20,6 +20,7 @@ import com.qurion.businesslogic.application.util.StringUtil;
 import com.qurion.businesslogic.businessobject.annotation.BusinessObjectListUiDataService;
 import com.qurion.businesslogic.businessobject.data.BusinessObjectData;
 import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldData;
+import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldDataImpl;
 import com.qurion.businesslogic.businessobject.data.SearchData;
 import com.qurion.businesslogic.businessobject.data.SearchFieldData;
 import com.qurion.businesslogic.businessobject.service.BusinessObjectSearchService;
@@ -93,8 +94,9 @@ public class BusinessObjectListUiDataServiceImpl implements UiQueryDataService {
 		// 5 Call the Business Object Service to perform search and return results
 		dataList = businessObjectSearchService.find(searchData, 
 				activityService.getBusinessObjectListFields(businessObjectData.getBusinessObjectName()));
+		
 		logger.debug("Executed business object list ui query service with list of {}", context.size());
-		return dataList;
+		return BusinessObjectUtil.prepareListableItems(dataList);
 	}
 
 }

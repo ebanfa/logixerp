@@ -32,6 +32,7 @@ import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldData;
 import com.qurion.businesslogic.businessobject.data.SearchData;
 import com.qurion.businesslogic.businessobject.data.SearchFieldData;
 import com.qurion.businesslogic.businessobject.service.BusinessObjectSearchService;
+import com.qurion.businesslogic.businessobject.util.BusinessObjectUtil;
 
 /**
  * @author Edward Banfa
@@ -206,6 +207,7 @@ public class EditFieldUiDataServiceImpl implements UiQueryDataService {
 	private void loadOptionsForRelationshipField(BusinessObjectData businessObjectData, 
 			Map<String, Object> context) throws ApplicationException 
 	{
+		logger.debug("Loading field options for related field {}");
 		Map<String, Object> dataValues = businessObjectData.getDataValues();
 	
 		for(String fieldName: dataValues.keySet())
@@ -219,6 +221,7 @@ public class EditFieldUiDataServiceImpl implements UiQueryDataService {
 						field.getRelatedBusinessObjectName();
 				if(StringUtil.isValidString(relatedBusinessObjectName))
 				{
+					logger.debug("Loading field options for related field {}", relatedBusinessObjectName);
 					List<BusinessObjectFieldData> fieldsWanted =
 							activityService.getBusinessObjectListFields(relatedBusinessObjectName);
 					List<BusinessObjectData> fieldOptions = 
@@ -227,8 +230,6 @@ public class EditFieldUiDataServiceImpl implements UiQueryDataService {
 					// The unfortunate situation where we have to loop and remove
 					// any possiblity of an instance appearing as an option for a one
 					//of its fields
-					logger.debug("######## {}", businessObjectData);
-					logger.debug("@@@@@@@@ {}", fieldOptions);
 					if(businessObjectData.getId() != null &&
 							businessObjectName.equals(relatedBusinessObjectName))
 					{
@@ -240,9 +241,9 @@ public class EditFieldUiDataServiceImpl implements UiQueryDataService {
 						}
 						if(option != null)
 							fieldOptions.remove(option);
-							
 					}
-					field.setFieldOptions(fieldOptions);
+					field.setFieldOptions(
+							BusinessObjectUtil.prepareListableItems(fieldOptions));
 				}
 			}
 		}

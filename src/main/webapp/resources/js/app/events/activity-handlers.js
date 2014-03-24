@@ -55,6 +55,7 @@ define([
     						activityId: activityId,
     					}
         			};
+        			console.log('Using activity query::' + JSON.stringify(activityQuery, null, 4));
         			if(window.application) {
             			window.application.fireEvent(
             					UiConstants.activityChannel, 

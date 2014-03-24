@@ -140,7 +140,10 @@ public class BusinessObjectSearchServiceImpl implements	BusinessObjectSearchServ
 		List<BusinessObjectData> dataList = new ArrayList<BusinessObjectData>();
 		try {
 			List<BaseEntity> businessObjects = 
-					queryBuilderService.getQuery(searchData).getResultList();
+					queryBuilderService
+					.getQuery(searchData)
+					.setMaxResults(30)
+					.getResultList();
 			
 			for(Object businessObject : businessObjects){
 				BusinessObjectData businessObjectData = new BusinessObjectDataImpl();
