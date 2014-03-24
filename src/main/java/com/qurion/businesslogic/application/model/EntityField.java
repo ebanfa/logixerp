@@ -43,6 +43,11 @@ public class EntityField  extends BaseEntity implements java.io.Serializable {
 	private Character primarykeyFg;
 	private Character requiredFg;
 	private Character searchFieldFg;
+    private Character listFieldFg;
+    private Character viewFieldFg;
+    private Character editFieldFg;
+    private Character createFieldFg;
+    private Character deleteFieldFg;
 	private Character uniqueFg;
 	private Character relatedFg;
 	private Integer size;
@@ -186,6 +191,56 @@ public class EntityField  extends BaseEntity implements java.io.Serializable {
     {
         this.searchFieldFg = searchFieldFg;
     }
+    
+    @Column(name="LIST_FIELD_FG", nullable=false, length=1)
+    public Character getListFieldFg() {
+        return this.listFieldFg;
+    }
+    
+    public void setListFieldFg(Character listFieldFg) {
+        this.listFieldFg = listFieldFg;
+    }
+
+    
+    @Column(name="VIEW_FIELD_FG", nullable=false, length=1)
+    public Character getViewFieldFg() {
+        return this.viewFieldFg;
+    }
+    
+    public void setViewFieldFg(Character viewFieldFg) {
+        this.viewFieldFg = viewFieldFg;
+    }
+
+    
+    @Column(name="EDIT_FIELD_FG", nullable=false, length=1)
+    public Character getEditFieldFg() {
+        return this.editFieldFg;
+    }
+    
+    public void setEditFieldFg(Character editFieldFg) {
+        this.editFieldFg = editFieldFg;
+    }
+
+    
+    @Column(name="CREATE_FIELD_FG", nullable=false, length=1)
+    public Character getCreateFieldFg() {
+        return this.createFieldFg;
+    }
+    
+    public void setCreateFieldFg(Character createFieldFg) {
+        this.createFieldFg = createFieldFg;
+    }
+
+    
+    @Column(name="DELETE_FIELD_FG", nullable=false, length=1)
+    public Character getDeleteFieldFg() {
+        return this.deleteFieldFg;
+    }
+    
+    public void setDeleteFieldFg(Character deleteFieldFg) {
+        this.deleteFieldFg = deleteFieldFg;
+    }
+
 	
     @Column(name="UNIQUE_FG", length=1)
     public Character getUniqueFg() 

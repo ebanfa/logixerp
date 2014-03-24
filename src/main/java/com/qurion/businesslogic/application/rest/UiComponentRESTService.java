@@ -4,6 +4,7 @@
 package com.qurion.businesslogic.application.rest;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -22,7 +23,6 @@ import com.qurion.businesslogic.application.model.UiComponentType;
 import com.qurion.businesslogic.application.service.ActivityService;
 import com.qurion.businesslogic.application.service.UiComponentEntityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
-import com.qurion.businesslogic.businessobject.data.BusinessObjectData;
 import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldData;
 import com.qurion.businesslogic.businessobject.data.SearchData;
 import com.qurion.businesslogic.businessobject.service.BusinessObjectSearchService;
@@ -46,21 +46,23 @@ public class UiComponentRESTService extends AbstractRESTService {
     public ResponseData getUiComponent(@QueryParam("componentName") String componentName) {
     	logger.debug("Loading component from request {}", componentName);
 		UiResponse uiResponse = new UiResponse();
-    	try {
+    	/*try {
 			UiComponent uiComponent = componentEntityService.findByName(componentName);
 			if(uiComponent != null)
 				uiResponse.setUiComponentData(loadUiComponent(uiComponent));
 		} catch (ApplicationException e) {
 			this.processRESTException(e, uiResponse);
-		}
+		}*/
     	return uiResponse;
     }
 
 	/**
 	 * @param uiComponentData
 	 * @param uiComponent
+	 * @param multivaluedMap 
 	 */
-	public UiComponentData loadUiComponent(UiComponent uiComponent) throws ApplicationException {
+	public UiComponentData loadUiComponent(
+			UiComponent uiComponent, Map<String, String> context) throws ApplicationException {
 
 		UiComponentData uiComponentData = new UiComponentData();
 		uiComponentData.setName(uiComponent.getName());
@@ -81,11 +83,15 @@ public class UiComponentRESTService extends AbstractRESTService {
 		for(UiComponent component: uiComponent.getUiComponents()){
 			UiComponentType componentType = component.getUiComponentType();
 			logger.debug("Processing ccomponent of type: {} ", componentType.getCode());
-			if(componentType.getCode().equals(UiComponentBuilderService.COMP_TY_UI_DATA_QUERY))
+			
+			if(componentType.getCode().equals(
+					UiComponentBuilderService.COMP_TY_UI_DATA_QUERY) |
+					componentType.getCode().equals(
+							UiComponentBuilderService.COMP_TY_UI_DATA_QUERY_PARAM))
 				// Process the ui query data
 				this.loadUiComponentData(component, uiComponentData);
 			else
-				uiComponentData.getComponents().add(loadUiComponent(component));
+				uiComponentData.getComponents().add(loadUiComponent(component, context));
 		}
 		return uiComponentData;
 	}
@@ -105,7 +111,7 @@ public class UiComponentRESTService extends AbstractRESTService {
 	{
 		SearchData searchData = uiDataQueryToBOSearchData(uiDataQuery);
 		List<BusinessObjectFieldData> entityFields = 
-				activityService.getEntityViewFields(searchData.getBusinessObjectName());
+				activityService.getBusinessObjectViewFields(searchData.getBusinessObjectName());
 		uiComponentData.setUiQueryData(businessObjectSearchService.find(searchData, entityFields));
 	}
 

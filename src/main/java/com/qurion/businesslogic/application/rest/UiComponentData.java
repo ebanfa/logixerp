@@ -21,6 +21,7 @@ public class UiComponentData  {
 	private String type;
 	private String description;
 	private Integer sequenceNo;
+	private String uiQueryDataDescriptor;
 	private Map<String, String> attributes = new HashMap<String, String>();
 	private List<UiComponentData> components = new ArrayList<UiComponentData>();
 	private List<BusinessObjectData> uiQueryData = new ArrayList<BusinessObjectData>();
@@ -127,5 +128,17 @@ public class UiComponentData  {
 	 */
 	public void setUiQueryData(List<BusinessObjectData> uiQueryData) {
 		this.uiQueryData = uiQueryData;
+	}
+	/**
+	 * @return the uiQueryDataDescriptor
+	 */
+	public String getUiQueryDataDescriptor() {
+		return uiQueryDataDescriptor;
+	}
+	/**
+	 * @param uiQueryDataDescriptor the uiQueryDataDescriptor to set
+	 */
+	public void setUiQueryDataDescriptor(String uiQueryDataDescriptor) {
+		this.uiQueryDataDescriptor = uiQueryDataDescriptor;
 	}
 }

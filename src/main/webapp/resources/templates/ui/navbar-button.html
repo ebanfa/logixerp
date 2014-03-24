@@ -1,0 +1,14 @@
+<% if  (uiComponentData.dataAttributes.dataClass != "") { %>
+	<li>
+		<a href="#" 
+		   class="ui-btn-active" 
+		   data-querion-activity-url="<%= uiComponentData.dataAttributes.activityUrl%>" 
+		   data-icon="<%= uiComponentData.dataAttributes.dataIcon %>"><%= uiComponentData.description %></a>
+	</li>
+	     <% } else { %>
+	<li>
+		<a href="#" 
+		   data-querion-activity-url="<%= uiComponentData.dataAttributes.activityUrl%>" 
+		   data-icon="<%= uiComponentData.dataAttributes.dataIcon %>"><%= uiComponentData.description %></a>
+	</li>
+<% } %>

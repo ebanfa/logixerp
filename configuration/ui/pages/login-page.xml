@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<page name="login-page" description="Login Page" dataAddBackBtn="false">
+	<activity code="LOGIN_ACTIVITY" name="Login Page"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="login_activity" entityCode="APPLICATION_ACTIVITY"
+		description="Application Login Page" displayImg="appl.png" displayName="Login" seq="0">
+	</activity>
+	<!-- Header -->
+	<header name="login-header" dataPosition="fixed" seq="1">
+		<heading name="login-page-header-heading" description="Welcome" size="3" seq="1"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="login-content" seq="2">
+		<heading name="login-heading" description="Login" size="1" seq="1"/>
+		<form name="login-form" target="#" method="post" description="Login Form" seq="2">
+			<list name="login-form-list" description="Sign in with your registered account" seq="1" 
+				dataSplitIcon="plus" dataTheme="d" dataSplitTheme="a" dataInset="true">
+				<list-item name="login-form-email-item" description="Email field" seq="1">
+					<email-field name="username" class="login username-field" description="Username" seq="1"></email-field>
+				</list-item>
+				<list-item name="login-form-password-item" description="Login password field" seq="2">
+					<password-field name="password"  class="login password-field" description="Password" seq="1"></password-field>
+				</list-item>
+				
+				<list-item class="ui-body ui-body-b" 
+					name="login-form-buttons-item" description="Login Form Buttons" seq="3">
+					<fieldset class="ui-grid-a" 
+						name="login-form-buttons-fieldset" description="Login Form Buttons Field Set" seq="1">
+		                    <container class="ui-block-a" 
+		                    	name="login-form-login-container" description="Login Form Login Button Conatainer" seq="1">
+		                    	<link-button name="login-button" 
+		                    		description="Login" href="#"  dataTheme="a" dataRole="button" dataIcon="check" seq="1">
+									<event-handler name="login-submit-click" event="click" handler="login.submitHandler" description="Login form submit handler"/>
+								</link-button>
+							</container>
+		                    <container class="ui-block-b" 
+		                    	name="login-form-register-container" description="Login Form Register Object Buttons " seq="2">
+								<link-button name="register-button" 
+									description="Register" href="#"  dataTheme="b" dataRole="button" dataIcon="plus" seq="2">
+										<event-handler name="login-register-click" event="click" handler="login.registerHandler" description="Login form register handler"/>
+								</link-button>
+		                    </container>
+		            </fieldset>
+				</list-item>
+			</list>	
+		</form>
+	</content>
+	
+	<!-- Footer -->
+	<footer name="login-footer" dataPosition="fixed" seq="3">
+		<heading name="login-page-footer-heading" description="Logix ERP 2014" size="3" seq="1"/>
+	</footer>
+</page>

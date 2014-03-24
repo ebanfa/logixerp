@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<screen name="loading" description="Loading Screen">
-	<panel name="loading-container" class="loading" description="" seq="1">
-			<span name="loading-text" value="Loading" description="" seq="1"/>
-	</panel>
-</screen>

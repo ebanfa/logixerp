@@ -1,0 +1,13 @@
+<ul data-role="listview" data-inset="true"<% _.each(uiComponentData.attributes, function (attribute) { %> <%= attribute.name %>="<%= attribute.value %>"<% }); %>>
+    <% _.each(uiComponentData.uiQueryData, function (component) { %>
+	<li>
+		<a data-entity-id="<%= component.dataValues.id.fieldValue %>" href="<%= component.dataValues.id.fieldValue %>"> <img src="resources/css/images/phone_galaxy3.png">
+			<h2 data-entity-id="<%= component.dataValues.id.fieldValue %>"><%= component.dataValues.name.fieldValue %></h2>
+			<p data-entity-id="<%= component.dataValues.id.fieldValue %>"><%= component.dataValues.description.fieldValue %></p>
+			<p class="ui-li-aside">iOS</p>
+		</a>
+	</li>
+    <% }); %>   
+   
+</ul>
+

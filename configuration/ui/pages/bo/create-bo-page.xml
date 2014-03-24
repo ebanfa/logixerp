@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<page name="create-bo-page" description="Create Business Object Page" dataAddBackBtn="true">
+	<activity code="CREATE_BO_ACTIVITY" name="Create Business Object Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="create_bo_activity" entityCode="APPLICATION_ACTIVITY"
+		description="Create Business Object Activity" displayImg="appl.png" displayName="Create Business Object Home" seq="0">
+	</activity>
+	<!-- Header -->
+	<header name="create-bo-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="create-bo-page-header-heading" description="Create Business Object" size="3" seq="2"/>
+	</header>
+	<!-- Content -->
+	<content name="create-bo-content" seq="2">
+		<dynamic-form name="create-bo-page-form-list" description="Create Business Object Form" 
+			 dataSplitIcon="plus" dataTheme="d" dataSplitTheme="a" dataInset="true" seq="1">
+			<!-- Form handler definition -->
+			<bo-data-processor 
+			    name="create-bo-data-processor"
+				processorName="BusinessObjectFormDataProcessorService" 
+			 	description="Handles submission of a Business Object form">
+			 	<bo-data-processor-parameter 
+			 		value="CREATE"
+			 		name="create-bo-data-parameter-create"
+			 		parameterName="businessObjectEditMode" 
+				 	description="Handles submission of a Business Object form">
+				</bo-data-processor-parameter>
+			</bo-data-processor>
+			<!-- Ui data query definition -->
+			<ui-data-query type="service"
+				name="create-bo-page-create-bo-fields"  
+				description="Loads the edit fields for an entity"
+				businessObject="BusinessObjectEditFieldUiDataService">
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldValue="CREATE" 
+					fieldDataType="String" 
+					description="Business Object Edit Mode"
+					fieldName="businessObjectEditMode" 
+					name="create-bo-page-edit-mode-create" seq="1" />
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldValue="true" 
+					fieldDataType="Boolean" 
+					description="Get relationship field options"
+					fieldName="businessObjectRelationshipFieldOptions" 
+					name="create-bo-page-relationship-field-options" seq="1" />
+			</ui-data-query>	
+			<!-- Static form item definitions -->
+			<list-item class="ui-body ui-body-b" 
+				name="create-bo-form-buttons-item" description="Create Business Object Buttons" seq="3">
+				<fieldset class="ui-grid-a" 
+					name="create-bo-form-buttons-fieldset" description="Create Business Object Buttons Field Set" seq="1">
+	                    <container class="ui-block-a" 
+	                    	name="create-bo-form-create-container" description="Create Business Object Create Button Conatainer" seq="1">
+	                    	<link-button name="create-bo-button" dataTheme="a" 
+								description="Create" href="#" dataRole="button" dataIcon="check" seq="1">
+									<event-handler name="create-bo-submit-click" 
+										event="click" handler="businessObject.editFormHandler" description="Create Business Obejct form submit handler"/>
+							</link-button>
+						</container>
+	                    <container class="ui-block-b" 
+	                    	name="create-bo-form-cancel-container" description="Create Business Cancel Object Buttons " seq="2">
+							<link-button name="cancel-create-bo-button" dataTheme="b" 
+								description="Cancel" href="#" dataRole="button" dataIcon="check" seq="1">
+									<event-handler name="cancel-create-bo-submit-click" 
+										event="click" handler="login.submitHandler" description="Create Business Obejct form submit handler"/>
+							</link-button>
+	                    </container>
+	            </fieldset>
+			</list-item>	
+		</dynamic-form>	
+	</content>
+	<!-- Footer -->
+	<footer name="create-bo-footer" dataPosition="fixed" seq="3">
+		<navbar name="create-bo-page-navbar" seq="1">
+			<event-handler name="create-bo-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="create-bo-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="create-bo-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="create-bo-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="create-bo-footer-create-bo-nav-button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

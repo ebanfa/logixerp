@@ -87,6 +87,17 @@ public class EntityBuilderServiceImpl extends AbstractServiceImpl
 	{
 		for(EntityData entity : entities) 
 			createEntityFieldToEntityMapping(builderConfiguration, entity, entityFields);
+		
+		for(EntityField entityField: entityFields){
+			if(entityField.getEntityFieldType().getCode().equals("RELATIONSHIP")){
+				for(EntityData entity : entities) {
+					if(entity.getName().equals(entityField.getDescription())){
+						entityField.setEntityDataByRelatedEntityId(entity);
+						getEntityManager().persist(entityField);
+					}
+				}
+			}
+		}
 	}
 
 	/**

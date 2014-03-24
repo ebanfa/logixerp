@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<page name="home-page" description="Home Page" dataAddBackBtn="true">
+	<activity code="MODULE_NAV_ACTIVITY" name="Module Navigation Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="module_navigator" entityCode="APPLICATION_ACTIVITY"
+		description="Module Navigation Activity" displayImg="appl.png" displayName="Module Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="home-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<!-- <link name="navbar-home-link" description="" dataShadow="false" dataIconshadow="false" 
+		 dataIcon="arrow-l" dataIconpos="notext" dataRel="back" dataAjax="false" href="#" seq="1">
+		</link> -->
+		<heading name="home-page-header-heading" description="Navigator" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="home-content" seq="2">
+		<springboard name="modules-home" data-role="listview" data-inset="true"  seq="1">
+			<ui-data-query 
+				type="query"
+				name="select-modules" 
+				description="Select Modules" 
+				businessObject="Module">
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldValue="Y" 
+					fieldDataType="Character" 
+					description="Display flag parameter"
+					fieldName="displayFg" 
+					name="select-settings-activities-displayFg" seq="1" />
+			</ui-data-query>						
+			<event-handler 
+				name="navigator-item-click" 
+				event="click" 
+				handler="navigator.itemClickHandler" 
+				description="Click Handler"/>
+		</springboard>
+	</content>
+	
+	<!-- Footer -->
+	<footer name="home-footer" dataPosition="fixed" seq="3">
+		<navbar name="navbar" seq="1">
+			<event-handler name="navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="home-nav-button" description="Home" activityUrl="module_navigator" dataClass="ui-btn-active" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="settings-nav-button" description="Settings" activityUrl="settings_activity" dataClass="" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

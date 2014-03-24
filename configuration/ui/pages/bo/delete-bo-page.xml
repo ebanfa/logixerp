@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<page name="delete-bo-page" description="Delete Business Object Page" dataAddBackBtn="true">
+	<activity code="DELETE_BO_ACTIVITY" name="Delete Business Object Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="delete_bo_activity" entityCode="APPLICATION_ACTIVITY"
+		description="Delete Business Object Activity" displayImg="appl.png" displayName="Delete Business Object Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="delete-bo-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="delete-bo-page-header-heading" description="Delete Business Object" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="delete-bo-content" seq="2">
+		<dynamic-form name="delete-bo-page-form-list" description="Delete Business Object Form" 
+			 dataSplitIcon="plus" dataTheme="d" dataSplitTheme="a" dataInset="true" seq="1">
+			<ui-data-query type="service"
+				name="delete-bo-page-delete-bo-fields"  
+				description="Loads the edit fields for an entity"
+				businessObject="BusinessObjectEditFieldUiDataService" />	
+			<list-item class="ui-body ui-body-b" 
+				name="delete-bo-form-buttons-item" description="Delete Business Object Buttons" seq="3">
+				<fieldset class="ui-grid-a" 
+					name="delete-bo-form-buttons-fieldset" description="Delete Business Object Buttons Field Set" seq="1">
+	                    <container class="ui-block-a" 
+	                    	name="delete-bo-form-delete-container" description="Delete Business Object Delete Button Conatainer" seq="1">
+	                    	<link-button name="delete-bo-button" dataTheme="a" 
+								description="Delete" href="#" dataRole="button" dataIcon="check" seq="1">
+									<event-handler name="delete-bo-submit-click" 
+										event="click" handler="login.submitHandler" description="Delete Business Obejct form submit handler"/>
+							</link-button>
+						</container>
+	                    <container class="ui-block-b" 
+	                    	name="delete-bo-form-cancel-container" description="Delete Business Cancel Object Buttons " seq="2">
+							<link-button name="cancel-delete-bo-button" dataTheme="b" 
+								description="Cancel" href="#" dataRole="button" dataIcon="check" seq="1">
+									<event-handler name="cancel-delete-bo-submit-click" 
+										event="click" handler="login.submitHandler" description="Delete Business Obejct form submit handler"/>
+							</link-button>
+	                    </container>
+	            </fieldset>
+			</list-item>	
+		</dynamic-form>	
+	</content>
+	
+	<!-- Footer -->
+	<footer name="delete-bo-footer" dataPosition="fixed" seq="3">
+		<navbar name="delete-bo-page-navbar" seq="1">
+			<event-handler name="delete-bo-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="delete-bo-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="delete-bo-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="delete-bo-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="delete-bo-footer-delete-bo-nav-button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

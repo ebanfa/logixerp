@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
  */
 public class StringUtil {
 
+	public static final String COLON = ":";
 	public static final String EMPTY_STRING = "";
 	public static final String UNDERSCORE = "_";
 	public static final String DECIMAL_SYMBOL = ".";

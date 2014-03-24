@@ -5,54 +5,75 @@
 define([
     'jquery',
     'configuration',
-    'underscore',
-    'backbone',
     'uiconstants',
     'app/util/ajax-utilities',
     'app/util/string-utilities'
 ],function ($, 
     		config, 
-    		_, 
-    		Backbone, 
     		UiConstants,
     		AjaxUtilities,
     		StringUtilities) {
 	
     /**
-     * Application wide constants.
+     * Login controller.
      *
-     * @type {Router}
+     * @type {LoginManager}
      */
 
     var LoginManager = function (application) {
     	
     	this.loginURL = '';
 		this.application = application;
+		this.authenticated = false;
+
 		
+		/**
+		 * Main login function
+		 */
 		this.login = function(userName, password) {
 			// 1. Validate the login parameters
 			if(!StringUtilities.isValid(userName) | !StringUtilities.isValid(password)){
-				
+				//TODO Does nothing for now
+				return;
 			}
 			// 2. Do the login process (Ajax call)
-			AjaxUtilities.ajaxGET(UiConstants.uiServiceURL, 
+			AjaxUtilities.ajaxGET(UiConstants.loginServiceURL, 
         			{userName: userName, password: password}, 
         			this.loginSuccessCallBack(this), this.loginFailedCallBack(this));
 		};
 		
+		/**
+		 * Called upon successful of login
+		 */
 		this.loginSuccessCallBack = function(self) {
-        	return function(data, textStatus) {
-        		console.log('login data for call back' + data);
+        	return function(response, textStatus) {
+        		if(response.errors) {
+    				self.application.fireEvent(
+    						UiConstants.loginFsm, UiConstants.loginLoginFailEvent);
+    				return;
+        		}
     			this.authenticated = true;
-				self.application.fireEvent(UiConstants.loginFsm, UiConstants.loginLoginSuccessEvent, data);
+    			var businessObject = response.data;
+    			this.application.userData = {
+    					userName: businessObject.dataValues.userNm.fieldValue, 
+    					partyId: businessObject.dataValues.party.fieldValue};
+    			// Notify interested parties we have a successful login
+				self.application.fireEvent(
+						UiConstants.loginFsm, 
+						UiConstants.loginLoginSuccessEvent, response);
 			};
 		};
-		
+
+		/**
+		 * Called upon login failure
+		 */
 		this.loginFailedCallBack = function(self) {
 			this.authenticated = true;
         	return function(data, textStatus) {
     			this.authenticated = true;
-				self.application.fireEvent(UiConstants.loginFsm, UiConstants.loginLoginFailEvent);
+				self.application.fireEvent(
+						UiConstants.loginFsm, 
+						UiConstants.loginLoginFailEvent);
 			};
 		};
     		

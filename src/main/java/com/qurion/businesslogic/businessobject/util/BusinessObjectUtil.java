@@ -11,13 +11,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.qurion.businesslogic.application.model.EntityData;
 import com.qurion.businesslogic.application.model.BaseEntity;
+import com.qurion.businesslogic.application.model.EntityData;
 import com.qurion.businesslogic.application.util.ApplicationException;
 import com.qurion.businesslogic.application.util.ConfigUtil;
 import com.qurion.businesslogic.application.util.DateUtil;
@@ -37,6 +35,7 @@ import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldDataImpl;
  */
 public class BusinessObjectUtil {
 
+	public static final String JAVA_DATE_FIELD_TYPE = "Date";
 	public static final String ID_FIELD_NAME = "id";
 	public static final String CODE_DATA_VALUE = "code";
 	public static final String NAME_DATA_VALUE = "name";
@@ -45,8 +44,17 @@ public class BusinessObjectUtil {
 	public static final String EFFECTIVE_DT_DATA_VALUE = "effectiveDt";
 	public static final String CREATED_BY_USR_DATA_VALUE = "createdByUsr";
 	
+
+	public static final String DATE_FIELD_TYPE = "DATE";
+	public static final String CHAR_FIELD_TYPE = "CHAR";
+	public static final String STATUS_FIELD_TYPE = "STATUS";
+	
 	public static final String GET_METHOD_PREFIX = "get";
 	public static final String SET_METHOD_PREFIX = "set";
+	public static final Object CODE_FIELD_TYPE = "CODE";
+	public static final Object NAME_FIELD_TYPE = "NAME";
+	public static final Object TEXT_FIELD_TYPE = "TEXT";
+	public static final Object LARGE_TEXT_FIELD_TYPE = "LARGE_TEXT";
 	
 	private static Logger logger = LoggerFactory.getLogger(BusinessObjectUtil.class);
 	
@@ -79,8 +87,11 @@ public class BusinessObjectUtil {
 		// Create a new instance of the business object
 		Object object = 
 				EntityUtil.newInstance(businessObjectData.getBusinessObjectClassName());
+		logger.debug("Preparing business object");
 		prepareBusinessObject(businessObjectData);
+		logger.debug("Copy data to business object");
 		copyDataFromBusinessObject(businessObjectData, object);
+		logger.debug("Returning business object instance {}", object);
 		return (BaseEntity) object;
 	}
 
@@ -121,8 +132,10 @@ public class BusinessObjectUtil {
 								Object value = PropertyUtil.stringToActualType(
 										paramType, fieldData.getFieldValue().toString());
 								method.invoke(object, value);
+								logger.debug("Method invoked");
 							}
 						} catch (Exception e) {
+							e.printStackTrace();
 							ExceptionUtil.logException(e);
 						}
 					}
@@ -244,6 +257,7 @@ public class BusinessObjectUtil {
 				// Set the data value for the business object
 				toBusinessObject.setDataValue(fieldData.getFieldName(), fieldDataValue);
 			} catch (Exception e) {
+				e.printStackTrace();
 				ExceptionUtil.logAndProcessException(e, ErrorCodes.BOU_DATA_COPY_TO_BO_ERROR_CD);
 			}
 		}
@@ -274,12 +288,8 @@ public class BusinessObjectUtil {
 			else {
 				if(fieldDataValue.getFieldName().equals(ID_FIELD_NAME))
 					toBusinessObject.setId((Integer) value);
-				if(typeOfValue.toString().contains("Date")){
-					Date formattedDate = 
-							DateUtil.convertStringToJavaDate(DateUtil.DB_DATE_FORMAT, value.toString());
-					DateTime dateTime = new DateTime(formattedDate);
-					String formattedDateString = DateTimeFormat.forPattern(DateUtil.DEFAULT_DATE_FORMAT).print(dateTime);
-					fieldDataValue.setFieldValue(formattedDateString);
+				if(typeOfValue.toString().contains(JAVA_DATE_FIELD_TYPE)){
+					fieldDataValue.setFieldValue(DateUtil.convertJavaDateToString((Date)value));
 				}
 				else {
 					fieldDataValue.setFieldValue(value);
@@ -295,12 +305,15 @@ public class BusinessObjectUtil {
 	{
 		if(businessObjectData == null)
 			businessObjectData = new BusinessObjectDataImpl();
+		String date = DateUtil.convertJavaDateToString(new Date());
 		if(businessObjectData.getDataValue(CODE_DATA_VALUE) == null)
 			businessObjectData.setDataValue(CODE_DATA_VALUE, DateUtil.getCurrentTime());
 		if(businessObjectData.getDataValue(EFFECTIVE_DT_DATA_VALUE) == null)
-			businessObjectData.setDataValue(EFFECTIVE_DT_DATA_VALUE, new Date());
+			businessObjectData.setDataValue(EFFECTIVE_DT_DATA_VALUE, 
+					new BusinessObjectFieldDataImpl(EFFECTIVE_DT_DATA_VALUE, date, null));
 		if(businessObjectData.getDataValue(CREATED_DT_DATA_VALUE) == null)
-			businessObjectData.setDataValue(CREATED_DT_DATA_VALUE, new Date());
+			businessObjectData.setDataValue(CREATED_DT_DATA_VALUE, 
+					new BusinessObjectFieldDataImpl(CREATED_DT_DATA_VALUE, date, null));
 		return businessObjectData;
 	}
 	

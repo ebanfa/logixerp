@@ -11,7 +11,7 @@ public class BusinessObjectQueryConstants {
 	public static final String SINGLE_QUOTES_END = "'";
 	public static final String SINGLE_WHITESPACE = " ";
 	public static final String LIKE = "L";
-	public static final String LIKE_SYM = "L";
+	public static final String LIKE_SYM = "like";
 	public static final String EQUALS_TO = "ET";
 	public static final String EQUALS_TO_SYM = "=";
 	public static final String LESS_THAN = "LT";

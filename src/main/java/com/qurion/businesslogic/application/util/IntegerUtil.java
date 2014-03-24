@@ -13,15 +13,19 @@ public class IntegerUtil {
 	
 	public static Integer toInteger(Object value) throws ApplicationException
 	{
-		if(value instanceof Integer)
+		if(value == null)
+			throw new ApplicationException(
+					ErrorCodes.IU_INTEGER_CONVERSION_ERROR, 
+					ErrorCodes.IU_INVALID_SOURCE_DATA_TY_ERROR_MSG);
+		else if(value instanceof Integer)
 			return (Integer) value;
-		if(value instanceof String)
+		else if(value instanceof String)
 			return Integer.valueOf((String) value);
-		if(value instanceof BigDecimal)
+		else if(value instanceof BigDecimal)
 			return ((BigDecimal) value).intValue();
-		if(value instanceof Float)
+		else if(value instanceof Float)
 			return ((Float) value).intValue();
-		if(value instanceof Double)
+		else if(value instanceof Double)
 			return ((Double) value).intValue();
 		else
 			throw new ApplicationException(

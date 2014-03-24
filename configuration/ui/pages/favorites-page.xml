@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<page name="favorite-page" description="Favorite Page" dataAddBackBtn="true">
+	<activity code="FAVORITES_NAV_ACTIVITY" name="Favorite Navigation Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="favorite_navigator" entityCode="APPLICATION_ACTIVITY"
+		description="Favorites Navigation Activity" displayImg="appl.png" displayName="Favorite Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="favorite-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="favorite-page-header-heading" description="Navigator" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="favorite-content" seq="2">
+		<dynamic-list name="favorite-home" description="Favorite items" 
+			dataSplitIcon="plus" dataFilter="true" dataInset="true"  seq="1">
+			<ui-data-query 
+				type="service"
+				name="select-favorite-activities" 
+				businessObject="FavoriteActivitiesUiDataService" 
+				description="Loads all the personal activities of the current user"/>
+			<event-handler 
+				event="click" 
+				name="favorite-item-clicked-handler" 
+				description="Favorite item clicked handler"
+				handler="activity.favoriteItemClickedHandler" />
+		</dynamic-list>
+	</content>
+	
+	<!-- Footer -->
+	<footer name="favorite-footer" dataPosition="fixed" seq="3">
+		<navbar name="favorite-navbar" seq="1">
+			<event-handler name="favorites-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="favorite-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="favorite-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="ui-btn-active" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="favorite-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="favorite-footer-settings-nav-button" description="Settings" activityUrl="settings_activity" dataClass="" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

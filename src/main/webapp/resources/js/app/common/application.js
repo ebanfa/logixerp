@@ -4,22 +4,23 @@
 define("application", [
   'jquery',
   'configuration',
-  'underscore',
   'postal',
+  'machinapostal',
   'router',
   'uiconstants',
+  'postaldiagnostics',
+  'app/events/event-handlers',
   'app/util/ajax-utilities',
   'app/util/form-utilities',
   'app/common/machines/login-state-machine',
   'app/common/machines/uiscreen-state-machine',
   'app/common/machines/application-state-machine',
   'app/common/machines/connectivity-state-machine',
-],function ($, config, _, Postal, Router, UiConstants,
-  AjaxUtil, FormUtil, LoginFsm, UiFsm, ApplicationFsm, ConnectivityFsm) {
+],function ($, config, Postal, MachinaPostal, Router, UiConstants, DiagnosticsWireTap,
+  EventHandlers, AjaxUtil, FormUtil, LoginFsm, UiFsm, ApplicationFsm, ConnectivityFsm) {
 	
-	
-    var Application = function (options) {
-    	return {
+	 
+    var Application = {
 
     		ajaxUtil: AjaxUtil,
     		
@@ -44,11 +45,18 @@ define("application", [
 				 this.stateMachines[UiConstants.connectivityFsm].application = this;
 				 
 				 this.channels[UiConstants.activityChannel] = Postal.channel(UiConstants.activityChannel);
-
+				 /*var wireTap = new DiagnosticsWireTap({
+					    name: "console",
+					    filters: [
+					        { channel: UiConstants.activityChannel },
+					        { topic: UiConstants.uiLoadActivityEvent  }
+					    ]
+					});*/
 				 this.subscribeToEvent(
 						 UiConstants.applicationFsm,
 						 UiConstants.applicationLoginSuccessEvent, 
 						 this.handleLoginEvent(this));
+				 
 				 this.subscribeToEvent(
 						 UiConstants.applicationFsm, 
 						 UiConstants.applicationLoginFailEvent, 
@@ -58,19 +66,18 @@ define("application", [
 						 UiConstants.applicationFsm, 
 						 UiConstants.applicationSetUpEvent);
 				 
-				 this.fireEvent(
-						 UiConstants.uiFsm, 
-						 UiConstants.uiRenderEvent);
-				 
 				 if(!String.prototype.startsWith){
 		        	    String.prototype.startsWith = function (str) {
 		        	        return !this.indexOf(str);
 		        	    };
-		        	}
+		        }
 			 },
 			 
-			 handleLoginEvent: function(self) {
-				 // if authenticated
+			 /**
+			  * 
+			  */
+			 handleLoginEvent: function(self) 
+			 {
 				 return function(data) 
 				 {
 					 if(data.eventType == 'success') {
@@ -78,11 +85,11 @@ define("application", [
 								 UiConstants.uiFsm, 
 								 UiConstants.uiSuccessEvent);
 					 }
-					 // if authenticated
 					 if(data.eventType == 'fail') {
 						 self.fireEvent(
 								 UiConstants.uiFsm, 
-								 UiConstants.uiFailEvent);
+								 UiConstants.uiFailEvent, 
+								 {message: 'Invalid user name or password'});
 					 }
 				 };
 			 },
@@ -93,7 +100,8 @@ define("application", [
 	    	 */
 			 handleSetup: function() {
 				// Create a router instance
-			    this.router = new Router();
+			    this.router = new Router({application: this});
+			    this.router.application = this;
 			 },
 	    	/**
 	    	 * Handler function executed when processing
@@ -112,6 +120,7 @@ define("application", [
 				//Begin routing
 			    Backbone.history.start();
 			 },
+			 
 	    	/**
 	    	 * Handler function for the reboot event.
 	    	 * 
@@ -127,19 +136,19 @@ define("application", [
 			 fireEvent: function(channelName, eventName, data) 
 			 {
 				 if(this.channels[channelName]){
-					 console.log('Firing event: ' + eventName + ' on channel: ' + channelName);
 					 this.channels[channelName].publish(eventName, data);
 				 }
 			 },
+			 
 			/**
 			 * 
 		     */
 			 subscribeToEvent: function(channelName, eventName, handler) 
 			 {
-				 console.log('Subscribing to event: ' + eventName + ' on channel: ' + channelName);
 				 if(this.channels[channelName])
-					 this.channels[channelName].subscribe(eventName, handler).distinct();
+					 this.channels[channelName].subscribe(eventName, handler);
 			 },
+			 
 			/**
 			 * 
 		     */
@@ -157,9 +166,6 @@ define("application", [
 				 this.stateMachines[UiConstants.connectivityFsm] = new ConnectivityFsm();
 				 this.channels[UiConstants.connectivityFsm] = Postal.channel(UiConstants.connectivityFsm);
 			 },
-		 };
 	 };
-	 window.application = new Application();
-	 window.application.init();
- 	return window.application;
+ 	 return Application;
 });

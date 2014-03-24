@@ -36,6 +36,8 @@ public class EntityUtil {
 	public static final String RELATIONSHIP_FIELD_CODE = "RELATIONSHIP";
 	public static final String PROCESS_BO_NM = "BusinessProcess";
 	public static final String ACTIVITY_BO_NM = "Activity";
+	public static final String ENTITY_FIELD_BO_NM = "EntityField";
+	public static final String SYSTEM_USER_BO_NM = "SystemUser";
 	
 	/**
 	 * @param object

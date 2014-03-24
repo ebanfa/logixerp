@@ -80,6 +80,16 @@ public class SearchFieldData {
 	public void setFieldSearchOperator(String fieldSearchOperator) {
 		this.fieldSearchOperator = fieldSearchOperator;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "SearchFieldData [fieldName=" + fieldName + ", fieldValue="
+				+ fieldValue + ", fieldDataTypeName=" + fieldDataTypeName
+				+ ", fieldSearchOperator=" + fieldSearchOperator + "]";
+	}
 	
 	
 }

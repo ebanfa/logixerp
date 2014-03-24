@@ -24,6 +24,7 @@ import com.qurion.businesslogic.application.model.UiComponentAttribute;
 import com.qurion.businesslogic.application.model.UiComponentType;
 import com.qurion.businesslogic.application.service.AbstractServiceImpl;
 import com.qurion.businesslogic.application.service.ActivityEntityService;
+import com.qurion.businesslogic.application.service.ActivityTypeEntityService;
 import com.qurion.businesslogic.application.service.ModuleEntityService;
 import com.qurion.businesslogic.application.service.UiComponentAttributeTypeEntityService;
 import com.qurion.businesslogic.application.service.UiComponentEntityService;
@@ -34,6 +35,7 @@ import com.qurion.businesslogic.application.util.DateUtil;
 import com.qurion.businesslogic.application.util.EntityUtil;
 import com.qurion.businesslogic.application.util.ErrorCodes;
 import com.qurion.businesslogic.application.util.ExceptionUtil;
+import com.qurion.businesslogic.application.util.StringUtil;
 import com.qurion.businesslogic.ide.config.BuilderConfiguration;
 import com.qurion.businesslogic.ide.util.BuilderUtil;
 
@@ -48,6 +50,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 
 	private static final String DEFAULT = "DEFAULT";
 	@Inject ModuleEntityService moduleEntityService;
+	@Inject ActivityTypeEntityService activityTypeEntityService;
 	@Inject ActivityEntityService activityEntityService;
 	@Inject UiComponentEntityService componentEntityService;
 	private Logger logger = LoggerFactory.getLogger(getClass());
@@ -62,6 +65,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 	public void buildComponent(BuilderConfiguration configuration,
 			UiComponent parentComponent, Node componentNode) throws ApplicationException 
 	{
+		logger.debug("Building component: {} ", componentNode.getNodeName());
 		if(configuration.getOverWrite().equals(BooleanUtil.BOOLEAN_TRUE))
 			buildComponent(configuration, componentNode.getNodeName(), 
 					parentComponent, componentNode, BuilderUtil.getNodeAttributes(componentNode));
@@ -80,27 +84,24 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			throws ApplicationException 
 	{
 		UiComponent component = null;
-		logger.debug("Building component: {} with attributes {}", componentNode.getNodeName(), attributesMap);
+		//logger.debug("Building component: {} of type {} with attributes {}", 
+		//		componentNode.getNodeName(), componentType, attributesMap);
 		// Check if the current node is an event definition
 		if(componentType.equals(COMP_TY_EVENT_HANDLER)) 
 			createEventForUiComponent(configuration, 
 					componentNode, attributesMap, parentComponent);
-		else if(componentType.equals(COMP_TY_UI_DATA_QUERY))
-		{
-			logger.debug("Building ui data query handler component: "
-					+ "{} with attributes {}", componentNode.getNodeName(), attributesMap);
-			createComponent(configuration, getComponentType(
-					COMP_TY_UI_DATA_QUERY), parentComponent, attributesMap);
-		}
 		// else the current node is a component definition
 		else {
-			// Build the component
-			component = createComponent(configuration, 
-					getComponentType(componentType), parentComponent, attributesMap);
 			// Hook to create an activity if the component we
 			// are creating is an activity
-			if(componentType.equals(ACTIVITY)) 
-				createActivityForUiComponent(component, attributesMap);
+			if(componentType.equals(ACTIVITY)) {
+				createActivityForUiComponent(parentComponent, attributesMap);
+			}
+			else {
+				// Build the component
+				component = createComponent(configuration, 
+						getComponentType(componentType), parentComponent, attributesMap);
+			}
 			// Process the children of the current node
 			// Note: Event nodes don't have child nodes
 			NodeList childNodes = componentNode.getChildNodes();
@@ -120,16 +121,30 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			UiComponent parentComponent, Map<String, String> attributesMap) throws ApplicationException 
 	{
 		String componentName = attributesMap.get(NAME_ATTRIBUTE);
-		System.out.println(">>>>>>>>>>Creating component with attributesMap::" + attributesMap);
 		UiComponent component = componentEntityService.findByName(componentName);
 		try {
-			if(component != null) 
+			if(component != null) {
+				if(!component.getActivities().isEmpty()){
+					for(Activity activity: component.getActivities()){
+						this.delete(activity);
+					}
+				}
 				this.deleteComponent(component);
+			}
 			component = new UiComponent();
 			component.setUiComponentType(componentType);
-			component.setCode(attributesMap.get(NAME_ATTRIBUTE));
 			component.setName(attributesMap.get(NAME_ATTRIBUTE));
-			component.setDescription(attributesMap.get(DESCRIPTION_ATTRIBUTE));
+			// If we dont have a code then we use the name as the code
+			if(StringUtil.isValidString(attributesMap.get(CODE_ATTRIBUTE)))
+				component.setCode(attributesMap.get(CODE_ATTRIBUTE));
+			else
+				component.setCode(attributesMap.get(NAME_ATTRIBUTE));
+			// If we dont have a description then we use the name as the code
+			if(StringUtil.isValidString(attributesMap.get(DESCRIPTION_ATTRIBUTE)))
+				component.setDescription(attributesMap.get(DESCRIPTION_ATTRIBUTE));
+			else
+				component.setDescription(StringUtil.EMPTY_STRING);
+
 			if(attributesMap.get(SEQUENCE_ATTRIBUTE) != null )
 				component.setSequenceNo(Integer.parseInt(attributesMap.get(SEQUENCE_ATTRIBUTE)));
 			initializeFields(component);			
@@ -177,7 +192,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 	public void createEventForUiComponent(BuilderConfiguration configuration, Node componentNode, 
 			Map<String, String> attributesMap, UiComponent parentUiComponent) throws ApplicationException 
 	{
-		logger.debug("Building event handler component: {} with attributes {}", componentNode.getNodeName(), attributesMap);
+		//logger.debug("Building event handler component: {} with attributes {}", componentNode.getNodeName(), attributesMap);
 		this.createComponent(configuration, 
 				getComponentType(COMP_TY_EVENT_HANDLER), parentUiComponent, attributesMap);
 		
@@ -196,11 +211,15 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 	{
 		Activity activity = null;
 		try {
+			activity = 
+					activityEntityService.findByCode(attributesMap.get(CODE_ATTRIBUTE));
+			if(activity != null) this.delete(activity);
+			
 			activity = new Activity();
 			// Get the activity type
 			ActivityType activityType = (ActivityType) 
 					EntityUtil.returnOrThrowIfNull(
-					activityEntityService.findByCode(attributesMap.get(ACTIVITY_TY_ATTRIBUTE)), 
+					activityTypeEntityService.findByCode(attributesMap.get(ACTIVITY_TY_ATTRIBUTE)), 
 					ErrorCodes.BPS_ENTITY_INSTANCE_NOT_FOUND_ERROR_CD, 
 					"createActivityForUiComponent:ActivityType");
 			activity.setActivityType(activityType);
@@ -211,13 +230,16 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 					ErrorCodes.BPS_ENTITY_INSTANCE_NOT_FOUND_ERROR_CD, 
 					"createActivityForUiComponent:Module");
 			activity.setModule(module);
+			activity.setUiComponent(component);
 			// Set other properties
 			activity.setCode(attributesMap.get(CODE_ATTRIBUTE));
+			activity.setActivityUrl(attributesMap.get(ACTIVITY_URL_ATTRIBUTE));
 			activity.setName(attributesMap.get(NAME_ATTRIBUTE));
-			activity.setActivityUrl(attributesMap.get(URL_ATTRIBUTE));
 			activity.setDisplayNm(attributesMap.get(DISPLAY_NAME_ATTRIBUTE));
 			activity.setDescription(attributesMap.get(DESCRIPTION_ATTRIBUTE));
 			activity.setDisplayImg(attributesMap.get(DISPLAY_IMAGE_ATTRIBUTE));
+			if(attributesMap.get(SEQUENCE_ATTRIBUTE) != null )
+				activity.setSequenceNo(Integer.parseInt(attributesMap.get(SEQUENCE_ATTRIBUTE)));
 			initializeFields(activity);
 			return (Activity) save(activity);
 		} catch (Exception e) {

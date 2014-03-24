@@ -1,0 +1,51 @@
+<!-- <div data-role="header">
+    <h3>Login</h3>
+</div>
+<div data-role="content">
+    <h4>Welcome</h4>
+    <form action="/save.html" method="post" data-transition="pop">
+		<label for="email">User Name:</label>
+		<input type="text" name="name" id="name" value="" />
+		<label for="email">Password:</label>
+		<input type="password" name="password" id="password" value="" />
+	    <div data-role="controlgroup" data-type="horizontal">
+	    	<a href="#events" data-role="button" data-inline="true" data-icon="check">Login</a>
+	    	<a href="#venues" data-role="button" data-inline="true" data-icon="plus">Sign Up</a>
+		</div>
+	</form>
+</div>
+To position the footer at the bottom of the page use: data-position="fixed"
+<div data-role="footer" data-position="fixed">
+    <h3>2014</h3>
+</div> -->
+
+<div id="login-header" data-role="header">
+    <h3>Welcome</h3></div>
+<div id="login-content" data-role="content">
+	<h1>Login</h1>
+	<form id="login-form" action="#" method="post" class="undefined">
+		<ul data-role="listview" data-inset="true">
+			<li data-role="list-divider"><h3>Sign in using your registered account</h3></li>
+			<li>
+				<div data-role="fieldcontain">
+					<label for="password">Password</label> 
+					<input name="password" id="password" value="" type="password">
+				</div>
+			</li>
+			<li>
+				<div data-role="fieldcontain">
+			  		<label for="username">Username</label>
+					<input name="username" id="username" value="" type="email">
+				</div>
+			</li>
+			<li>
+				<div data-role="containgroup">
+					<a href="#" data-role="button" data-inline="true" data-icon="check">Login </a>
+					<a href="#" data-role="button" data-inline="true" data-icon="plus"> Register </a>
+				</div>
+			</li>
+		</ul>
+	</form>
+</div>
+<div id="login-footer" data-role="footer" data-position="fixed">
+    <h3>2014</h3></div>

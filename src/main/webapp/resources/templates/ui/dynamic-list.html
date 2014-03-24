@@ -1,0 +1,24 @@
+<ul data-role="listview"<% _.each(uiComponentData.attributes, function (attribute) { %> <%= attribute.name %>="<%= attribute.value %>"<% }); %>>
+	<li data-role="list-divider">
+		<h3><%= uiComponentData.uiQueryDataDescriptor %> List</h3> 
+		<span class="ui-li-count"><%= uiComponentData.uiQueryData.length %></span>
+	</li>
+	<% _.each(uiComponentData.uiQueryData, function (component) { %>
+	<li>
+		<a class="search-activity-link" 
+		   href="<%= component.dataValues.id.fieldValue %>"
+		   data-entity-id="<%= component.dataValues.id.fieldValue %>">
+			<h4 class="search-activity-link"  
+				data-entity-id="<%= component.dataValues.id.fieldValue %>">
+				<%= component.dataValues.description.fieldValue %>
+			</h4>
+		</a>
+		<a class="add-activity-link" 
+		   data-theme="b" 
+		   href="<%= component.dataValues.id.fieldValue %>"
+		   data-entity-id="<%= component.dataValues.id.fieldValue %>" >
+		   Add <%= component.dataValues.description.fieldValue %>
+		 </a>
+    </li>
+    <% }); %>  
+</ul>

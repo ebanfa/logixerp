@@ -17,7 +17,6 @@ import org.w3c.dom.NodeList;
 import com.qurion.businesslogic.application.service.AbstractServiceImpl;
 import com.qurion.businesslogic.application.util.ApplicationException;
 import com.qurion.businesslogic.application.util.XMLUtil;
-import com.qurion.businesslogic.ide.config.Activities;
 import com.qurion.businesslogic.ide.config.BuilderConfiguration;
 import com.qurion.businesslogic.ide.config.PageFlows;
 import com.qurion.businesslogic.ide.config.PathElement;
@@ -103,6 +102,7 @@ public class UiBuilderServiceImpl extends AbstractServiceImpl implements UiBuild
 			Document uiComponentConfig) throws ApplicationException 
 	{
 		logger.debug("Processing UiComponent document {}", uiComponentConfig);
+		
 		Element rootUiComponentElement = uiComponentConfig.getDocumentElement();
 		logger.debug("Processing rootUiComponentElement {}", rootUiComponentElement.getNodeName());
 		rootUiComponentElement.normalize();
@@ -111,16 +111,30 @@ public class UiBuilderServiceImpl extends AbstractServiceImpl implements UiBuild
 		if(rootUiComponentElement.getNodeName().equals(UiPageFlowBuilderService.PAGE_FLOW));
 			//pageFlowBuilderService.buildPageFlow(rootUiComponentElement);
 		else {
-			NodeList componentsList = rootUiComponentElement.getChildNodes();
-			logger.debug("Processing NodeList {} of length {} ", 
-					componentsList.toString(), componentsList.getLength());
-			for(int i = 0; i < componentsList.getLength(); i++) {
-				if(componentsList.item(i) instanceof Element) {
-					logger.debug("Processing Node {}", componentsList.item(i).getNodeName());
-					uiComponentBuilderService.buildComponent(configuration, null, componentsList.item(i));
-				}
-			}
+			processUiComponentWidget(configuration, rootUiComponentElement);
 		}
 	}
+
+	/**
+	 * @param configuration
+	 * @param uiComponentElement
+	 * @throws ApplicationException
+	 */
+	private void processUiComponentWidget(
+			BuilderConfiguration configuration, 
+			Element uiComponentElement) throws ApplicationException 
+			{
+		NodeList componentsList = uiComponentElement.getChildNodes();
+		logger.debug("Processing NodeList {} of length {} ", 
+				componentsList.toString(), componentsList.getLength());/*
+		for(int i = 0; i < componentsList.getLength(); i++) {
+			if(componentsList.item(i) instanceof Element) {*/
+		logger.debug("Processing Node {}", uiComponentElement.getNodeName());
+		uiComponentBuilderService.buildComponent(configuration, null, uiComponentElement);
+		/*	}
+		}*/
+	}
+	
+	
 
 }

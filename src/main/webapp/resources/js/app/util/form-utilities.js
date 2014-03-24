@@ -40,7 +40,7 @@ define([
   function FieldBlock()
   {
     this.fields = [];
-    this.fieldsPerBlock = 2;
+    this.fieldsPerBlock = 1;
   }
 
  /*

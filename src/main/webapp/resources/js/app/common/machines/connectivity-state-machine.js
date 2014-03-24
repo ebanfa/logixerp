@@ -1,10 +1,8 @@
 define([
 	'jquery',
 	'configuration',
-	'underscore',
-    'app/util/utilities',
     'machina'
-], function ($, config, _, utilities, machina) {
+], function ($, config, machina) {
     
 	var ConnectivityFsm = machina.Fsm.extend({
 	    initialize: function() {

@@ -1,0 +1,161 @@
+<form id="<%= uiComponentData.name %>-form" target="#" method="post">
+	<ul id="<%= uiComponentData.name %>-container" data-role="listview"<% _.each(uiComponentData.attributes, function (attribute) { %> <%= attribute.name %>="<%= attribute.value %>"<% }); %>>
+		<li data-role="list-divider">
+			<h3><%= uiComponentData.uiQueryDataDescriptor %></h3>
+		</li>
+		<input type="hidden" name="businessObjectName" value="<%= uiComponentData.uiQueryDataDescriptor %>">
+		<% _.each(uiComponentData.components, function (component) { %>
+			<% if  (component.type == "bo-data-processor") { %>
+				<input type="hidden" 
+					name="businessObjectDataProcessor" 
+					value="<%= component.attributes.processorName %>">
+					
+					<% _.each(component.components, function (nestedComponent) { %>
+						<% if  (nestedComponent.type == "bo-data-processor-parameter") { %>
+				<input type="hidden" 
+					name="<%= nestedComponent.attributes.parameterName %>" 
+					value="<%= nestedComponent.attributes.value %>">
+							
+				        <% } %>
+				    <% }); %> <!-- End for each --> 
+	        <% } %>
+	    <% }); %>   <!-- End for each --> 
+	    
+	    
+	    <% _.each(uiComponentData.uiQueryData, function (data) { %>
+			<% if  (data.id > 0) { %>
+				<input type="hidden" 
+					name="businessObjectId" 
+					value="<%= data.id %>">
+	        <% } %>
+	    <% }); %>   <!-- End for each --> 
+	    
+		
+		<% _.each(uiComponentData.form.fieldBlocks, function (fieldBlock) { %>
+		    <!-- Loop over fields in field block -->
+		    <% _.each(fieldBlock.fields, function (field) { %>
+	    	<li>
+                <% if  (field.fieldData.fieldDataType == "ID") { %>
+                <% } else if  (field.fieldData.fieldDataType == "CODE") { %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="text" 
+                    	id="<%= field.fieldData.fieldName %>"  
+                    	name="<%= field.fieldData.fieldName %>" 
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>" 
+                    	data-inline="true">
+                </div> 
+                <!-- Name field -->
+                <% } else if (field.fieldData.fieldDataType == "NAME") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="text" 
+                    	id="<%= field.fieldData.fieldName %>" 
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>" 
+                    	name="<%= field.fieldData.fieldName %>" 
+                    	data-inline="true"> 
+                </div>  
+                <% } else if (field.fieldData.fieldDataType == "TEXT") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="text" 
+                    	id="<%= field.fieldData.fieldName %>" 
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>" 
+                    	name="<%= field.fieldData.fieldName %>" 
+                    	data-inline="true"> 
+                </div> 
+                <% } else if (field.fieldData.fieldDataType == "STATUS") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <select id="<%= field.fieldData.fieldName %>" 
+                    	name="<%= field.fieldData.fieldName %>" dataNativeMenu="false">
+                        <option value="A">Active</option>
+                        <option value="I">Inactive</option>
+                    </select>
+                </div>   
+                <% } else if (field.fieldData.fieldDataType == "CHAR") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="text" 
+                    	id="<%= field.fieldData.fieldName %>" 
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>" 
+                    	name="<%= field.fieldData.fieldName %>" 
+                    	data-inline="true"> 
+                </div>    
+                <% } else if (field.fieldData.fieldDataType == "NUMBER") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="number" 
+                    	id="<%= field.fieldData.fieldName %>" 
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>" 
+                    	name="<%= field.fieldData.fieldName %>" 
+                    	data-inline="true"> 
+                </div>  
+                <% } else if (field.fieldData.fieldDataType == "CURRENCY") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="number" 
+                    	id="<%= field.fieldData.fieldName %>" 
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>" 
+                    	name="<%= field.fieldData.fieldName %>" 
+                    	data-inline="true"> 
+                </div>       
+                <% } else if (field.fieldData.fieldDataType == "DECIMAL") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="number" 
+                    	id="<%= field.fieldData.fieldName %>" 
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>" 
+                    	name="<%= field.fieldData.fieldName %>" 
+                    	data-inline="true"> 
+                </div>   
+                <% } else if (field.fieldData.fieldDataType == "BOOLEAN") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="text" 
+                    	id="<%= field.fieldData.fieldName %>" 
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>" 
+                    	name="<%= field.fieldData.fieldName %>" 
+                    	data-inline="true"> 
+                </div>    
+                <% } else if (field.fieldData.fieldDataType == "DATE") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="date" 
+                    	id="<%= field.fieldData.fieldName %>"  
+                    	name="<%= field.fieldData.fieldName %>" 
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>">
+                </div>
+                <% } else if (field.fieldData.fieldDataType == "DATETIME") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
+                    <input type="date" 
+                    	id="<%= field.fieldData.fieldName %>"  
+                    	name="<%= field.fieldData.fieldName %>"  
+                    	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>">
+                </div>
+                <% } else if (field.fieldData.fieldDataType == "RELATIONSHIP") {  %>
+                <div data-role="fieldcontain">
+                    <label for="<%= field.fieldData.fieldName %>">
+                    	<%= field.fieldData.fieldDescription %>
+                    </label>
+                    <select name="<%=field.fieldData.fieldName%>" 
+                    	id="<%=field.fieldData.fieldName%>" dataNativeMenu="false">
+                        <option value=""></option>
+                    <%
+                    _.each(field.fieldData.fieldOptions, function (option) {
+                    %>
+                        <% if (field.fieldData.fieldValue == option.id) { %>
+                        <option value="<%=option.id%>" selected="selected"><%=option.dataValues.name.fieldValue%></option>
+                        <% } else {%>
+                        <option value="<%=option.id%>"><%=option.dataValues.name.fieldValue%></option>
+                        <% } %>
+                    <% }); %>
+                    </select>
+                </div>
+                <% } %>
+	    	</li>
+		    <% }); %> <!-- End row for each -->  
+	    <% }); %>   <!-- End field block for each --> 
+	</ul>
+</form>

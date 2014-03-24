@@ -14,11 +14,21 @@
 			<module name="PRODUCT"/>
 			<module name="SHIPMENT"/>
 			<module name="WORKEFFORT"/>
+			<module name="USER"/>
 		</modules>
 		<screens>
-			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/screens/home-screen.xml"/>
-			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/screens/login-screen.xml"/>
-			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/screens/loading-screen.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/home-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/login-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/bo/list-bo-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/bo/view-bo-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/bo/edit-bo-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/bo/create-bo-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/bo/delete-bo-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/bo/search-bo-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/settings-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/calendar-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/favorites-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/activities-page.xml"/>
 		</screens>
 		<activities>
 			<activity name="moduleNavigator" path="/home/edward/Projects/businesslogic/configuration/ui/activities/module-navigator.xml"/>

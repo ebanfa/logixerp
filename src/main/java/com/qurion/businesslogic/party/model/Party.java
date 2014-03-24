@@ -3,12 +3,13 @@
  */
 package com.qurion.businesslogic.party.model;
 
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -23,7 +24,6 @@ import com.qurion.businesslogic.accounting.model.BudgetReview;
 import com.qurion.businesslogic.accounting.model.BudgetRole;
 import com.qurion.businesslogic.accounting.model.OrganizationGeneralLedgerAccount;
 import com.qurion.businesslogic.application.model.BaseEntity;
-import com.qurion.businesslogic.application.model.UserActivity;
 import com.qurion.businesslogic.hr.model.EmploymentApplication;
 import com.qurion.businesslogic.hr.model.PartyQualification;
 import com.qurion.businesslogic.hr.model.PartyRate;
@@ -53,6 +53,7 @@ import com.qurion.businesslogic.product.model.SupplierProduct;
 import com.qurion.businesslogic.shipment.model.ItemIssuanceRole;
 import com.qurion.businesslogic.shipment.model.ShipmentRouteSegment;
 import com.qurion.businesslogic.shipment.model.ShippmentReceiptRole;
+import com.qurion.businesslogic.user.model.SystemUser;
 import com.qurion.businesslogic.workeffort.model.WorkEffortPartyAssignement;
 import com.qurion.businesslogic.workeffort.model.WorkEffortPartyAssignment;
 
@@ -70,6 +71,7 @@ import com.qurion.businesslogic.workeffort.model.WorkEffortPartyAssignment;
 public class Party  extends BaseEntity implements java.io.Serializable {
 	private String name;
 	private String description;
+	private PartyType partyType;
 	private Set<PartyQualification> partyQualifications;
 	private Set<RequirementRole> requirementRoles;
 	private Set<AccountingTransaction> accountingTransactionsForToPartyId;
@@ -79,6 +81,7 @@ public class Party  extends BaseEntity implements java.io.Serializable {
 	private Set<PersonTraining> personTrainings;
 	private Set<FinancialAccountTransaction> financialAccountTransactions;
 	private Set<CommunicationEventRole> communicationEventRoles;
+	private Set<SystemUser> systemUsers;
 	private Set<Resume> resumes;
 	private Set<AgreementOrganizationApplicability> agreementOrganizationApplicabilities;
 	private Set<PartyClassification> partyClassifications;
@@ -94,7 +97,6 @@ public class Party  extends BaseEntity implements java.io.Serializable {
 	private Set<Invoice> invoicesForToPartyId;
 	private Set<RespondingParty> respondingParties;
 	private Set<FinancialAccountRole> financialAccountRoles;
-	private Set<UserActivity> applicationUserActivities;
 	private Set<BudgetReview> budgetReviews;
 	private Set<OrderItemRole> orderItemRoles;
 	private Set<PartySkill> partySkills;
@@ -124,19 +126,13 @@ public class Party  extends BaseEntity implements java.io.Serializable {
     public Party() {
     }
 
-    public Party(String name, String description, Integer id, String code, Date effectiveDt, Character recSt, Date createdDt, String createdByUsr) 
+    public Party(String name, String description) 
     {
         this.name = name;
         this.description = description;
-        this.id = id;
-        this.code = code;
-        this.effectiveDt = effectiveDt;
-        this.recSt = recSt;
-        this.createdDt = createdDt;
-        this.createdByUsr = createdByUsr;
     }
 
-    public Party(String name, String description, Set partyQualifications, Set requirementRoles, Set accountingTransactionsForToPartyId, Set accountingPeriods, Set accountingTransactionsForFromPartyId, Set workEffortPartyAssignements, Set personTrainings, Set financialAccountTransactions, Set communicationEventRoles, Set resumes, Set agreementOrganizationApplicabilities, Set partyClassifications, Set partyRoles, Set shippmentReceiptRoles, Set payrollReferencesForEmployeeId, Set payrollReferencesForOrganizationId, Set caseRoles, Set orderRoles, Set productPriceComponents, Set invoicesForFromPartyId, Set workEffortPartyAssignments, Set invoicesForToPartyId, Set respondingParties, Set financialAccountRoles, Set applicationUserActivities, Set budgetReviews, Set orderItemRoles, Set partySkills, Set products, Set billingAccountRoles, Set organizations, Set shipmentRouteSegments, Set requestRoles, Set budgetRoles, Set supplierProducts, Set persons, Set quoteRoles, Set organizationGeneralLedgerAccountsForRefPartyId, Set timeSheetRoles, Set organizationGeneralLedgerAccountsForOrganizationId, Set itemIssuanceRoles, Set positions, Set agreementRoles, Set partyPostalAddresses, Set partyContactMechanisms, Set employmentApplicationsForApplicantId, Set positionFulfillments, Set productCostComponents, Set employmentApplicationsForReferrerId, Set partyRates, Integer id, String code, Date effectiveDt, Character recSt, Integer versionNo, Date rowTs, Date createdDt, String createdByUsr, Date lastModifiedDt, String lastModifiedUsr) 
+    public Party(String name, String description, Set partyQualifications, Set requirementRoles, Set accountingTransactionsForToPartyId, Set accountingPeriods, Set accountingTransactionsForFromPartyId, Set workEffortPartyAssignements, Set personTrainings, Set financialAccountTransactions, Set communicationEventRoles, Set systemUsers, Set resumes, Set agreementOrganizationApplicabilities, Set partyClassifications, Set partyRoles, Set shippmentReceiptRoles, Set payrollReferencesForEmployeeId, Set payrollReferencesForOrganizationId, Set caseRoles, Set orderRoles, Set productPriceComponents, Set invoicesForFromPartyId, Set workEffortPartyAssignments, Set invoicesForToPartyId, Set respondingParties, Set financialAccountRoles, Set budgetReviews, Set orderItemRoles, Set partySkills, Set products, Set billingAccountRoles, Set organizations, Set shipmentRouteSegments, Set requestRoles, Set budgetRoles, Set supplierProducts, Set persons, Set quoteRoles, Set organizationGeneralLedgerAccountsForRefPartyId, Set timeSheetRoles, Set organizationGeneralLedgerAccountsForOrganizationId, Set itemIssuanceRoles, Set positions, Set agreementRoles, Set partyPostalAddresses, Set partyContactMechanisms, Set employmentApplicationsForApplicantId, Set positionFulfillments, Set productCostComponents, Set employmentApplicationsForReferrerId, Set partyRates) 
     {
         this.name = name;
         this.description = description;
@@ -149,6 +145,7 @@ public class Party  extends BaseEntity implements java.io.Serializable {
         this.personTrainings = personTrainings;
         this.financialAccountTransactions = financialAccountTransactions;
         this.communicationEventRoles = communicationEventRoles;
+        this.systemUsers = systemUsers;
         this.resumes = resumes;
         this.agreementOrganizationApplicabilities = agreementOrganizationApplicabilities;
         this.partyClassifications = partyClassifications;
@@ -164,7 +161,6 @@ public class Party  extends BaseEntity implements java.io.Serializable {
         this.invoicesForToPartyId = invoicesForToPartyId;
         this.respondingParties = respondingParties;
         this.financialAccountRoles = financialAccountRoles;
-        this.applicationUserActivities = applicationUserActivities;
         this.budgetReviews = budgetReviews;
         this.orderItemRoles = orderItemRoles;
         this.partySkills = partySkills;
@@ -190,16 +186,6 @@ public class Party  extends BaseEntity implements java.io.Serializable {
         this.productCostComponents = productCostComponents;
         this.employmentApplicationsForReferrerId = employmentApplicationsForReferrerId;
         this.partyRates = partyRates;
-        this.id = id;
-        this.code = code;
-        this.effectiveDt = effectiveDt;
-        this.recSt = recSt;
-        this.versionNo = versionNo;
-        this.rowTs = rowTs;
-        this.createdDt = createdDt;
-        this.createdByUsr = createdByUsr;
-        this.lastModifiedDt = lastModifiedDt;
-        this.lastModifiedUsr = lastModifiedUsr;
     }
     
     @Column(name="NAME", nullable=false, length=75)
@@ -224,7 +210,24 @@ public class Party  extends BaseEntity implements java.io.Serializable {
         this.description = description;
     }
 	
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="party")
+    /**
+	 * @return the partyType
+	 */
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="PARTY_TY_ID")
+    @JsonIgnore
+	public PartyType getPartyType() {
+		return partyType;
+	}
+
+	/**
+	 * @param partyType the partyType to set
+	 */
+	public void setPartyType(PartyType partyType) {
+		this.partyType = partyType;
+	}
+
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="party")
     @JsonIgnore
     public Set<PartyQualification> getPartyQualifications() 
     {
@@ -330,6 +333,18 @@ public class Party  extends BaseEntity implements java.io.Serializable {
     public void setCommunicationEventRoles(Set<CommunicationEventRole> communicationEventRoles) 
     {
         this.communicationEventRoles = communicationEventRoles;
+    }			
+		
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="party")
+    @JsonIgnore
+    public Set<SystemUser> getSystemUsers() 
+    {
+        return this.systemUsers;
+    }
+    
+    public void setSystemUsers(Set<SystemUser> systemUsers) 
+    {
+        this.systemUsers = systemUsers;
     }			
 		
     @OneToMany(fetch=FetchType.LAZY, mappedBy="party")
@@ -510,18 +525,6 @@ public class Party  extends BaseEntity implements java.io.Serializable {
     public void setFinancialAccountRoles(Set<FinancialAccountRole> financialAccountRoles) 
     {
         this.financialAccountRoles = financialAccountRoles;
-    }			
-		
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="party")
-    @JsonIgnore
-    public Set<UserActivity> getApplicationUserActivities() 
-    {
-        return this.applicationUserActivities;
-    }
-    
-    public void setApplicationUserActivities(Set<UserActivity> applicationUserActivities) 
-    {
-        this.applicationUserActivities = applicationUserActivities;
     }			
 		
     @OneToMany(fetch=FetchType.LAZY, mappedBy="party")

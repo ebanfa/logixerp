@@ -3,6 +3,8 @@
  */
 package com.qurion.businesslogic.businessobject.data;
 
+import java.util.List;
+
 /**
  * @author Edward Banfa
  *
@@ -70,10 +72,52 @@ public interface BusinessObjectFieldData {
 	 * @return the required
 	 */
 	public Boolean getRequired() ;
+	
 	/**
 	 * @param required the required to set
 	 */
 	public void setRequired(Boolean required);
+	
+	/**
+	 * @return the listFieldFg
+	 */
+	public Boolean getListFieldFg() ;
+	/**
+	 * @param listFieldFg the listFieldFg to set
+	 */
+	public void setListFieldFg(Boolean listFieldFg) ;
+	/**
+	 * @return the viewFieldFg
+	 */
+	public Boolean getViewFieldFg();
+	/**
+	 * @param viewFieldFg the viewFieldFg to set
+	 */
+	public void setViewFieldFg(Boolean viewFieldFg) ;
+	/**
+	 * @return the editFieldFg
+	 */
+	public Boolean getEditFieldFg();
+	/**
+	 * @param editFieldFg the editFieldFg to set
+	 */
+	public void setEditFieldFg(Boolean editFieldFg);
+	/**
+	 * @return the createFieldFg
+	 */
+	public Boolean getCreateFieldFg() ;
+	/**
+	 * @param createFieldFg the createFieldFg to set
+	 */
+	public void setCreateFieldFg(Boolean createFieldFg);
+	/**
+	 * @return the deleteFieldFg
+	 */
+	public Boolean getDeleteFieldFg();
+	/**
+	 * @param deleteFieldFg the deleteFieldFg to set
+	 */
+	public void setDeleteFieldFg(Boolean deleteFieldFg);
 
 	/**
 	 * @return the relatedBusinessObjectName
@@ -84,5 +128,26 @@ public interface BusinessObjectFieldData {
 	 * @param relatedBusinessObjectName the relatedBusinessObjectName to set
 	 */
 	public void setRelatedBusinessObjectName(String relatedBusinessObjectName) ;
+	
 
+	/**
+	 * @param searchFieldFg
+	 */
+	public void setSearchFieldFg(Boolean searchFieldFg);
+	
+	/**
+	 * @return
+	 */
+	public Boolean getSearchFieldFg() ;
+	
+	/**
+	 * @return
+	 */
+	public List<BusinessObjectData> getFieldOptions();
+	
+	/**
+	 * @param fieldOptions
+	 */
+	public void setFieldOptions(List<BusinessObjectData> fieldOptions);
+	
 }

@@ -41,17 +41,127 @@ public class ActivityServiceImpl implements ActivityService {
 	@Inject ActivityEntityService activityEntityService;
 	@Inject ModuleEntityService applicationModuleService;
 	private Logger logger = LoggerFactory.getLogger(getClass());
+	
+	
+	public EntityData getEntityData(String entityName) throws ApplicationException {
+		
+		return entityService.findByName(entityName);
+		
+	}
 
 	/* (non-Javadoc)
 	 * @see com.nathanclaire.alantra.application.service.process.ActivityService#getEntityListFields(java.lang.String)
 	 */
 	@Override
-	public List<BusinessObjectFieldData> getEntityListFields(String entityName)
+	public List<BusinessObjectFieldData> getBusinessObjectListFields(String entityName)
 			throws ApplicationException 
 	{
-		EntityUtil.returnOrThrowIfParamsArrayContainsNull(
-				new Object[]{entityName}, "ActivityServiceImpl.getEntityListFields");
-		
+		List<BusinessObjectFieldData> fieldDataList =
+				getBusinessObjectFields(entityName);
+		List<BusinessObjectFieldData> listFieldsDataList = new ArrayList<BusinessObjectFieldData>();
+		for(BusinessObjectFieldData fieldData: fieldDataList)
+		{
+			if(fieldData.getListFieldFg())
+				listFieldsDataList.add(fieldData);
+		}
+		return listFieldsDataList;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.nathanclaire.alantra.application.service.process.ActivityService#getEntityViewFields(java.lang.String)
+	 */
+	@Override
+	public List<BusinessObjectFieldData> getBusinessObjectViewFields(String entityName)
+			throws ApplicationException 
+	{
+		List<BusinessObjectFieldData> fieldDataList =
+				getBusinessObjectFields(entityName);
+		List<BusinessObjectFieldData> viewFieldsDataList = new ArrayList<BusinessObjectFieldData>();
+		for(BusinessObjectFieldData fieldData: fieldDataList)
+		{
+			if(fieldData.getViewFieldFg())
+				viewFieldsDataList.add(fieldData);
+		}
+		return viewFieldsDataList;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.nathanclaire.alantra.application.service.process.ActivityService#getEntityEditFields(java.lang.String)
+	 */
+	@Override
+	public List<BusinessObjectFieldData> getBusinessObjectEditFields(String entityName)
+			throws ApplicationException 
+	{
+		List<BusinessObjectFieldData> fieldDataList =
+				getBusinessObjectFields(entityName);
+		List<BusinessObjectFieldData> editFieldsDataList = new ArrayList<BusinessObjectFieldData>();
+		for(BusinessObjectFieldData fieldData: fieldDataList)
+		{
+			if(fieldData.getEditFieldFg())
+				editFieldsDataList.add(fieldData);
+		}
+		return editFieldsDataList;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.application.service.ActivityService#getBusinessObjectCreateFields(java.lang.String)
+	 */
+	@Override
+	public List<BusinessObjectFieldData> getBusinessObjectCreateFields(String entityName)
+			throws ApplicationException 
+	{
+		List<BusinessObjectFieldData> fieldDataList =
+				getBusinessObjectFields(entityName);
+		List<BusinessObjectFieldData> createFieldsDataList = new ArrayList<BusinessObjectFieldData>();
+		for(BusinessObjectFieldData fieldData: fieldDataList)
+		{
+			if(fieldData.getCreateFieldFg())
+				createFieldsDataList.add(fieldData);
+		}
+		return createFieldsDataList;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.application.service.ActivityService#getBusinessObjectDeleteFields(java.lang.String)
+	 */
+	@Override
+	public List<BusinessObjectFieldData> getBusinessObjectDeleteFields(String entityName)
+			throws ApplicationException 
+	{
+		List<BusinessObjectFieldData> fieldDataList =
+				getBusinessObjectFields(entityName);
+		List<BusinessObjectFieldData> deleteFieldsDataList = new ArrayList<BusinessObjectFieldData>();
+		for(BusinessObjectFieldData fieldData: fieldDataList)
+		{
+			if(fieldData.getDeleteFieldFg())
+				deleteFieldsDataList.add(fieldData);
+		}
+		return deleteFieldsDataList;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.application.service.ActivityService#getEntitySearchFields(java.lang.String)
+	 */
+	public List<BusinessObjectFieldData> getBusinessObjectSearchFields(String entityName)
+			throws ApplicationException 
+	{
+		List<BusinessObjectFieldData> fieldDataList =
+				getBusinessObjectFields(entityName);
+		List<BusinessObjectFieldData> searchFieldsDataList = new ArrayList<BusinessObjectFieldData>();
+		for(BusinessObjectFieldData fieldData: fieldDataList)
+		{
+			if(fieldData.getSearchFieldFg())
+				searchFieldsDataList.add(fieldData);
+		}
+		return searchFieldsDataList;
+	}
+	/**
+	 * @param entityName
+	 * @return
+	 * @throws ApplicationException
+	 */
+	public List<BusinessObjectFieldData> getBusinessObjectFields(
+			String entityName) throws ApplicationException {
 		List<BusinessObjectFieldData> fieldDataList = new ArrayList<BusinessObjectFieldData>();
 		EntityData entity = entityService.findByName(entityName);
 		EntityUtil.returnOrThrowIfNull(entity, 
@@ -71,67 +181,17 @@ public class ActivityServiceImpl implements ActivityService {
 				fieldData.setRequired(true);
 			else
 				fieldData.setRequired(false);
+			
+			fieldData.setListFieldFg(StringUtil.flagToBoolean(entityField.getListFieldFg()));
+			fieldData.setViewFieldFg(StringUtil.flagToBoolean(entityField.getViewFieldFg()));
+			fieldData.setEditFieldFg(StringUtil.flagToBoolean(entityField.getEditFieldFg()));
+			fieldData.setCreateFieldFg(StringUtil.flagToBoolean(entityField.getCreateFieldFg()));
+			fieldData.setDeleteFieldFg(StringUtil.flagToBoolean(entityField.getDeleteFieldFg()));
+			fieldData.setSearchFieldFg(StringUtil.flagToBoolean(entityField.getSearchFieldFg()));
 				
 			fieldDataList.add(fieldData);
 		}
 		logger.debug("Loaded {} fields for entity {}", fieldDataList.size(), entityName);
-		return fieldDataList;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.nathanclaire.alantra.application.service.process.ActivityService#getEntityEditFields(java.lang.String)
-	 */
-	@Override
-	public List<BusinessObjectFieldData> getEntityEditFields(String entityName)
-			throws ApplicationException 
-	{
-		return this.getEntityListFields(entityName);
-	}
-
-	/* (non-Javadoc)
-	 * @see com.nathanclaire.alantra.application.service.process.ActivityService#getEntityViewFields(java.lang.String)
-	 */
-	@Override
-	public List<BusinessObjectFieldData> getEntityViewFields(String entityName)
-			throws ApplicationException 
-	{
-		return this.getEntityListFields(entityName);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.qurion.businesslogic.application.service.ActivityService#getEntitySearchFields(java.lang.String)
-	 */
-	public List<BusinessObjectFieldData> getEntitySearchFields(String entityName)
-			throws ApplicationException 
-	{
-		EntityUtil.returnOrThrowIfParamsArrayContainsNull(
-				new Object[]{entityName}, "ActivityServiceImpl.getEntityListFields");
-		
-		List<BusinessObjectFieldData> fieldDataList = new ArrayList<BusinessObjectFieldData>();
-		EntityData entity = entityService.findByName(entityName);
-		EntityUtil.returnOrThrowIfNull(entity, 
-				ErrorCodes.BPS_ENTITY_INSTANCE_NOT_FOUND_ERROR_CD, 
-				ErrorCodes.AS_ENTITY_NOT_FOUND_ERROR_MSG);
-		// Get all the fields of the entity
-		for(EntityField entityField : entity.getEntityFieldsForEntityId()) 
-		{
-			if(StringUtil.flagToBoolean(entityField.getSearchFieldFg())) 
-			{
-				BusinessObjectFieldDataImpl fieldData = new  BusinessObjectFieldDataImpl();
-				fieldData.setFieldName(entityField.getName());
-				fieldData.setFieldDescription(entityField.getDescription());
-				fieldData.setFieldDataType(entityField.getEntityFieldType().getCode());
-				fieldData.setFieldSequence(entityField.getSequenceNo());
-				// Check required flag
-				if(StringUtil.flagToBoolean(entityField.getRequiredFg()))
-					fieldData.setRequired(true);
-				else
-					fieldData.setRequired(false);
-					
-				fieldDataList.add(fieldData);
-			}
-		}
-		logger.debug("Loaded {} search fields for entity {}", fieldDataList.size(), entityName);
 		return fieldDataList;
 	}
 
@@ -156,7 +216,7 @@ public class ActivityServiceImpl implements ActivityService {
 			List<Module> modules = applicationModuleService.findAll(null);
 			for(Module module: modules){
 
-				List<BusinessObjectFieldData> entityListFields = getEntityListFields("ApplicationModule");
+				List<BusinessObjectFieldData> entityListFields = getBusinessObjectListFields("ApplicationModule");
 				BusinessObjectData businessObjectData = new BusinessObjectDataImpl();
 				BusinessObjectUtil.copyDataToBusinessObject(businessObjectData, module, entityListFields);
 				moduleBusinessObjects.add(businessObjectData);

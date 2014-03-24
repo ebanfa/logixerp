@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<page name="settings-page" description="Settings Page" dataAddBackBtn="true">
+	<activity code="SETTINGS_ACTIVITY" name="Settings Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="settings_activity" entityCode="APPLICATION_ACTIVITY"
+		description="Settings Activity" displayImg="appl.png" displayName="Settings Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="settings-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="settings-page-header-heading" description="Settings" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="settings-content" seq="2">
+		<dynamic-list name="settings-home" description="Account settings" dataSplitIcon="plus" dataFilter="true" dataInset="true"  seq="1">
+			<ui-data-query 
+				type="query"
+				businessObject="Activity" 
+				name="select-settings-modules" 
+				description="Select Activities">
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldValue="12" 
+					fieldName="module.id" 
+					fieldDataType="Integer"
+					description="Parent module"
+					name="select-settings-activities" seq="1" />
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldDataType="String"
+					fieldValue="LIST_ACTIVITY" 
+					fieldName="activityType.code" 
+					description="Parent activity type"
+					name="select-settings-activities-activityTy" seq="1" />
+			</ui-data-query>						
+			<event-handler 
+				event="click" 
+				description="Click Handler"
+				name="navigator-settings-item-click" 
+				handler="activity.favoriteItemClickedHandler" />
+		</dynamic-list>
+	</content>
+	
+	<!-- Footer -->
+	<footer name="settings-footer" dataPosition="fixed" seq="3">
+		<navbar name="settings-navbar" seq="1">
+			<event-handler name="settings-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="settings-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="settings-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="settings-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="settings-footer-settings-nav-button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

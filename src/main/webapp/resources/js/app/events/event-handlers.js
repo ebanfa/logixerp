@@ -8,13 +8,21 @@ define([
     'underscore',
     'backbone',
     'uiconstants',
-    'app/events/login-submit-handler'
+    'app/events/activity-handlers',
+    'app/events/navbar-click-handler',
+    'app/events/login-submit-handler',
+    'app/events/navigator-click-handler',
+    'app/events/navigator-dyna-listitem-clickhandler'
 ],function ($, 
     		config, 
     		_, 
     		Backbone, 
     		UiConstants,
-    		LoginSubmitHandler) {
+    		ActivityHandlers,
+    		NavbarClickHandler,
+    		LoginSubmitHandler,
+    		NavigatorClickHandler,
+    		NavigatorDynaListItemClickHandler) {
 	
     /**
      * Event handler mappings.
@@ -25,6 +33,14 @@ define([
     var EventHandlers = {
     		
     	'login.submitHandler': LoginSubmitHandler,
+    	'navigator.itemClickHandler': NavigatorClickHandler,
+    	'navigator.navbarClickHandler':NavbarClickHandler,
+    	'navigator.dynamicListLtemClickHandler': NavigatorDynaListItemClickHandler,
+    	'activity.favoriteItemClickedHandler': ActivityHandlers.FavoriteItemClickHandler,
+    	'businessObject.searchFormHandler': ActivityHandlers.BusinessObjectSearchFormHandler,
+    	'businessObject.editFormHandler': ActivityHandlers.BusinessObjectEditFormHandler,
+    	'businessObject.viewFormHandler': ActivityHandlers.BusinessObjectViewFormHandler,
+    	'businessObject.boListItemClickedHandler': ActivityHandlers.BusinessObjectListFormHandler
     	
     };
     return EventHandlers;

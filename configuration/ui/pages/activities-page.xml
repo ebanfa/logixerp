@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<page name="activities-page" description="Activities Page" dataAddBackBtn="true">
+	<activity code="ACTIVITIES_NAV_ACTIVITY" name="Activities Navigation Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="activities_activity" entityCode="APPLICATION_ACTIVITY"
+		description="Activities Navigation Activity" displayImg="appl.png" displayName="Activities Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="activities-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="activities-page-header-heading" description="Activities List" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="activities-content" seq="2">
+		<dynamic-list name="activities-home" description="Activities items" 
+			dataSplitIcon="plus" dataFilter="true" dataInset="true"  seq="1">
+			<ui-data-query 
+				type="query"
+				name="select-activities" 
+				description="Select Activities In Module" 
+				businessObject="Activity">
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldValue=":uiDataQuery[module]" 
+					fieldDataType="Integer"
+					description="Parent Module"
+					fieldName="module.id" 
+					name="select-module-activities-module" seq="1" />
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldValue="LIST_ACTIVITY" 
+					fieldDataType="String"
+					description="List Activity"
+					fieldName="activityType.code" 
+					name="select-list-activities-module" seq="1" />
+			</ui-data-query>	
+			<event-handler 
+				event="click" 
+				name="activities-item-clicked-handler" 
+				description="Activities item clicked handler"
+				handler="activity.favoriteItemClickedHandler" />
+		</dynamic-list>
+	</content>
+	
+	<!-- Footer -->
+	<footer name="activities-footer" dataPosition="fixed" seq="3">
+		<navbar name="activities-navbar" seq="1">
+			<event-handler name="activities-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="activities-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="activities-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="ui-btn-active" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="activities-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="activities-footer-settings-nav-button" description="Settings" activityUrl="settings_activity" dataClass="" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

@@ -1,12 +1,10 @@
 define([
 	'jquery',
 	'configuration',
-	'underscore',
-    'app/util/utilities',
     'machina',
     'uiconstants',
     'app/common/login-manager'
-], function ($, config, _, utilities, machina, UiConstants, LoginManager) {
+], function ($, config, machina, UiConstants, LoginManager) {
     
 	var LoginFsm = machina.Fsm.extend({
 	    initialize: function() {

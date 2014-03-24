@@ -23,8 +23,6 @@ define([
      */
 
     var LoginSubmitHandler = {
-    		// 3.
-    		
     		'handle': function(event) {
     			event.preventDefault();
         		// 1. We need a reference to the page view 
@@ -39,8 +37,10 @@ define([
     				this.pageView.notifyUser('Please provide valid values for username and password');
     				return
     			}
-    			this.application.fireEvent(UiConstants.loginFsm, UiConstants.loginLoginEvent, {userName:userName, password:password});
-    			//console.log('This is the handler' + userName);
+    			this.application.fireEvent(
+    					UiConstants.loginFsm, 
+    					UiConstants.loginLoginEvent, 
+    					{userName:userName, password:password});
     		}
     		
     };

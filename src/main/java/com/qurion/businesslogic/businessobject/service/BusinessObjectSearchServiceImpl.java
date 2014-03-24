@@ -14,6 +14,7 @@ import javax.persistence.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.qurion.businesslogic.application.model.BaseEntity;
 import com.qurion.businesslogic.application.model.EntityData;
 import com.qurion.businesslogic.application.service.EntityDataEntityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
@@ -47,13 +48,15 @@ public class BusinessObjectSearchServiceImpl implements	BusinessObjectSearchServ
 			throws ApplicationException 
 	{
 		EntityUtil.returnOrThrowIfParamsArrayContainsNull(
-				new Object[]{searchData, fieldsWanted}, "BusinessObjectSearchService.findById");
+				new Object[]{searchData, fieldsWanted}, "BusinessObjectSearchService.find");
 		
 		List<BusinessObjectData> dataList = new ArrayList<BusinessObjectData>();
 		try {
-			String queryString = queryBuilderService.buildQuery(searchData);
+			List<BaseEntity> businessObjects = 
+					queryBuilderService.getQuery(searchData).getResultList();
+			/*String queryString = queryBuilderService.buildQuery(searchData);
 			Query query = entityManager.createQuery(queryString);
-			List<Object> businessObjects = query.getResultList();
+			List<Object> businessObjects = query.getResultList();*/
 			
 			for(Object businessObject : businessObjects){
 				BusinessObjectData businessObjectData = new BusinessObjectDataImpl();
@@ -128,9 +131,28 @@ public class BusinessObjectSearchServiceImpl implements	BusinessObjectSearchServ
 	 * @see com.qurion.businesslogic.businessobject.service.process.BusinessObjectSearchService#findAll(java.lang.String)
 	 */
 	@Override
-	public List<BusinessObjectData> findAll(String businessObjectName)
+	public List<BusinessObjectData> findAll(String businessObjectName,  List<BusinessObjectFieldData> fieldsWanted)
 			throws ApplicationException {
-		// TODO Auto-generated method stub
-		return null;
+		EntityUtil.returnOrThrowIfParamsArrayContainsNull(
+				new Object[]{businessObjectName, fieldsWanted}, "BusinessObjectSearchService.findAll");
+		
+		SearchData searchData = new SearchData(businessObjectName);
+		List<BusinessObjectData> dataList = new ArrayList<BusinessObjectData>();
+		try {
+			List<BaseEntity> businessObjects = 
+					queryBuilderService.getQuery(searchData).getResultList();
+			
+			for(Object businessObject : businessObjects){
+				BusinessObjectData businessObjectData = new BusinessObjectDataImpl();
+				BusinessObjectUtil.copyDataToBusinessObject(businessObjectData, businessObject, fieldsWanted);
+				businessObjectData.setBusinessObjectName(searchData.getBusinessObjectName());
+				dataList.add(businessObjectData);
+			}
+			logger.debug("Received {} business objects", businessObjects.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+			ExceptionUtil.logAndProcessException(e, ErrorCodes.BOSS_BUSINESS_OBJ_QUERY_ERROR_CD);
+		}
+		return dataList;
 	}
 }

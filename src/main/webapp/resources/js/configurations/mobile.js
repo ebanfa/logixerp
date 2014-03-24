@@ -6,22 +6,35 @@
 require.config({
     baseUrl:"resources/js",
     paths: {
-        text:'libs/text',
+        jquery:'libs/jquery-1.11.0.min',
         i18n:'libs/i18n',
-        order: 'libs/order',
-        backbone: 'libs/backbone',
-        jquery:'libs/jquery-1.7.1',
-        utilities: 'app/utilities',
+        'jquerymobile-config':'libs/jquerymobile-config',
+        jquerymobile:'libs/jquery.mobile-1.3.2.min',
+        text:'libs/text',
         underscore:'libs/underscore',
-        router:'app/router/mobile/router',
-        jquerymobile:'libs/jquery.mobile-1.3.0',
+        backbone: 'libs/backbone-min',
+        order: 'libs/order',
+        utilities: 'app/util/utilities',
+        router:'app/router/router',
+        postal:'libs/postal.min',
+        machina:'libs/machina.min',
+        machinapostal:'libs/machina.postal.min',
+        postaldiagnostics: 'libs/postal.diagnostics.min',
+        application:'app/common/application',
+        //application:'app/common/app',
+        uiconstants:'app/common/ui-constants',
     },
-    // We shim Backbone since it doesn't declare an AMD module
+    // We shim Backbone.js and Underscore.js since they don't declare AMD modules
     shim: {
+        'underscore': {
+        	exports: '_'
+        },
         'backbone': {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
-        }
+        },
+        'jquerymobile-config': ['jquery', 'utilities'],
+        'jquerymobile': ['jquery','jquerymobile-config']
     }
 });
 
@@ -37,27 +50,18 @@ define("configuration", function() {
     }
 });
 
-define("initializer", [
-    'jquery',
-    'utilities',
-    'text!../templates/mobile/main.html'
-], function ($, utilities, MainTemplate) {
-    $('head').append('<link rel="stylesheet" href="resources/css/jquery.mobile-1.3.0.css"/>');
-    $('head').append('<link rel="stylesheet" href="resources/css/m.screen.css"/>');
-    $(document).bind("mobileinit", function () {
-        utilities.applyTemplate($('body'), MainTemplate);
+require(['jquery', 'application', 'jquerymobile'], function( $, Application ){
+    $(function(){
+    	Application.init();
     });
 });
 
+define("initializer", ['jquery'], function ($) {
+	$.ajaxSetup({cache:false});
+    $('head').append('<link rel="stylesheet" href="resources/css/jquery.mobile-1.3.1.css"/>');
+    $('head').append('<link rel="stylesheet" href="resources/css/m.screen.css"/>');
+    $('head').append('<link rel="stylesheet" href="resources/css/app.css"/>');
+});
+
 // Now we declare all the dependencies
-require(['order!initializer',
-         'order!underscore',
-         'order!backbone',
-         'order!router'],
-    function(){
-});
-
-define(["configuration"],function(configuration){
-    return {config: configuration };
-});
-
+require(['initializer']);

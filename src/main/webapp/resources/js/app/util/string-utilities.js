@@ -25,6 +25,8 @@ define([
     		isValid: function(stringValue) {
         		if(stringValue === '')
         			return false;
+        		if(stringValue === undefined)
+        			return false;
         		return true;
     		}
     };

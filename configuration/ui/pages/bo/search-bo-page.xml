@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<page name="search-bo-page" description="Search Page" dataAddBackBtn="true">
+	<activity code="SEARCH_BO_ACTIVITY" name="Search Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="search_bo_activity" entityCode="APPLICATION_ACTIVITY"
+		description="Search Business Object Activity" displayImg="appl.png" displayName="Search Business Object Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="search-bo-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="search-bo-page-header-heading" description="Search Business Object" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="search-bo-content" seq="2">
+		<dynamic-form name="search-bo-page-form-list" class="search-form" description="Search Business Object Form" 
+			 dataSplitIcon="plus" dataTheme="d" dataSplitTheme="a" dataInset="true" seq="1">
+			 <!-- Ui data query definition -->
+			<ui-data-query type="service"
+				name="search-bo-page-search-bo-fields"  
+				description="Loads the search fields for an entity"
+				businessObject="BusinessObjectEditFieldUiDataService">
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldValue="SEARCH" 
+					fieldDataType="String" 
+					description="Business Object Edit Mode"
+					fieldName="businessObjectEditMode" 
+					name="search-bo-page-edit-mode-search" seq="1" />
+			</ui-data-query>
+			<list-item name="search-bo-form-buttons-item" description="Search Business Object form buttons" seq="3">
+				<control-group name="search-bo-button-group" seq="1">
+					<link-button name="search-bo-button" dataTheme="a" description="Search" href="#" dataRole="button" dataIcon="check" seq="1">
+							<event-handler name="search-bo-submit-click" event="click" 
+								handler="businessObject.searchFormHandler" description="Search Business Object form submit handler"/>
+					</link-button>
+				</control-group>
+			</list-item>	
+		</dynamic-form>	
+	</content>
+	
+	<!-- Footer -->
+	<footer name="search-bo-footer" dataPosition="fixed" seq="3">
+		<navbar name="search-bo-page-navbar" seq="1">
+			<event-handler name="search-bo-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="search-bo-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="search-bo-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="search-bo-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="search-bo-footer-settings-nav-button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

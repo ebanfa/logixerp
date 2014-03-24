@@ -4,9 +4,10 @@
 package com.qurion.businesslogic.party.model;
 
 import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.Entity;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,22 +20,6 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 import com.qurion.businesslogic.application.model.BaseEntity;
-import com.qurion.businesslogic.party.model.PartyType;
-
-import java.util.Set;
-
-import com.qurion.businesslogic.party.model.PartyClassification;
-
-import java.util.Set;
-
-import com.qurion.businesslogic.party.model.MarketInterest;
-
-import java.util.Set;
-
-import com.qurion.businesslogic.party.model.PartyType;
-
-import java.util.Set;
-
 import com.qurion.businesslogic.product.model.ProductPriceComponent;
 
 /**
@@ -55,6 +40,7 @@ public class PartyType  extends BaseEntity implements java.io.Serializable {
 	private Set<PartyClassification> partyClassifications;
 	private Set<MarketInterest> marketInterests;
 	private Set<PartyType> partyTypes;
+	private Set<Party> parties;
 	private Set<ProductPriceComponent> productPriceComponents;
 
     public PartyType() {
@@ -173,7 +159,23 @@ public class PartyType  extends BaseEntity implements java.io.Serializable {
     public void setProductPriceComponents(Set<ProductPriceComponent> productPriceComponents) 
     {
         this.productPriceComponents = productPriceComponents;
-    }			
+    }	
+	/**
+	 * @return the parties
+	 */
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="partyType")
+    @JsonIgnore
+	public Set<Party> getParties() {
+		return parties;
+	}
+
+	/**
+	 * @param parties the parties to set
+	 */
+	public void setParties(Set<Party> parties) {
+		this.parties = parties;
+	}
+		
 		
     
 

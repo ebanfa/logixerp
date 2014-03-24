@@ -64,17 +64,17 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 		BuilderConfiguration builderConfiguration = 
 				configuration.getBuilderConfiguration();
 		// Map entities to their parent modules
-		List<EntityData> entities = 
+		/*List<EntityData> entities = 
 				entityDataEntityService.findAll(null);
 		processEntityToModule(configuration, 
 				loadModules(builderConfiguration), entities);
-		 //Map fields to entities
+		// Map fields to entities
 		this.processEntityFieldToEntity(configuration, 
 				entities, entityFieldEntityService.findAll(null));
-		 //Create activities for each entity
-		this.createActvitiesFromEntities(configuration, entities);
+		// Create activities for each entity
+		this.createActvitiesFromEntities(configuration, entities);*/
 		this.processUIComponents(configuration);
-		this.processUserActivities(configuration);
+		//this.processUserActivities(configuration);
 	}
 
 	/* (non-Javadoc)

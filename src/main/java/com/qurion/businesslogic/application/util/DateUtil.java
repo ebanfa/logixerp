@@ -3,6 +3,7 @@
  */
 package com.qurion.businesslogic.application.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.joda.time.DateTime;
@@ -35,7 +36,14 @@ public class DateUtil {
 			throw new ApplicationException(INVALID_DATE_STRING_PROVIDED, e.getMessage());
 		}
 	}
-	
+
+	/**
+	 * @return
+	 */
+	public static String convertJavaDateToString(Date date) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(DateUtil.DEFAULT_DATE_FORMAT);
+		return dateFormat.format(date);
+	}
 	/**
 	 * @param firstValue
 	 * @param secondValue

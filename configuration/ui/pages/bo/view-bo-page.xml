@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<page name="view-bo-page" description="View Business Object Page" dataAddBackBtn="true">
+	<activity code="VIEW_BO_ACTIVITY" name="View Business Object Data Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="view_bo_activity" entityCode="APPLICATION_ACTIVITY"
+		description="View Business Object Activity" displayImg="appl.png" displayName="View Business Object Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="view-bo-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="view-bo-page-header-heading" description="View Business Object" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="view-bo-content" seq="2">
+		<dynamic-form name="view-bo-page-form-list" description="View Business Object Form" 
+			 dataSplitIcon="plus" dataTheme="d" dataSplitTheme="a" dataInset="true" seq="1">
+			<ui-data-query type="service"
+				name="view-bo-page-view-bo-fields"  
+				description="Loads the edit fields for an entity"
+				businessObject="BusinessObjectEditFieldUiDataService" >
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldValue="VIEW" 
+					fieldDataType="String" 
+					description="Business Object Edit Mode"
+					fieldName="businessObjectEditMode" 
+					name="view-bo-page-edit-mode-view" seq="1" />
+				<ui-data-query-parameter 
+					operator="ET" 
+					fieldValue="true" 
+					fieldDataType="Boolean" 
+					description="Get relationship field options"
+					fieldName="businessObjectRelationshipFieldOptions" 
+					name="view-bo-page-relationship-field-options" seq="1" />
+			</ui-data-query>	
+			<list-item class="ui-body ui-body-b" 
+				name="view-bo-form-buttons-item" description="View Business Object Buttons" seq="3">
+				<fieldset class="ui-grid-a" 
+					name="view-bo-form-buttons-fieldset" description="View Business Object Buttons Field Set" seq="1">
+	                    <container class="ui-block-a" 
+	                    	name="view-bo-form-view-container" description="View Business Object View Button Conatainer" seq="1">
+	                    	<link-button name="view-bo-button" dataTheme="a" 
+								description="Edit" href="#" dataRole="button" dataIcon="check" seq="1">
+									<event-handler name="view-bo-submit-click" 
+										event="click" handler="businessObject.viewFormHandler" description="View Business Obejct form submit handler"/>
+							</link-button>
+						</container>
+	                    <container class="ui-block-b" 
+	                    	name="view-bo-form-cancel-container" description="View Business Cancel Object Buttons " seq="2">
+							<link-button name="cancel-view-bo-button" dataTheme="b" 
+								description="Cancel" href="#" dataRole="button" dataIcon="check" seq="1">
+									<event-handler name="cancel-view-bo-submit-click" 
+										event="click" handler="login.submitHandler" description="View Business Obejct form submit handler"/>
+							</link-button>
+	                    </container>
+	            </fieldset>
+			</list-item>	
+		</dynamic-form>	
+	</content>
+	
+	<!-- Footer -->
+	<footer name="view-bo-footer" dataPosition="fixed" seq="3">
+		<navbar name="view-bo-page-navbar" seq="1">
+			<event-handler name="view-bo-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="view-bo-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="view-bo-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="view-bo-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="view-bo-footer-view-bo-nav-button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

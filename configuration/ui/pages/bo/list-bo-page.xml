@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<page name="list-bo-page" description="List Business Object Page" dataAddBackBtn="true">
+	<activity code="LIST_BO_ACTIVITY" name="List Business Object Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="list_bo_activity" entityCode="APPLICATION_ACTIVITY"
+		description="List Business Object Activity" displayImg="appl.png" displayName="Business Object Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="list-bo-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="list-bo-page-header-heading" description="List Business Object" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="list-bo-content" seq="2">
+		<data-list name="list-bo-home" description="Favorite items" 
+			dataSplitIcon="plus" dataFilter="true" dataInset="true"  seq="1">
+			<ui-data-query 
+				type="service"
+				name="select-list-bo-activities" 
+				businessObject="BusinessObjectListUiDataService" 
+				description="Performs a search on a Business Object"/>
+			<event-handler 
+				event="click" 
+				name="bo-list-item-clicked-handler" 
+				description="Business Object List item clicked handler"
+				handler="businessObject.boListItemClickedHandler" />
+		</data-list>
+	</content>
+	
+	<!-- Footer -->
+	<footer name="list-bo-footer" dataPosition="fixed" seq="3">
+		<navbar name="list-bo-page-navbar" seq="1">
+			<event-handler name="list-bo-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="list-bo-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="list-bo-footer-favorite-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="list-bo-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="list-bo-footer-settings-nav-button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

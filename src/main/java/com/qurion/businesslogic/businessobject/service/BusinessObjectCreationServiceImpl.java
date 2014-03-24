@@ -52,6 +52,7 @@ public class BusinessObjectCreationServiceImpl implements BusinessObjectCreation
 			logger.debug("Persisting {}", entityInstance);
 			entityManager.merge(entityInstance);
 		} catch (Exception e) {
+			e.printStackTrace();
 			ExceptionUtil.processException(e, ErrorCodes.BOCS_BUSINESS_OBJECT_CREATION_ERROR_CD);
 		}
 		return entityInstance;
@@ -61,7 +62,9 @@ public class BusinessObjectCreationServiceImpl implements BusinessObjectCreation
 	{
 		// Convert the id's of relationship fields into 
 		// business objects
+		logger.debug("Converting business object to entity instance");
 		BaseEntity entityInstance = BusinessObjectUtil.businessObjectToEntityInstance(businessObjectData);
+		logger.debug("Resolving business object relationships");
 		entityInstance = resolveRelationships(entityInstance, businessObjectData);
 		return entityInstance;
 	}
@@ -123,7 +126,7 @@ public class BusinessObjectCreationServiceImpl implements BusinessObjectCreation
 					Integer relatedEntityId = stringIdToInteger(fieldData);
 					// Get the fields of the related entity.
 					List<BusinessObjectFieldData> fieldsWanted = activityService
-							.getEntityEditFields(businessObjectData.getBusinessObjectName());
+							.getBusinessObjectEditFields(businessObjectData.getBusinessObjectName());
 					// Find the related business object
 					BusinessObjectData relatedBusinessObject = businessObjectSearchService
 							.findById(businessObjectData.getBusinessObjectName(), relatedEntityId, fieldsWanted);

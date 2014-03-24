@@ -18,6 +18,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+import com.qurion.businesslogic.user.model.UserActivity;
+
 /**
  * Activity 
  * @author Edward Banfa

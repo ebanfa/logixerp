@@ -19,9 +19,15 @@ define([],function () {
     	
     	// Service URLs
     	uiServiceURL: 'ui-service',
+    	loginServiceURL: 'login-service',
     	activityServiceURL: 'activity-service',
     	
-    	loginContainer: 'login-container',
+    	
+    	// Static activity names
+    	loginActivityURL: 'login_activity',
+    	listActivityURL: 'list_bo_activity',
+    	
+    	loginContainer: 'login-page',
     	pageContainer: '#page-container',
     	
     	// General selectors
@@ -38,9 +44,9 @@ define([],function () {
     	uiClickEvent:'click',
     	
     	// screen definitions
-    	homeScreen: 'home-container',
+    	homeScreen: 'home-page',
     	deathScreen: 'death-screen',
-    	loginScreen: 'login-screen',
+    	loginScreen: 'login_activity',
     	loadingScreen: 'loading-container',
     	
         /** Names of the state machines */
@@ -48,14 +54,15 @@ define([],function () {
 		loginFsm: 'loginFsm',
 		applicationFsm: 'applicationFsm',
 		connectivityFsm: 'connectivityFsm',
+
+		/**Non state machine channels */
+		activityChannel : 'activityChannel',
 		
 		/**Non state machine events */
-		activityChannel : 'activityChannel',
+		uiNotificationEvent: 'activity.notifyUser',
     	uiLoadActivityEvent: 'activity.loadActivityRequest',
-    	uiTemplateRenderedEvent: 'activity.renderTemplateResponse',
-		uiActivityRenderedEvent: 'activity.renderActivityResponse',
+    	uiPostActivityEvent: 'activity.postActivityRequest',
 		uiRenderActivityRequestEvent: 'activity.renderActivityRequest',
-		uiRenderTemplateRequestEvent: 'activity.renderTemplateRequest',
     	
     	/** State machine input events */
     	uiFailEvent: 'ui.fail',

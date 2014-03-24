@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<page name="calendar-page" description="Calendar Page" dataAddBackBtn="true">
+	<activity code="CALENDAR_ACTIVITY" name="Calendar Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="calendar_activity" entityCode="APPLICATION_ACTIVITY"
+		description="Calendar Activity" displayImg="appl.png" displayName="Calendar Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="calendar-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="calendar-page-header-heading" description="Calendar" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="calendar-content" seq="2">
+		<springboard name="calendar-home" data-role="listview" data-inset="true"  seq="1">
+			<ui-data-query 
+				type="service"
+				name="select-calendar-modules" 
+				description="Select Modules" 
+				businessObject="Module" />						
+			<event-handler name="navigator-calendar-item-click" event="click" handler="navigator.itemClickHandler" description="Click Handler"/>
+		</springboard>
+	</content>
+	
+	<!-- Footer -->
+	<footer name="calendar-footer" dataPosition="fixed" seq="3">
+		<navbar name="calendar-navbar" seq="1">
+			<event-handler name="calendar-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="calendar-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="calendar-footer-favorites-nav-button" description="Favorite" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="calendar-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="ui-btn-active" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="calendar-footer-settings-nav-button" description="Settings" activityUrl="settings_activity" dataClass="" dataIcon="plus" seq="4"></navbar-button>
+		</navbar>
+	</footer>
+</page>

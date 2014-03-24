@@ -3,7 +3,6 @@
  */
 package com.qurion.businesslogic.businessobject.rest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -19,7 +18,6 @@ import javax.ws.rs.core.UriInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.qurion.businesslogic.application.model.EntityField;
 import com.qurion.businesslogic.application.rest.AbstractRESTService;
 import com.qurion.businesslogic.application.service.ActivityService;
 import com.qurion.businesslogic.application.service.EntityFieldEntityService;
@@ -61,7 +59,7 @@ public class BusinessObjectSearchRESTService extends AbstractRESTService {
 			// Get the activity list fields
 			businessObjectResponse.setBusinessObjectName(searchData.getBusinessObjectName());
 			List<BusinessObjectFieldData> entityListFields = 
-					activityService.getEntityListFields(searchData.getBusinessObjectName());
+					activityService.getBusinessObjectListFields(searchData.getBusinessObjectName());
 			logger.debug("Loaded {} fields for entity {}", 
 					entityListFields.size(), searchData.getBusinessObjectName());
 			// Do the search
@@ -89,7 +87,7 @@ public class BusinessObjectSearchRESTService extends AbstractRESTService {
 			// Get the activity list fields
 			businessObjectResponse.setBusinessObjectName(searchData.getBusinessObjectName());
 			List<BusinessObjectFieldData> entityListFields = 
-					activityService.getEntityListFields(searchData.getBusinessObjectName());
+					activityService.getBusinessObjectListFields(searchData.getBusinessObjectName());
 			logger.debug("Loaded {} fields for entity {}", 
 					entityListFields.size(), searchData.getBusinessObjectName());
 			// Do the search
@@ -114,7 +112,7 @@ public class BusinessObjectSearchRESTService extends AbstractRESTService {
     {
     	BusinessObjectResponse businessObjectResponse = new BusinessObjectResponse();
     	try {
-    		businessObjectResponse.setDataFields(activityService.getEntitySearchFields(entityName));
+    		businessObjectResponse.setDataFields(activityService.getBusinessObjectSearchFields(entityName));
     		businessObjectResponse.setBusinessObjectName(entityName);
 		} catch (ApplicationException e) {
 			e.printStackTrace();

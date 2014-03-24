@@ -1,10 +1,9 @@
 define([
 	'jquery',
 	'configuration',
-	'underscore',
     'uiconstants',
     'machina'
-], function ($, config, _, UiConstants, machina) {
+], function ($, config, UiConstants, machina) {
     
 	var ApplicationFsm = machina.Fsm.extend({
 	    initialize: function() {
@@ -18,10 +17,16 @@ define([
 	    
 	    states: {
 	        initialized: {
+	        	_onEnter: function() {
+	        	},
 	        	"application.setUp": function(data) {
 	        		if(this.application) {
 	        			this.application.handleSetup();
+	        			window.application = this.application;
 	        			this.transition("started");
+	        		}
+	        		else {
+		        		console.log('No Blazeeeeeeeeeeeeeeeeeee');
 	        		}
 	        	}
 	        },
