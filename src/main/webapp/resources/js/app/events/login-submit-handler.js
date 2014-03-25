@@ -30,8 +30,8 @@ define([
         		// 2. We need a reference to the application
     			this.application = this.pageView.application;
     			// 3. Get the user name and password field values
-    			var userName = $('#username').val();
-    			var password = $('#password').val();
+    			var userName = $('#login_page_username').val();
+    			var password = $('#login_page_password').val();
     			// validate the entries
     			if(!StringUtilities.isValid(userName) | !StringUtilities.isValid(password)){
     				this.pageView.notifyUser('Please provide valid values for username and password');

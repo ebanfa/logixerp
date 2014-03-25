@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
-<page name="view-bo-page" description="View Business Object Page" dataAddBackBtn="true">
+<page name="view_bo_page" description="View Business Object Page" dataAddBackBtn="true">
 	<activity code="VIEW_BO_ACTIVITY" name="View Business Object Data Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="view_bo_activity" entityCode="APPLICATION_ACTIVITY"
 		description="View Business Object Activity" displayImg="appl.png" displayName="View Business Object Home" seq="0">
 	</activity>
 	
 	<!-- Header -->
-	<header name="view-bo-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
-		<heading name="view-bo-page-header-heading" description="View Business Object" size="3" seq="2"/>
+	<header name="view_bo_header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="view_bo_page_header_heading" description="View Business Object" size="3" seq="2"/>
 	</header>
 	
 	<!-- Content -->
-	<content name="view-bo-content" seq="2">
-		<dynamic-form name="view-bo-page-form-list" description="View Business Object Form" 
+	<content name="view_bo_content" seq="2">
+		<dynamic-form name="view_bo_page_form_list" description="View Business Object Form" 
 			 dataSplitIcon="plus" dataTheme="d" dataSplitTheme="a" dataInset="true" seq="1">
 			<ui-data-query type="service"
-				name="view-bo-page-view-bo-fields"  
+				name="view_bo_page_view_bo_fields"  
 				description="Loads the edit fields for an entity"
 				businessObject="BusinessObjectEditFieldUiDataService" >
 				<ui-data-query-parameter 
@@ -24,32 +24,32 @@
 					fieldDataType="String" 
 					description="Business Object Edit Mode"
 					fieldName="businessObjectEditMode" 
-					name="view-bo-page-edit-mode-view" seq="1" />
+					name="view_bo_page_edit_mode_view" seq="1" />
 				<ui-data-query-parameter 
 					operator="ET" 
 					fieldValue="true" 
 					fieldDataType="Boolean" 
 					description="Get relationship field options"
 					fieldName="businessObjectRelationshipFieldOptions" 
-					name="view-bo-page-relationship-field-options" seq="1" />
+					name="view_bo_page_relationship_field_options" seq="1" />
 			</ui-data-query>	
 			<list-item class="ui-body ui-body-b" 
-				name="view-bo-form-buttons-item" description="View Business Object Buttons" seq="3">
+				name="view_bo_form_buttons_item" description="View Business Object Buttons" seq="3">
 				<fieldset class="ui-grid-a" 
-					name="view-bo-form-buttons-fieldset" description="View Business Object Buttons Field Set" seq="1">
+					name="view_bo_form_buttons_fieldset" description="View Business Object Buttons Field Set" seq="1">
 	                    <container class="ui-block-a" 
-	                    	name="view-bo-form-view-container" description="View Business Object View Button Conatainer" seq="1">
-	                    	<link-button name="view-bo-button" dataTheme="a" 
+	                    	name="view_bo_form_view_container" description="View Business Object View Button Conatainer" seq="1">
+	                    	<link-button name="view_bo_button" dataTheme="a" 
 								description="Edit" href="#" dataRole="button" dataIcon="check" seq="1">
-									<event-handler name="view-bo-submit-click" 
+									<event-handler name="view_bo_submit_click" 
 										event="click" handler="businessObject.viewFormHandler" description="View Business Obejct form submit handler"/>
 							</link-button>
 						</container>
 	                    <container class="ui-block-b" 
-	                    	name="view-bo-form-cancel-container" description="View Business Cancel Object Buttons " seq="2">
-							<link-button name="cancel-view-bo-button" dataTheme="b" 
+	                    	name="view_bo_form_cancel_container" description="View Business Cancel Object Buttons " seq="2">
+							<link-button name="cancel_view_bo_button" dataTheme="b" 
 								description="Cancel" href="#" dataRole="button" dataIcon="check" seq="1">
-									<event-handler name="cancel-view-bo-submit-click" 
+									<event-handler name="cancel_view_bo_submit_click" 
 										event="click" handler="login.submitHandler" description="View Business Obejct form submit handler"/>
 							</link-button>
 	                    </container>
@@ -59,13 +59,13 @@
 	</content>
 	
 	<!-- Footer -->
-	<footer name="view-bo-footer" dataPosition="fixed" seq="3">
-		<navbar name="view-bo-page-navbar" seq="1">
-			<event-handler name="view-bo-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
-			<navbar-button name="view-bo-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
-			<navbar-button name="view-bo-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
-			<navbar-button name="view-bo-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
-			<navbar-button name="view-bo-footer-view-bo-nav-button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
+	<footer name="view_bo_footer" dataPosition="fixed" seq="3">
+		<navbar name="view_bo_page_navbar" seq="1">
+			<event-handler name="view_bo_navbar_item_click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="view_bo_footer_home_nav_button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="view_bo_footer_favorites_nav_button" description="Favorites" activityUrl="favorites_activity" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="view_bo_footer_calendar_nav_button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="view_bo_footer_settings_nav_button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
 		</navbar>
 	</footer>
 </page>

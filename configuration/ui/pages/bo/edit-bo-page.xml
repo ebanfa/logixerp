@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
-<page name="edit-bo-page" description="Edit Business Object Page" dataAddBackBtn="true">
+<page name="edit_bo_page" description="Edit Business Object Page" dataAddBackBtn="true">
 	<activity code="EDIT_BO_ACTIVITY" name="Edit Business Object Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="edit_bo_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Edit Business Object Activity" displayImg="appl.png" displayName="Business Object Home" seq="0">
 	</activity>
 	
 	<!-- Header -->
-	<header name="edit-bo-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
-		<heading name="edit-bo-page-header-heading" description="Edit Business Object" size="3" seq="2"/>
+	<header name="edit_bo_header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="edit_bo_page_header_heading" description="Edit Business Object" size="3" seq="2"/>
 	</header>
 	
 	<!-- Content -->
-	<content name="edit-bo-content" seq="2">
-		<dynamic-form name="edit-bo-page-form-list" description="Edit Business Object Form" 
+	<content name="edit_bo_content" seq="2">
+		<dynamic-form name="edit_bo_page_form_list" description="Edit Business Object Form" 
 			 dataSplitIcon="plus" dataTheme="d" dataSplitTheme="a" dataInset="true" seq="1">
 			<!-- Form handler definition -->
 			<bo-data-processor 
-			    name="edit-bo-data-processor"
+			    name="edit_bo_data_processor"
 				processorName="BusinessObjectFormDataProcessorService" 
 			 	description="Handles submission of a Business Object form">
 			 	<bo-data-processor-parameter 
 			 		value="CREATE"
-			 		name="edit-bo-data-parameter-edit"
+			 		name="edit_bo_data_parameter_edit"
 			 		parameterName="businessObjectEditMode" 
 				 	description="Handles submission of a Business Object form">
 				</bo-data-processor-parameter>
@@ -29,7 +29,7 @@
 			
 			<ui-data-query 
 				type="service"
-				name="edit-bo-page-edit-bo-fields"  
+				name="edit_bo_page_edit_bo_fields"  
 				description="Loads the edit fields for an entity"
 				businessObject="BusinessObjectEditFieldUiDataService" >
 				<ui-data-query-parameter 
@@ -38,33 +38,33 @@
 					fieldDataType="String" 
 					description="Business Object Edit Mode"
 					fieldName="businessObjectEditMode" 
-					name="edit-bo-page-edit-mode-edit" seq="1" />
+					name="edit_bo_page_edit_mode_edit" seq="1" />
 				<ui-data-query-parameter 
 					operator="ET" 
 					fieldValue="true" 
 					fieldDataType="Boolean" 
 					description="Get relationship field options"
 					fieldName="businessObjectRelationshipFieldOptions" 
-					name="edit-bo-page-relationship-field-options" seq="1" />
+					name="edit_bo_page_relationship_field_options" seq="1" />
 			</ui-data-query>
 				
 			<list-item class="ui-body ui-body-b" 
-				name="edit-bo-form-buttons-item" description="Edit Business Object Buttons" seq="3">
+				name="edit_bo_form_buttons_item" description="Edit Business Object Buttons" seq="3">
 				<fieldset class="ui-grid-a" 
-					name="edit-bo-form-buttons-fieldset" description="Edit Business Object Buttons Field Set" seq="1">
+					name="edit_bo_form_buttons_fieldset" description="Edit Business Object Buttons Field Set" seq="1">
 	                    <container class="ui-block-a" 
-	                    	name="edit-bo-form-edit-container" description="Edit Business Object Save Button Conatainer" seq="1">
-	                    	<link-button name="edit-bo-button" dataTheme="a" 
+	                    	name="edit_bo_form_edit_container" description="Edit Business Object Save Button Conatainer" seq="1">
+	                    	<link-button name="edit_bo_button" dataTheme="a" 
 								description="Save" href="#" dataRole="button" dataIcon="check" seq="1">
-									<event-handler name="edit-bo-submit-click" 
+									<event-handler name="edit_bo_submit_click" 
 										event="click" handler="businessObject.editFormHandler" description="Edit Business Obejct form submit handler"/>
 							</link-button>
 						</container>
 	                    <container class="ui-block-b" 
-	                    	name="edit-bo-form-cancel-container" description="Edit Business Cancel Object Buttons " seq="2">
-							<link-button name="cancel-edit-bo-button" dataTheme="b" 
+	                    	name="edit_bo_form_cancel_container" description="Edit Business Cancel Object Buttons " seq="2">
+							<link-button name="edit_bo_cancel_edit_bo_button" dataTheme="b" 
 								description="Cancel" href="#" dataRole="button" dataIcon="check" seq="1">
-									<event-handler name="cancel-edit-bo-submit-click" 
+									<event-handler name="cancel_edit_bo_submit_click" 
 										event="click" handler="login.submitHandler" description="Edit Business Obejct form submit handler"/>
 							</link-button>
 	                    </container>
@@ -74,13 +74,13 @@
 	</content>
 	
 	<!-- Footer -->
-	<footer name="edit-bo-footer" dataPosition="fixed" seq="3">
-		<navbar name="edit-bo-page-navbar" seq="1">
-			<event-handler name="edit-bo-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
-			<navbar-button name="edit-bo-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
-			<navbar-button name="edit-bo-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="" dataIcon="check" seq="2"></navbar-button>
-			<navbar-button name="edit-bo-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
-			<navbar-button name="edit-bo-footer-settings-nav-button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
+	<footer name="edit_bo_footer" dataPosition="fixed" seq="3">
+		<navbar name="edit_bo_page_navbar" seq="1">
+			<event-handler name="edit_bo_navbar_item_click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="edit_bo_footer_home_nav_button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="edit_bo_footer_favorites_nav_button" description="Favorites" activityUrl="favorites_activity" dataClass="" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="edit_bo_footer_calendar_nav_button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="edit_bo_footer_settings_nav_button" description="Settings" activityUrl="settings_activity" dataClass="ui-btn-active" dataIcon="plus" seq="4"></navbar-button>
 		</navbar>
 	</footer>
 </page>

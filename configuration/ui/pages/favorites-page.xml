@@ -1,40 +1,40 @@
 <?xml version="1.0"?>
-<page name="favorite-page" description="Favorite Page" dataAddBackBtn="true">
+<page name="favorite_page" description="Favorite Page" dataAddBackBtn="true">
 	<activity code="FAVORITES_NAV_ACTIVITY" name="Favorite Navigation Activity"
-		activityType="PAGE" moduleCode="APPLICATION" activityURL="favorite_navigator" entityCode="APPLICATION_ACTIVITY"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="favorites_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Favorites Navigation Activity" displayImg="appl.png" displayName="Favorite Home" seq="0">
 	</activity>
 	
 	<!-- Header -->
-	<header name="favorite-header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
-		<heading name="favorite-page-header-heading" description="Navigator" size="3" seq="2"/>
+	<header name="favorite_page_header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="favorite_page_header_heading" description="Navigator" size="3" seq="2"/>
 	</header>
 	
 	<!-- Content -->
-	<content name="favorite-content" seq="2">
-		<dynamic-list name="favorite-home" description="Favorite items" 
+	<content name="favorite_page_content" seq="2">
+		<dynamic-list name="favorite_page_home" description="Favorite items" 
 			dataSplitIcon="plus" dataFilter="true" dataInset="true"  seq="1">
 			<ui-data-query 
 				type="service"
-				name="select-favorite-activities" 
+				name="select_favorite_activities" 
 				businessObject="FavoriteActivitiesUiDataService" 
 				description="Loads all the personal activities of the current user"/>
 			<event-handler 
 				event="click" 
-				name="favorite-item-clicked-handler" 
+				name="favorite_page_item_clicked_handler" 
 				description="Favorite item clicked handler"
 				handler="activity.favoriteItemClickedHandler" />
 		</dynamic-list>
 	</content>
 	
 	<!-- Footer -->
-	<footer name="favorite-footer" dataPosition="fixed" seq="3">
-		<navbar name="favorite-navbar" seq="1">
-			<event-handler name="favorites-navbar-item-click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
-			<navbar-button name="favorite-footer-home-nav-button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
-			<navbar-button name="favorite-footer-favorites-nav-button" description="Favorites" activityUrl="favorite_navigator" dataClass="ui-btn-active" dataIcon="check" seq="2"></navbar-button>
-			<navbar-button name="favorite-footer-calendar-nav-button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
-			<navbar-button name="favorite-footer-settings-nav-button" description="Settings" activityUrl="settings_activity" dataClass="" dataIcon="plus" seq="4"></navbar-button>
+	<footer name="favorite_page_footer" dataPosition="fixed" seq="3">
+		<navbar name="favorite_page_navbar" seq="1">
+			<event-handler name="favorites_navbar_item_click" event="click" handler="navigator.navbarClickHandler" description="Click Handler"/>
+			<navbar-button name="favorite_page_favorite_home_nav_button" description="Home" activityUrl="module_navigator" dataClass="" dataIcon="arrow-l" seq="1"></navbar-button>
+			<navbar-button name="favorite_page_footer_favorites_nav_button" description="Favorites" activityUrl="favorites_activity" dataClass="ui-btn-active" dataIcon="check" seq="2"></navbar-button>
+			<navbar-button name="favorite_page_footer_calendar_nav_button" description="Calendar" activityUrl="calendar_activity" dataClass="" dataIcon="star" seq="3"></navbar-button>
+			<navbar-button name="favorite_page_footer_settings_nav_button" description="Settings" activityUrl="settings_activity" dataClass="" dataIcon="plus" seq="4"></navbar-button>
 		</navbar>
 	</footer>
 </page>

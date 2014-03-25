@@ -1,6 +1,9 @@
 <ul data-role="listview"<% _.each(uiComponentData.attributes, function (attribute) { %> <%= attribute.name %>="<%= attribute.value %>"<% }); %>>
 	<li data-role="list-divider">
-		<h3><%= uiComponentData.uiQueryDataDescriptor %> List</h3> 
+		<h3>
+			<%= uiComponentData.uiQueryDataDescriptorText ? uiComponentData.uiQueryDataDescriptorText : '' %> 
+			<%= messages.businesslogic_label_list %>
+		</h3> 
 		<span class="ui-li-count"><%= uiComponentData.uiQueryData.length %></span>
 	</li>
 	<% _.each(uiComponentData.uiQueryData, function (component) { %>

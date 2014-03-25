@@ -108,7 +108,7 @@ public class EntityActivityBuilderServiceImpl extends AbstractServiceImpl implem
 		{
 			activityGroup = 
 					BuilderUtil.initActivityGroup(entity.getCode(), entity.getName(), 
-							entity.getDescription(), entity.getDisplayNm(), entity.getName(), "", StringUtil.NO_FG, 0);
+							entity.getDisplayNm(), entity.getDisplayNm(), entity.getName(), "", StringUtil.NO_FG, 0);
 			ActivityGroupType entityGroupType = 
 					activityGroupTypeEntityService.findByCode(ActivityGroupTypeEntityService.ENTITY_ACTIVITY_GRP_TY_CD);
 			activityGroup.setActivityGroupType(entityGroupType);

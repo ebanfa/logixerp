@@ -6,8 +6,8 @@ define([
     'configuration',
     'underscore',
     'backbone',
-    'i18n!app/nls/entities',
-], function ($, config, _, Backbone, entities_strings) {
+    'i18n!app/nls/messages',
+], function ($, config, _, Backbone, messages) {
     /**
      * The Activity model class definition
      * Used for CRUD operations against individual Activities

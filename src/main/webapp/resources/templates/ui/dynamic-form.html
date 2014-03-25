@@ -1,7 +1,7 @@
 <form id="<%= uiComponentData.name %>-form" target="#" method="post">
 	<ul id="<%= uiComponentData.name %>-container" data-role="listview"<% _.each(uiComponentData.attributes, function (attribute) { %> <%= attribute.name %>="<%= attribute.value %>"<% }); %>>
 		<li data-role="list-divider">
-			<h3><%= uiComponentData.uiQueryDataDescriptor %></h3>
+			<h3><%= uiComponentData.uiQueryDataDescriptorText %></h3>
 		</li>
 		<input type="hidden" name="businessObjectName" value="<%= uiComponentData.uiQueryDataDescriptor %>">
 		<% _.each(uiComponentData.components, function (component) { %>

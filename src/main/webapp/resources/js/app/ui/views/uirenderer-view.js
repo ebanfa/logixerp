@@ -4,6 +4,7 @@ define([
     'underscore',
     'backbone',
     'uiconstants',
+    'i18n!app/nls/messages',
     'app/util/form-utilities',
     'app/events/event-handlers',
 	'text!../../../../templates/ui/page.html',
@@ -34,6 +35,7 @@ define([
 		_, 
 		Backbone, 
 		UiConstants,
+		Messages,
 		FormUtil,
 		EventHandlers,
 		PageTemplate,
@@ -192,6 +194,9 @@ define([
         	}
         	// Convert back end attribute names to front end attribute names
         	this.processUiComponentDataAttributes(uiComponentData);
+        	// Process component translations
+        	this.processMessageBundle(uiComponentData);
+        		
         	var renderedTemplate = 
         		this.renderTemplate(templates[uiComponentData.type], uiData, uiComponentData);
         	var uiComponentDataElement = $(renderedTemplate);
@@ -246,6 +251,39 @@ define([
         	uiComponentData.attributes = attributes;
         },
         
+        processMessageBundle: function(uiComponentData) {
+        	var componentName = uiComponentData.name;
+        	if(Messages[componentName] != undefined)
+        		uiComponentData.description = Messages[componentName];
+
+    		var businessObjectName = uiComponentData.uiQueryDataDescriptor;
+    		
+        	if(uiComponentData.form != undefined)
+        	{
+        		var fieldBlocks = uiComponentData.form.fieldBlocks;
+            	for(var i = 0; i < fieldBlocks.length; i++) 
+            	{
+            		var fieldBlock = fieldBlocks[i];
+            		for(var j = 0; j < fieldBlock.fields.length; j++) 
+            		{
+            			var field = fieldBlock.fields[j];
+            			var fieldName = field.fieldData.fieldName;
+            			var businessObjectNameText = 
+            				businessObjectName.charAt(0).toLowerCase() + businessObjectName.substr(1);
+            			var messageKeyName = businessObjectNameText + '_' + fieldName;
+                    	if(Messages[messageKeyName] != undefined)
+                    		field.fieldData.fieldDescription = Messages[messageKeyName];
+                	}
+            	}
+        	}
+        	if(Messages[businessObjectName] != undefined)
+        		uiComponentData.uiQueryDataDescriptorText =
+        			Messages[businessObjectName];
+        	else
+        		uiComponentData.uiQueryDataDescriptorText = 
+        			uiComponentData.uiQueryDataDescriptor;
+        },
+        
         /**
          * Event handler processing.
          */
@@ -272,7 +310,12 @@ define([
          */
         renderTemplate:function (template, uiData, uiComponentData) {
     		// Render the template
-            return _.template(template, {uiData: uiData, uiComponentData: uiComponentData});
+            return _.template(template, 
+            	{
+            		uiData: uiData,
+            		messages: Messages,
+            		uiComponentData: uiComponentData
+            	});
         },
         
         /**
