@@ -21,6 +21,8 @@ require.config({
         machinapostal:'libs/machina.postal.min',
         postaldiagnostics: 'libs/postal.diagnostics.min',
         application:'app/common/application',
+        'jqm-datepicker-core':'libs/jqm-datebox.core',
+        'jqm-datebox-calbox':'libs/jqm-datebox.mode.calbox',
         //application:'app/common/app',
         uiconstants:'app/common/ui-constants',
     },
@@ -34,7 +36,9 @@ require.config({
             exports: 'Backbone'
         },
         'jquerymobile-config': ['jquery', 'utilities'],
-        'jquerymobile': ['jquery','jquerymobile-config']
+        'jquerymobile': ['jquery','jquerymobile-config'],
+        'jqm-datepicker-core': ['jquerymobile'],
+        'jqm-datebox-calbox': ['jqm-datepicker-core']
     }
 });
 
@@ -60,6 +64,8 @@ define("initializer", ['jquery'], function ($) {
 	$.ajaxSetup({cache:false});
     $('head').append('<link rel="stylesheet" href="resources/css/jquery.mobile-1.3.1.css"/>');
     $('head').append('<link rel="stylesheet" href="resources/css/m.screen.css"/>');
+    $('head').append('<link rel="stylesheet" href="resources/css/jqm-datebox.css" />');
+    
     $('head').append('<link rel="stylesheet" href="resources/css/app.css"/>');
 });
 

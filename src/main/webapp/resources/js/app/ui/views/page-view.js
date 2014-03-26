@@ -3,10 +3,12 @@ define([
     'configuration',
     'backbone',
     'uiconstants',
+    'jqm-datepicker-core',
+    'jqm-datebox-calbox',
     'app/util/ajax-utilities',
     'app/util/string-utilities',
     'app/ui/views/uirenderer-view',
-], function ($, config, Backbone, UiConstants, AjaxUtil,
+], function ($, config, Backbone, UiConstants, DateBox, CalBox, AjaxUtil,
 		StringUtilities, UiRendererView) {
 	/**
 	 * Manages the UI in the following steps:

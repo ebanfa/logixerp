@@ -121,7 +121,7 @@
                 <% } else if (field.fieldData.fieldDataType == "DATE") {  %>
                 <div data-role="fieldcontain">
                     <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
-                    <input type="date" 
+                    <input type="date" data-role="datebox" data-options='{"mode": "calbox", "overrideDateFormat": "%d/%m/%Y"}' 
                     	id="<%= field.fieldData.fieldName %>"  
                     	name="<%= field.fieldData.fieldName %>" 
                     	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>">
@@ -129,7 +129,7 @@
                 <% } else if (field.fieldData.fieldDataType == "DATETIME") {  %>
                 <div data-role="fieldcontain">
                     <label for="<%= field.fieldData.fieldName %>"><%= field.fieldData.fieldDescription %></label>
-                    <input type="date" 
+                    <input type="date" data-role="datebox" data-options='{"mode": "calbox" , "overrideDateFormat": "%d/%m/%Y"}'
                     	id="<%= field.fieldData.fieldName %>"  
                     	name="<%= field.fieldData.fieldName %>"  
                     	value="<%= field.fieldData.fieldValue ? field.fieldData.fieldValue : '' %>">
