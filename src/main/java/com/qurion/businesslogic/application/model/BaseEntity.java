@@ -8,8 +8,11 @@ import static javax.persistence.GenerationType.IDENTITY;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,18 +28,20 @@ import com.qurion.businesslogic.application.util.DateSerializer;
  *
  */
 @MappedSuperclass
-public class BaseEntity 
-{
+public class BaseEntity {
+
+	protected Universe universe;
 	protected Integer id;
-    protected String code;
+	protected String code;
 	protected Date effectiveDt;
-    protected Character recSt;
-    protected Integer versionNo;
-    protected Date rowTs;
-    protected Date createdDt;
-    protected String createdByUsr;
-    protected Date lastModifiedDt;
-    protected String lastModifiedUsr;
+	protected Character recSt;
+	protected Integer versionNo;
+	protected Date rowTs;
+	protected Date createdDt;
+	protected String createdByUsr;
+	protected Date lastModifiedDt;
+	protected String lastModifiedUsr;
+	
 	/**
 	 * 
 	 */
@@ -153,6 +158,15 @@ public class BaseEntity
 		return "BaseEntity [code=" + code + "]";
 	}
 
+	@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="UNIVERSE_ID", nullable=false)
+    public Universe getUniverse() {
+        return this.universe;
+    }
+    
+    public void setUniverse(Universe universe) {
+        this.universe = universe;
+    }
 	
 
 }

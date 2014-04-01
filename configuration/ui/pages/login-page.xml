@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page name="login_page_page" description="Login Page" dataAddBackBtn="false">
+<page name="login_page_page" description="Login Page" 
+	universeCode="MULTIVERSE" dataAddBackBtn="false">
 	<activity code="LOGIN_ACTIVITY" name="Login Page"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="login_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Application Login Page" displayImg="appl.png" displayName="Login" seq="0">

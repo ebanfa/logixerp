@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page name="calendar_page" description="Calendar Page" dataAddBackBtn="true">
+<page name="calendar_page" description="Calendar Page" 
+	universeCode="MULTIVERSE" dataAddBackBtn="true">
 	<activity code="CALENDAR_ACTIVITY" name="Calendar Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="calendar_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Calendar Activity" displayImg="appl.png" displayName="Calendar Home" seq="0">

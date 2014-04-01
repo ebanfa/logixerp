@@ -15,6 +15,7 @@ public interface UiQueryDataServiceProducer {
 	public static final String FAVORITE_ACTIVITIES_UDQ_SERVICE = "FavoriteActivitiesUiDataService";
 	public static final String BO_EDIT_FIELD_UDQ_SERVICE = "BusinessObjectEditFieldUiDataService";
 	public static final String BO_SEARCH_FIELD_UDQ_SERVICE = "BusinessObjectSearchFieldUiDataService";
+	public static final String REG_BUSINESS_TY_OPTIONS_UDQ_SERVICE = "RegistrationBusinessTypeUiDataService";
 
 	public UiQueryDataService getUiQueryDataService(String uiQueryDataServiceCode) 
 			throws ApplicationException;

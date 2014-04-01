@@ -13,20 +13,28 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class Modules {
 
-	private List<BaseElement> modules;
+	private List<PathElement> modules;
 
 	/**
 	 * @return the modules
 	 */
 	@XmlElement(name="module")
-	public List<BaseElement> getModules() {
+	public List<PathElement> getModules() {
 		return modules;
 	}
 
 	/**
 	 * @param modules the modules to set
 	 */
-	public void setModules(List<BaseElement> modules) {
+	public void setModules(List<PathElement> modules) {
 		this.modules = modules;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Modules [modules=" + modules + "]";
 	}
 }

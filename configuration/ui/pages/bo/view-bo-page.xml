@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page name="view_bo_page" description="View Business Object Page" dataAddBackBtn="true">
+<page name="view_bo_page" description="View Business Object Page" 
+	universeCode="MULTIVERSE" dataAddBackBtn="true">
 	<activity code="VIEW_BO_ACTIVITY" name="View Business Object Data Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="view_bo_activity" entityCode="APPLICATION_ACTIVITY"
 		description="View Business Object Activity" displayImg="appl.png" displayName="View Business Object Home" seq="0">

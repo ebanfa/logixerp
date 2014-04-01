@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+	<module code="USER" name="User" displayNm="User" displayFg="N" seqNo="0">
+		<!-- UserActivity -->
+		<entity code="USER_USERACTIVITY" name="UserActivity" description="UserActivity" displayFg="N" displayNm="UserActivity" displayNmPl="UserActivity" entityClassNm="com.qurion.businesslogic.user.model.UserActivity" dbName="UserActivity" hasTable="N">
+			<!-- description -->
+			<field code="USERACTIVITY_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<!-- systemUser -->
+			<field code="USERACTIVITY_SYSTEMUSER_RELATIONSHIP" name="systemUser" description="systemUser" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<!-- activity -->
+			<field code="USERACTIVITY_ACTIVITY_RELATIONSHIP" name="activity" description="activity" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<!-- universe -->
+			<field code="USERACTIVITY_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<!-- id -->
+			<field code="USERACTIVITY_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- code -->
+			<field code="USERACTIVITY_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- effectiveDt -->
+			<field code="USERACTIVITY_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- recSt -->
+			<field code="USERACTIVITY_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- createdDt -->
+			<field code="USERACTIVITY_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<!-- createdByUsr -->
+			<field code="USERACTIVITY_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<!-- lastModifiedDt -->
+			<field code="USERACTIVITY_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<!-- lastModifiedUsr -->
+			<field code="USERACTIVITY_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+		</entity>
+		<!-- SystemUser -->
+		<entity code="USER_SYSTEMUSER" name="SystemUser" description="SystemUser" displayFg="N" displayNm="SystemUser" displayNmPl="SystemUser" entityClassNm="com.qurion.businesslogic.user.model.SystemUser" dbName="SystemUser" hasTable="N">
+			<!-- party -->
+			<field code="SYSTEMUSER_PARTY_RELATIONSHIP" name="party" description="party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<!-- userNm -->
+			<field code="SYSTEMUSER_USERNM_TEXT" name="userNm" description="userNm" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- password -->
+			<field code="SYSTEMUSER_PASSWORD_TEXT" name="password" description="password" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- lastLoginDt -->
+			<field code="SYSTEMUSER_LASTLOGINDT_DATE" name="lastLoginDt" description="lastLoginDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<!-- lockedFg -->
+			<field code="SYSTEMUSER_LOCKEDFG_BOOLEAN" name="lockedFg" description="lockedFg" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- universe -->
+			<field code="SYSTEMUSER_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<!-- id -->
+			<field code="SYSTEMUSER_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- code -->
+			<field code="SYSTEMUSER_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- effectiveDt -->
+			<field code="SYSTEMUSER_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- recSt -->
+			<field code="SYSTEMUSER_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<!-- createdDt -->
+			<field code="SYSTEMUSER_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<!-- createdByUsr -->
+			<field code="SYSTEMUSER_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<!-- lastModifiedDt -->
+			<field code="SYSTEMUSER_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<!-- lastModifiedUsr -->
+			<field code="SYSTEMUSER_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+		</entity>
+	</module>
+

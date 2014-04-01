@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <ide>
+	
 	<builder overWrite="true">
 		<modules>
-			<module name="ACCOUNTING"/>
-			<module name="APPLICATION"/>
-			<module name="BUSINESSDATA"/>
-			<module name="BUSINESSOBJECT"/>
-			<module name="FIXEDASSET"/>
-			<module name="HR"/>
-			<module name="INVOICE"/>
-			<module name="ORDERING"/>
-			<module name="PARTY"/>
-			<module name="PRODUCT"/>
-			<module name="SHIPMENT"/>
-			<module name="WORKEFFORT"/>
-			<module name="USER"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/accounting-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/application-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/businessdata-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/fixedasset-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/hr-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/invoice-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/ordering-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/party-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/product-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/shipment-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/user-models.xml"/>
+			<module path="/home/edward/Projects/businesslogic/configuration/models/workeffort-models.xml"/>
 		</modules>
 		<screens>
 			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/home-page.xml"/>
@@ -29,6 +29,7 @@
 			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/calendar-page.xml"/>
 			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/favorites-page.xml"/>
 			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/activities-page.xml"/>
+			<screen name="login" path="/home/edward/Projects/businesslogic/configuration/ui/pages/register/register-business-page.xml"/>
 		</screens>
 		<activities>
 			<activity name="moduleNavigator" path="/home/edward/Projects/businesslogic/configuration/ui/activities/module-navigator.xml"/>

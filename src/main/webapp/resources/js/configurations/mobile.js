@@ -10,6 +10,7 @@ require.config({
         i18n:'libs/i18n',
         'jquerymobile-config':'libs/jquerymobile-config',
         jquerymobile:'libs/jquery.mobile-1.3.2.min',
+        jqueryvalidate: 'libs/jquery.validate.min',
         text:'libs/text',
         underscore:'libs/underscore',
         backbone: 'libs/backbone-min',
@@ -35,6 +36,7 @@ require.config({
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
         },
+        'jqueryvalidate': ['jquery'],
         'jquerymobile-config': ['jquery', 'utilities'],
         'jquerymobile': ['jquery','jquerymobile-config'],
         'jqm-datepicker-core': ['jquerymobile'],

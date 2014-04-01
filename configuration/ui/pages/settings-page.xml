@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page name="settings_page_page" description="Settings Page" dataAddBackBtn="true">
+<page name="settings_page_page" description="Settings Page" 
+	universeCode="MULTIVERSE" dataAddBackBtn="true">
 	<activity code="SETTINGS_ACTIVITY" name="Settings Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="settings_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Settings Activity" displayImg="appl.png" displayName="Settings Home" seq="0">

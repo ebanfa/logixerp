@@ -113,6 +113,7 @@ public class EntityActivityBuilderServiceImpl extends AbstractServiceImpl implem
 					activityGroupTypeEntityService.findByCode(ActivityGroupTypeEntityService.ENTITY_ACTIVITY_GRP_TY_CD);
 			activityGroup.setActivityGroupType(entityGroupType);
 			activityGroup.setModule(entity.getModule());
+			activityGroup.setUniverse(entity.getUniverse());
 			getEntityManager().persist(activityGroup);
 		}
 		return activityGroup;
@@ -231,12 +232,15 @@ public class EntityActivityBuilderServiceImpl extends AbstractServiceImpl implem
 			EntityData entity, ActivityType activityType, ActivityGroup activityGroup,
 			String activityCode) throws ApplicationException
 	{
+		logger.debug("Creating {} activity {} for entity {}", activityType.getCode(), activityCode, entity.getName());
 		Activity activity = BuilderUtil.initActivity(activityCode, entity.getName(), 
 				entity.getDescription(), entity.getDisplayNm(), activityCode.toLowerCase(), "", StringUtil.NO_FG, 0);
 		try {
+			activity.setUniverse(entity.getUniverse());
 			activity.setUiComponent(
 					this.createComponentForActivity(configuration, activity));
 			activity.setEntityData(entity);
+			activity.setUniverse(entity.getUniverse());
 			activity.setActivityType(activityType);
 			activity.setModule(entity.getModule());
 			getEntityManager().persist(activity);
@@ -248,6 +252,7 @@ public class EntityActivityBuilderServiceImpl extends AbstractServiceImpl implem
 		}
 		return activity;
 	}
+	
 	
 	/**
 	 * @param configuration
@@ -268,7 +273,7 @@ public class EntityActivityBuilderServiceImpl extends AbstractServiceImpl implem
 			attributesMap.put("description", activity.getDescription());
 			attributesMap.put("activityURL", activity.getActivityUrl());
 			//attributesMap.put("displayImg", activity.getDisplayImg());
-			return uiComponentBuilderService.createComponent(configuration, uiComponentType, null, attributesMap);
+			return uiComponentBuilderService.createComponent(configuration, activity.getUniverse(), uiComponentType, null, attributesMap);
 		} catch (Exception e) {
 			e.printStackTrace();
 			ExceptionUtil.processException(e, ErrorCodes.ENTITY_ACTIVITY_CREATION_ERROR_CD);
@@ -285,9 +290,11 @@ public class EntityActivityBuilderServiceImpl extends AbstractServiceImpl implem
 	 */
 	private void createActivityGrouping(ActivityGroup activityGroup,
 			Activity activity) throws ApplicationException {
+		logger.debug("Creating activity grouping {} for activity {}", activityGroup.getCode(), activity.getCode());
 		// Create the activity grouping if it 
 		ActivityGrouping activityGrouping = 
 				BuilderUtil.initActivityGrouping(activityGroup, activity);
+		activityGrouping.setUniverse(activity.getUniverse());
 		getEntityManager().persist(activityGrouping);
 	}
 

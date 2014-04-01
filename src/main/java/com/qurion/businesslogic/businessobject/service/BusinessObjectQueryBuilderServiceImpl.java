@@ -159,10 +159,9 @@ public class BusinessObjectQueryBuilderServiceImpl implements BusinessObjectQuer
         			predicates.add(criteriaBuilder.like(expresion, getFieldValue(field).toString()));
     		}
         }
-	    
 	    criteriaQuery.select(criteriaQuery.getSelection()).where(predicates.toArray(new Predicate[]{}));
 	    TypedQuery<BaseEntity> query = entityManager.createQuery(criteriaQuery);
-	        
+	    logger.debug("Typed query {}", query);
         return query;
 	}
 	

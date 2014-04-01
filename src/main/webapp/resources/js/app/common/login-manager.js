@@ -54,9 +54,12 @@ define([
         		}
     			this.authenticated = true;
     			var businessObject = response.data;
-    			this.application.userData = {
+    			this.application.userData = 
+    			{
     					userName: businessObject.dataValues.userNm.fieldValue, 
-    					partyId: businessObject.dataValues.party.fieldValue};
+    					partyId: businessObject.dataValues.party.fieldValue,
+    					universe:businessObject.dataValues.universe.fieldText
+    			};
     			// Notify interested parties we have a successful login
 				self.application.fireEvent(
 						UiConstants.loginFsm, 

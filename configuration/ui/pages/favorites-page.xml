@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page name="favorite_page" description="Favorite Page" dataAddBackBtn="true">
+<page name="favorite_page" description="Favorite Page" 
+	universeCode="MULTIVERSE" dataAddBackBtn="true">
 	<activity code="FAVORITES_NAV_ACTIVITY" name="Favorite Navigation Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="favorites_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Favorites Navigation Activity" displayImg="appl.png" displayName="Favorite Home" seq="0">

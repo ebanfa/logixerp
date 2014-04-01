@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<page name="register_business_page" description="Sign Up" 
+	universeCode="MULTIVERSE" dataAddBackBtn="true">
+	<activity code="EDIT_BO_ACTIVITY" name="Register Activity"
+		activityType="PAGE" moduleCode="APPLICATION" activityURL="register_business_activity" entityCode="APPLICATION_ACTIVITY"
+		description="Register Business Object Activity" displayImg="appl.png" displayName="Business Object Home" seq="0">
+	</activity>
+	
+	<!-- Header -->
+	<header name="register_business_header" title="Qurion Logix ERP" dataPosition="fixed" seq="1">
+		<heading name="register_page_header_heading" description="Register business account" size="3" seq="2"/>
+	</header>
+	
+	<!-- Content -->
+	<content name="register_business_content" seq="2">
+		<form name="register_business_page_form_list" description="Register Business Object Form" 
+			 dataSplitIcon="plus" dataTheme="d" dataSplitTheme="a" dataInset="true" seq="1">
+			<!-- Form handler definition -->
+			<bo-data-processor 
+			    name="register_business_data_processor"
+				processorName="RegisterBusinessService" 
+			 	description="Handles registeration form">
+			</bo-data-processor>
+			<list name="register_business_list" description="Sign up" seq="1" 
+				dataSplitIcon="plus" dataTheme="d" dataSplitTheme="a" dataInset="true">
+				
+				<list-item name="register_business_account_type_field" description="Account type" seq="1">
+					<select-field name="register_business_account_type" description="Account type" seq="1">
+						<event-handler name="register_type_select_handler" 
+						event="change" handler="registration.registrationTypeHandler" description=""/>
+						<select-field-option name="register_business_account_type_org" optionValue="BIZ" description="Business Account" seq="1"></select-field-option>
+						<select-field-option name="register_business_account_type_user" optionValue="USER" description="User Account" seq="1"></select-field-option>
+					</select-field>
+				</list-item>
+				
+				<list-item name="register_business_firstname_field" description="First name" seq="2">
+					<email-field name="register_business_firstname" description="First name" seq="1"></email-field>
+				</list-item>
+				
+				<list-item name="register_business_lastname_field" description="Last name" seq="3">
+					<email-field name="register_business_lastname" description="Last name" seq="1"></email-field>
+				</list-item>
+				
+				<list-item name="register_business_username_field" description="Username" seq="4">
+					<email-field name="register_business_username" description="Username" seq="1"></email-field>
+				</list-item>
+				
+				<list-item name="register_business_password_field" description="Password" seq="5">
+					<password-field name="register_business_password" description="Password" seq="1"></password-field>
+				</list-item>
+				
+				<list-item name="register_business_password_repeat_field" description="Password repeat" seq="6">
+					<password-field name="register_business_password_repeat" description="Password" seq="1"></password-field>
+				</list-item>
+				
+				<list-item name="register_business_businessname_field" description="Business name" seq="7">
+					<email-field name="register_business_businessname" description="Business name" seq="1"></email-field>
+				</list-item>
+				
+				<list-item name="register_business_businessno_field" description="Business number" seq="7">
+					<email-field name="register_business_businessno" description="Business number" seq="1"></email-field>
+				</list-item>
+				
+				<list-item name="register_business_businesstype_field" description="Business type" seq="8">
+					<data-select-field name="register_business_businesstype" description="Business type" seq="1">
+						<ui-data-query 
+							type="query"
+							businessObject="PartyType" 
+							name="register_business_select_business_types" 
+							description="Select business types">
+							<ui-data-query-parameter 
+								operator="ET" 
+								fieldValue="ORGANIZATION" 
+								fieldName="partyType.code" 
+								fieldDataType="String"
+								description="Parent party type"
+								name="register_business_select_business_types_param" seq="1" />
+						</ui-data-query>				
+					</data-select-field>
+				</list-item>
+				<list-item class="ui-body ui-body-b" 
+					name="register_business_form_buttons_item" description="Register Business Object Buttons" seq="9">
+					
+					<fieldset class="ui-grid-a" 
+						name="register_business_buttons_fieldset" description="Register Business Object Buttons Field Set" seq="1">
+						
+		                    <container class="ui-block-a" 
+		                    	name="register_business_submit_button_container" description="" seq="1">
+		                    	<link-button name="register_business_submit_button" dataTheme="a" 
+									description="Save" href="#" dataRole="button" dataIcon="check" seq="1">
+										<event-handler name="register_business_submit_click" 
+											event="click" handler="registration.registrationFormHandler" description=""/>
+								</link-button>
+							</container>
+							
+		                    <container class="ui-block-b" 
+		                    	name="register_business_cancel_container" description="" seq="2">
+								<link-button name="register_business_cancel_button" dataTheme="b" 
+									description="Cancel" href="#" dataRole="button" dataIcon="check" seq="1">
+										<event-handler name="register_business_cancel_click" 
+											event="click" handler="login.submitHandler" description=""/>
+								</link-button>
+		                    </container>
+		                    
+		            </fieldset>
+				</list-item>
+			</list>		
+		</form>	
+	</content>
+	
+	<!-- Footer -->
+	<footer name="register_business_footer" dataPosition="fixed" seq="3">
+	</footer>
+</page>

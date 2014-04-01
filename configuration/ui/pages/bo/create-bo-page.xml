@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page name="create_bo_page" description="Create Business Object Page" dataAddBackBtn="true">
+<page name="create_bo_page" description="Create Business Object Page"
+	universeCode="MULTIVERSE"  dataAddBackBtn="true">
 	<activity code="CREATE_BO_ACTIVITY" name="Create Business Object Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="create_bo_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Create Business Object Activity" displayImg="appl.png" displayName="Create Business Object Home" seq="0">
@@ -51,18 +52,16 @@
 					name="create_bo_form_buttons_fieldset" description="Create Business Object Buttons Field Set" seq="1">
 	                    <container class="ui-block-a" 
 	                    	name="create_bo_form_create_container" description="Create Business Object Create Button Conatainer" seq="1">
-	                    	<link-button name="create_bo_button" dataTheme="a" 
-								description="Create" href="#" dataRole="button" dataIcon="check" seq="1">
+	                    	<submit-button name="create_bo_button" dataTheme="a" 
+								description="Create" dataIcon="check" seq="1">
 									<event-handler name="create_bo_submit_click" 
 										event="click" handler="businessObject.editFormHandler" description="Create Business Obejct form submit handler"/>
-							</link-button>
+							</submit-button>
 						</container>
 	                    <container class="ui-block-b" 
 	                    	name="create_bo_form_cancel_container" description="Create Business Cancel Object Buttons " seq="2">
 							<link-button name="cancel_create_bo_button" dataTheme="b" 
 								description="Cancel" href="#" dataRole="button" dataIcon="check" seq="1">
-									<event-handler name="cancel_create_bo_submit_click" 
-										event="click" handler="login.submitHandler" description="Create Business Obejct form submit handler"/>
 							</link-button>
 	                    </container>
 	            </fieldset>

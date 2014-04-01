@@ -53,6 +53,9 @@ public class ErrorCodes {
 	public static final String EFUDS_INVALID_BUSINESS_OBJECT_NAME_UI_QUERY_PARAM_ERROR_MSG = "EditFieldUiDataServiceImpl.EFUDS_INVALID_BUSINESS_OBJECT_NAME_UI_QUERY_PARAM_ERROR_MSG";
 	public static final String BOFDPS_PROCESS_DATA_ERROR_CD = "BusinessObjectFormDataProcessorServiceImpl.BOFDPS_PROCESS_DATA_ERROR_CD";
 	public static final String BOFDPS_ENTITY_NOT_FOUND_ERROR_MSG = "BusinessObjectFormDataProcessorServiceImpl.BOFDPS_ENTITY_NOT_FOUND_ERROR_MSG";
+	public static final String UBS_BUILD_ERROR_CD = "UiComponentBuilderService.UBS_BUILD_ERROR_CD";
+	public static final String UBS_INVALID_UNIVERSE_CD_ERROR_MSG = "UiComponentBuilderService.UBS_INVALID_UNIVERSE_CD_ERROR_MSG";
+	public static final String UBS_UNIVERSE_NOT_FOUND_ERROR_MSG = "UiComponentBuilderService.UBS_UNIVERSE_NOT_FOUND_ERROR_MSG";
 	
 
 	

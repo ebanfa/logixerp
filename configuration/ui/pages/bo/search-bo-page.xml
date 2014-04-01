@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page name="search_bo_page" description="Search Page" dataAddBackBtn="true">
+<page name="search_bo_page" description="Search Page" 
+	universeCode="MULTIVERSE" dataAddBackBtn="true">
 	<activity code="SEARCH_BO_ACTIVITY" name="Search Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="search_bo_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Search Business Object Activity" displayImg="appl.png" displayName="Search Business Object Home" seq="0">

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page name="activities_page" description="Activities Page" dataAddBackBtn="true">
+<page name="activities_page" description="Activities Page" 
+	universeCode="MULTIVERSE" dataAddBackBtn="true">
 	<activity code="ACTIVITIES_NAV_ACTIVITY" name="Activities Navigation Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="activities_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Activities Navigation Activity" displayImg="appl.png" displayName="Activities Home" seq="0">

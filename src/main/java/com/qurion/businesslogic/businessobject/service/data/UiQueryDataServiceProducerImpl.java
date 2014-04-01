@@ -11,6 +11,7 @@ import com.qurion.businesslogic.businessobject.annotation.BusinessObjectEditFiel
 import com.qurion.businesslogic.businessobject.annotation.BusinessObjectListUiDataService;
 import com.qurion.businesslogic.businessobject.annotation.BusinessObjectSearchFieldUiDataService;
 import com.qurion.businesslogic.businessobject.annotation.FavoriteActivitiesUiDataService;
+import com.qurion.businesslogic.businessobject.annotation.RegistrationBusinessTypeUiDataService;
 
 /**
  * Returns a {@link UiQueryDataService} with the specified {@code uiQueryDataServiceCode}
@@ -23,6 +24,7 @@ public class UiQueryDataServiceProducerImpl implements UiQueryDataServiceProduce
 	@Inject @FavoriteActivitiesUiDataService UiQueryDataService favoriteActivitiesUiDataService;
 	@Inject @BusinessObjectListUiDataService UiQueryDataService businessObjectListUiDataService;
 	@Inject @BusinessObjectEditFieldUiDataService UiQueryDataService businessObjectEditFieldUiDataService;
+	@Inject @RegistrationBusinessTypeUiDataService UiQueryDataService registrationBusinessTypeUiDataService;
 	@Inject @BusinessObjectSearchFieldUiDataService UiQueryDataService businessObjectSearchFieldUiDataService;
 
 	/* (non-Javadoc)
@@ -39,5 +41,7 @@ public class UiQueryDataServiceProducerImpl implements UiQueryDataServiceProduce
 			return favoriteActivitiesUiDataService;
 		if(uiQueryDataServiceCode.equals(BO_LIST_UDQ_SERVICE))
 			return businessObjectListUiDataService;
+		if(uiQueryDataServiceCode.equals(REG_BUSINESS_TY_OPTIONS_UDQ_SERVICE))
+			return registrationBusinessTypeUiDataService;
 		return null;
 	}}

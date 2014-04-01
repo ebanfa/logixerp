@@ -22,6 +22,7 @@ import com.qurion.businesslogic.application.model.Module;
 import com.qurion.businesslogic.application.model.UiComponent;
 import com.qurion.businesslogic.application.model.UiComponentAttribute;
 import com.qurion.businesslogic.application.model.UiComponentType;
+import com.qurion.businesslogic.application.model.Universe;
 import com.qurion.businesslogic.application.service.AbstractServiceImpl;
 import com.qurion.businesslogic.application.service.ActivityEntityService;
 import com.qurion.businesslogic.application.service.ActivityTypeEntityService;
@@ -29,6 +30,7 @@ import com.qurion.businesslogic.application.service.ModuleEntityService;
 import com.qurion.businesslogic.application.service.UiComponentAttributeTypeEntityService;
 import com.qurion.businesslogic.application.service.UiComponentEntityService;
 import com.qurion.businesslogic.application.service.UiComponentTypeEntityService;
+import com.qurion.businesslogic.application.service.UniverseEntityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
 import com.qurion.businesslogic.application.util.BooleanUtil;
 import com.qurion.businesslogic.application.util.DateUtil;
@@ -50,6 +52,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 
 	private static final String DEFAULT = "DEFAULT";
 	@Inject ModuleEntityService moduleEntityService;
+	@Inject UniverseEntityService universeEntityService;
 	@Inject ActivityTypeEntityService activityTypeEntityService;
 	@Inject ActivityEntityService activityEntityService;
 	@Inject UiComponentEntityService componentEntityService;
@@ -83,6 +86,21 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			UiComponent parentComponent, Node componentNode, Map<String, String> attributesMap)
 			throws ApplicationException 
 	{
+		Universe universe = null;
+		if(parentComponent == null)
+		{
+			String universeCode = 
+					attributesMap.get(UNIVERSE_CODE_ATTRIBUTE);
+			if(!StringUtil.isValidString(universeCode))
+				throw new ApplicationException(
+						ErrorCodes.UBS_BUILD_ERROR_CD, 
+						ErrorCodes.UBS_INVALID_UNIVERSE_CD_ERROR_MSG);
+			
+			universe = universeEntityService.findByCode(universeCode);
+			EntityUtil.returnOrThrowIfNull(universe, 
+					ErrorCodes.UBS_BUILD_ERROR_CD, 
+					ErrorCodes.UBS_UNIVERSE_NOT_FOUND_ERROR_MSG);
+		}
 		UiComponent component = null;
 		//logger.debug("Building component: {} of type {} with attributes {}", 
 		//		componentNode.getNodeName(), componentType, attributesMap);
@@ -99,7 +117,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			}
 			else {
 				// Build the component
-				component = createComponent(configuration, 
+				component = createComponent(configuration, universe,
 						getComponentType(componentType), parentComponent, attributesMap);
 			}
 			// Process the children of the current node
@@ -117,7 +135,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 	 * @see com.qurion.businesslogic.ide.service.ComponentBuilder#buildComponent(com.qurion.businesslogic.application.model.UiComponentType, com.qurion.businesslogic.application.model.UiComponent, com.qurion.businesslogic.application.model.EntityData, com.qurion.businesslogic.application.model.EntityField, java.lang.String, java.lang.String, java.lang.String, java.util.Map)
 	 */
 	@Override
-	public UiComponent createComponent(BuilderConfiguration configuration, UiComponentType componentType, 
+	public UiComponent createComponent(BuilderConfiguration configuration, Universe universe, UiComponentType componentType, 
 			UiComponent parentComponent, Map<String, String> attributesMap) throws ApplicationException 
 	{
 		String componentName = attributesMap.get(NAME_ATTRIBUTE);
@@ -133,6 +151,18 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			}
 			component = new UiComponent();
 			component.setUiComponentType(componentType);
+			if(universe != null) {
+				component.setUniverse(universe);
+			}
+			else if( parentComponent != null) {
+				component.setUniverse(parentComponent.getUniverse());
+			}
+			else {
+				throw new ApplicationException(
+						ErrorCodes.UBS_BUILD_ERROR_CD, 
+						ErrorCodes.UBS_UNIVERSE_NOT_FOUND_ERROR_MSG);
+			}
+				
 			component.setName(attributesMap.get(NAME_ATTRIBUTE));
 			// If we dont have a code then we use the name as the code
 			if(StringUtil.isValidString(attributesMap.get(CODE_ATTRIBUTE)))
@@ -175,6 +205,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 				attribute.setUiComponentAttributeType(
 						attributeTypeEntityService.findByCode(DEFAULT));
 				attribute.setAttrName(attributeName);
+				attribute.setUniverse(uiComponent.getUniverse());
 				attribute.setAttrValue(attributeValue);
 				attribute.setCode(uiComponent.getCode().concat(DateUtil.getCurrentTime()));
 				attribute.setUiComponent(uiComponent);
@@ -193,7 +224,7 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 			Map<String, String> attributesMap, UiComponent parentUiComponent) throws ApplicationException 
 	{
 		//logger.debug("Building event handler component: {} with attributes {}", componentNode.getNodeName(), attributesMap);
-		this.createComponent(configuration, 
+		this.createComponent(configuration, parentUiComponent.getUniverse(),
 				getComponentType(COMP_TY_EVENT_HANDLER), parentUiComponent, attributesMap);
 		
 	}
@@ -231,6 +262,8 @@ public class UiComponentBuilderServiceImpl extends AbstractServiceImpl implement
 					"createActivityForUiComponent:Module");
 			activity.setModule(module);
 			activity.setUiComponent(component);
+			logger.debug("Creating activity with universe {}", component.getUniverse());
+			activity.setUniverse(component.getUniverse());
 			// Set other properties
 			activity.setCode(attributesMap.get(CODE_ATTRIBUTE));
 			activity.setActivityUrl(attributesMap.get(ACTIVITY_URL_ATTRIBUTE));

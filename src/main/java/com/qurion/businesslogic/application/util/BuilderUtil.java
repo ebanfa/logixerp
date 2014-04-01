@@ -66,6 +66,7 @@ public class BuilderUtil {
 		activityGrouping.setEffectiveDt(new Date(DateUtil.getCurrentTimeInMilliSeconds()));
 		activityGrouping.setCreatedByUsr(AbstractEntityService.SYSTEM_USR_NAME);
 		activityGrouping.setActivity(activity);
+		activityGrouping.setUniverse(activity.getUniverse());
 		activityGrouping.setActivityGroup(activityGroup);
 		activityGrouping.setName(activityGroup.getName().concat(StringUtil.UNDERSCORE).concat(activity.getName()));
 		return activityGrouping;

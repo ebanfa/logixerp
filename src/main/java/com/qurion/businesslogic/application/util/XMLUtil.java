@@ -66,6 +66,7 @@ public class XMLUtil {
 	        parsedObj = um.unmarshal(new FileInputStream(fileName));
 	    }
 	    catch(Exception e) {
+	    	e.printStackTrace();
 			throw new ApplicationException("Exception", e.getMessage());
 	    }
 	    return parsedObj;

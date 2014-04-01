@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.qurion.businesslogic.application.rest;
+package com.qurion.businesslogic.application.rest.data;
 
 import com.qurion.businesslogic.businessobject.data.BusinessObjectResponse;
 

@@ -95,4 +95,14 @@ public class BuilderConfiguration {
 		this.pageFlowList = pageFlowList;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "BuilderConfiguration [overWrite=" + overWrite + ", moduleList="
+				+ moduleList + ", screenList=" + screenList + ", activityList="
+				+ activityList + ", pageFlowList=" + pageFlowList + "]";
+	}
+
 }

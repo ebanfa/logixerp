@@ -155,12 +155,10 @@ define([
 					activityURL: 'edit_bo_activity',
 					businessObjectData: businessObjectData,
     			};
-    			if(window.application) {
-        			window.application.fireEvent(
-        					UiConstants.activityChannel, 
-        					UiConstants.uiLoadActivityEvent, 
-        					activityQuery);
-    			}
+    			window.application.fireEvent(
+    					UiConstants.activityChannel, 
+    					UiConstants.uiLoadActivityEvent, 
+    					activityQuery);
     		}
     };
 
@@ -200,6 +198,8 @@ define([
 		            	businessObjectData.dataValues.id = formData.businessObjectId;
 		            }
 		            businessObjectData.businessObjectName = formData.businessObjectName;
+		            console.log('Using universe::' + window.application.userData.universe);
+		            businessObjectData.dataValues.universe = window.application.userData.universe;
 	    			console.log('Forms::' + JSON.stringify(businessObjectData, null,4));
 		            var activityQuery = {
 		            	method: 'POST',
@@ -260,10 +260,53 @@ define([
     		}
     };
     
+    /**
+     * 
+     **/
+    var RegistrationFormHandler = 
+    {
+    		'handle': function(event) 
+    		{
+    			event.preventDefault();
+    			var businessObjectEditForm =
+    				$(event.target).closest('form');
+    			
+    			if(businessObjectEditForm.length > 0)
+    			{
+		            $.fn.formSerializer = FormUtilities.formSerializer;
+		            var formData = $(businessObjectEditForm).formSerializer();
+		            
+		            var dataValues = {};
+		            var businessObjectData = {};
+		            for(key in formData) {
+		    			if(formData.hasOwnProperty(key) &&
+		    				(key != 'businessObjectName') &&
+		    					(key!= 'businessObjectId')) 
+		    			{
+		    				dataValues[key] = formData[key];
+		    			}
+		    		}
+		            businessObjectData.dataValues = dataValues;
+		            businessObjectData.businessObjectName = 'RegistrationForm';
+		            businessObjectData.dataValues.universe = window.application.userData.universe;
+	    			console.log('Forms::' + JSON.stringify(businessObjectData, null,4));
+		            var activityQuery = {
+		            	method: 'POST',
+						activityURL: UiConstants.listActivityURL,
+						businessObjectData: businessObjectData,
+	    			};
+        			window.application.fireEvent(
+    					UiConstants.activityChannel, 
+    					UiConstants.uiLoadActivityEvent, 
+    					activityQuery);
+    			}
+    		}
+    };
     
     // Handler container
     var ActivityHandlers = {
     	FavoriteItemClickHandler: FavoriteItemClickHandler,
+    	RegistrationFormHandler: RegistrationFormHandler,
     	BusinessObjectSearchFormHandler: BusinessObjectSearchFormHandler,
     	BusinessObjectEditFormHandler: BusinessObjectEditFormHandler,
     	BusinessObjectListFormHandler: BusinessObjectListFormHandler,

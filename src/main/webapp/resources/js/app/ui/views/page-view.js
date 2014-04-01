@@ -53,13 +53,15 @@ define([
         			this.notificationEventHandler(this));
         	// This will prevent duplicates of pages from existing in the dom
         	$(document).on( "pageshow", function(e, data)
-        	{
-      		  $('#' + document.currentPage).each(function(i, obj) 
-      		  {
-    			if(!$(this).hasClass('ui-page-active')) $(this).remove();
-      		  });
+        	{ 
+        		if($('#' + document.currentPage).length > 1)
+        		{
+        			$('#' + document.currentPage).each(function(i, obj) 
+            		{
+        				//if(!$(this).hasClass('ui-page-active')) $(this).remove();
+            		});
+        		}
       	    });
-
         },
 
         /**
@@ -85,9 +87,13 @@ define([
         		// the login activity and if we have a valid user name
         		if(this.application.userData != undefined && 
         				 activityQuery.activityURL != UiConstants.loginScreen)
+        		{
                 	activityQuery.userName = this.application.userData.userName;
+                	activityQuery.universe = this.application.userData.universe;
+        		}
         		
             	self.activityQuery = activityQuery;
+            	console.log('Executing activityQuery::' + JSON.stringify(activityQuery, null, 4));
             	if(activityQuery.method === undefined)
             		activityQuery.method = 'GET';
             	if(activityQuery.method === 'GET') {

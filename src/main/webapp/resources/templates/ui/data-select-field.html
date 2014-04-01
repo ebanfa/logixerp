@@ -1,0 +1,10 @@
+<div data-role="fieldcontain">
+	<label for="<%= uiComponentData.name %>"><%= uiComponentData.description %></label>
+	<select id="<%= uiComponentData.name %>" name="<%=uiComponentData.name%>" dataNativeMenu="false">
+	<%
+    _.each(uiComponentData.uiQueryData, function (option) {
+    %>
+        <option value="<%=option.id%>" selected="selected"><%=option.dataValues.name.fieldValue%></option>
+    <% }); %>
+	</select>
+</div>

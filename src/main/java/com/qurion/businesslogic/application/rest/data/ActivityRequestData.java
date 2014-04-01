@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.qurion.businesslogic.application.rest;
+package com.qurion.businesslogic.application.rest.data;
 
 import com.qurion.businesslogic.businessobject.data.BusinessObjectDataImpl;
 
@@ -9,8 +9,9 @@ import com.qurion.businesslogic.businessobject.data.BusinessObjectDataImpl;
  * @author Edward Banfa
  *
  */
-public class ActivityRequestData extends RequestData {
-	
+public class ActivityRequestData extends RequestData 
+{
+	private String universe;
 	private String activityURL;
 	private BusinessObjectDataImpl businessObjectData;
 
@@ -42,16 +43,28 @@ public class ActivityRequestData extends RequestData {
 		this.activityURL = activityURL;
 	}
 
+	/**
+	 * @return the universe
+	 */
+	public String getUniverse() {
+		return universe;
+	}
+
+	/**
+	 * @param universe the universe to set
+	 */
+	public void setUniverse(String universe) {
+		this.universe = universe;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "ActivityRequestData [activityURL=" + activityURL
-				+ ", businessObjectData=" + businessObjectData
-				+ ", getUserName()=" + getUserName()
-				+ ", getRequestIPAddress()=" + getRequestIPAddress()
-				+ ", getMethod()=" + getMethod() + "]";
+		return "ActivityRequestData [universe=" + universe + ", activityURL="
+				+ activityURL + ", businessObjectData=" + businessObjectData
+				+ "]";
 	}
 
 }

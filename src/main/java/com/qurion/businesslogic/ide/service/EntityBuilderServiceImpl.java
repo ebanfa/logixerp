@@ -15,12 +15,21 @@ import com.qurion.businesslogic.application.model.EntityData;
 import com.qurion.businesslogic.application.model.EntityField;
 import com.qurion.businesslogic.application.model.EntityFieldType;
 import com.qurion.businesslogic.application.model.Module;
+import com.qurion.businesslogic.application.model.Universe;
 import com.qurion.businesslogic.application.service.AbstractServiceImpl;
 import com.qurion.businesslogic.application.service.EntityFieldTypeEntityService;
+import com.qurion.businesslogic.application.service.UniverseEntityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
+import com.qurion.businesslogic.application.util.EntityUtil;
 import com.qurion.businesslogic.application.util.ErrorCodes;
 import com.qurion.businesslogic.application.util.ExceptionUtil;
+import com.qurion.businesslogic.application.util.XMLUtil;
 import com.qurion.businesslogic.ide.config.BuilderConfiguration;
+import com.qurion.businesslogic.ide.config.Modules;
+import com.qurion.businesslogic.ide.config.PathElement;
+import com.qurion.businesslogic.ide.config.models.EntityConfig;
+import com.qurion.businesslogic.ide.config.models.FieldConfig;
+import com.qurion.businesslogic.ide.config.models.ModuleConfig;
 import com.qurion.businesslogic.ide.util.BuilderUtil;
 
 /**
@@ -32,6 +41,8 @@ import com.qurion.businesslogic.ide.util.BuilderUtil;
 public class EntityBuilderServiceImpl extends AbstractServiceImpl 
 	implements EntityBuilderService {
 	
+	public static final String STORAGE_TABLE = "table";
+	@Inject UniverseEntityService universeEntityService;
 	@Inject EntityFieldTypeEntityService fieldTypeEntityService;
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	private List<EntityFieldType> fieldTypes =  new ArrayList<EntityFieldType>();
@@ -70,6 +81,7 @@ public class EntityBuilderServiceImpl extends AbstractServiceImpl
 			{
 				try {
 					entity.setModule(module);
+					//entity.setUniverse(module.getUniverse());
 					getEntityManager().persist(entity);
 				} catch (Exception e) {
 					ExceptionUtil.processException(e, ErrorCodes.ENTITY_TO_MODULE_MAP_ERROR_CD);
@@ -93,6 +105,7 @@ public class EntityBuilderServiceImpl extends AbstractServiceImpl
 				for(EntityData entity : entities) {
 					if(entity.getName().equals(entityField.getDescription())){
 						entityField.setEntityDataByRelatedEntityId(entity);
+						//entityField.setUniverse(entity.getUniverse());
 						getEntityManager().persist(entityField);
 					}
 				}
@@ -132,6 +145,102 @@ public class EntityBuilderServiceImpl extends AbstractServiceImpl
 		for(EntityFieldType fieldType: fieldTypes)
 			if(BuilderUtil.doesFieldBelongToFieldType(field, fieldType))
 	        	field.setEntityFieldType(fieldType);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.qurion.businesslogic.ide.service.EntityBuilderService#processModules(com.qurion.businesslogic.ide.config.BuilderConfiguration)
+	 */
+	@Override
+	public void processModules(BuilderConfiguration builderConfiguration)
+			throws ApplicationException {
+
+		Modules modulesConfig = builderConfiguration.getModuleList();
+		Universe universe = universeEntityService.findByCode("MULTIVERSE");
+		for(PathElement element: modulesConfig.getModules()) 
+		{
+			ModuleConfig moduleConfig =
+					(ModuleConfig) XMLUtil.getJAXBObject(element.getPath(), ModuleConfig.class);
+			Module module = 
+					this.createModule(moduleConfig, universe, builderConfiguration);
+			this.processEntitiesInModule(module, moduleConfig, builderConfiguration);
+		}
+	}
+	
+
+	private void processEntitiesInModule(Module module,
+			ModuleConfig moduleConfig, BuilderConfiguration builderConfiguration) throws ApplicationException {
+		
+		List<EntityConfig> entitiesConfig = moduleConfig.getEntities();
+		for(EntityConfig entityConfig: entitiesConfig){
+			EntityData entity = 
+					this.createEntity(module, entityConfig, builderConfiguration);
+			List<FieldConfig> fieldConfigs = entityConfig.getFieldConfigs();
+			for(FieldConfig fieldConfig: fieldConfigs) 
+			{
+				EntityField field = 
+						this.createEntityField(entity, fieldConfig, builderConfiguration);
+			}
+		}
+	}
+
+	private EntityField createEntityField(EntityData entity,
+			FieldConfig fieldConfig, BuilderConfiguration builderConfiguration) throws ApplicationException {
+		EntityField entityField = new EntityField();
+		EntityFieldType fieldType = 
+				fieldTypeEntityService.findByCode(fieldConfig.getFieldType());
+		entityField = 
+				(EntityField) EntityUtil.initializeFields(entityField);
+		entityField.setEntityFieldType(fieldType);
+		entityField.setEntityDataByEntityId(entity);
+		entityField.setUniverse(entity.getUniverse());
+		entityField.setCode(fieldConfig.getCode());
+		entityField.setName(fieldConfig.getName());
+		entityField.setDescription(fieldConfig.getDescription());
+		entityField.setEditFieldFg(fieldConfig.getEditFieldFlag().charAt(0));
+		entityField.setCreateFieldFg(fieldConfig.getCreateFieldFlag().charAt(0));
+		entityField.setDeleteFieldFg(fieldConfig.getDeleteFieldFlag().charAt(0));
+		entityField.setListFieldFg(fieldConfig.getListFieldFlag().charAt(0));
+		entityField.setViewFieldFg(fieldConfig.getViewFieldFlag().charAt(0));
+		entityField.setUniqueFg(fieldConfig.getUniqueFlag().charAt(0));
+		entityField.setPrimarykeyFg(fieldConfig.getPrimaryKeyFlag().charAt(0));
+		entityField.setStorage(STORAGE_TABLE);
+		getEntityManager().persist(entityField);
+		return entityField;
+	}
+
+	private EntityData createEntity(Module module, EntityConfig entityConfig,
+			BuilderConfiguration builderConfiguration) 
+	{
+		EntityData entity = new EntityData();
+		entity = (EntityData) EntityUtil.initializeFields(entity);
+		entity.setCode(entityConfig.getCode());
+		entity.setName(entityConfig.getName());
+		entity.setDescription(entityConfig.getDescription());
+		entity.setDisplayNm(entityConfig.getDisplayName());
+		entity.setDisplayNmPlural(entityConfig.getDisplayNamePlural());
+		entity.setEntityClassNm(entityConfig.getEntityClassName());
+		entity.setDbName(entityConfig.getDbName());
+		entity.setHasTable(entityConfig.getHasTable().charAt(0));
+		entity.setUniverse(module.getUniverse());
+		entity.setModule(module);
+		getEntityManager().persist(entity);
+		return entity;
+	}
+
+	private Module createModule(ModuleConfig moduleConfig,
+			Universe universe, BuilderConfiguration builderConfiguration) throws ApplicationException 
+	{
+		logger.debug("Processing module configuration {}", moduleConfig);
+		Module module = new Module();
+		module = (Module) EntityUtil.initializeFields(module);
+		module.setCode(moduleConfig.getCode());
+		module.setName(moduleConfig.getName());
+		module.setUniverse(universe);
+		module.setDisplayFg(moduleConfig.getDisplayFlag().charAt(0));
+		module.setDisplayNm(moduleConfig.getDisplayName());
+		module.setSequenceNo(moduleConfig.getSequenceNo());
+		getEntityManager().persist(module);
+		return module;
 	}
 
 }

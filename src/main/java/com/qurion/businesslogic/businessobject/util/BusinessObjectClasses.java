@@ -48,6 +48,7 @@ import com.qurion.businesslogic.application.model.UiComponent;
 import com.qurion.businesslogic.application.model.UiComponentAttribute;
 import com.qurion.businesslogic.application.model.UiComponentAttributeType;
 import com.qurion.businesslogic.application.model.UiComponentType;
+import com.qurion.businesslogic.application.model.Universe;
 import com.qurion.businesslogic.businessdata.model.GeoBoundry;
 import com.qurion.businesslogic.businessdata.model.GeoBoundryType;
 import com.qurion.businesslogic.businessdata.model.PeriodType;
@@ -303,6 +304,7 @@ public class BusinessObjectClasses{
 	
 	public BusinessObjectClasses()
 	{
+		entityNames.put("Universe", Universe.class);
 		entityNames.put("Container", Container.class);
 		entityNames.put("ProductFeatureApplicability", ProductFeatureApplicability.class);
 		entityNames.put("ProductObsolescence", ProductObsolescence.class);

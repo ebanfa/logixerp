@@ -9,6 +9,7 @@ import org.w3c.dom.Node;
 
 import com.qurion.businesslogic.application.model.UiComponent;
 import com.qurion.businesslogic.application.model.UiComponentType;
+import com.qurion.businesslogic.application.model.Universe;
 import com.qurion.businesslogic.application.util.ApplicationException;
 import com.qurion.businesslogic.ide.config.BuilderConfiguration;
 
@@ -37,6 +38,7 @@ public interface UiComponentBuilderService {
 	public static final String ACTIVITY_TY_ATTRIBUTE = "activityType";
 	public static final String ACTIVITY_URL_ATTRIBUTE = "activityURL";
 	public static final String ACTIVITY_COMPONENT_TYPE = "activity";
+	public static final String UNIVERSE_CODE_ATTRIBUTE = "universeCode";
 	
 
 	/**
@@ -63,7 +65,7 @@ public interface UiComponentBuilderService {
 	 * @return
 	 * @throws ApplicationException
 	 */
-	public UiComponent createComponent(BuilderConfiguration configuration, 
+	public UiComponent createComponent(BuilderConfiguration configuration, Universe universe, 
 			UiComponentType componentType, UiComponent parentComponent, Map<String, String> attributesMap) throws ApplicationException;
 
 }

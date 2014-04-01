@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page name="delete-bo-page" description="Delete Business Object Page" dataAddBackBtn="true">
+<page name="delete-bo-page" description="Delete Business Object Page" 
+	universeCode="MULTIVERSE" dataAddBackBtn="true">
 	<activity code="DELETE_BO_ACTIVITY" name="Delete Business Object Activity"
 		activityType="PAGE" moduleCode="APPLICATION" activityURL="delete_bo_activity" entityCode="APPLICATION_ACTIVITY"
 		description="Delete Business Object Activity" displayImg="appl.png" displayName="Delete Business Object Home" seq="0">

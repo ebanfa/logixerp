@@ -14,7 +14,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.qurion.businesslogic.application.rest.AbstractRESTService;
-import com.qurion.businesslogic.application.rest.ResponseData;
+import com.qurion.businesslogic.application.rest.data.ResponseData;
 import com.qurion.businesslogic.application.service.ActivityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
 import com.qurion.businesslogic.application.util.EntityUtil;

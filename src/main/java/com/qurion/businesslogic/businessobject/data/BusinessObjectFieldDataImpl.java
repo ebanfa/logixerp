@@ -234,7 +234,7 @@ public class BusinessObjectFieldDataImpl  implements BusinessObjectFieldData{
 		return "BusinessObjectFieldDataImpl [fieldName=" + fieldName
 				+ ", required=" + required + ", fieldValue=" + fieldValue
 				+ ", fieldText=" + fieldText + ", fieldDataType="
-				+ fieldDataType + "]";
+				+ fieldDataType + ", relatedBusinessObjectName="+  relatedBusinessObjectName + "]";
 	}
 
 }

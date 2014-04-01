@@ -3,7 +3,7 @@ package com.qurion.businesslogic.businessobject.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.qurion.businesslogic.application.rest.ResponseData;
+import com.qurion.businesslogic.application.rest.data.ResponseData;
 
 
 /**

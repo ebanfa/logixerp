@@ -26,17 +26,14 @@ define([
 	        },
 	        authenticating: {
 	        	_onEnter: function(){
-	        		console.log('Authenticating');
 	        	},
 	        	"login.success": function(data) {
-	        		console.log('Login has succeeded');
 	        		this.application.fireEvent(
 	        				UiConstants.applicationFsm, 
 	        				UiConstants.applicationLoginSuccessEvent, {eventType : 'success'});
 	        		this.transition("aunthenticated");
 	        	},
 	        	"login.fail": function() {
-	        		console.log('Login has fail');
 	        		this.application.fireEvent(
 	        				UiConstants.applicationFsm, 
 	        				UiConstants.applicationLoginFailEvent, {eventType : 'fail'});

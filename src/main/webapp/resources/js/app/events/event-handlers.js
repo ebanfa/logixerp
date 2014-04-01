@@ -10,7 +10,8 @@ define([
     'uiconstants',
     'app/events/activity-handlers',
     'app/events/navbar-click-handler',
-    'app/events/login-submit-handler',
+    'app/events/login-handlers',
+    'app/events/registration-handlers',
     'app/events/navigator-click-handler',
     'app/events/navigator-dyna-listitem-clickhandler'
 ],function ($, 
@@ -20,7 +21,8 @@ define([
     		UiConstants,
     		ActivityHandlers,
     		NavbarClickHandler,
-    		LoginSubmitHandler,
+    		LoginHandlers,
+    		RegistrationHandlers,
     		NavigatorClickHandler,
     		NavigatorDynaListItemClickHandler) {
 	
@@ -32,7 +34,10 @@ define([
 
     var EventHandlers = {
     		
-    	'login.submitHandler': LoginSubmitHandler,
+    	'login.submitHandler': LoginHandlers.LoginSubmitHandler,
+    	'login.registerHandler': LoginHandlers.LoginRegisterHandler,
+    	'registration.registrationTypeHandler': RegistrationHandlers.RegistrationTypeHandler,
+    	'registration.registrationChoiceHandler': RegistrationHandlers.RegistrationChoiceHandler,
     	'navigator.itemClickHandler': NavigatorClickHandler,
     	'navigator.navbarClickHandler':NavbarClickHandler,
     	'navigator.dynamicListLtemClickHandler': NavigatorDynaListItemClickHandler,

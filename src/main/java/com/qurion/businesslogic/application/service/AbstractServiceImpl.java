@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.qurion.businesslogic.application.model.BaseEntity;
-import com.qurion.businesslogic.application.model.UiComponent;
 import com.qurion.businesslogic.application.util.DateUtil;
 
 /**

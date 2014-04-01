@@ -3,6 +3,7 @@
  */
 package com.qurion.businesslogic.application.rest;
 
+import com.qurion.businesslogic.application.rest.data.ResponseData;
 import com.qurion.businesslogic.application.util.ExceptionUtil;
 
 /**

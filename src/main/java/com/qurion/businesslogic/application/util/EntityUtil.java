@@ -12,6 +12,9 @@ import org.slf4j.LoggerFactory;
 import com.qurion.businesslogic.application.model.BaseEntity;
 import com.qurion.businesslogic.application.model.EntityData;
 import com.qurion.businesslogic.application.model.EntityField;
+import com.qurion.businesslogic.application.service.AbstractEntityService;
+import com.qurion.businesslogic.businessobject.data.BusinessObjectFieldData;
+import com.qurion.businesslogic.businessobject.util.BusinessObjectClasses;
 
 /**
  * @author Edward Banfa 
@@ -124,41 +127,35 @@ public class EntityUtil {
 	 * @param data
 	 * @throws ApplicationException
 	 */
-	public static void invokeMethodOnEntityInstance(BaseEntity entityInstance, String fieldName, Object data) throws ApplicationException {
+	public static void invokeMethodOnEntityInstance(BaseEntity entityInstance, 
+			BusinessObjectFieldData fieldData, Object data) throws ApplicationException 
+	{
 		returnOrThrowIfParamsArrayContainsNull(
-				new Object[]{entityInstance, fieldName, data}, "invokeMethodOnEntityInstance");
+				new Object[]{entityInstance, fieldData.getFieldName(), data}, "invokeMethodOnEntityInstance");
 		try 
 		{
-			String setFieldMethodNm = getFieldSetMethodName(fieldName);
-			Method method = 
-					entityInstance.getClass().getDeclaredMethod(
-							setFieldMethodNm, new Class[]{data.getClass()});
-			logger.debug("Executing method {} with field setter name {} on class {} for field {} of type {} with data {}", 
-					method.getName(), setFieldMethodNm, entityInstance.getClass().getName(), fieldName, data.getClass(), data);
-			// Cast the data into the required type and  invoke the method on the instance
-			invokeMethodOnEntity(entityInstance, data, method);
+			Class<? extends BaseEntity> clazz = entityInstance.getClass();
+			for(Method m :clazz.getMethods())
+				logger.debug("Method {}", m.getName());
+			if(data instanceof BaseEntity) {
+
+				Method method = clazz.getMethod(
+						getFieldSetMethodName(fieldData.getFieldName()), 
+						new Class[]{new BusinessObjectClasses()
+						.getEntityNames().get(fieldData.getRelatedBusinessObjectName())});
+				method.invoke(entityInstance, data);
+			}
+			else {
+
+				Method method = clazz.getMethod(
+						getFieldSetMethodName(fieldData.getFieldName()), new Class[]{data.getClass()});
+				method.invoke(entityInstance, data);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ApplicationException(USR_TARGET_INVOCATION_ERROR, e.getMessage());
 		}
 	}
-
-	public static void invokeMethodOnEntity(BaseEntity entityInstance, Object data, Method method) 
-			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException,	ApplicationException {
-		method.invoke(entityInstance, data);
-		/*if(data instanceof String)
-			method.invoke(entityInstance, (String) data);
-		if(data instanceof Integer)
-			method.invoke(entityInstance, (Integer) data);
-		if(data instanceof BigDecimal)
-			method.invoke(entityInstance, (BigDecimal) data);
-		if(data instanceof Date)
-			method.invoke(entityInstance, (Date) data);
-		else
-			throw new ApplicationException(USR_WRONG_TARGET_FIELD_TYPE);*/
-	}
-
-	
 
 	/**
 	 * @param field
@@ -172,7 +169,6 @@ public class EntityUtil {
 		return fieldName;
 	}
 	
-
 	public static Object newInstance(String className) {
 		try {
 			return Class.forName(className).newInstance();
@@ -192,6 +188,15 @@ public class EntityUtil {
 			if(field.getEntityFieldType().getCode().equals(RELATIONSHIP_FIELD_CODE))
 				return true;
 		return false;
+	}
+
+	
+	public static BaseEntity initializeFields(BaseEntity entity) {
+		entity.setCreatedDt(DateUtil.getCurrentDate());
+		entity.setEffectiveDt(DateUtil.getCurrentDate());
+		entity.setRecSt(AbstractEntityService.ENTITY_STATUS_ACTIVE);
+		entity.setCreatedByUsr(AbstractEntityService.SYSTEM_USR_NAME);
+		return entity;
 	}
 
 }

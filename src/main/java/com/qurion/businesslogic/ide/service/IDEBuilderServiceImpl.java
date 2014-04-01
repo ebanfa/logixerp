@@ -9,6 +9,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.qurion.businesslogic.application.model.Activity;
 import com.qurion.businesslogic.application.model.EntityData;
 import com.qurion.businesslogic.application.model.EntityField;
@@ -18,11 +21,15 @@ import com.qurion.businesslogic.application.service.EntityDataEntityService;
 import com.qurion.businesslogic.application.service.EntityFieldEntityService;
 import com.qurion.businesslogic.application.service.ModuleEntityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
+import com.qurion.businesslogic.application.util.EntityUtil;
+import com.qurion.businesslogic.application.util.PropertyUtil;
 import com.qurion.businesslogic.application.util.XMLUtil;
-import com.qurion.businesslogic.ide.config.BaseElement;
+import com.qurion.businesslogic.businessobject.util.BusinessObjectUtil;
 import com.qurion.businesslogic.ide.config.BuilderConfiguration;
 import com.qurion.businesslogic.ide.config.IDEConfiguration;
 import com.qurion.businesslogic.ide.config.Modules;
+import com.qurion.businesslogic.ide.config.PathElement;
+import com.qurion.businesslogic.ide.config.models.ModuleConfig;
 
 /**
  * Default implementation of the IDE Builder Service.
@@ -42,6 +49,7 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 	@Inject ActivityEntityService activityEntityService;
 	@Inject EntityDataEntityService entityDataEntityService;
 	@Inject EntityFieldEntityService entityFieldEntityService;
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	/* (non-Javadoc)
 	 * @see com.qurion.businesslogic.application.ide.IDEBuilderService#build(java.lang.String)
@@ -64,7 +72,10 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 		BuilderConfiguration builderConfiguration = 
 				configuration.getBuilderConfiguration();
 		// Map entities to their parent modules
-		List<EntityData> entities = 
+		logger.debug("Builder configuration: {}", builderConfiguration);
+		
+		entityBuilderService.processModules(builderConfiguration);
+		/*List<EntityData> entities = 
 				entityDataEntityService.findAll(null);
 		processEntityToModule(configuration, 
 				loadModules(builderConfiguration), entities);
@@ -73,7 +84,7 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 				entities, entityFieldEntityService.findAll(null));
 		// Create activities for each entity
 		this.createActvitiesFromEntities(configuration, entities);
-		this.processUIComponents(configuration);
+		this.processUIComponents(configuration);*/
 		//this.processUserActivities(configuration);
 	}
 
@@ -145,10 +156,10 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 		Modules moduleListConfig = builderConfiguration.getModuleList();
 		// Loop through the module config elements and load the module entity
 		// by using the name attribute of the config element as the entity code
-		for(BaseElement moduleConfig: moduleListConfig.getModules())
+		for(PathElement moduleConfig: moduleListConfig.getModules())
 		{
-			Module module = moduleEntityService.findByCode(moduleConfig.getName());
-			if(module != null)	modules.add(module);
+			//Module module = moduleEntityService.findByCode(moduleConfig.getName());
+			//if(module != null)	modules.add(module);
 		}
 		return modules;
 	}

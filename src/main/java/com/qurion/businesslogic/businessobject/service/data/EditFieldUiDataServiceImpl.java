@@ -174,7 +174,13 @@ public class EditFieldUiDataServiceImpl implements UiQueryDataService {
 					getBusinessObjectEditFields(businessObjectEditMode, entityData);
 			// Set the field data as a data value for the business object
 			for(BusinessObjectFieldData field: businessObjectFields) 
+			{
+				// Ignore the universe field
+				if(field.getFieldName().equals(
+						BusinessObjectFormDataProcessorServiceImpl.UNIVERSE_FIELD_NM))
+					continue;
 				businessObjectData.setDataValue(field.getFieldName(), field);
+			}
 
 			// If an business object id was specified then we look
 			// the instance of the business object and copy its 
