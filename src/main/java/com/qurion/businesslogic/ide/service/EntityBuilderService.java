@@ -21,7 +21,7 @@ import com.qurion.businesslogic.ide.config.BuilderConfiguration;
  */
 public interface EntityBuilderService {
 	
-	public void processModules(BuilderConfiguration builderConfiguration) 
+	public List<Module> processModules(BuilderConfiguration builderConfiguration) 
 			throws ApplicationException;
 	
 	/**

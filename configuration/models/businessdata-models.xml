@@ -1,195 +1,195 @@
 <?xml version="1.0"?>
-	<module code="BUSINESSDATA" name="Businessdata" displayNm="Businessdata" displayFg="N" seqNo="0">
+	<module code="BUSINESSDATA" name="Businessdata" description="Businessdata" displayNm="Businessdata" displayFg="Y" seqNo="0">
 		<!-- TermType -->
-		<entity code="BUSINESSDATA_TERMTYPE" name="TermType" description="TermType" displayFg="N" displayNm="TermType" displayNmPl="TermType" entityClassNm="com.qurion.businesslogic.businessdata.model.TermType" dbName="TermType" hasTable="N">
+		<entity code="BUSINESSDATA_TERMTYPE" name="TermType" description="TermType" displayFg="N" displayNm="Term Type" displayNmPl="Term Type" entityClassNm="com.qurion.businesslogic.businessdata.model.TermType" dbName="TermType" hasTable="N">
 			<!-- name -->
-			<field code="TERMTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="TERMTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="TERMTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="TERMTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="TERMTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="TERMTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="TERMTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="TERMTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="TERMTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="TERMTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="TERMTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="TERMTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="TERMTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- PeriodType -->
-		<entity code="BUSINESSDATA_PERIODTYPE" name="PeriodType" description="PeriodType" displayFg="N" displayNm="PeriodType" displayNmPl="PeriodType" entityClassNm="com.qurion.businesslogic.businessdata.model.PeriodType" dbName="PeriodType" hasTable="N">
+		<entity code="BUSINESSDATA_PERIODTYPE" name="PeriodType" description="PeriodType" displayFg="N" displayNm="Period Type" displayNmPl="Period Type" entityClassNm="com.qurion.businesslogic.businessdata.model.PeriodType" dbName="PeriodType" hasTable="N">
 			<!-- name -->
-			<field code="PERIODTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="PERIODTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="PERIODTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PERIODTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="PERIODTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="PERIODTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="PERIODTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="PERIODTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="PERIODTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="PERIODTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="PERIODTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="PERIODTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PERIODTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- Uom -->
 		<entity code="BUSINESSDATA_UOM" name="Uom" description="Uom" displayFg="N" displayNm="Uom" displayNmPl="Uom" entityClassNm="com.qurion.businesslogic.businessdata.model.Uom" dbName="Uom" hasTable="N">
 			<!-- name -->
-			<field code="UOM_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="UOM_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="UOM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="UOM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="UOM_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="UOM_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="UOM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="UOM_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="UOM_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="UOM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="UOM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="UOM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="UOM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- UomConversion -->
-		<entity code="BUSINESSDATA_UOMCONVERSION" name="UomConversion" description="UomConversion" displayFg="N" displayNm="UomConversion" displayNmPl="UomConversion" entityClassNm="com.qurion.businesslogic.businessdata.model.UomConversion" dbName="UomConversion" hasTable="N">
+		<entity code="BUSINESSDATA_UOMCONVERSION" name="UomConversion" description="UomConversion" displayFg="N" displayNm="Uom Conversion" displayNmPl="Uom Conversion" entityClassNm="com.qurion.businesslogic.businessdata.model.UomConversion" dbName="UomConversion" hasTable="N">
 			<!-- uomByFromUomId -->
-			<field code="UOMCONVERSION_UOMBYFROMUOMID_RELATIONSHIP" name="uomByFromUomId" description="uomByFromUomId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="UOMCONVERSION_UOMBYFROMUOMID_RELATIONSHIP" name="uomByFromUomId" description="uomByFromUomId" fieldType="RELATIONSHIP" relatedEntityNm="Uom" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- uomByToUomId -->
-			<field code="UOMCONVERSION_UOMBYTOUOMID_RELATIONSHIP" name="uomByToUomId" description="uomByToUomId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="UOMCONVERSION_UOMBYTOUOMID_RELATIONSHIP" name="uomByToUomId" description="uomByToUomId" fieldType="RELATIONSHIP" relatedEntityNm="Uom" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- conversionFactor -->
-			<field code="UOMCONVERSION_CONVERSIONFACTOR_NUMBER" name="conversionFactor" description="conversionFactor" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOMCONVERSION_CONVERSIONFACTOR_NUMBER" name="conversionFactor" description="conversionFactor" fieldType="NUMBER" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="UOMCONVERSION_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="UOMCONVERSION_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="UOMCONVERSION_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOMCONVERSION_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="UOMCONVERSION_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOMCONVERSION_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="UOMCONVERSION_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOMCONVERSION_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="UOMCONVERSION_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="UOMCONVERSION_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="UOMCONVERSION_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="UOMCONVERSION_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="UOMCONVERSION_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="UOMCONVERSION_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="UOMCONVERSION_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="UOMCONVERSION_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="UOMCONVERSION_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="UOMCONVERSION_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- GeoBoundry -->
-		<entity code="BUSINESSDATA_GEOBOUNDRY" name="GeoBoundry" description="GeoBoundry" displayFg="N" displayNm="GeoBoundry" displayNmPl="GeoBoundry" entityClassNm="com.qurion.businesslogic.businessdata.model.GeoBoundry" dbName="GeoBoundry" hasTable="N">
+		<entity code="BUSINESSDATA_GEOBOUNDRY" name="GeoBoundry" description="GeoBoundry" displayFg="N" displayNm="Geo Boundry" displayNmPl="Geo Boundry" entityClassNm="com.qurion.businesslogic.businessdata.model.GeoBoundry" dbName="GeoBoundry" hasTable="N">
 			<!-- geoBoundry -->
-			<field code="GEOBOUNDRY_GEOBOUNDRY_RELATIONSHIP" name="geoBoundry" description="geoBoundry" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="GEOBOUNDRY_GEOBOUNDRY_RELATIONSHIP" name="geoBoundry" description="geoBoundry" fieldType="RELATIONSHIP" relatedEntityNm="GeoBoundry" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- geoBoundryType -->
-			<field code="GEOBOUNDRY_GEOBOUNDRYTYPE_RELATIONSHIP" name="geoBoundryType" description="geoBoundryType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="GEOBOUNDRY_GEOBOUNDRYTYPE_RELATIONSHIP" name="geoBoundryType" description="geoBoundryType" fieldType="RELATIONSHIP" relatedEntityNm="GeoBoundryType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- geoCode -->
-			<field code="GEOBOUNDRY_GEOCODE_TEXT" name="geoCode" description="geoCode" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_GEOCODE_TEXT" name="geoCode" description="geoCode" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- name -->
-			<field code="GEOBOUNDRY_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- abbr -->
-			<field code="GEOBOUNDRY_ABBR_TEXT" name="abbr" description="abbr" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_ABBR_TEXT" name="abbr" description="abbr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="GEOBOUNDRY_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="GEOBOUNDRY_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="GEOBOUNDRY_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="GEOBOUNDRY_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="GEOBOUNDRY_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="GEOBOUNDRY_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="GEOBOUNDRY_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="GEOBOUNDRY_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="GEOBOUNDRY_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="GEOBOUNDRY_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="GEOBOUNDRY_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRY_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- GeoBoundryType -->
-		<entity code="BUSINESSDATA_GEOBOUNDRYTYPE" name="GeoBoundryType" description="GeoBoundryType" displayFg="N" displayNm="GeoBoundryType" displayNmPl="GeoBoundryType" entityClassNm="com.qurion.businesslogic.businessdata.model.GeoBoundryType" dbName="GeoBoundryType" hasTable="N">
+		<entity code="BUSINESSDATA_GEOBOUNDRYTYPE" name="GeoBoundryType" description="GeoBoundryType" displayFg="N" displayNm="Geo Boundry Type" displayNmPl="Geo Boundry Type" entityClassNm="com.qurion.businesslogic.businessdata.model.GeoBoundryType" dbName="GeoBoundryType" hasTable="N">
 			<!-- name -->
-			<field code="GEOBOUNDRYTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="GEOBOUNDRYTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="GEOBOUNDRYTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="GEOBOUNDRYTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="GEOBOUNDRYTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="GEOBOUNDRYTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="GEOBOUNDRYTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="GEOBOUNDRYTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="GEOBOUNDRYTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="GEOBOUNDRYTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="GEOBOUNDRYTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="GEOBOUNDRYTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="GEOBOUNDRYTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- StandardTimePeriod -->
-		<entity code="BUSINESSDATA_STANDARDTIMEPERIOD" name="StandardTimePeriod" description="StandardTimePeriod" displayFg="N" displayNm="StandardTimePeriod" displayNmPl="StandardTimePeriod" entityClassNm="com.qurion.businesslogic.businessdata.model.StandardTimePeriod" dbName="StandardTimePeriod" hasTable="N">
+		<entity code="BUSINESSDATA_STANDARDTIMEPERIOD" name="StandardTimePeriod" description="StandardTimePeriod" displayFg="N" displayNm="Standard Time Period" displayNmPl="Standard Time Period" entityClassNm="com.qurion.businesslogic.businessdata.model.StandardTimePeriod" dbName="StandardTimePeriod" hasTable="N">
 			<!-- periodType -->
-			<field code="STANDARDTIMEPERIOD_PERIODTYPE_RELATIONSHIP" name="periodType" description="periodType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="STANDARDTIMEPERIOD_PERIODTYPE_RELATIONSHIP" name="periodType" description="periodType" fieldType="RELATIONSHIP" relatedEntityNm="PeriodType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="STANDARDTIMEPERIOD_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="STANDARDTIMEPERIOD_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- fromDt -->
-			<field code="STANDARDTIMEPERIOD_FROMDT_DATE" name="fromDt" description="fromDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_FROMDT_DATE" name="fromDt" description="fromDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- toDt -->
-			<field code="STANDARDTIMEPERIOD_TODT_DATE" name="toDt" description="toDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_TODT_DATE" name="toDt" description="toDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="STANDARDTIMEPERIOD_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="STANDARDTIMEPERIOD_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="STANDARDTIMEPERIOD_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="STANDARDTIMEPERIOD_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="STANDARDTIMEPERIOD_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="STANDARDTIMEPERIOD_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="STANDARDTIMEPERIOD_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="STANDARDTIMEPERIOD_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="STANDARDTIMEPERIOD_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="STANDARDTIMEPERIOD_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="STANDARDTIMEPERIOD_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 	</module>
 

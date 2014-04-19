@@ -56,6 +56,7 @@ public class BusinessObjectFormDataProcessorServiceImpl implements
 			BusinessObjectData businessObjectData, Map<String, Object> context)
 			throws ApplicationException 
 	{
+		logger.debug("Processing form data {}", businessObjectData);
 		if(StringUtil.isValidString(businessObjectData.getBusinessObjectName())) 
 		{
 			BusinessObjectData clone = this.cloneBusinessObject(businessObjectData);

@@ -1,613 +1,613 @@
 <?xml version="1.0"?>
-	<module code="INVOICE" name="Invoice" displayNm="Invoice" displayFg="N" seqNo="0">
+	<module code="INVOICE" name="Invoice" description="Invoice" displayNm="Invoice" displayFg="Y" seqNo="0">
 		<!-- InvoiceStatus -->
-		<entity code="INVOICE_INVOICESTATUS" name="InvoiceStatus" description="InvoiceStatus" displayFg="N" displayNm="InvoiceStatus" displayNmPl="InvoiceStatus" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceStatus" dbName="InvoiceStatus" hasTable="N">
+		<entity code="INVOICE_INVOICESTATUS" name="InvoiceStatus" description="InvoiceStatus" displayFg="N" displayNm="Invoice Status" displayNmPl="Invoice Status" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceStatus" dbName="InvoiceStatus" hasTable="N">
 			<!-- invoiceStatusType -->
-			<field code="INVOICESTATUS_INVOICESTATUSTYPE_RELATIONSHIP" name="invoiceStatusType" description="invoiceStatusType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICESTATUS_INVOICESTATUSTYPE_RELATIONSHIP" name="invoiceStatusType" description="invoiceStatusType" fieldType="RELATIONSHIP" relatedEntityNm="InvoiceStatusType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- invoice -->
-			<field code="INVOICESTATUS_INVOICE_RELATIONSHIP" name="invoice" description="invoice" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICESTATUS_INVOICE_RELATIONSHIP" name="invoice" description="invoice" fieldType="RELATIONSHIP" relatedEntityNm="Invoice" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- universe -->
-			<field code="INVOICESTATUS_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICESTATUS_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="INVOICESTATUS_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUS_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="INVOICESTATUS_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUS_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="INVOICESTATUS_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUS_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="INVOICESTATUS_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUS_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="INVOICESTATUS_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUS_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="INVOICESTATUS_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUS_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="INVOICESTATUS_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUS_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="INVOICESTATUS_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUS_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- FinancialAccountTransactionType -->
-		<entity code="INVOICE_FINANCIALACCOUNTTRANSACTIONTYPE" name="FinancialAccountTransactionType" description="FinancialAccountTransactionType" displayFg="N" displayNm="FinancialAccountTransactionType" displayNmPl="FinancialAccountTransactionType" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountTransactionType" dbName="FinancialAccountTransactionType" hasTable="N">
+		<entity code="INVOICE_FINANCIALACCOUNTTRANSACTIONTYPE" name="FinancialAccountTransactionType" description="FinancialAccountTransactionType" displayFg="N" displayNm="Financial Account Transaction Type" displayNmPl="Financial Account Transaction Type" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountTransactionType" dbName="FinancialAccountTransactionType" hasTable="N">
 			<!-- name -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTIONTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- BillingAccountRoleType -->
-		<entity code="INVOICE_BILLINGACCOUNTROLETYPE" name="BillingAccountRoleType" description="BillingAccountRoleType" displayFg="N" displayNm="BillingAccountRoleType" displayNmPl="BillingAccountRoleType" entityClassNm="com.qurion.businesslogic.invoice.model.BillingAccountRoleType" dbName="BillingAccountRoleType" hasTable="N">
+		<entity code="INVOICE_BILLINGACCOUNTROLETYPE" name="BillingAccountRoleType" description="BillingAccountRoleType" displayFg="N" displayNm="Billing Account Role Type" displayNmPl="Billing Account Role Type" entityClassNm="com.qurion.businesslogic.invoice.model.BillingAccountRoleType" dbName="BillingAccountRoleType" hasTable="N">
 			<!-- name -->
-			<field code="BILLINGACCOUNTROLETYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="BILLINGACCOUNTROLETYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="BILLINGACCOUNTROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="BILLINGACCOUNTROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="BILLINGACCOUNTROLETYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="BILLINGACCOUNTROLETYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="BILLINGACCOUNTROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="BILLINGACCOUNTROLETYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="BILLINGACCOUNTROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="BILLINGACCOUNTROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="BILLINGACCOUNTROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="BILLINGACCOUNTROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- Payment -->
 		<entity code="INVOICE_PAYMENT" name="Payment" description="Payment" displayFg="N" displayNm="Payment" displayNmPl="Payment" entityClassNm="com.qurion.businesslogic.invoice.model.Payment" dbName="Payment" hasTable="N">
 			<!-- financialAccount -->
-			<field code="PAYMENT_FINANCIALACCOUNT_RELATIONSHIP" name="financialAccount" description="financialAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENT_FINANCIALACCOUNT_RELATIONSHIP" name="financialAccount" description="financialAccount" fieldType="RELATIONSHIP" relatedEntityNm="FinancialAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- paymentType -->
-			<field code="PAYMENT_PAYMENTTYPE_RELATIONSHIP" name="paymentType" description="paymentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENT_PAYMENTTYPE_RELATIONSHIP" name="paymentType" description="paymentType" fieldType="RELATIONSHIP" relatedEntityNm="PaymentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- paymentMethodType -->
-			<field code="PAYMENT_PAYMENTMETHODTYPE_RELATIONSHIP" name="paymentMethodType" description="paymentMethodType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENT_PAYMENTMETHODTYPE_RELATIONSHIP" name="paymentMethodType" description="paymentMethodType" fieldType="RELATIONSHIP" relatedEntityNm="PaymentMethodType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- description -->
-			<field code="PAYMENT_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- amount -->
-			<field code="PAYMENT_AMOUNT_DECIMAL" name="amount" description="amount" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_AMOUNT_DECIMAL" name="amount" description="amount" fieldType="DECIMAL" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="PAYMENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="PAYMENT_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="PAYMENT_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="PAYMENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="PAYMENT_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="PAYMENT_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="PAYMENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="PAYMENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="PAYMENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- Invoice -->
 		<entity code="INVOICE_INVOICE" name="Invoice" description="Invoice" displayFg="N" displayNm="Invoice" displayNmPl="Invoice" entityClassNm="com.qurion.businesslogic.invoice.model.Invoice" dbName="Invoice" hasTable="N">
 			<!-- contactMechanismByToContMechId -->
-			<field code="INVOICE_CONTACTMECHANISMBYTOCONTMECHID_RELATIONSHIP" name="contactMechanismByToContMechId" description="contactMechanismByToContMechId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICE_CONTACTMECHANISMBYTOCONTMECHID_RELATIONSHIP" name="contactMechanismByToContMechId" description="contactMechanismByToContMechId" fieldType="RELATIONSHIP" relatedEntityNm="ContactMechanism" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- contactMechanismByFromContMechId -->
-			<field code="INVOICE_CONTACTMECHANISMBYFROMCONTMECHID_RELATIONSHIP" name="contactMechanismByFromContMechId" description="contactMechanismByFromContMechId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICE_CONTACTMECHANISMBYFROMCONTMECHID_RELATIONSHIP" name="contactMechanismByFromContMechId" description="contactMechanismByFromContMechId" fieldType="RELATIONSHIP" relatedEntityNm="ContactMechanism" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- partyByToPartyId -->
-			<field code="INVOICE_PARTYBYTOPARTYID_RELATIONSHIP" name="partyByToPartyId" description="partyByToPartyId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICE_PARTYBYTOPARTYID_RELATIONSHIP" name="partyByToPartyId" description="partyByToPartyId" fieldType="RELATIONSHIP" relatedEntityNm="Party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- partyByFromPartyId -->
-			<field code="INVOICE_PARTYBYFROMPARTYID_RELATIONSHIP" name="partyByFromPartyId" description="partyByFromPartyId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICE_PARTYBYFROMPARTYID_RELATIONSHIP" name="partyByFromPartyId" description="partyByFromPartyId" fieldType="RELATIONSHIP" relatedEntityNm="Party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- billingAccount -->
-			<field code="INVOICE_BILLINGACCOUNT_RELATIONSHIP" name="billingAccount" description="billingAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICE_BILLINGACCOUNT_RELATIONSHIP" name="billingAccount" description="billingAccount" fieldType="RELATIONSHIP" relatedEntityNm="BillingAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- description -->
-			<field code="INVOICE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- message -->
-			<field code="INVOICE_MESSAGE_TEXT" name="message" description="message" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_MESSAGE_TEXT" name="message" description="message" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="INVOICE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="INVOICE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="INVOICE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="INVOICE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="INVOICE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="INVOICE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="INVOICE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="INVOICE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="INVOICE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- InvoiceStatusType -->
-		<entity code="INVOICE_INVOICESTATUSTYPE" name="InvoiceStatusType" description="InvoiceStatusType" displayFg="N" displayNm="InvoiceStatusType" displayNmPl="InvoiceStatusType" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceStatusType" dbName="InvoiceStatusType" hasTable="N">
+		<entity code="INVOICE_INVOICESTATUSTYPE" name="InvoiceStatusType" description="InvoiceStatusType" displayFg="N" displayNm="Invoice Status Type" displayNmPl="Invoice Status Type" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceStatusType" dbName="InvoiceStatusType" hasTable="N">
 			<!-- name -->
-			<field code="INVOICESTATUSTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="INVOICESTATUSTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="INVOICESTATUSTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICESTATUSTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="INVOICESTATUSTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="INVOICESTATUSTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="INVOICESTATUSTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="INVOICESTATUSTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="INVOICESTATUSTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="INVOICESTATUSTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="INVOICESTATUSTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="INVOICESTATUSTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICESTATUSTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- InvoiceRoleType -->
-		<entity code="INVOICE_INVOICEROLETYPE" name="InvoiceRoleType" description="InvoiceRoleType" displayFg="N" displayNm="InvoiceRoleType" displayNmPl="InvoiceRoleType" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceRoleType" dbName="InvoiceRoleType" hasTable="N">
+		<entity code="INVOICE_INVOICEROLETYPE" name="InvoiceRoleType" description="InvoiceRoleType" displayFg="N" displayNm="Invoice Role Type" displayNmPl="Invoice Role Type" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceRoleType" dbName="InvoiceRoleType" hasTable="N">
 			<!-- name -->
-			<field code="INVOICEROLETYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="INVOICEROLETYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="INVOICEROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="INVOICEROLETYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="INVOICEROLETYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="INVOICEROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="INVOICEROLETYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="INVOICEROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="INVOICEROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="INVOICEROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="INVOICEROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- PaymentBudgetApplication -->
-		<entity code="INVOICE_PAYMENTBUDGETAPPLICATION" name="PaymentBudgetApplication" description="PaymentBudgetApplication" displayFg="N" displayNm="PaymentBudgetApplication" displayNmPl="PaymentBudgetApplication" entityClassNm="com.qurion.businesslogic.invoice.model.PaymentBudgetApplication" dbName="PaymentBudgetApplication" hasTable="N">
+		<entity code="INVOICE_PAYMENTBUDGETAPPLICATION" name="PaymentBudgetApplication" description="PaymentBudgetApplication" displayFg="N" displayNm="Payment Budget Application" displayNmPl="Payment Budget Application" entityClassNm="com.qurion.businesslogic.invoice.model.PaymentBudgetApplication" dbName="PaymentBudgetApplication" hasTable="N">
 			<!-- payment -->
-			<field code="PAYMENTBUDGETAPPLICATION_PAYMENT_RELATIONSHIP" name="payment" description="payment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTBUDGETAPPLICATION_PAYMENT_RELATIONSHIP" name="payment" description="payment" fieldType="RELATIONSHIP" relatedEntityNm="Payment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- budget -->
-			<field code="PAYMENTBUDGETAPPLICATION_BUDGET_RELATIONSHIP" name="budget" description="budget" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTBUDGETAPPLICATION_BUDGET_RELATIONSHIP" name="budget" description="budget" fieldType="RELATIONSHIP" relatedEntityNm="Budget" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- amount -->
-			<field code="PAYMENTBUDGETAPPLICATION_AMOUNT_NUMBER" name="amount" description="amount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTBUDGETAPPLICATION_AMOUNT_NUMBER" name="amount" description="amount" fieldType="NUMBER" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="PAYMENTBUDGETAPPLICATION_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTBUDGETAPPLICATION_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="PAYMENTBUDGETAPPLICATION_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTBUDGETAPPLICATION_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="PAYMENTBUDGETAPPLICATION_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTBUDGETAPPLICATION_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="PAYMENTBUDGETAPPLICATION_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTBUDGETAPPLICATION_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="PAYMENTBUDGETAPPLICATION_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTBUDGETAPPLICATION_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="PAYMENTBUDGETAPPLICATION_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTBUDGETAPPLICATION_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="PAYMENTBUDGETAPPLICATION_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTBUDGETAPPLICATION_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="PAYMENTBUDGETAPPLICATION_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTBUDGETAPPLICATION_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="PAYMENTBUDGETAPPLICATION_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTBUDGETAPPLICATION_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- FinancialAccountRole -->
-		<entity code="INVOICE_FINANCIALACCOUNTROLE" name="FinancialAccountRole" description="FinancialAccountRole" displayFg="N" displayNm="FinancialAccountRole" displayNmPl="FinancialAccountRole" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountRole" dbName="FinancialAccountRole" hasTable="N">
+		<entity code="INVOICE_FINANCIALACCOUNTROLE" name="FinancialAccountRole" description="FinancialAccountRole" displayFg="N" displayNm="Financial Account Role" displayNmPl="Financial Account Role" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountRole" dbName="FinancialAccountRole" hasTable="N">
 			<!-- financialAccount -->
-			<field code="FINANCIALACCOUNTROLE_FINANCIALACCOUNT_RELATIONSHIP" name="financialAccount" description="financialAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTROLE_FINANCIALACCOUNT_RELATIONSHIP" name="financialAccount" description="financialAccount" fieldType="RELATIONSHIP" relatedEntityNm="FinancialAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- financialAccountRoleType -->
-			<field code="FINANCIALACCOUNTROLE_FINANCIALACCOUNTROLETYPE_RELATIONSHIP" name="financialAccountRoleType" description="financialAccountRoleType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTROLE_FINANCIALACCOUNTROLETYPE_RELATIONSHIP" name="financialAccountRoleType" description="financialAccountRoleType" fieldType="RELATIONSHIP" relatedEntityNm="FinancialAccountRoleType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- party -->
-			<field code="FINANCIALACCOUNTROLE_PARTY_RELATIONSHIP" name="party" description="party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTROLE_PARTY_RELATIONSHIP" name="party" description="party" fieldType="RELATIONSHIP" relatedEntityNm="Party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- fromDt -->
-			<field code="FINANCIALACCOUNTROLE_FROMDT_DATE" name="fromDt" description="fromDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_FROMDT_DATE" name="fromDt" description="fromDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- toDt -->
-			<field code="FINANCIALACCOUNTROLE_TODT_DATE" name="toDt" description="toDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_TODT_DATE" name="toDt" description="toDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="FINANCIALACCOUNTROLE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTROLE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="FINANCIALACCOUNTROLE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="FINANCIALACCOUNTROLE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="FINANCIALACCOUNTROLE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="FINANCIALACCOUNTROLE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="FINANCIALACCOUNTROLE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="FINANCIALACCOUNTROLE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="FINANCIALACCOUNTROLE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="FINANCIALACCOUNTROLE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- PaymentMethodType -->
-		<entity code="INVOICE_PAYMENTMETHODTYPE" name="PaymentMethodType" description="PaymentMethodType" displayFg="N" displayNm="PaymentMethodType" displayNmPl="PaymentMethodType" entityClassNm="com.qurion.businesslogic.invoice.model.PaymentMethodType" dbName="PaymentMethodType" hasTable="N">
+		<entity code="INVOICE_PAYMENTMETHODTYPE" name="PaymentMethodType" description="PaymentMethodType" displayFg="N" displayNm="Payment Method Type" displayNmPl="Payment Method Type" entityClassNm="com.qurion.businesslogic.invoice.model.PaymentMethodType" dbName="PaymentMethodType" hasTable="N">
 			<!-- name -->
-			<field code="PAYMENTMETHODTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="PAYMENTMETHODTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="PAYMENTMETHODTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTMETHODTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="PAYMENTMETHODTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="PAYMENTMETHODTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="PAYMENTMETHODTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="PAYMENTMETHODTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="PAYMENTMETHODTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="PAYMENTMETHODTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="PAYMENTMETHODTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="PAYMENTMETHODTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTMETHODTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- FinancialAccount -->
-		<entity code="INVOICE_FINANCIALACCOUNT" name="FinancialAccount" description="FinancialAccount" displayFg="N" displayNm="FinancialAccount" displayNmPl="FinancialAccount" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccount" dbName="FinancialAccount" hasTable="N">
+		<entity code="INVOICE_FINANCIALACCOUNT" name="FinancialAccount" description="FinancialAccount" displayFg="N" displayNm="Financial Account" displayNmPl="Financial Account" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccount" dbName="FinancialAccount" hasTable="N">
 			<!-- financialAccountType -->
-			<field code="FINANCIALACCOUNT_FINANCIALACCOUNTTYPE_RELATIONSHIP" name="financialAccountType" description="financialAccountType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNT_FINANCIALACCOUNTTYPE_RELATIONSHIP" name="financialAccountType" description="financialAccountType" fieldType="RELATIONSHIP" relatedEntityNm="FinancialAccountType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="FINANCIALACCOUNT_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="FINANCIALACCOUNT_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="FINANCIALACCOUNT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="FINANCIALACCOUNT_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="FINANCIALACCOUNT_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="FINANCIALACCOUNT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="FINANCIALACCOUNT_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="FINANCIALACCOUNT_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="FINANCIALACCOUNT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="FINANCIALACCOUNT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="FINANCIALACCOUNT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- BillingAccountRole -->
-		<entity code="INVOICE_BILLINGACCOUNTROLE" name="BillingAccountRole" description="BillingAccountRole" displayFg="N" displayNm="BillingAccountRole" displayNmPl="BillingAccountRole" entityClassNm="com.qurion.businesslogic.invoice.model.BillingAccountRole" dbName="BillingAccountRole" hasTable="N">
+		<entity code="INVOICE_BILLINGACCOUNTROLE" name="BillingAccountRole" description="BillingAccountRole" displayFg="N" displayNm="Billing Account Role" displayNmPl="Billing Account Role" entityClassNm="com.qurion.businesslogic.invoice.model.BillingAccountRole" dbName="BillingAccountRole" hasTable="N">
 			<!-- billingAccount -->
-			<field code="BILLINGACCOUNTROLE_BILLINGACCOUNT_RELATIONSHIP" name="billingAccount" description="billingAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="BILLINGACCOUNTROLE_BILLINGACCOUNT_RELATIONSHIP" name="billingAccount" description="billingAccount" fieldType="RELATIONSHIP" relatedEntityNm="BillingAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- billingAccountRoleType -->
-			<field code="BILLINGACCOUNTROLE_BILLINGACCOUNTROLETYPE_RELATIONSHIP" name="billingAccountRoleType" description="billingAccountRoleType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="BILLINGACCOUNTROLE_BILLINGACCOUNTROLETYPE_RELATIONSHIP" name="billingAccountRoleType" description="billingAccountRoleType" fieldType="RELATIONSHIP" relatedEntityNm="BillingAccountRoleType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- party -->
-			<field code="BILLINGACCOUNTROLE_PARTY_RELATIONSHIP" name="party" description="party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="BILLINGACCOUNTROLE_PARTY_RELATIONSHIP" name="party" description="party" fieldType="RELATIONSHIP" relatedEntityNm="Party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- fromDt -->
-			<field code="BILLINGACCOUNTROLE_FROMDT_DATE" name="fromDt" description="fromDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_FROMDT_DATE" name="fromDt" description="fromDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- toDt -->
-			<field code="BILLINGACCOUNTROLE_TODT_DATE" name="toDt" description="toDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_TODT_DATE" name="toDt" description="toDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="BILLINGACCOUNTROLE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="BILLINGACCOUNTROLE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="BILLINGACCOUNTROLE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="BILLINGACCOUNTROLE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="BILLINGACCOUNTROLE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="BILLINGACCOUNTROLE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="BILLINGACCOUNTROLE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="BILLINGACCOUNTROLE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="BILLINGACCOUNTROLE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="BILLINGACCOUNTROLE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNTROLE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- InvoiceItem -->
-		<entity code="INVOICE_INVOICEITEM" name="InvoiceItem" description="InvoiceItem" displayFg="N" displayNm="InvoiceItem" displayNmPl="InvoiceItem" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceItem" dbName="InvoiceItem" hasTable="N">
+		<entity code="INVOICE_INVOICEITEM" name="InvoiceItem" description="InvoiceItem" displayFg="N" displayNm="Invoice Item" displayNmPl="Invoice Item" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceItem" dbName="InvoiceItem" hasTable="N">
 			<!-- invoiceItemType -->
-			<field code="INVOICEITEM_INVOICEITEMTYPE_RELATIONSHIP" name="invoiceItemType" description="invoiceItemType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEM_INVOICEITEMTYPE_RELATIONSHIP" name="invoiceItemType" description="invoiceItemType" fieldType="RELATIONSHIP" relatedEntityNm="InvoiceItemType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- invoiceItemByAdjByItemId -->
-			<field code="INVOICEITEM_INVOICEITEMBYADJBYITEMID_RELATIONSHIP" name="invoiceItemByAdjByItemId" description="invoiceItemByAdjByItemId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEM_INVOICEITEMBYADJBYITEMID_RELATIONSHIP" name="invoiceItemByAdjByItemId" description="invoiceItemByAdjByItemId" fieldType="RELATIONSHIP" relatedEntityNm="InvoiceItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- inventoryItem -->
-			<field code="INVOICEITEM_INVENTORYITEM_RELATIONSHIP" name="inventoryItem" description="inventoryItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEM_INVENTORYITEM_RELATIONSHIP" name="inventoryItem" description="inventoryItem" fieldType="RELATIONSHIP" relatedEntityNm="InventoryItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- product -->
-			<field code="INVOICEITEM_PRODUCT_RELATIONSHIP" name="product" description="product" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEM_PRODUCT_RELATIONSHIP" name="product" description="product" fieldType="RELATIONSHIP" relatedEntityNm="Product" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- invoiceItemBySoldWithItemId -->
-			<field code="INVOICEITEM_INVOICEITEMBYSOLDWITHITEMID_RELATIONSHIP" name="invoiceItemBySoldWithItemId" description="invoiceItemBySoldWithItemId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEM_INVOICEITEMBYSOLDWITHITEMID_RELATIONSHIP" name="invoiceItemBySoldWithItemId" description="invoiceItemBySoldWithItemId" fieldType="RELATIONSHIP" relatedEntityNm="InvoiceItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- productFeature -->
-			<field code="INVOICEITEM_PRODUCTFEATURE_RELATIONSHIP" name="productFeature" description="productFeature" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEM_PRODUCTFEATURE_RELATIONSHIP" name="productFeature" description="productFeature" fieldType="RELATIONSHIP" relatedEntityNm="ProductFeature" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- invoice -->
-			<field code="INVOICEITEM_INVOICE_RELATIONSHIP" name="invoice" description="invoice" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEM_INVOICE_RELATIONSHIP" name="invoice" description="invoice" fieldType="RELATIONSHIP" relatedEntityNm="Invoice" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="INVOICEITEM_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- itemDescription -->
-			<field code="INVOICEITEM_ITEMDESCRIPTION_TEXT" name="itemDescription" description="itemDescription" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_ITEMDESCRIPTION_TEXT" name="itemDescription" description="itemDescription" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- taxableFg -->
-			<field code="INVOICEITEM_TAXABLEFG_BOOLEAN" name="taxableFg" description="taxableFg" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_TAXABLEFG_BOOLEAN" name="taxableFg" description="taxableFg" fieldType="BOOLEAN" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- quantity -->
-			<field code="INVOICEITEM_QUANTITY_NUMBER" name="quantity" description="quantity" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_QUANTITY_NUMBER" name="quantity" description="quantity" fieldType="NUMBER" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- amount -->
-			<field code="INVOICEITEM_AMOUNT_DECIMAL" name="amount" description="amount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_AMOUNT_DECIMAL" name="amount" description="amount" fieldType="DECIMAL" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- unitPrice -->
-			<field code="INVOICEITEM_UNITPRICE_DECIMAL" name="unitPrice" description="unitPrice" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_UNITPRICE_DECIMAL" name="unitPrice" description="unitPrice" fieldType="DECIMAL" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="INVOICEITEM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="INVOICEITEM_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="INVOICEITEM_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="INVOICEITEM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="INVOICEITEM_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="INVOICEITEM_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="INVOICEITEM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="INVOICEITEM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="INVOICEITEM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- InvoiceItemType -->
-		<entity code="INVOICE_INVOICEITEMTYPE" name="InvoiceItemType" description="InvoiceItemType" displayFg="N" displayNm="InvoiceItemType" displayNmPl="InvoiceItemType" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceItemType" dbName="InvoiceItemType" hasTable="N">
+		<entity code="INVOICE_INVOICEITEMTYPE" name="InvoiceItemType" description="InvoiceItemType" displayFg="N" displayNm="Invoice Item Type" displayNmPl="Invoice Item Type" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceItemType" dbName="InvoiceItemType" hasTable="N">
 			<!-- invoiceItemType -->
-			<field code="INVOICEITEMTYPE_INVOICEITEMTYPE_RELATIONSHIP" name="invoiceItemType" description="invoiceItemType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEMTYPE_INVOICEITEMTYPE_RELATIONSHIP" name="invoiceItemType" description="invoiceItemType" fieldType="RELATIONSHIP" relatedEntityNm="InvoiceItemType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="INVOICEITEMTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="INVOICEITEMTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="INVOICEITEMTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICEITEMTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="INVOICEITEMTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="INVOICEITEMTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="INVOICEITEMTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="INVOICEITEMTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="INVOICEITEMTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="INVOICEITEMTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="INVOICEITEMTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="INVOICEITEMTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICEITEMTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- BillingAccount -->
-		<entity code="INVOICE_BILLINGACCOUNT" name="BillingAccount" description="BillingAccount" displayFg="N" displayNm="BillingAccount" displayNmPl="BillingAccount" entityClassNm="com.qurion.businesslogic.invoice.model.BillingAccount" dbName="BillingAccount" hasTable="N">
+		<entity code="INVOICE_BILLINGACCOUNT" name="BillingAccount" description="BillingAccount" displayFg="N" displayNm="Billing Account" displayNmPl="Billing Account" entityClassNm="com.qurion.businesslogic.invoice.model.BillingAccount" dbName="BillingAccount" hasTable="N">
 			<!-- contactMechanism -->
-			<field code="BILLINGACCOUNT_CONTACTMECHANISM_RELATIONSHIP" name="contactMechanism" description="contactMechanism" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="BILLINGACCOUNT_CONTACTMECHANISM_RELATIONSHIP" name="contactMechanism" description="contactMechanism" fieldType="RELATIONSHIP" relatedEntityNm="ContactMechanism" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="BILLINGACCOUNT_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="BILLINGACCOUNT_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- fromDt -->
-			<field code="BILLINGACCOUNT_FROMDT_DATE" name="fromDt" description="fromDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_FROMDT_DATE" name="fromDt" description="fromDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- toDt -->
-			<field code="BILLINGACCOUNT_TODT_DATE" name="toDt" description="toDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_TODT_DATE" name="toDt" description="toDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="BILLINGACCOUNT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="BILLINGACCOUNT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="BILLINGACCOUNT_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="BILLINGACCOUNT_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="BILLINGACCOUNT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="BILLINGACCOUNT_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="BILLINGACCOUNT_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="BILLINGACCOUNT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="BILLINGACCOUNT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="BILLINGACCOUNT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="BILLINGACCOUNT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- FinancialAccountType -->
-		<entity code="INVOICE_FINANCIALACCOUNTTYPE" name="FinancialAccountType" description="FinancialAccountType" displayFg="N" displayNm="FinancialAccountType" displayNmPl="FinancialAccountType" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountType" dbName="FinancialAccountType" hasTable="N">
+		<entity code="INVOICE_FINANCIALACCOUNTTYPE" name="FinancialAccountType" description="FinancialAccountType" displayFg="N" displayNm="Financial Account Type" displayNmPl="Financial Account Type" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountType" dbName="FinancialAccountType" hasTable="N">
 			<!-- name -->
-			<field code="FINANCIALACCOUNTTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="FINANCIALACCOUNTTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="FINANCIALACCOUNTTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="FINANCIALACCOUNTTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="FINANCIALACCOUNTTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="FINANCIALACCOUNTTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="FINANCIALACCOUNTTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="FINANCIALACCOUNTTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="FINANCIALACCOUNTTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="FINANCIALACCOUNTTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="FINANCIALACCOUNTTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- FinancialAccountTransaction -->
-		<entity code="INVOICE_FINANCIALACCOUNTTRANSACTION" name="FinancialAccountTransaction" description="FinancialAccountTransaction" displayFg="N" displayNm="FinancialAccountTransaction" displayNmPl="FinancialAccountTransaction" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountTransaction" dbName="FinancialAccountTransaction" hasTable="N">
+		<entity code="INVOICE_FINANCIALACCOUNTTRANSACTION" name="FinancialAccountTransaction" description="FinancialAccountTransaction" displayFg="N" displayNm="Financial Account Transaction" displayNmPl="Financial Account Transaction" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountTransaction" dbName="FinancialAccountTransaction" hasTable="N">
 			<!-- financialAccount -->
-			<field code="FINANCIALACCOUNTTRANSACTION_FINANCIALACCOUNT_RELATIONSHIP" name="financialAccount" description="financialAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTTRANSACTION_FINANCIALACCOUNT_RELATIONSHIP" name="financialAccount" description="financialAccount" fieldType="RELATIONSHIP" relatedEntityNm="FinancialAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- financialAccountTransactionType -->
-			<field code="FINANCIALACCOUNTTRANSACTION_FINANCIALACCOUNTTRANSACTIONTYPE_RELATIONSHIP" name="financialAccountTransactionType" description="financialAccountTransactionType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTTRANSACTION_FINANCIALACCOUNTTRANSACTIONTYPE_RELATIONSHIP" name="financialAccountTransactionType" description="financialAccountTransactionType" fieldType="RELATIONSHIP" relatedEntityNm="FinancialAccountTransactionType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- party -->
-			<field code="FINANCIALACCOUNTTRANSACTION_PARTY_RELATIONSHIP" name="party" description="party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTTRANSACTION_PARTY_RELATIONSHIP" name="party" description="party" fieldType="RELATIONSHIP" relatedEntityNm="Party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="FINANCIALACCOUNTTRANSACTION_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="FINANCIALACCOUNTTRANSACTION_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- transactionDt -->
-			<field code="FINANCIALACCOUNTTRANSACTION_TRANSACTIONDT_DATE" name="transactionDt" description="transactionDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_TRANSACTIONDT_DATE" name="transactionDt" description="transactionDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- entryDt -->
-			<field code="FINANCIALACCOUNTTRANSACTION_ENTRYDT_DATE" name="entryDt" description="entryDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_ENTRYDT_DATE" name="entryDt" description="entryDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="FINANCIALACCOUNTTRANSACTION_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTTRANSACTION_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="FINANCIALACCOUNTTRANSACTION_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="FINANCIALACCOUNTTRANSACTION_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="FINANCIALACCOUNTTRANSACTION_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="FINANCIALACCOUNTTRANSACTION_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="FINANCIALACCOUNTTRANSACTION_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="FINANCIALACCOUNTTRANSACTION_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="FINANCIALACCOUNTTRANSACTION_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="FINANCIALACCOUNTTRANSACTION_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTTRANSACTION_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- PaymentApplication -->
-		<entity code="INVOICE_PAYMENTAPPLICATION" name="PaymentApplication" description="PaymentApplication" displayFg="N" displayNm="PaymentApplication" displayNmPl="PaymentApplication" entityClassNm="com.qurion.businesslogic.invoice.model.PaymentApplication" dbName="PaymentApplication" hasTable="N">
+		<entity code="INVOICE_PAYMENTAPPLICATION" name="PaymentApplication" description="PaymentApplication" displayFg="N" displayNm="Payment Application" displayNmPl="Payment Application" entityClassNm="com.qurion.businesslogic.invoice.model.PaymentApplication" dbName="PaymentApplication" hasTable="N">
 			<!-- payment -->
-			<field code="PAYMENTAPPLICATION_PAYMENT_RELATIONSHIP" name="payment" description="payment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTAPPLICATION_PAYMENT_RELATIONSHIP" name="payment" description="payment" fieldType="RELATIONSHIP" relatedEntityNm="Payment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- billingAccount -->
-			<field code="PAYMENTAPPLICATION_BILLINGACCOUNT_RELATIONSHIP" name="billingAccount" description="billingAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTAPPLICATION_BILLINGACCOUNT_RELATIONSHIP" name="billingAccount" description="billingAccount" fieldType="RELATIONSHIP" relatedEntityNm="BillingAccount" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- invoiceItem -->
-			<field code="PAYMENTAPPLICATION_INVOICEITEM_RELATIONSHIP" name="invoiceItem" description="invoiceItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTAPPLICATION_INVOICEITEM_RELATIONSHIP" name="invoiceItem" description="invoiceItem" fieldType="RELATIONSHIP" relatedEntityNm="InvoiceItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- invoice -->
-			<field code="PAYMENTAPPLICATION_INVOICE_RELATIONSHIP" name="invoice" description="invoice" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTAPPLICATION_INVOICE_RELATIONSHIP" name="invoice" description="invoice" fieldType="RELATIONSHIP" relatedEntityNm="Invoice" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- description -->
-			<field code="PAYMENTAPPLICATION_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- amountApplied -->
-			<field code="PAYMENTAPPLICATION_AMOUNTAPPLIED_DECIMAL" name="amountApplied" description="amountApplied" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_AMOUNTAPPLIED_DECIMAL" name="amountApplied" description="amountApplied" fieldType="DECIMAL" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="PAYMENTAPPLICATION_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTAPPLICATION_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="PAYMENTAPPLICATION_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="PAYMENTAPPLICATION_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="PAYMENTAPPLICATION_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="PAYMENTAPPLICATION_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="PAYMENTAPPLICATION_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="PAYMENTAPPLICATION_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="PAYMENTAPPLICATION_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="PAYMENTAPPLICATION_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTAPPLICATION_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- PaymentType -->
-		<entity code="INVOICE_PAYMENTTYPE" name="PaymentType" description="PaymentType" displayFg="N" displayNm="PaymentType" displayNmPl="PaymentType" entityClassNm="com.qurion.businesslogic.invoice.model.PaymentType" dbName="PaymentType" hasTable="N">
+		<entity code="INVOICE_PAYMENTTYPE" name="PaymentType" description="PaymentType" displayFg="N" displayNm="Payment Type" displayNmPl="Payment Type" entityClassNm="com.qurion.businesslogic.invoice.model.PaymentType" dbName="PaymentType" hasTable="N">
 			<!-- name -->
-			<field code="PAYMENTTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="PAYMENTTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="PAYMENTTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PAYMENTTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="PAYMENTTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="PAYMENTTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="PAYMENTTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="PAYMENTTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="PAYMENTTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="PAYMENTTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="PAYMENTTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="PAYMENTTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PAYMENTTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- FinancialAccountRoleType -->
-		<entity code="INVOICE_FINANCIALACCOUNTROLETYPE" name="FinancialAccountRoleType" description="FinancialAccountRoleType" displayFg="N" displayNm="FinancialAccountRoleType" displayNmPl="FinancialAccountRoleType" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountRoleType" dbName="FinancialAccountRoleType" hasTable="N">
+		<entity code="INVOICE_FINANCIALACCOUNTROLETYPE" name="FinancialAccountRoleType" description="FinancialAccountRoleType" displayFg="N" displayNm="Financial Account Role Type" displayNmPl="Financial Account Role Type" entityClassNm="com.qurion.businesslogic.invoice.model.FinancialAccountRoleType" dbName="FinancialAccountRoleType" hasTable="N">
 			<!-- name -->
-			<field code="FINANCIALACCOUNTROLETYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="FINANCIALACCOUNTROLETYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="FINANCIALACCOUNTROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="FINANCIALACCOUNTROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="FINANCIALACCOUNTROLETYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="FINANCIALACCOUNTROLETYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="FINANCIALACCOUNTROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="FINANCIALACCOUNTROLETYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="FINANCIALACCOUNTROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="FINANCIALACCOUNTROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="FINANCIALACCOUNTROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="FINANCIALACCOUNTROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="FINANCIALACCOUNTROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- InvoiceTerm -->
-		<entity code="INVOICE_INVOICETERM" name="InvoiceTerm" description="InvoiceTerm" displayFg="N" displayNm="InvoiceTerm" displayNmPl="InvoiceTerm" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceTerm" dbName="InvoiceTerm" hasTable="N">
+		<entity code="INVOICE_INVOICETERM" name="InvoiceTerm" description="InvoiceTerm" displayFg="N" displayNm="Invoice Term" displayNmPl="Invoice Term" entityClassNm="com.qurion.businesslogic.invoice.model.InvoiceTerm" dbName="InvoiceTerm" hasTable="N">
 			<!-- termType -->
-			<field code="INVOICETERM_TERMTYPE_RELATIONSHIP" name="termType" description="termType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICETERM_TERMTYPE_RELATIONSHIP" name="termType" description="termType" fieldType="RELATIONSHIP" relatedEntityNm="TermType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- invoiceItem -->
-			<field code="INVOICETERM_INVOICEITEM_RELATIONSHIP" name="invoiceItem" description="invoiceItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICETERM_INVOICEITEM_RELATIONSHIP" name="invoiceItem" description="invoiceItem" fieldType="RELATIONSHIP" relatedEntityNm="InvoiceItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- invoice -->
-			<field code="INVOICETERM_INVOICE_RELATIONSHIP" name="invoice" description="invoice" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICETERM_INVOICE_RELATIONSHIP" name="invoice" description="invoice" fieldType="RELATIONSHIP" relatedEntityNm="Invoice" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- termValue -->
-			<field code="INVOICETERM_TERMVALUE_NUMBER" name="termValue" description="termValue" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICETERM_TERMVALUE_NUMBER" name="termValue" description="termValue" fieldType="NUMBER" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="INVOICETERM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="INVOICETERM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="INVOICETERM_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICETERM_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="INVOICETERM_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICETERM_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="INVOICETERM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICETERM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="INVOICETERM_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICETERM_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="INVOICETERM_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICETERM_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="INVOICETERM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICETERM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="INVOICETERM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICETERM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="INVOICETERM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="INVOICETERM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 	</module>
 

@@ -74,17 +74,14 @@ public class IDEBuilderServiceImpl implements IDEBuilderService {
 		// Map entities to their parent modules
 		logger.debug("Builder configuration: {}", builderConfiguration);
 		
-		entityBuilderService.processModules(builderConfiguration);
-		/*List<EntityData> entities = 
-				entityDataEntityService.findAll(null);
-		processEntityToModule(configuration, 
-				loadModules(builderConfiguration), entities);
-		// Map fields to entities
-		this.processEntityFieldToEntity(configuration, 
-				entities, entityFieldEntityService.findAll(null));
+		List<Module> modules = entityBuilderService.processModules(builderConfiguration);
 		// Create activities for each entity
-		this.createActvitiesFromEntities(configuration, entities);
-		this.processUIComponents(configuration);*/
+		for(Module module: modules) {
+			List<EntityData> entitiesInModule = new ArrayList<EntityData>();
+			entitiesInModule.addAll(module.getEntityDatas());
+			this.createActvitiesFromEntities(configuration, entitiesInModule);
+		}
+		this.processUIComponents(configuration);
 		//this.processUserActivities(configuration);
 	}
 

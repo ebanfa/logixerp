@@ -18,6 +18,7 @@ public class ModuleConfig {
 
 	private String code;
 	private String name;
+	private String description;
 	private String displayName;
 	private String displayFlag;
 	private Integer sequenceNo;
@@ -134,5 +135,20 @@ public class ModuleConfig {
 	public String toString() {
 		return "ModuleConfig [code=" + code + ", name=" + name
 				+ ", entityConfigs=" + entityConfigs.size() + "]";
+	}
+
+	/**
+	 * @return the description
+	 */
+	@XmlAttribute(name="description")
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

@@ -25,6 +25,8 @@ public class FieldConfig {
 	private String uniqueFlag;
 	private String relatedFlag;
 	private String fieldType;
+	private Integer sequenceNo;
+	private String relatedEntityName;
 	
 	/**
 	 * @return the code
@@ -207,6 +209,32 @@ public class FieldConfig {
 	 */
 	public void setFieldType(String fieldType) {
 		this.fieldType = fieldType;
+	}
+	/**
+	 * @return the sequenceNo
+	 */
+	@XmlAttribute(name="seqNo")
+	public Integer getSequenceNo() {
+		return sequenceNo;
+	}
+	/**
+	 * @param sequenceNo the sequenceNo to set
+	 */
+	public void setSequenceNo(Integer sequenceNo) {
+		this.sequenceNo = sequenceNo;
+	}
+	/**
+	 * @return the relatedEntityName
+	 */
+	@XmlAttribute(name="relatedEntityNm")
+	public String getRelatedEntityName() {
+		return relatedEntityName;
+	}
+	/**
+	 * @param relatedEntityName the relatedEntityName to set
+	 */
+	public void setRelatedEntityName(String relatedEntityName) {
+		this.relatedEntityName = relatedEntityName;
 	}
 
 }

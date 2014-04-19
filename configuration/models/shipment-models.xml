@@ -1,627 +1,627 @@
 <?xml version="1.0"?>
-	<module code="SHIPMENT" name="Shipment" displayNm="Shipment" displayFg="N" seqNo="0">
+	<module code="SHIPMENT" name="Shipment" description="Shipment" displayNm="Shipment" displayFg="Y" seqNo="0">
 		<!-- ShipmentItem -->
-		<entity code="SHIPMENT_SHIPMENTITEM" name="ShipmentItem" description="ShipmentItem" displayFg="N" displayNm="ShipmentItem" displayNmPl="ShipmentItem" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentItem" dbName="ShipmentItem" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTITEM" name="ShipmentItem" description="ShipmentItem" displayFg="N" displayNm="Shipment Item" displayNmPl="Shipment Item" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentItem" dbName="ShipmentItem" hasTable="N">
 			<!-- shipmentItem -->
-			<field code="SHIPMENTITEM_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEM_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- shipment -->
-			<field code="SHIPMENTITEM_SHIPMENT_RELATIONSHIP" name="shipment" description="shipment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEM_SHIPMENT_RELATIONSHIP" name="shipment" description="shipment" fieldType="RELATIONSHIP" relatedEntityNm="Shipment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- product -->
-			<field code="SHIPMENTITEM_PRODUCT_RELATIONSHIP" name="product" description="product" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEM_PRODUCT_RELATIONSHIP" name="product" description="product" fieldType="RELATIONSHIP" relatedEntityNm="Product" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPMENTITEM_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEM_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="SHIPMENTITEM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTITEM_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEM_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTITEM_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEM_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTITEM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTITEM_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEM_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTITEM_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEM_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTITEM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTITEM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTITEM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ItemIssuance -->
-		<entity code="SHIPMENT_ITEMISSUANCE" name="ItemIssuance" description="ItemIssuance" displayFg="N" displayNm="ItemIssuance" displayNmPl="ItemIssuance" entityClassNm="com.qurion.businesslogic.shipment.model.ItemIssuance" dbName="ItemIssuance" hasTable="N">
+		<entity code="SHIPMENT_ITEMISSUANCE" name="ItemIssuance" description="ItemIssuance" displayFg="N" displayNm="Item Issuance" displayNmPl="Item Issuance" entityClassNm="com.qurion.businesslogic.shipment.model.ItemIssuance" dbName="ItemIssuance" hasTable="N">
 			<!-- shipmentItem -->
-			<field code="ITEMISSUANCE_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="ITEMISSUANCE_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- inventoryItem -->
-			<field code="ITEMISSUANCE_INVENTORYITEM_RELATIONSHIP" name="inventoryItem" description="inventoryItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="ITEMISSUANCE_INVENTORYITEM_RELATIONSHIP" name="inventoryItem" description="inventoryItem" fieldType="RELATIONSHIP" relatedEntityNm="InventoryItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- pickListItem -->
-			<field code="ITEMISSUANCE_PICKLISTITEM_RELATIONSHIP" name="pickListItem" description="pickListItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="ITEMISSUANCE_PICKLISTITEM_RELATIONSHIP" name="pickListItem" description="pickListItem" fieldType="RELATIONSHIP" relatedEntityNm="PickListItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- quantity -->
-			<field code="ITEMISSUANCE_QUANTITY_NUMBER" name="quantity" description="quantity" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_QUANTITY_NUMBER" name="quantity" description="quantity" fieldType="NUMBER" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- issusedDt -->
-			<field code="ITEMISSUANCE_ISSUSEDDT_DATE" name="issusedDt" description="issusedDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_ISSUSEDDT_DATE" name="issusedDt" description="issusedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="ITEMISSUANCE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="ITEMISSUANCE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="ITEMISSUANCE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="ITEMISSUANCE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="ITEMISSUANCE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="ITEMISSUANCE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="ITEMISSUANCE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="ITEMISSUANCE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="ITEMISSUANCE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="ITEMISSUANCE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentStatus -->
-		<entity code="SHIPMENT_SHIPMENTSTATUS" name="ShipmentStatus" description="ShipmentStatus" displayFg="N" displayNm="ShipmentStatus" displayNmPl="ShipmentStatus" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentStatus" dbName="ShipmentStatus" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTSTATUS" name="ShipmentStatus" description="ShipmentStatus" displayFg="N" displayNm="Shipment Status" displayNmPl="Shipment Status" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentStatus" dbName="ShipmentStatus" hasTable="N">
 			<!-- shipment -->
-			<field code="SHIPMENTSTATUS_SHIPMENT_RELATIONSHIP" name="shipment" description="shipment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTSTATUS_SHIPMENT_RELATIONSHIP" name="shipment" description="shipment" fieldType="RELATIONSHIP" relatedEntityNm="Shipment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- shipmentStatusType -->
-			<field code="SHIPMENTSTATUS_SHIPMENTSTATUSTYPE_RELATIONSHIP" name="shipmentStatusType" description="shipmentStatusType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTSTATUS_SHIPMENTSTATUSTYPE_RELATIONSHIP" name="shipmentStatusType" description="shipmentStatusType" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentStatusType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- statusDt -->
-			<field code="SHIPMENTSTATUS_STATUSDT_DATE" name="statusDt" description="statusDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUS_STATUSDT_DATE" name="statusDt" description="statusDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="SHIPMENTSTATUS_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTSTATUS_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTSTATUS_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUS_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTSTATUS_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUS_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTSTATUS_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUS_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTSTATUS_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUS_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTSTATUS_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUS_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTSTATUS_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUS_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTSTATUS_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUS_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTSTATUS_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUS_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- PickListItem -->
-		<entity code="SHIPMENT_PICKLISTITEM" name="PickListItem" description="PickListItem" displayFg="N" displayNm="PickListItem" displayNmPl="PickListItem" entityClassNm="com.qurion.businesslogic.shipment.model.PickListItem" dbName="PickListItem" hasTable="N">
+		<entity code="SHIPMENT_PICKLISTITEM" name="PickListItem" description="PickListItem" displayFg="N" displayNm="Pick List Item" displayNmPl="Pick List Item" entityClassNm="com.qurion.businesslogic.shipment.model.PickListItem" dbName="PickListItem" hasTable="N">
 			<!-- inventoryItem -->
-			<field code="PICKLISTITEM_INVENTORYITEM_RELATIONSHIP" name="inventoryItem" description="inventoryItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PICKLISTITEM_INVENTORYITEM_RELATIONSHIP" name="inventoryItem" description="inventoryItem" fieldType="RELATIONSHIP" relatedEntityNm="InventoryItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- pickList -->
-			<field code="PICKLISTITEM_PICKLIST_RELATIONSHIP" name="pickList" description="pickList" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PICKLISTITEM_PICKLIST_RELATIONSHIP" name="pickList" description="pickList" fieldType="RELATIONSHIP" relatedEntityNm="PickList" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- quantity -->
-			<field code="PICKLISTITEM_QUANTITY_NUMBER" name="quantity" description="quantity" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLISTITEM_QUANTITY_NUMBER" name="quantity" description="quantity" fieldType="NUMBER" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="PICKLISTITEM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PICKLISTITEM_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="PICKLISTITEM_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLISTITEM_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="PICKLISTITEM_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLISTITEM_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="PICKLISTITEM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLISTITEM_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="PICKLISTITEM_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLISTITEM_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="PICKLISTITEM_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLISTITEM_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="PICKLISTITEM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLISTITEM_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="PICKLISTITEM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLISTITEM_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="PICKLISTITEM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLISTITEM_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentMethodType -->
-		<entity code="SHIPMENT_SHIPMENTMETHODTYPE" name="ShipmentMethodType" description="ShipmentMethodType" displayFg="N" displayNm="ShipmentMethodType" displayNmPl="ShipmentMethodType" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentMethodType" dbName="ShipmentMethodType" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTMETHODTYPE" name="ShipmentMethodType" description="ShipmentMethodType" displayFg="N" displayNm="Shipment Method Type" displayNmPl="Shipment Method Type" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentMethodType" dbName="ShipmentMethodType" hasTable="N">
 			<!-- name -->
-			<field code="SHIPMENTMETHODTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPMENTMETHODTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="SHIPMENTMETHODTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTMETHODTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTMETHODTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTMETHODTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTMETHODTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTMETHODTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTMETHODTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTMETHODTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTMETHODTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTMETHODTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTMETHODTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentRouteSegment -->
-		<entity code="SHIPMENT_SHIPMENTROUTESEGMENT" name="ShipmentRouteSegment" description="ShipmentRouteSegment" displayFg="N" displayNm="ShipmentRouteSegment" displayNmPl="ShipmentRouteSegment" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentRouteSegment" dbName="ShipmentRouteSegment" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTROUTESEGMENT" name="ShipmentRouteSegment" description="ShipmentRouteSegment" displayFg="N" displayNm="Shipment Route Segment" displayNmPl="Shipment Route Segment" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentRouteSegment" dbName="ShipmentRouteSegment" hasTable="N">
 			<!-- facilityByToFaciltyId -->
-			<field code="SHIPMENTROUTESEGMENT_FACILITYBYTOFACILTYID_RELATIONSHIP" name="facilityByToFaciltyId" description="facilityByToFaciltyId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTROUTESEGMENT_FACILITYBYTOFACILTYID_RELATIONSHIP" name="facilityByToFaciltyId" description="facilityByToFaciltyId" fieldType="RELATIONSHIP" relatedEntityNm="Facility" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- party -->
-			<field code="SHIPMENTROUTESEGMENT_PARTY_RELATIONSHIP" name="party" description="party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTROUTESEGMENT_PARTY_RELATIONSHIP" name="party" description="party" fieldType="RELATIONSHIP" relatedEntityNm="Party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- fixedAsset -->
-			<field code="SHIPMENTROUTESEGMENT_FIXEDASSET_RELATIONSHIP" name="fixedAsset" description="fixedAsset" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTROUTESEGMENT_FIXEDASSET_RELATIONSHIP" name="fixedAsset" description="fixedAsset" fieldType="RELATIONSHIP" relatedEntityNm="FixedAsset" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- shipment -->
-			<field code="SHIPMENTROUTESEGMENT_SHIPMENT_RELATIONSHIP" name="shipment" description="shipment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTROUTESEGMENT_SHIPMENT_RELATIONSHIP" name="shipment" description="shipment" fieldType="RELATIONSHIP" relatedEntityNm="Shipment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- facilityByFromFaciltyId -->
-			<field code="SHIPMENTROUTESEGMENT_FACILITYBYFROMFACILTYID_RELATIONSHIP" name="facilityByFromFaciltyId" description="facilityByFromFaciltyId" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTROUTESEGMENT_FACILITYBYFROMFACILTYID_RELATIONSHIP" name="facilityByFromFaciltyId" description="facilityByFromFaciltyId" fieldType="RELATIONSHIP" relatedEntityNm="Facility" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- shipmentMethodType -->
-			<field code="SHIPMENTROUTESEGMENT_SHIPMENTMETHODTYPE_RELATIONSHIP" name="shipmentMethodType" description="shipmentMethodType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTROUTESEGMENT_SHIPMENTMETHODTYPE_RELATIONSHIP" name="shipmentMethodType" description="shipmentMethodType" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentMethodType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="SHIPMENTROUTESEGMENT_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPMENTROUTESEGMENT_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- actualStartDt -->
-			<field code="SHIPMENTROUTESEGMENT_ACTUALSTARTDT_DATE" name="actualStartDt" description="actualStartDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_ACTUALSTARTDT_DATE" name="actualStartDt" description="actualStartDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- actualArrivalDt -->
-			<field code="SHIPMENTROUTESEGMENT_ACTUALARRIVALDT_DATE" name="actualArrivalDt" description="actualArrivalDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_ACTUALARRIVALDT_DATE" name="actualArrivalDt" description="actualArrivalDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- estimatedStartDt -->
-			<field code="SHIPMENTROUTESEGMENT_ESTIMATEDSTARTDT_DATE" name="estimatedStartDt" description="estimatedStartDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_ESTIMATEDSTARTDT_DATE" name="estimatedStartDt" description="estimatedStartDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- estimatedArrivalDt -->
-			<field code="SHIPMENTROUTESEGMENT_ESTIMATEDARRIVALDT_DATE" name="estimatedArrivalDt" description="estimatedArrivalDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_ESTIMATEDARRIVALDT_DATE" name="estimatedArrivalDt" description="estimatedArrivalDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- startMileage -->
-			<field code="SHIPMENTROUTESEGMENT_STARTMILEAGE_NUMBER" name="startMileage" description="startMileage" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_STARTMILEAGE_NUMBER" name="startMileage" description="startMileage" fieldType="NUMBER" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- endMileage -->
-			<field code="SHIPMENTROUTESEGMENT_ENDMILEAGE_NUMBER" name="endMileage" description="endMileage" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_ENDMILEAGE_NUMBER" name="endMileage" description="endMileage" fieldType="NUMBER" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- fuelUsed -->
-			<field code="SHIPMENTROUTESEGMENT_FUELUSED_NUMBER" name="fuelUsed" description="fuelUsed" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_FUELUSED_NUMBER" name="fuelUsed" description="fuelUsed" fieldType="NUMBER" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="SHIPMENTROUTESEGMENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTROUTESEGMENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTROUTESEGMENT_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTROUTESEGMENT_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTROUTESEGMENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTROUTESEGMENT_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTROUTESEGMENT_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTROUTESEGMENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTROUTESEGMENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTROUTESEGMENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTROUTESEGMENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentItemBilling -->
-		<entity code="SHIPMENT_SHIPMENTITEMBILLING" name="ShipmentItemBilling" description="ShipmentItemBilling" displayFg="N" displayNm="ShipmentItemBilling" displayNmPl="ShipmentItemBilling" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentItemBilling" dbName="ShipmentItemBilling" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTITEMBILLING" name="ShipmentItemBilling" description="ShipmentItemBilling" displayFg="N" displayNm="Shipment Item Billing" displayNmPl="Shipment Item Billing" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentItemBilling" dbName="ShipmentItemBilling" hasTable="N">
 			<!-- shipmentItem -->
-			<field code="SHIPMENTITEMBILLING_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEMBILLING_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- invoiceItem -->
-			<field code="SHIPMENTITEMBILLING_INVOICEITEM_RELATIONSHIP" name="invoiceItem" description="invoiceItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEMBILLING_INVOICEITEM_RELATIONSHIP" name="invoiceItem" description="invoiceItem" fieldType="RELATIONSHIP" relatedEntityNm="InvoiceItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- universe -->
-			<field code="SHIPMENTITEMBILLING_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEMBILLING_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTITEMBILLING_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMBILLING_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTITEMBILLING_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMBILLING_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTITEMBILLING_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMBILLING_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTITEMBILLING_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMBILLING_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTITEMBILLING_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMBILLING_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTITEMBILLING_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMBILLING_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTITEMBILLING_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMBILLING_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTITEMBILLING_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMBILLING_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- PickList -->
-		<entity code="SHIPMENT_PICKLIST" name="PickList" description="PickList" displayFg="N" displayNm="PickList" displayNmPl="PickList" entityClassNm="com.qurion.businesslogic.shipment.model.PickList" dbName="PickList" hasTable="N">
+		<entity code="SHIPMENT_PICKLIST" name="PickList" description="PickList" displayFg="N" displayNm="Pick List" displayNmPl="Pick List" entityClassNm="com.qurion.businesslogic.shipment.model.PickList" dbName="PickList" hasTable="N">
 			<!-- name -->
-			<field code="PICKLIST_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="PICKLIST_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="PICKLIST_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PICKLIST_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="PICKLIST_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="PICKLIST_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="PICKLIST_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="PICKLIST_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="PICKLIST_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="PICKLIST_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="PICKLIST_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="PICKLIST_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PICKLIST_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ItemIssuanceRole -->
-		<entity code="SHIPMENT_ITEMISSUANCEROLE" name="ItemIssuanceRole" description="ItemIssuanceRole" displayFg="N" displayNm="ItemIssuanceRole" displayNmPl="ItemIssuanceRole" entityClassNm="com.qurion.businesslogic.shipment.model.ItemIssuanceRole" dbName="ItemIssuanceRole" hasTable="N">
+		<entity code="SHIPMENT_ITEMISSUANCEROLE" name="ItemIssuanceRole" description="ItemIssuanceRole" displayFg="N" displayNm="Item Issuance Role" displayNmPl="Item Issuance Role" entityClassNm="com.qurion.businesslogic.shipment.model.ItemIssuanceRole" dbName="ItemIssuanceRole" hasTable="N">
 			<!-- itemIssuanceRoleType -->
-			<field code="ITEMISSUANCEROLE_ITEMISSUANCEROLETYPE_RELATIONSHIP" name="itemIssuanceRoleType" description="itemIssuanceRoleType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="ITEMISSUANCEROLE_ITEMISSUANCEROLETYPE_RELATIONSHIP" name="itemIssuanceRoleType" description="itemIssuanceRoleType" fieldType="RELATIONSHIP" relatedEntityNm="ItemIssuanceRoleType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- itemIssuanceRole -->
-			<field code="ITEMISSUANCEROLE_ITEMISSUANCEROLE_RELATIONSHIP" name="itemIssuanceRole" description="itemIssuanceRole" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="ITEMISSUANCEROLE_ITEMISSUANCEROLE_RELATIONSHIP" name="itemIssuanceRole" description="itemIssuanceRole" fieldType="RELATIONSHIP" relatedEntityNm="ItemIssuanceRole" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- party -->
-			<field code="ITEMISSUANCEROLE_PARTY_RELATIONSHIP" name="party" description="party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="ITEMISSUANCEROLE_PARTY_RELATIONSHIP" name="party" description="party" fieldType="RELATIONSHIP" relatedEntityNm="Party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="ITEMISSUANCEROLE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="ITEMISSUANCEROLE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="ITEMISSUANCEROLE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="ITEMISSUANCEROLE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="ITEMISSUANCEROLE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="ITEMISSUANCEROLE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="ITEMISSUANCEROLE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="ITEMISSUANCEROLE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="ITEMISSUANCEROLE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="ITEMISSUANCEROLE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="ITEMISSUANCEROLE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="ITEMISSUANCEROLE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- Document -->
 		<entity code="SHIPMENT_DOCUMENT" name="Document" description="Document" displayFg="N" displayNm="Document" displayNmPl="Document" entityClassNm="com.qurion.businesslogic.shipment.model.Document" dbName="Document" hasTable="N">
 			<!-- shipmentPackage -->
-			<field code="DOCUMENT_SHIPMENTPACKAGE_RELATIONSHIP" name="shipmentPackage" description="shipmentPackage" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="DOCUMENT_SHIPMENTPACKAGE_RELATIONSHIP" name="shipmentPackage" description="shipmentPackage" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentPackage" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- shipmentItem -->
-			<field code="DOCUMENT_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="DOCUMENT_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- shipment -->
-			<field code="DOCUMENT_SHIPMENT_RELATIONSHIP" name="shipment" description="shipment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="DOCUMENT_SHIPMENT_RELATIONSHIP" name="shipment" description="shipment" fieldType="RELATIONSHIP" relatedEntityNm="Shipment" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- documentType -->
-			<field code="DOCUMENT_DOCUMENTTYPE_RELATIONSHIP" name="documentType" description="documentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="DOCUMENT_DOCUMENTTYPE_RELATIONSHIP" name="documentType" description="documentType" fieldType="RELATIONSHIP" relatedEntityNm="DocumentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="DOCUMENT_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="DOCUMENT_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="DOCUMENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="DOCUMENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="DOCUMENT_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="DOCUMENT_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="DOCUMENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="DOCUMENT_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="DOCUMENT_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="DOCUMENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="DOCUMENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="DOCUMENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShippmentReceiptRole -->
-		<entity code="SHIPMENT_SHIPPMENTRECEIPTROLE" name="ShippmentReceiptRole" description="ShippmentReceiptRole" displayFg="N" displayNm="ShippmentReceiptRole" displayNmPl="ShippmentReceiptRole" entityClassNm="com.qurion.businesslogic.shipment.model.ShippmentReceiptRole" dbName="ShippmentReceiptRole" hasTable="N">
+		<entity code="SHIPMENT_SHIPPMENTRECEIPTROLE" name="ShippmentReceiptRole" description="ShippmentReceiptRole" displayFg="N" displayNm="Shippment Receipt Role" displayNmPl="Shippment Receipt Role" entityClassNm="com.qurion.businesslogic.shipment.model.ShippmentReceiptRole" dbName="ShippmentReceiptRole" hasTable="N">
 			<!-- shipmentReceipt -->
-			<field code="SHIPPMENTRECEIPTROLE_SHIPMENTRECEIPT_RELATIONSHIP" name="shipmentReceipt" description="shipmentReceipt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPPMENTRECEIPTROLE_SHIPMENTRECEIPT_RELATIONSHIP" name="shipmentReceipt" description="shipmentReceipt" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentReceipt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- shipmentReceiptRoleType -->
-			<field code="SHIPPMENTRECEIPTROLE_SHIPMENTRECEIPTROLETYPE_RELATIONSHIP" name="shipmentReceiptRoleType" description="shipmentReceiptRoleType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPPMENTRECEIPTROLE_SHIPMENTRECEIPTROLETYPE_RELATIONSHIP" name="shipmentReceiptRoleType" description="shipmentReceiptRoleType" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentReceiptRoleType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- party -->
-			<field code="SHIPPMENTRECEIPTROLE_PARTY_RELATIONSHIP" name="party" description="party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPPMENTRECEIPTROLE_PARTY_RELATIONSHIP" name="party" description="party" fieldType="RELATIONSHIP" relatedEntityNm="Party" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="SHIPPMENTRECEIPTROLE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPPMENTRECEIPTROLE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="SHIPPMENTRECEIPTROLE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPPMENTRECEIPTROLE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPPMENTRECEIPTROLE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPPMENTRECEIPTROLE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPPMENTRECEIPTROLE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPPMENTRECEIPTROLE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPPMENTRECEIPTROLE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPPMENTRECEIPTROLE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPPMENTRECEIPTROLE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPPMENTRECEIPTROLE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPPMENTRECEIPTROLE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- Shipment -->
 		<entity code="SHIPMENT_SHIPMENT" name="Shipment" description="Shipment" displayFg="N" displayNm="Shipment" displayNmPl="Shipment" entityClassNm="com.qurion.businesslogic.shipment.model.Shipment" dbName="Shipment" hasTable="N">
 			<!-- shipmentType -->
-			<field code="SHIPMENT_SHIPMENTTYPE_RELATIONSHIP" name="shipmentType" description="shipmentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENT_SHIPMENTTYPE_RELATIONSHIP" name="shipmentType" description="shipmentType" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="SHIPMENT_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPMENT_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- estimatedShipDt -->
-			<field code="SHIPMENT_ESTIMATEDSHIPDT_DATE" name="estimatedShipDt" description="estimatedShipDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_ESTIMATEDSHIPDT_DATE" name="estimatedShipDt" description="estimatedShipDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- estimatedReadyDt -->
-			<field code="SHIPMENT_ESTIMATEDREADYDT_DATE" name="estimatedReadyDt" description="estimatedReadyDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_ESTIMATEDREADYDT_DATE" name="estimatedReadyDt" description="estimatedReadyDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- estimatedArrivalDt -->
-			<field code="SHIPMENT_ESTIMATEDARRIVALDT_DATE" name="estimatedArrivalDt" description="estimatedArrivalDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_ESTIMATEDARRIVALDT_DATE" name="estimatedArrivalDt" description="estimatedArrivalDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- estimatedShipCost -->
-			<field code="SHIPMENT_ESTIMATEDSHIPCOST_DECIMAL" name="estimatedShipCost" description="estimatedShipCost" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_ESTIMATEDSHIPCOST_DECIMAL" name="estimatedShipCost" description="estimatedShipCost" fieldType="DECIMAL" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- actualShipCost -->
-			<field code="SHIPMENT_ACTUALSHIPCOST_DECIMAL" name="actualShipCost" description="actualShipCost" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_ACTUALSHIPCOST_DECIMAL" name="actualShipCost" description="actualShipCost" fieldType="DECIMAL" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- latestCancelDt -->
-			<field code="SHIPMENT_LATESTCANCELDT_DATE" name="latestCancelDt" description="latestCancelDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_LATESTCANCELDT_DATE" name="latestCancelDt" description="latestCancelDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- handlingInstructions -->
-			<field code="SHIPMENT_HANDLINGINSTRUCTIONS_TEXT" name="handlingInstructions" description="handlingInstructions" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_HANDLINGINSTRUCTIONS_TEXT" name="handlingInstructions" description="handlingInstructions" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="Y" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="SHIPMENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENT_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENT_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENT_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENT_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentStatusType -->
-		<entity code="SHIPMENT_SHIPMENTSTATUSTYPE" name="ShipmentStatusType" description="ShipmentStatusType" displayFg="N" displayNm="ShipmentStatusType" displayNmPl="ShipmentStatusType" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentStatusType" dbName="ShipmentStatusType" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTSTATUSTYPE" name="ShipmentStatusType" description="ShipmentStatusType" displayFg="N" displayNm="Shipment Status Type" displayNmPl="Shipment Status Type" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentStatusType" dbName="ShipmentStatusType" hasTable="N">
 			<!-- name -->
-			<field code="SHIPMENTSTATUSTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPMENTSTATUSTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="SHIPMENTSTATUSTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTSTATUSTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTSTATUSTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTSTATUSTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTSTATUSTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTSTATUSTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTSTATUSTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTSTATUSTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTSTATUSTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTSTATUSTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTSTATUSTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentReceipt -->
-		<entity code="SHIPMENT_SHIPMENTRECEIPT" name="ShipmentReceipt" description="ShipmentReceipt" displayFg="N" displayNm="ShipmentReceipt" displayNmPl="ShipmentReceipt" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentReceipt" dbName="ShipmentReceipt" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTRECEIPT" name="ShipmentReceipt" description="ShipmentReceipt" displayFg="N" displayNm="Shipment Receipt" displayNmPl="Shipment Receipt" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentReceipt" dbName="ShipmentReceipt" hasTable="N">
 			<!-- inventoryItem -->
-			<field code="SHIPMENTRECEIPT_INVENTORYITEM_RELATIONSHIP" name="inventoryItem" description="inventoryItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTRECEIPT_INVENTORYITEM_RELATIONSHIP" name="inventoryItem" description="inventoryItem" fieldType="RELATIONSHIP" relatedEntityNm="InventoryItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- product -->
-			<field code="SHIPMENTRECEIPT_PRODUCT_RELATIONSHIP" name="product" description="product" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTRECEIPT_PRODUCT_RELATIONSHIP" name="product" description="product" fieldType="RELATIONSHIP" relatedEntityNm="Product" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- shipmentPackage -->
-			<field code="SHIPMENTRECEIPT_SHIPMENTPACKAGE_RELATIONSHIP" name="shipmentPackage" description="shipmentPackage" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTRECEIPT_SHIPMENTPACKAGE_RELATIONSHIP" name="shipmentPackage" description="shipmentPackage" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentPackage" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- rejectionReason -->
-			<field code="SHIPMENTRECEIPT_REJECTIONREASON_RELATIONSHIP" name="rejectionReason" description="rejectionReason" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTRECEIPT_REJECTIONREASON_RELATIONSHIP" name="rejectionReason" description="rejectionReason" fieldType="RELATIONSHIP" relatedEntityNm="RejectionReason" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- orderItem -->
-			<field code="SHIPMENTRECEIPT_ORDERITEM_RELATIONSHIP" name="orderItem" description="orderItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTRECEIPT_ORDERITEM_RELATIONSHIP" name="orderItem" description="orderItem" fieldType="RELATIONSHIP" relatedEntityNm="OrderItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="SHIPMENTRECEIPT_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPMENTRECEIPT_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- quantAccepted -->
-			<field code="SHIPMENTRECEIPT_QUANTACCEPTED_NUMBER" name="quantAccepted" description="quantAccepted" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_QUANTACCEPTED_NUMBER" name="quantAccepted" description="quantAccepted" fieldType="NUMBER" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- quantRejected -->
-			<field code="SHIPMENTRECEIPT_QUANTREJECTED_NUMBER" name="quantRejected" description="quantRejected" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_QUANTREJECTED_NUMBER" name="quantRejected" description="quantRejected" fieldType="NUMBER" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- receivedDt -->
-			<field code="SHIPMENTRECEIPT_RECEIVEDDT_DATE" name="receivedDt" description="receivedDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_RECEIVEDDT_DATE" name="receivedDt" description="receivedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="SHIPMENTRECEIPT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTRECEIPT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTRECEIPT_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTRECEIPT_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTRECEIPT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTRECEIPT_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTRECEIPT_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTRECEIPT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTRECEIPT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTRECEIPT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- PackagingContent -->
-		<entity code="SHIPMENT_PACKAGINGCONTENT" name="PackagingContent" description="PackagingContent" displayFg="N" displayNm="PackagingContent" displayNmPl="PackagingContent" entityClassNm="com.qurion.businesslogic.shipment.model.PackagingContent" dbName="PackagingContent" hasTable="N">
+		<entity code="SHIPMENT_PACKAGINGCONTENT" name="PackagingContent" description="PackagingContent" displayFg="N" displayNm="Packaging Content" displayNmPl="Packaging Content" entityClassNm="com.qurion.businesslogic.shipment.model.PackagingContent" dbName="PackagingContent" hasTable="N">
 			<!-- shipmentItem -->
-			<field code="PACKAGINGCONTENT_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PACKAGINGCONTENT_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- shipmentPackage -->
-			<field code="PACKAGINGCONTENT_SHIPMENTPACKAGE_RELATIONSHIP" name="shipmentPackage" description="shipmentPackage" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PACKAGINGCONTENT_SHIPMENTPACKAGE_RELATIONSHIP" name="shipmentPackage" description="shipmentPackage" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentPackage" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- quantity -->
-			<field code="PACKAGINGCONTENT_QUANTITY_NUMBER" name="quantity" description="quantity" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PACKAGINGCONTENT_QUANTITY_NUMBER" name="quantity" description="quantity" fieldType="NUMBER" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- universe -->
-			<field code="PACKAGINGCONTENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="PACKAGINGCONTENT_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="PACKAGINGCONTENT_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PACKAGINGCONTENT_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="PACKAGINGCONTENT_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PACKAGINGCONTENT_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="PACKAGINGCONTENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PACKAGINGCONTENT_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="PACKAGINGCONTENT_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="PACKAGINGCONTENT_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="PACKAGINGCONTENT_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PACKAGINGCONTENT_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="PACKAGINGCONTENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PACKAGINGCONTENT_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="PACKAGINGCONTENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PACKAGINGCONTENT_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="PACKAGINGCONTENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="PACKAGINGCONTENT_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- DocumentType -->
-		<entity code="SHIPMENT_DOCUMENTTYPE" name="DocumentType" description="DocumentType" displayFg="N" displayNm="DocumentType" displayNmPl="DocumentType" entityClassNm="com.qurion.businesslogic.shipment.model.DocumentType" dbName="DocumentType" hasTable="N">
+		<entity code="SHIPMENT_DOCUMENTTYPE" name="DocumentType" description="DocumentType" displayFg="N" displayNm="Document Type" displayNmPl="Document Type" entityClassNm="com.qurion.businesslogic.shipment.model.DocumentType" dbName="DocumentType" hasTable="N">
 			<!-- documentType -->
-			<field code="DOCUMENTTYPE_DOCUMENTTYPE_RELATIONSHIP" name="documentType" description="documentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="DOCUMENTTYPE_DOCUMENTTYPE_RELATIONSHIP" name="documentType" description="documentType" fieldType="RELATIONSHIP" relatedEntityNm="DocumentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="DOCUMENTTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="DOCUMENTTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="DOCUMENTTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="DOCUMENTTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="DOCUMENTTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="DOCUMENTTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="DOCUMENTTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="DOCUMENTTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="DOCUMENTTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="DOCUMENTTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="DOCUMENTTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="DOCUMENTTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="DOCUMENTTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentPackage -->
-		<entity code="SHIPMENT_SHIPMENTPACKAGE" name="ShipmentPackage" description="ShipmentPackage" displayFg="N" displayNm="ShipmentPackage" displayNmPl="ShipmentPackage" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentPackage" dbName="ShipmentPackage" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTPACKAGE" name="ShipmentPackage" description="ShipmentPackage" displayFg="N" displayNm="Shipment Package" displayNmPl="Shipment Package" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentPackage" dbName="ShipmentPackage" hasTable="N">
 			<!-- name -->
-			<field code="SHIPMENTPACKAGE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPMENTPACKAGE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="SHIPMENTPACKAGE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTPACKAGE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTPACKAGE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTPACKAGE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTPACKAGE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTPACKAGE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTPACKAGE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTPACKAGE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTPACKAGE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTPACKAGE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTPACKAGE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentReceiptRoleType -->
-		<entity code="SHIPMENT_SHIPMENTRECEIPTROLETYPE" name="ShipmentReceiptRoleType" description="ShipmentReceiptRoleType" displayFg="N" displayNm="ShipmentReceiptRoleType" displayNmPl="ShipmentReceiptRoleType" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentReceiptRoleType" dbName="ShipmentReceiptRoleType" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTRECEIPTROLETYPE" name="ShipmentReceiptRoleType" description="ShipmentReceiptRoleType" displayFg="N" displayNm="Shipment Receipt Role Type" displayNmPl="Shipment Receipt Role Type" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentReceiptRoleType" dbName="ShipmentReceiptRoleType" hasTable="N">
 			<!-- name -->
-			<field code="SHIPMENTRECEIPTROLETYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPMENTRECEIPTROLETYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="SHIPMENTRECEIPTROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTRECEIPTROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTRECEIPTROLETYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTRECEIPTROLETYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTRECEIPTROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTRECEIPTROLETYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTRECEIPTROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTRECEIPTROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTRECEIPTROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTRECEIPTROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTRECEIPTROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentItemFeature -->
-		<entity code="SHIPMENT_SHIPMENTITEMFEATURE" name="ShipmentItemFeature" description="ShipmentItemFeature" displayFg="N" displayNm="ShipmentItemFeature" displayNmPl="ShipmentItemFeature" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentItemFeature" dbName="ShipmentItemFeature" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTITEMFEATURE" name="ShipmentItemFeature" description="ShipmentItemFeature" displayFg="N" displayNm="Shipment Item Feature" displayNmPl="Shipment Item Feature" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentItemFeature" dbName="ShipmentItemFeature" hasTable="N">
 			<!-- shipmentItem -->
-			<field code="SHIPMENTITEMFEATURE_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEMFEATURE_SHIPMENTITEM_RELATIONSHIP" name="shipmentItem" description="shipmentItem" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentItem" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- product -->
-			<field code="SHIPMENTITEMFEATURE_PRODUCT_RELATIONSHIP" name="product" description="product" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEMFEATURE_PRODUCT_RELATIONSHIP" name="product" description="product" fieldType="RELATIONSHIP" relatedEntityNm="Product" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- universe -->
-			<field code="SHIPMENTITEMFEATURE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTITEMFEATURE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTITEMFEATURE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMFEATURE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTITEMFEATURE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMFEATURE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTITEMFEATURE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMFEATURE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTITEMFEATURE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMFEATURE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTITEMFEATURE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMFEATURE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTITEMFEATURE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMFEATURE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTITEMFEATURE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMFEATURE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTITEMFEATURE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTITEMFEATURE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ItemIssuanceRoleType -->
-		<entity code="SHIPMENT_ITEMISSUANCEROLETYPE" name="ItemIssuanceRoleType" description="ItemIssuanceRoleType" displayFg="N" displayNm="ItemIssuanceRoleType" displayNmPl="ItemIssuanceRoleType" entityClassNm="com.qurion.businesslogic.shipment.model.ItemIssuanceRoleType" dbName="ItemIssuanceRoleType" hasTable="N">
+		<entity code="SHIPMENT_ITEMISSUANCEROLETYPE" name="ItemIssuanceRoleType" description="ItemIssuanceRoleType" displayFg="N" displayNm="Item Issuance Role Type" displayNmPl="Item Issuance Role Type" entityClassNm="com.qurion.businesslogic.shipment.model.ItemIssuanceRoleType" dbName="ItemIssuanceRoleType" hasTable="N">
 			<!-- name -->
-			<field code="ITEMISSUANCEROLETYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="ITEMISSUANCEROLETYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="ITEMISSUANCEROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="ITEMISSUANCEROLETYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="ITEMISSUANCEROLETYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="ITEMISSUANCEROLETYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="ITEMISSUANCEROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="ITEMISSUANCEROLETYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="ITEMISSUANCEROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="ITEMISSUANCEROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="ITEMISSUANCEROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="ITEMISSUANCEROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="ITEMISSUANCEROLETYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 		<!-- ShipmentType -->
-		<entity code="SHIPMENT_SHIPMENTTYPE" name="ShipmentType" description="ShipmentType" displayFg="N" displayNm="ShipmentType" displayNmPl="ShipmentType" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentType" dbName="ShipmentType" hasTable="N">
+		<entity code="SHIPMENT_SHIPMENTTYPE" name="ShipmentType" description="ShipmentType" displayFg="N" displayNm="Shipment Type" displayNmPl="Shipment Type" entityClassNm="com.qurion.businesslogic.shipment.model.ShipmentType" dbName="ShipmentType" hasTable="N">
 			<!-- shipmentType -->
-			<field code="SHIPMENTTYPE_SHIPMENTTYPE_RELATIONSHIP" name="shipmentType" description="shipmentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTTYPE_SHIPMENTTYPE_RELATIONSHIP" name="shipmentType" description="shipmentType" fieldType="RELATIONSHIP" relatedEntityNm="ShipmentType" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- name -->
-			<field code="SHIPMENTTYPE_NAME_NAME" name="name" description="name" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_NAME_NAME" name="name" description="name" fieldType="NAME" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- description -->
-			<field code="SHIPMENTTYPE_DESCRIPTION_TEXT" name="description" description="description" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_DESCRIPTION_TEXT" name="description" description="description" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0" />
 			<!-- universe -->
-			<field code="SHIPMENTTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" />
+			<field code="SHIPMENTTYPE_UNIVERSE_RELATIONSHIP" name="universe" description="universe" fieldType="RELATIONSHIP" relatedEntityNm="Universe" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="Y" seqNo="0"/>
 			<!-- id -->
-			<field code="SHIPMENTTYPE_ID_ID" name="id" description="id" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_ID_ID" name="id" description="id" fieldType="ID" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- code -->
-			<field code="SHIPMENTTYPE_CODE_CODE" name="code" description="code" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_CODE_CODE" name="code" description="code" fieldType="CODE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="Y" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- effectiveDt -->
-			<field code="SHIPMENTTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_EFFECTIVEDT_DATE" name="effectiveDt" description="effectiveDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- recSt -->
-			<field code="SHIPMENTTYPE_RECST_STATUS" name="recSt" description="recSt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_RECST_STATUS" name="recSt" description="recSt" fieldType="STATUS" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="Y" viewFieldFg="Y" editFieldFg="Y" createFieldFg="Y" deleteFieldFg="Y" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdDt -->
-			<field code="SHIPMENTTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_CREATEDDT_DATE" name="createdDt" description="createdDt" fieldType="DATE" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- createdByUsr -->
-			<field code="SHIPMENTTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_CREATEDBYUSR_TEXT" name="createdByUsr" description="createdByUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="Y" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedDt -->
-			<field code="SHIPMENTTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_LASTMODIFIEDDT_DATE" name="lastModifiedDt" description="lastModifiedDt" fieldType="DATE" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 			<!-- lastModifiedUsr -->
-			<field code="SHIPMENTTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" />
+			<field code="SHIPMENTTYPE_LASTMODIFIEDUSR_TEXT" name="lastModifiedUsr" description="lastModifiedUsr" fieldType="TEXT" primaryKeyFg="N" requiredFg="N" searchFieldFg="N" listFieldFg="N" viewFieldFg="N" editFieldFg="N" createFieldFg="N" deleteFieldFg="N" uniqueFg="N" relatedFg="N" seqNo="0"/>
 		</entity>
 	</module>
 

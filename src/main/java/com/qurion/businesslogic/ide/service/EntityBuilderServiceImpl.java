@@ -17,6 +17,8 @@ import com.qurion.businesslogic.application.model.EntityFieldType;
 import com.qurion.businesslogic.application.model.Module;
 import com.qurion.businesslogic.application.model.Universe;
 import com.qurion.businesslogic.application.service.AbstractServiceImpl;
+import com.qurion.businesslogic.application.service.EntityDataEntityService;
+import com.qurion.businesslogic.application.service.EntityFieldEntityService;
 import com.qurion.businesslogic.application.service.EntityFieldTypeEntityService;
 import com.qurion.businesslogic.application.service.UniverseEntityService;
 import com.qurion.businesslogic.application.util.ApplicationException;
@@ -43,6 +45,8 @@ public class EntityBuilderServiceImpl extends AbstractServiceImpl
 	
 	public static final String STORAGE_TABLE = "table";
 	@Inject UniverseEntityService universeEntityService;
+	@Inject EntityDataEntityService entityDataEntityService;
+	@Inject EntityFieldEntityService fieldEntityService;
 	@Inject EntityFieldTypeEntityService fieldTypeEntityService;
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	private List<EntityFieldType> fieldTypes =  new ArrayList<EntityFieldType>();
@@ -151,25 +155,92 @@ public class EntityBuilderServiceImpl extends AbstractServiceImpl
 	 * @see com.qurion.businesslogic.ide.service.EntityBuilderService#processModules(com.qurion.businesslogic.ide.config.BuilderConfiguration)
 	 */
 	@Override
-	public void processModules(BuilderConfiguration builderConfiguration)
+	public List<Module> processModules(BuilderConfiguration builderConfiguration)
 			throws ApplicationException {
 
-		Modules modulesConfig = builderConfiguration.getModuleList();
 		Universe universe = universeEntityService.findByCode("MULTIVERSE");
+		List<ModuleConfig> configuaration = 
+				loadConfiguration(builderConfiguration);
+		// Processed the loaded configuration
+		List<Module> modules = 
+				buildModules(builderConfiguration, universe, configuaration);
+		this.buildEntityFieldRelationship(
+				modules, configuaration, builderConfiguration);
+		return modules;
+	}
+
+	private void buildEntityFieldRelationship(List<Module> modules,
+			List<ModuleConfig> configuaration,
+			BuilderConfiguration builderConfiguration) throws ApplicationException 
+			{
+		logger.debug("Processing entity field relationships");
+		for(ModuleConfig moduleConfig: configuaration)
+		{
+			for(EntityConfig entityConfig: moduleConfig.getEntities()){
+				for(FieldConfig fieldConfig: entityConfig.getFieldConfigs()){
+					if(fieldConfig.getFieldType().equals("RELATIONSHIP")) 
+					{
+						logger.debug("Processing relationship {} for field{}", 
+								fieldConfig.getRelatedEntityName(), fieldConfig.getName());
+						String relatedEntityName = fieldConfig.getRelatedEntityName();
+						EntityData entityData = entityDataEntityService.findByName(relatedEntityName);
+						EntityField entityField = fieldEntityService.findByCode(fieldConfig.getCode());
+						entityField.setEntityDataByRelatedEntityId(entityData);
+						getEntityManager().merge(entityField);
+					}
+				}
+			}
+		}
+		
+	}
+
+	/**
+	 * @param builderConfiguration
+	 * @return
+	 * @throws ApplicationException
+	 */
+	private List<ModuleConfig> loadConfiguration(
+			BuilderConfiguration builderConfiguration)
+			throws ApplicationException {
+		Modules modulesConfig = builderConfiguration.getModuleList();
+		List<ModuleConfig> configuaration = new ArrayList<ModuleConfig>();
+		// The configuration files for the modules to be built
 		for(PathElement element: modulesConfig.getModules()) 
 		{
 			ModuleConfig moduleConfig =
 					(ModuleConfig) XMLUtil.getJAXBObject(element.getPath(), ModuleConfig.class);
+			configuaration.add(moduleConfig);
+		}
+		return configuaration;
+	}
+
+	/**
+	 * @param builderConfiguration
+	 * @param modules
+	 * @param universe
+	 * @param configuaration
+	 * @throws ApplicationException
+	 */
+	private List<Module> buildModules(BuilderConfiguration builderConfiguration,
+			Universe universe, List<ModuleConfig> configuaration) throws ApplicationException {
+
+		List<Module> modules = new ArrayList<Module>();
+		for(ModuleConfig moduleConfig: configuaration) {
+			
 			Module module = 
 					this.createModule(moduleConfig, universe, builderConfiguration);
 			this.processEntitiesInModule(module, moduleConfig, builderConfiguration);
+			this.getEntityManager().refresh(module);
+			modules.add(module);
 		}
+		return modules;
 	}
 	
 
-	private void processEntitiesInModule(Module module,
+	private List<EntityData> processEntitiesInModule(Module module,
 			ModuleConfig moduleConfig, BuilderConfiguration builderConfiguration) throws ApplicationException {
-		
+
+		List<EntityData> entities = new ArrayList<EntityData>();
 		List<EntityConfig> entitiesConfig = moduleConfig.getEntities();
 		for(EntityConfig entityConfig: entitiesConfig){
 			EntityData entity = 
@@ -180,7 +251,10 @@ public class EntityBuilderServiceImpl extends AbstractServiceImpl
 				EntityField field = 
 						this.createEntityField(entity, fieldConfig, builderConfiguration);
 			}
+			this.getEntityManager().refresh(entity);
+			entities.add(entity);
 		}
+		return entities;
 	}
 
 	private EntityField createEntityField(EntityData entity,
@@ -203,6 +277,9 @@ public class EntityBuilderServiceImpl extends AbstractServiceImpl
 		entityField.setViewFieldFg(fieldConfig.getViewFieldFlag().charAt(0));
 		entityField.setUniqueFg(fieldConfig.getUniqueFlag().charAt(0));
 		entityField.setPrimarykeyFg(fieldConfig.getPrimaryKeyFlag().charAt(0));
+		entityField.setRequiredFg(fieldConfig.getRequiredFlag().charAt(0));
+		entityField.setSearchFieldFg(fieldConfig.getSearchFieldFlag().charAt(0));
+		entityField.setSequenceNo(fieldConfig.getSequenceNo());
 		entityField.setStorage(STORAGE_TABLE);
 		getEntityManager().persist(entityField);
 		return entityField;
@@ -236,6 +313,7 @@ public class EntityBuilderServiceImpl extends AbstractServiceImpl
 		module.setCode(moduleConfig.getCode());
 		module.setName(moduleConfig.getName());
 		module.setUniverse(universe);
+		module.setDescription(moduleConfig.getDescription());
 		module.setDisplayFg(moduleConfig.getDisplayFlag().charAt(0));
 		module.setDisplayNm(moduleConfig.getDisplayName());
 		module.setSequenceNo(moduleConfig.getSequenceNo());
